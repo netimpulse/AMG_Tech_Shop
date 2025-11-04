@@ -1,13 +1,12 @@
 {% comment %}
-  Snippet: einzelne Anwendungsbereich-Karte
-  Erwartet: block
+  Snippet: einzelne Anwendungsbereich-Karte (Richtext-Titel + Farbanpassung)
 {% endcomment %}
 <div class="app-area-card" {{ block.shopify_attributes }}>
   <div class="app-area-icon">
     {% if block.settings.icon != blank %}
       <img
         src="{{ block.settings.icon | image_url: width: 80 }}"
-        alt="{{ block.settings.title | escape }}"
+        alt="{{ block.settings.title | strip_html | escape }}"
         loading="lazy"
         width="48"
         height="48"
@@ -16,9 +15,13 @@
       <div class="app-area-icon-placeholder" aria-hidden="true">★</div>
     {% endif %}
   </div>
+
   {% if block.settings.title != blank %}
-    <h3 class="app-area-title">{{ block.settings.title }}</h3>
+    <div class="app-area-title rte">
+      {{ block.settings.title }}
+    </div>
   {% endif %}
+
   {% if block.settings.text != blank %}
     <div class="app-area-text rte">
       {{ block.settings.text }}
