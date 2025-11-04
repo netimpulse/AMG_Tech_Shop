@@ -1,6 +1,5 @@
 {% comment %}
-  Section: Anwendungsbereiche
-  Datei: sections/application-areas.liquid
+  Section: Anwendungsbereiche (alle Überschriften Richtext + Farbanpassung)
 {% endcomment %}
 {{ 'application-areas.css' | asset_url | stylesheet_tag }}
 
@@ -12,6 +11,9 @@
     --aa-card-bg: {{ section.settings.card_background_color }};
     --aa-card-border: {{ section.settings.card_border_color }};
     --aa-card-hover-border: {{ section.settings.card_hover_border_color }};
+    --aa-heading-color: {{ section.settings.heading_color }};
+    --aa-subheading-color: {{ section.settings.subheading_color }};
+    --aa-card-title-color: {{ section.settings.card_title_color }};
   "
 >
   <div class="page-width">
@@ -46,6 +48,24 @@
       "id": "background_color",
       "label": "Hintergrundfarbe",
       "default": "#062a46"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Farbe der Hauptüberschrift",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Farbe der Unterüberschrift",
+      "default": "#ffffffb3"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Farbe der Kartenüberschriften",
+      "default": "#ffffff"
     },
     {
       "type": "color",
@@ -89,10 +109,10 @@
           "label": "Icon/Bild"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "title",
-          "label": "Titel",
-          "default": "Gastronomie & Catering"
+          "label": "Kartenüberschrift (Richtext)",
+          "default": "<p><strong>Gastronomie & Catering</strong></p>"
         },
         {
           "type": "richtext",
@@ -109,12 +129,12 @@
       "name": "Anwendungsbereiche",
       "category": "Inhalt",
       "blocks": [
-        { "type": "area", "settings": { "title": "Gastronomie & Catering" } },
-        { "type": "area", "settings": { "title": "Lebensmitteltransport" } },
-        { "type": "area", "settings": { "title": "Industrie & Reinigung" } },
-        { "type": "area", "settings": { "title": "Event & Showeffekte" } },
-        { "type": "area", "settings": { "title": "Labor & Medizin" } },
-        { "type": "area", "settings": { "title": "Versand & Logistik" } }
+        { "type": "area", "settings": { "title": "<p><strong>Gastronomie & Catering</strong></p>" } },
+        { "type": "area", "settings": { "title": "<p><strong>Lebensmitteltransport</strong></p>" } },
+        { "type": "area", "settings": { "title": "<p><strong>Industrie & Reinigung</strong></p>" } },
+        { "type": "area", "settings": { "title": "<p><strong>Event & Showeffekte</strong></p>" } },
+        { "type": "area", "settings": { "title": "<p><strong>Labor & Medizin</strong></p>" } },
+        { "type": "area", "settings": { "title": "<p><strong>Versand & Logistik</strong></p>" } }
       ]
     }
   ]
