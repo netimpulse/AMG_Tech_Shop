@@ -1,0 +1,246 @@
+<div class="custom-header-drawer" id="mobile-menu" aria-hidden="true">
+  <div class="custom-header-drawer__overlay"></div>
+  <div class="custom-header-drawer__content">
+    <div class="custom-header-drawer__header">
+      <button class="custom-header-drawer__close" aria-label="{{ 'accessibility.close' | t }}">
+        <span class="svg-wrapper">
+          {{ 'icon-close.svg' | inline_asset_content }}
+        </span>
+      </button>
+    </div>
+    
+    {%- if section.settings.enable_search -%}
+      <div class="custom-header-drawer__search">
+        <form action="{{ routes.search_url }}" method="get" role="search">
+          <input 
+            type="search" 
+            name="q" 
+            placeholder="{{ 'general.search.search' | t }}"
+            class="custom-header-drawer__search-input"
+          >
+          <button type="submit" class="custom-header-drawer__search-button">
+            <span class="svg-wrapper">
+              {{ 'icon-search.svg' | inline_asset_content }}
+            </span>
+          </button>
+        </form>
+      </div>
+    {%- endif -%}
+    
+    <nav class="custom-header-drawer__nav">
+      {%- if menu != blank -%}
+        <ul class="custom-header-drawer__menu">
+          {%- for link in menu.links -%}
+            <li class="custom-header-drawer__menu-item">
+              {%- if link.links != blank -%}
+                <details>
+                  <summary class="custom-header-drawer__menu-link">
+                    {{ link.title }}
+                    <span class="svg-wrapper">
+                      {{ 'icon-caret.svg' | inline_asset_content }}
+                    </span>
+                  </summary>
+                  <ul class="custom-header-drawer__submenu">
+                    {%- for childlink in link.links -%}
+                      <li>
+                        <a href="{{ childlink.url }}" class="custom-header-drawer__submenu-link">
+                          {{ childlink.title }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </details>
+              {%- else -%}
+                <a href="{{ link.url }}" class="custom-header-drawer__menu-link">
+                  {{ link.title }}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </nav>
+    
+    <div class="custom-header-drawer__utilities">
+      {%- if section.settings.enable_account -%}
+        <a 
+          href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+          class="custom-header-drawer__utility-link"
+        >
+          <span class="svg-wrapper">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
+          <span>
+            {%- if customer -%}
+              {{ 'customer.account_fallback' | t }}
+            {%- else -%}
+              {{ 'customer.log_in' | t }}
+            {%- endif -%}
+          </span>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-header-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    visibility: hidden;
+    transition: visibility 0.3s;
+  }
+  
+  .custom-header-drawer--open {
+    visibility: visible;
+  }
+  
+  .custom-header-drawer__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .custom-header-drawer--open .custom-header-drawer__overlay {
+    opacity: 1;
+  }
+  
+  .custom-header-drawer__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    max-width: 400px;
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .custom-header-drawer--open .custom-header-drawer__content {
+    transform: translateX(0);
+  }
+  
+  .custom-header-drawer__header {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .custom-header-drawer__close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .custom-header-drawer__close svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .custom-header-drawer__search {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .custom-header-drawer__search form {
+    display: flex;
+    position: relative;
+  }
+  
+  .custom-header-drawer__search-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .custom-header-drawer__search-button {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .custom-header-drawer__nav {
+    flex: 1;
+    padding: 1rem 0;
+  }
+  
+  .custom-header-drawer__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .custom-header-drawer__menu-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .custom-header-drawer__menu-item details summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  
+  .custom-header-drawer__menu-item details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .custom-header-drawer__submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+  }
+  
+  .custom-header-drawer__submenu-link {
+    display: block;
+    padding: 0.75rem 2.5rem;
+    color: #666;
+    text-decoration: none;
+  }
+  
+  .custom-header-drawer__utilities {
+    padding: 1rem;
+    border-top: 1px solid #e5e5e5;
+  }
+  
+  .custom-header-drawer__utility-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .custom-header-drawer__utility-link svg {
+    width: 24px;
+    height: 24px;
+  }
+</style>
