@@ -1,0 +1,110 @@
+{% comment %}
+  Section: Safety / Hinweis-Box
+{% endcomment %}
+{{ 'safety-info.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="safety-info-{{ section.id }}"
+  class="safety-info-wrapper"
+  style="
+    --si-background: {{ section.settings.background_color }};
+    --si-card-bg: {{ section.settings.card_background_color }};
+    --si-border: {{ section.settings.card_border_color }};
+    --si-border-hover: {{ section.settings.card_border_hover_color }};
+  "
+>
+  <div class="page-width">
+    <div class="safety-info-list">
+      {% for block in section.blocks %}
+        {% render 'safety-info-card', block: block, section: section %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sicherheits-Hinweis Box",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe Section",
+      "default": "#EFF3F6"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Box-Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Rahmenfarbe",
+      "default": "#B3E6F1"
+    },
+    {
+      "type": "color",
+      "id": "card_border_hover_color",
+      "label": "Rahmenfarbe bei Hover",
+      "default": "#5ED7F2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Hinweis-Box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Überschrift (Richtext)",
+          "default": "<p><strong>Sicherer Umgang mit Trockeneis</strong></p>"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text (Richtext)",
+          "default": "<p>Trockeneis ist ein sicheres Kühlmittel, erfordert aber sachgerechte Handhabung. Wichtig: <strong>immer gut belüften</strong> und <strong>Schutzhandschuhe tragen</strong>, um Hautverbrennungen zu vermeiden. Niemals in geschlossenen Räumen ohne Belüftung lagern.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_button",
+          "label": "Button anzeigen",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button-Text",
+          "default": "Zu den Sicherheitsinformationen"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button-Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Sicherheits-Hinweis Box",
+      "blocks": [
+        {
+          "type": "info"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
