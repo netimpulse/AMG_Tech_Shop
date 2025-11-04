@@ -9,43 +9,25 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+    "hero_dryice_kCAUAg": {
+      "type": "hero-dryice",
+      "name": "Hero Banner (Trockeneis)",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
+        "content_alignment": "left",
+        "heading": "<p><strong>Trockeneis – eiskalt effizient für Industrie, Gastronomie & Transport</strong></p>",
+        "subheading": "<p>Höchste Kühlleistung, rückstandsfrei und nachhaltig produziert. Schnelle Lieferung deutschlandweit für alle Ihre Anforderungen.</p>",
+        "show_primary_button": true,
+        "primary_button_label": "Jetzt bestellen",
+        "primary_button_link": "",
+        "show_secondary_button": true,
+        "secondary_button_label": "Angebot anfordern",
+        "secondary_button_link": "",
+        "text_color": "#FFFFFF",
+        "overlay_color": "#062a46",
+        "overlay_opacity": 75,
+        "primary_button_color": "#00b7d3",
+        "primary_button_text_color": "#FFFFFF",
+        "secondary_button_border": "#ffffff"
       }
     },
     "feature_cards_cPwPBG": {
@@ -259,7 +241,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "hero_dryice_kCAUAg",
     "feature_cards_cPwPBG",
     "featured_collection",
     "text_image_block_qwRJdM",
