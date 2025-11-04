@@ -1,0 +1,136 @@
+.tib-wrapper {
+  background: var(--tib-bg, #ffffff);
+  padding: 50px 0;
+}
+
+.tib-wrapper .page-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.tib-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tib-text {
+  flex: 1 1 50%;
+  max-width: 520px;
+}
+
+.tib-heading {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.tib-content {
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: #0a1e33;
+  margin-bottom: 20px;
+}
+
+.tib-content p {
+  margin-bottom: 12px;
+}
+
+.tib-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #006a8f;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 22px 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tib-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(0, 106, 143, 0.28);
+}
+
+.tib-media {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.tib-image-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  max-width: 480px;
+}
+
+.tib-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bild links / rechts steuern */
+.tib-image-right .tib-inner,
+.tib-wrapper.tib-image-right .tib-inner {
+  flex-direction: row;
+}
+
+.tib-image-left .tib-inner,
+.tib-wrapper.tib-image-left .tib-inner {
+  flex-direction: row-reverse;
+}
+
+/* Platzhalter */
+.tib-image-placeholder {
+  width: 100%;
+  max-width: 480px;
+  min-height: 280px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6a6a6a;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .tib-inner {
+    flex-direction: column;
+  }
+
+  .tib-image-right .tib-inner,
+  .tib-image-left .tib-inner,
+  .tib-wrapper.tib-image-right .tib-inner,
+  .tib-wrapper.tib-image-left .tib-inner {
+    flex-direction: column;
+  }
+
+  .tib-text {
+    max-width: 100%;
+  }
+
+  .tib-media {
+    width: 100%;
+  }
+
+  .tib-image-wrap,
+  .tib-image-placeholder {
+    max-width: 100%;
+  }
+
+  .tib-heading {
+    font-size: 1.7rem;
+  }
+}
