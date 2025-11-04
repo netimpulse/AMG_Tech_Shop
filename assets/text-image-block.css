@@ -1,65 +1,55 @@
-/* text-image-block.css */
-
-/* Abschnitt-Hintergrund + Abstand */
 .tib-wrapper {
   background: var(--tib-bg, #ffffff);
-  padding: 50px 0;
+  padding: 70px 0;
 }
 
-/* WICHTIG: gleiche Breite wie das Theme */
 .tib-wrapper .page-width {
-  max-width: var(--page-width, 120rem); /* nimmt die Theme-Breite, falls vorhanden */
+  max-width: var(--page-width, 120rem);
   margin: 0 auto;
-  padding-left: var(--page-width-margin, 2rem);
-  padding-right: var(--page-width-margin, 2rem);
+  padding-inline: var(--page-width-margin, 2rem);
 }
 
-/* Layout */
 .tib-inner {
   display: flex;
-  gap: 40px;
   align-items: center;
   justify-content: space-between;
+  gap: 50px;
 }
 
-/* Textbereich */
 .tib-text {
   flex: 1 1 50%;
-  max-width: 520px;
+  max-width: 540px;
 }
 
 .tib-heading {
-  font-size: 2.1rem;
-  line-height: 1.1;
-  margin-bottom: 16px;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 18px;
 }
 
 .tib-content {
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 1.15rem;
+  line-height: 1.75;
   color: #0a1e33;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .tib-content p {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-/* Button */
 .tib-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
   background: #006a8f;
-  color: #ffffff;
-  border: none;
+  color: #fff;
+  padding: 12px 26px;
   border-radius: 9999px;
-  padding: 11px 22px 12px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-decoration: none;
-  cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -68,18 +58,17 @@
   box-shadow: 0 8px 25px rgba(0, 106, 143, 0.28);
 }
 
-/* Bildbereich */
 .tib-media {
   flex: 1 1 50%;
   display: flex;
-  justify-content: flex-end; /* Bild rechts an den Rand */
+  justify-content: flex-end;
 }
 
 .tib-image-wrap {
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-  max-width: 480px;
+  max-width: 520px;
 }
 
 .tib-image-wrap img {
@@ -88,64 +77,24 @@
   display: block;
 }
 
-/* Bildposition steuern über Section-Setting */
-.tib-wrapper.tib-image-right .tib-inner {
-  flex-direction: row;
-}
-
 .tib-wrapper.tib-image-left .tib-inner {
   flex-direction: row-reverse;
 }
 
-.tib-wrapper.tib-image-left .tib-media {
-  justify-content: flex-start;
-}
-
-/* Platzhalter, falls kein Bild gesetzt */
-.tib-image-placeholder {
-  width: 100%;
-  max-width: 480px;
-  min-height: 280px;
-  border-radius: 16px;
-  background: rgba(0, 0, 0, 0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6a6a6a;
-  font-size: 0.8rem;
-}
-
-/* Responsive */
 @media (max-width: 960px) {
   .tib-inner {
     flex-direction: column;
   }
 
-  .tib-wrapper.tib-image-right .tib-inner,
-  .tib-wrapper.tib-image-left .tib-inner {
-    flex-direction: column;
-  }
-
-  .tib-text {
-    max-width: 100%;
-  }
-
-  .tib-media {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .tib-image-wrap,
-  .tib-image-placeholder {
-    max-width: 100%;
-  }
-
   .tib-heading {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
+  }
+
+  .tib-content {
+    font-size: 1.1rem;
   }
 
   .tib-wrapper .page-width {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-inline: 1.25rem;
   }
 }
