@@ -1,11 +1,10 @@
-/* feature-cards.css – korrigiert auf deine ursprünglichen Klassennamen */
-
+/* FEATURE CARDS */
 .feature-cards-wrapper {
   background: var(--fc-background, #ffffff);
   padding: 50px 0;
 }
 
-/* an Theme-Breite anpassen */
+/* an Theme-Breite andocken */
 .feature-cards-wrapper .page-width {
   max-width: var(--page-width, 120rem);
   margin: 0 auto;
@@ -13,17 +12,6 @@
   padding-right: var(--page-width-margin, 2rem);
 }
 
-.feature-cards-heading {
-  text-align: center;
-  margin-bottom: 28px;
-}
-
-.feature-cards-heading h2 {
-  font-size: 1.6rem;
-  margin: 0;
-}
-
-/* wichtig: Grid wieder aktivieren */
 .feature-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -63,15 +51,17 @@
   object-fit: contain;
 }
 
+/* neue, größere Schrift */
 .feature-card-title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin-bottom: 6px;
   font-weight: 600;
+  color: #0a1e33;
 }
 
 .feature-card-text {
-  font-size: 0.8rem;
-  line-height: 1.45;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: #4a5560;
 }
 
@@ -79,7 +69,6 @@
   margin: 0;
 }
 
-/* Responsive */
 @media (max-width: 989px) {
   .feature-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
