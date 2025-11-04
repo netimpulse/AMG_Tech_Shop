@@ -6,7 +6,9 @@
 <div class="tib-inner">
   <div class="tib-text">
     {% if section.settings.heading != blank %}
-      <h2 class="tib-heading">{{ section.settings.heading }}</h2>
+      <div class="tib-heading rte">
+        {{ section.settings.heading }}
+      </div>
     {% endif %}
 
     {% if section.settings.text != blank %}
@@ -34,7 +36,7 @@
       <div class="tib-image-wrap">
         <img
           src="{{ section.settings.image | image_url: width: 1100 }}"
-          alt="{{ section.settings.heading | escape }}"
+          alt="{{ section.settings.heading | strip_html | escape }}"
           loading="lazy"
           width="{{ section.settings.image.width }}"
           height="{{ section.settings.image.height }}"
