@@ -1,6 +1,6 @@
 .hero-dryice {
   position: relative;
-  min-height: 380px;
+  min-height: 420px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -37,24 +37,29 @@
 .hero-dryice__inner {
   position: relative;
   z-index: 3;
-  padding-block: 70px;
+  padding-block: 120px 100px; /* mehr vertikaler Platz */
+  display: flex;
+  align-items: center;
 }
 
 .hero-dryice__content {
-  max-width: 560px;
+  max-width: 620px;
   color: var(--hero-text-color, #ffffff);
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
+/* Zentrierung optional über Section-Setting */
 .hero-dryice--center .hero-dryice__content {
   margin: 0 auto;
   text-align: center;
 }
 
 .hero-dryice__heading {
-  font-size: clamp(2.5rem, 3.6vw, 3.1rem);
-  line-height: 1.05;
+  font-size: clamp(2.4rem, 3.8vw, 3rem);
+  line-height: 1.1;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .hero-dryice__heading p {
@@ -62,10 +67,11 @@
 }
 
 .hero-dryice__subheading {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 32px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-bottom: 34px;
   max-width: 520px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-dryice--center .hero-dryice__subheading {
@@ -83,6 +89,7 @@
   justify-content: center;
 }
 
+/* BUTTONS */
 .hero-dryice__btn {
   display: inline-flex;
   align-items: center;
@@ -91,22 +98,24 @@
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
   border: none;
 }
 
+/* Primärer Button ohne Glow */
 .hero-dryice__btn--primary {
   background: var(--hero-primary, #00b7d3);
   color: var(--hero-primary-text, #ffffff);
-  padding: 11px 22px 12px;
-  box-shadow: 0 10px 30px rgba(0, 183, 211, 0.35);
+  padding: 11px 24px 12px;
+  box-shadow: none; /* Glow entfernt */
 }
 
 .hero-dryice__btn--primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 35px rgba(0, 183, 211, 0.4);
+  background: #009db8; /* etwas dunkler beim Hover */
 }
 
+/* Sekundärer Button */
 .hero-dryice__btn--secondary {
   background: transparent;
   color: var(--hero-text-color, #ffffff);
@@ -118,14 +127,22 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Responsive */
+/* Responsive Anpassungen */
 @media (max-width: 900px) {
+  .hero-dryice__inner {
+    padding-block: 90px 80px;
+  }
+
   .hero-dryice__content {
     max-width: 100%;
   }
 
   .hero-dryice__heading {
     font-size: 2.2rem;
+  }
+
+  .hero-dryice__subheading {
+    font-size: 1rem;
   }
 
   .hero-dryice__actions {
@@ -141,6 +158,10 @@
 @media (max-width: 600px) {
   .hero-dryice {
     min-height: 0;
+  }
+
+  .hero-dryice__inner {
+    padding-block: 80px 70px;
   }
 
   .hero-dryice__heading {
