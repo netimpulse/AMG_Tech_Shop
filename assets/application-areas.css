@@ -1,111 +1,74 @@
 .app-areas-wrapper {
   background: var(--aa-bg, #062a46);
-  padding: 50px 0 60px;
-  color: #ffffff;
+  padding: 70px 0;
+  color: #fff;
 }
 
 .app-areas-wrapper .page-width {
-  max-width: 1300px; /* angepasste Breite */
+  max-width: var(--page-width, 120rem);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-inline: var(--page-width-margin, 2rem);
 }
 
-/* Überschrift & Untertitel */
 .app-areas-heading {
   text-align: center;
-  margin-bottom: 6px;
-  color: var(--aa-heading-color, #ffffff);
-}
-
-.app-areas-heading p {
-  margin: 0;
-  font-size: 2.1rem;
-  line-height: 1.1;
+  margin-bottom: 10px;
+  font-size: 2.3rem;
+  font-weight: 700;
 }
 
 .app-areas-subheading {
   text-align: center;
-  margin-bottom: 28px;
-  color: var(--aa-subheading-color, #ffffffb3);
+  margin-bottom: 40px;
+  font-size: 1.15rem;
+  opacity: 0.9;
 }
 
-.app-areas-subheading p {
-  margin: 0;
-}
-
-/* Kartenlayout */
 .app-areas-grid {
   display: grid;
-  gap: 20px;
+  gap: 24px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .app-area-card {
-  background: var(--aa-card-bg, rgba(13, 50, 71, 0.3));
-  border: 1px solid var(--aa-card-border, rgba(255, 255, 255, 0.1));
-  border-radius: 10px;
-  padding: 20px 20px 24px;
-  min-height: 155px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  background: rgba(13, 50, 71, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
 .app-area-card:hover {
-  border-color: var(--aa-card-hover-border, #3ed0df);
+  border-color: #3ed0df;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
 }
 
 .app-area-icon {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 10px;
   background: rgba(62, 208, 223, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 6px;
-}
-
-.app-area-icon img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-.app-area-icon-placeholder {
-  color: #3ed0df;
-  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 .app-area-title {
-  color: var(--aa-card-title-color, #ffffff);
+  font-size: 1.25rem;
   font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.3;
-  margin: 0;
-}
-
-.app-area-title p {
-  margin: 0;
+  margin-bottom: 6px;
 }
 
 .app-area-text {
-  font-size: 0.9rem; /* etwas größer gemacht */
-  line-height: 1.4;
+  font-size: 1.1rem;
+  line-height: 1.6;
   opacity: 0.9;
 }
 
-.app-area-text p {
-  margin: 0;
-}
-
-/* Responsive */
 @media (max-width: 1024px) {
   .app-areas-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -114,11 +77,15 @@
     grid-template-columns: 1fr;
   }
 
-  .app-areas-heading p {
-    font-size: 1.7rem;
+  .app-areas-heading {
+    font-size: 1.9rem;
+  }
+
+  .app-areas-subheading {
+    font-size: 1rem;
   }
 
   .app-areas-wrapper .page-width {
-    padding: 0 1rem;
+    padding-inline: 1.25rem;
   }
 }
