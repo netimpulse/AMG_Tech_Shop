@@ -1,0 +1,27 @@
+{% comment %}
+  Snippet: einzelne Anwendungsbereich-Karte
+  Erwartet: block
+{% endcomment %}
+<div class="app-area-card" {{ block.shopify_attributes }}>
+  <div class="app-area-icon">
+    {% if block.settings.icon != blank %}
+      <img
+        src="{{ block.settings.icon | image_url: width: 80 }}"
+        alt="{{ block.settings.title | escape }}"
+        loading="lazy"
+        width="48"
+        height="48"
+      >
+    {% else %}
+      <div class="app-area-icon-placeholder" aria-hidden="true">★</div>
+    {% endif %}
+  </div>
+  {% if block.settings.title != blank %}
+    <h3 class="app-area-title">{{ block.settings.title }}</h3>
+  {% endif %}
+  {% if block.settings.text != blank %}
+    <div class="app-area-text rte">
+      {{ block.settings.text }}
+    </div>
+  {% endif %}
+</div>
