@@ -117,15 +117,49 @@
       "name": "Feature-Karten (Icons)",
       "settings": {
         "heading": "",
+        "background_color": "#ffffff",
+        "card_border_color": "#e5eef2",
+        "card_hover_border_color": "#5ed7f2"
+      }
+    },
+    "about_section_v3_3fDJUr": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
         "background_color": "#FFFFFF",
-        "card_border_color": "#E5EEF2",
-        "card_hover_border_color": "#5ED7F2"
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "Was ist Trockeneis?",
+        "title_richtext": "<h2><strong>Was ist Trockeneis?</strong></h2>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "<p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Diese Eigenschaft macht Trockeneis zum perfekten Kühlmittel für Transport, Lagerung und Reinigung in zahlreichen Branchen. Es kühlt intensiver als herkömmliches Eis und hinterlässt keine Feuchtigkeit.</p><p></p><p></p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p><p>a</p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</strong></p>",
+        "text_color": "#6B7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/dry-ice-blocks.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "1/1",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34D399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
       }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "feature_cards_cPwPBG"
+    "feature_cards_cPwPBG",
+    "about_section_v3_3fDJUr"
   ]
 }
