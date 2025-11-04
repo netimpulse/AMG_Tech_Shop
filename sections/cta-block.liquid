@@ -1,0 +1,112 @@
+{% comment %}
+  Section: Call-to-Action Block
+{% endcomment %}
+{{ 'cta-block.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="cta-block-{{ section.id }}"
+  class="cta-block-wrapper"
+  style="
+    --cta-bg: {{ section.settings.background_color }};
+    --cta-text-color: {{ section.settings.text_color }};
+    --cta-button-bg: {{ section.settings.button_color }};
+    --cta-button-hover: {{ section.settings.button_hover_color }};
+  "
+>
+  <div class="page-width">
+    <div class="cta-inner">
+      {% if section.settings.heading != blank %}
+        <div class="cta-heading rte">
+          {{ section.settings.heading }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.subtext != blank %}
+        <div class="cta-subtext rte">
+          {{ section.settings.subtext }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.show_button and section.settings.button_label != blank %}
+        {% if section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="cta-button">
+            {{ section.settings.button_label }}
+          </a>
+        {% else %}
+          <button type="button" class="cta-button">
+            {{ section.settings.button_label }}
+          </button>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Call-to-Action Block",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#062a46"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Überschrift (Richtext)",
+      "default": "<p><strong>Bereit für professionellen Service?</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Untertitel / Beschreibung (Richtext)",
+      "default": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Button anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button-Text",
+      "default": "Kostenlose Beratung"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button-Link"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button-Farbe",
+      "default": "#16c1d8"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button-Hover-Farbe",
+      "default": "#13a5bb"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call-to-Action Block",
+      "category": "Inhalt"
+    }
+  ]
+}
+{% endschema %}
