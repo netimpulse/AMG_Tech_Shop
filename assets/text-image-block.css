@@ -3,11 +3,7 @@
   padding: 50px 0;
 }
 
-.tib-wrapper .page-width {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
+/* keine eigene .page-width hier – wir nutzen die des Themes */
 
 .tib-inner {
   display: flex;
@@ -63,7 +59,7 @@
 .tib-media {
   flex: 1 1 50%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Bild am rechten Rand ausrichten */
 }
 
 .tib-image-wrap {
@@ -79,15 +75,18 @@
   display: block;
 }
 
-/* Bild links / rechts steuern */
-.tib-image-right .tib-inner,
+/* Bildposition steuern */
 .tib-wrapper.tib-image-right .tib-inner {
   flex-direction: row;
 }
 
-.tib-image-left .tib-inner,
 .tib-wrapper.tib-image-left .tib-inner {
   flex-direction: row-reverse;
+  /* wenn Bild links ist, soll es links bündig sein */
+}
+
+.tib-wrapper.tib-image-left .tib-media {
+  justify-content: flex-start;
 }
 
 /* Platzhalter */
@@ -110,8 +109,6 @@
     flex-direction: column;
   }
 
-  .tib-image-right .tib-inner,
-  .tib-image-left .tib-inner,
   .tib-wrapper.tib-image-right .tib-inner,
   .tib-wrapper.tib-image-left .tib-inner {
     flex-direction: column;
@@ -123,6 +120,7 @@
 
   .tib-media {
     width: 100%;
+    justify-content: center;
   }
 
   .tib-image-wrap,
