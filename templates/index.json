@@ -126,7 +126,7 @@
       "type": "text-image-block",
       "name": "Text + Bild Block",
       "settings": {
-        "background_color": "#F2F3F5",
+        "background_color": "#f2f3f5",
         "image_position": "right",
         "heading": "<p><strong>Was ist Trockeneis?</strong></p>",
         "text": "<p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</p>",
@@ -196,10 +196,35 @@
         "subheading_color": "#ffffffb3",
         "card_title_color": "#ffffff",
         "card_background_color": "#0d3247",
-        "card_border_color": "rgba(255,255,255,0.08)",
+        "card_border_color": "#ffffff14",
         "card_hover_border_color": "#3ed0df",
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
         "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
+      }
+    },
+    "safety_info_AGwTpr": {
+      "type": "safety-info",
+      "blocks": {
+        "info_iy6cXz": {
+          "type": "info",
+          "settings": {
+            "title": "<p><strong>Sicherer Umgang mit Trockeneis</strong></p>",
+            "text": "<p>Trockeneis ist ein sicheres Kühlmittel, erfordert aber sachgerechte Handhabung. Wichtig: <strong>immer gut belüften</strong> und <strong>Schutzhandschuhe tragen</strong>, um Hautverbrennungen zu vermeiden. Niemals in geschlossenen Räumen ohne Belüftung lagern.</p>",
+            "show_button": true,
+            "button_label": "Zu den Sicherheitsinformationen",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "info_iy6cXz"
+      ],
+      "name": "Sicherheits-Hinweis Box",
+      "settings": {
+        "background_color": "#EFF3F6",
+        "card_background_color": "#FFFFFF",
+        "card_border_color": "#B3E6F1",
+        "card_border_hover_color": "#5ED7F2"
       }
     }
   },
@@ -208,6 +233,7 @@
     "feature_cards_cPwPBG",
     "featured_collection",
     "text_image_block_g7iCEm",
-    "application_areas_AMijia"
+    "application_areas_AMijia",
+    "safety_info_AGwTpr"
   ]
 }
