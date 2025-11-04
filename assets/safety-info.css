@@ -4,7 +4,7 @@
 }
 
 .safety-info-wrapper .page-width {
-  max-width: 1200px;
+  max-width: 1300px; /* angepasste Breite */
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -71,7 +71,7 @@
 }
 
 .safety-info-text {
-  font-size: 0.85rem;
+  font-size: 0.95rem; /* größer als vorher */
   line-height: 1.55;
   color: #19384a;
   margin-bottom: 13px;
@@ -89,7 +89,7 @@
   border: 1px solid rgba(4, 23, 39, 0.06);
   border-radius: 9999px;
   padding: 7px 18px 8px;
-  font-size: 0.78rem;
+  font-size: 0.85rem; /* etwas größer */
   font-weight: 600;
   color: #041727;
   text-decoration: none;
@@ -103,12 +103,11 @@
 
 /* Responsive */
 @media (max-width: 640px) {
-  .safety-info-card {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
   .safety-info-wrapper .page-width {
     padding: 0 1rem;
+  }
+
+  .safety-info-card {
+    flex-direction: row;
   }
 }
