@@ -1,0 +1,149 @@
+{% comment %}
+  Section: Hero Dry Ice Banner
+{% endcomment %}
+{{ 'hero-dryice.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="hero-dryice-{{ section.id }}"
+  class="hero-dryice hero-dryice--{{ section.settings.content_alignment }}"
+  style="
+    --hero-overlay: {{ section.settings.overlay_color }};
+    --hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --hero-text-color: {{ section.settings.text_color }};
+    --hero-primary: {{ section.settings.primary_button_color }};
+    --hero-primary-text: {{ section.settings.primary_button_text_color }};
+    --hero-secondary-border: {{ section.settings.secondary_button_border }};
+  "
+>
+  {% if section.settings.background_image != blank %}
+    <div class="hero-dryice__bg">
+      <img
+        src="{{ section.settings.background_image | image_url: width: 3000 }}"
+        alt="{{ section.settings.heading | strip_html | escape }}"
+        loading="lazy"
+      >
+    </div>
+  {% endif %}
+
+  <div class="hero-dryice__overlay"></div>
+
+  <div class="hero-dryice__inner page-width">
+    {% render 'hero-dryice-content', section: section %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner (Trockeneis)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Hintergrundbild"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Inhalt ausrichten",
+      "options": [
+        { "value": "left", "label": "Links" },
+        { "value": "center", "label": "Zentriert" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Überschrift (Richtext)",
+      "default": "<p><strong>Trockeneis – eiskalt effizient für Industrie, Gastronomie &amp; Transport</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Untertitel (Richtext)",
+      "default": "<p>Höchste Kühlleistung, rückstandsfrei und nachhaltig produziert. Schnelle Lieferung deutschlandweit für alle Ihre Anforderungen.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_primary_button",
+      "label": "Ersten Button anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Text erster Button",
+      "default": "Jetzt bestellen"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Link erster Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_button",
+      "label": "Zweiten Button anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Text zweiter Button",
+      "default": "Angebot anfordern"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Link zweiter Button"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay-Farbe",
+      "default": "#062a46"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay-Deckkraft (%)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 75
+    },
+    {
+      "type": "color",
+      "id": "primary_button_color",
+      "label": "Primärer Button – Hintergrund",
+      "default": "#00b7d3"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_text_color",
+      "label": "Primärer Button – Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_border",
+      "label": "Sekundärer Button – Rahmen/Text",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner (Trockeneis)",
+      "category": "Banner"
+    }
+  ]
+}
+{% endschema %}
