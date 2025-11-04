@@ -1,0 +1,122 @@
+{% comment %}
+  Section: Anwendungsbereiche
+  Datei: sections/application-areas.liquid
+{% endcomment %}
+{{ 'application-areas.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="application-areas-{{ section.id }}"
+  class="app-areas-wrapper"
+  style="
+    --aa-bg: {{ section.settings.background_color }};
+    --aa-card-bg: {{ section.settings.card_background_color }};
+    --aa-card-border: {{ section.settings.card_border_color }};
+    --aa-card-hover-border: {{ section.settings.card_hover_border_color }};
+  "
+>
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <div class="app-areas-heading rte">
+        {{ section.settings.heading }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <div class="app-areas-subheading rte">
+        {{ section.settings.subheading }}
+      </div>
+    {% endif %}
+
+    <div class="app-areas-grid">
+      {% for block in section.blocks %}
+        {% render 'application-area-card', block: block %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Anwendungsbereiche",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#062a46"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Karten-Hintergrund",
+      "default": "#0d3247"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Karten-Rahmenfarbe",
+      "default": "rgba(255,255,255,0.08)"
+    },
+    {
+      "type": "color",
+      "id": "card_hover_border_color",
+      "label": "Karten-Rahmenfarbe bei Hover",
+      "default": "#3ed0df"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Überschrift (Richtext)",
+      "default": "<p><strong>Anwendungsbereiche</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Untertitel (Richtext)",
+      "default": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "area",
+      "name": "Bereich",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon/Bild"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Gastronomie & Catering"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Beschreibung",
+          "default": "<p>Spektakuläre Effekte und zuverlässige Kühlung für Events</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Anwendungsbereiche",
+      "category": "Inhalt",
+      "blocks": [
+        { "type": "area", "settings": { "title": "Gastronomie & Catering" } },
+        { "type": "area", "settings": { "title": "Lebensmitteltransport" } },
+        { "type": "area", "settings": { "title": "Industrie & Reinigung" } },
+        { "type": "area", "settings": { "title": "Event & Showeffekte" } },
+        { "type": "area", "settings": { "title": "Labor & Medizin" } },
+        { "type": "area", "settings": { "title": "Versand & Logistik" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
