@@ -3,7 +3,11 @@
   padding: 50px 0;
 }
 
-/* keine eigene .page-width hier – wir nutzen die des Themes */
+.tib-wrapper .page-width {
+  max-width: 1300px; /* angepasste Breite */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
 .tib-inner {
   display: flex;
@@ -24,7 +28,7 @@
 }
 
 .tib-content {
-  font-size: 0.93rem;
+  font-size: 0.95rem;
   line-height: 1.55;
   color: #0a1e33;
   margin-bottom: 20px;
@@ -82,7 +86,6 @@
 
 .tib-wrapper.tib-image-left .tib-inner {
   flex-direction: row-reverse;
-  /* wenn Bild links ist, soll es links bündig sein */
 }
 
 .tib-wrapper.tib-image-left .tib-media {
@@ -105,6 +108,10 @@
 
 /* Responsive */
 @media (max-width: 960px) {
+  .tib-wrapper .page-width {
+    padding: 0 1rem;
+  }
+
   .tib-inner {
     flex-direction: column;
   }
