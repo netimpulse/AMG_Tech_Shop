@@ -116,7 +116,7 @@
       ],
       "name": "Feature-Karten (Icons)",
       "settings": {
-        "heading": "Unsere Vorteile",
+        "heading": "",
         "background_color": "#FFFFFF",
         "card_border_color": "#E5EEF2",
         "card_hover_border_color": "#5ED7F2"
