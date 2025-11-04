@@ -1,0 +1,47 @@
+{% comment %}
+  Snippet: Inhalt für Hero Dry Ice Banner
+{% endcomment %}
+
+<div class="hero-dryice__content">
+  {% if section.settings.heading != blank %}
+    <div class="hero-dryice__heading rte">
+      {{ section.settings.heading }}
+    </div>
+  {% endif %}
+
+  {% if section.settings.subheading != blank %}
+    <div class="hero-dryice__subheading rte">
+      {{ section.settings.subheading }}
+    </div>
+  {% endif %}
+
+  {% if section.settings.show_primary_button or section.settings.show_secondary_button %}
+    <div class="hero-dryice__actions">
+      {% if section.settings.show_primary_button and section.settings.primary_button_label != blank %}
+        {% if section.settings.primary_button_link != blank %}
+          <a href="{{ section.settings.primary_button_link }}" class="hero-dryice__btn hero-dryice__btn--primary">
+            {{ section.settings.primary_button_label }}
+            <span aria-hidden="true">→</span>
+          </a>
+        {% else %}
+          <button type="button" class="hero-dryice__btn hero-dryice__btn--primary">
+            {{ section.settings.primary_button_label }}
+            <span aria-hidden="true">→</span>
+          </button>
+        {% endif %}
+      {% endif %}
+
+      {% if section.settings.show_secondary_button and section.settings.secondary_button_label != blank %}
+        {% if section.settings.secondary_button_link != blank %}
+          <a href="{{ section.settings.secondary_button_link }}" class="hero-dryice__btn hero-dryice__btn--secondary">
+            {{ section.settings.secondary_button_label }}
+          </a>
+        {% else %}
+          <button type="button" class="hero-dryice__btn hero-dryice__btn--secondary">
+            {{ section.settings.secondary_button_label }}
+          </button>
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
