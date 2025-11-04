@@ -126,11 +126,11 @@
       "type": "text-image-block",
       "name": "Text + Bild Block",
       "settings": {
-        "background_color": "#F2F3F5",
+        "background_color": "#f2f3f5",
         "image_position": "right",
         "image": "shopify://shop_images/dry-ice-blocks.jpg",
         "heading": "<p><strong>Was ist Trockeneis?</strong></p>",
-        "text": "<p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</p>",
+        "text": "<h2></h2><p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Diese Eigenschaft macht Trockeneis zum perfekten Kühlmittel für Transport, Lagerung und Reinigung in zahlreichen Branchen. Es kühlt intensiver als herkömmliches Eis und hinterlässt keine Feuchtigkeit.</p><p>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</p>",
         "show_button": true,
         "button_label": "Mehr erfahren",
         "button_link": ""
@@ -222,7 +222,7 @@
       ],
       "name": "Sicherheits-Hinweis Box",
       "settings": {
-        "background_color": "#ffffff",
+        "background_color": "#ffffffb3",
         "card_background_color": "#f2f3f5",
         "card_border_color": "#b3e6f1",
         "card_border_hover_color": "#5ed7f2"
