@@ -1,0 +1,324 @@
+{{ 'section-custom-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-header.js' | asset_url }}" defer="defer"></script>
+
+{%- if settings.predictive_search_enabled and section.settings.enable_search -%}
+  <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="all">
+  <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="all">
+  <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<style>
+  :root {
+    --header-menu-hover-color: {{ section.settings.menu_hover_color }};
+    --header-menu-active-color: {{ section.settings.menu_active_color }};
+    --header-logo-position-x: {{ section.settings.logo_position_x }}%;
+    --header-logo-position-y: {{ section.settings.logo_position_y }}%;
+    --header-menu-position-x: {{ section.settings.menu_position_x }}%;
+    --header-menu-position-y: {{ section.settings.menu_position_y }}%;
+  }
+</style>
+
+<header class="custom-header" data-section-id="{{ section.id }}">
+  <div class="custom-header__wrapper">
+    
+    {%- comment -%} Logo Section {%- endcomment -%}
+    <div class="custom-header__logo" style="transform: translate({{ section.settings.logo_position_x }}%, {{ section.settings.logo_position_y }}%);">
+      {%- if section.settings.logo_type == 'text' -%}
+        <a href="{{ routes.root_url }}" class="custom-header__logo-text">
+          {{ section.settings.logo_text | default: shop.name }}
+        </a>
+      {%- else -%}
+        <a href="{{ routes.root_url }}" class="custom-header__logo-image">
+          {%- if section.settings.logo_image != blank -%}
+            <img 
+              src="{{ section.settings.logo_image | image_url: width: section.settings.logo_width }}"
+              alt="{{ section.settings.logo_image.alt | default: shop.name }}"
+              width="{{ section.settings.logo_width }}"
+              height="{{ section.settings.logo_width | divided_by: section.settings.logo_image.aspect_ratio | round }}"
+              loading="eager"
+            >
+          {%- else -%}
+            <span class="custom-header__logo-text">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Desktop Navigation {%- endcomment -%}
+    <nav class="custom-header__nav desktop-nav" style="transform: translate({{ section.settings.menu_position_x }}%, {{ section.settings.menu_position_y }}%);">
+      {%- if section.settings.menu != blank -%}
+        <ul class="custom-header__menu{% if section.settings.menu_bold %} custom-header__menu--bold{% endif %}">
+          {%- for link in section.settings.menu.links -%}
+            <li class="custom-header__menu-item">
+              <a 
+                href="{{ link.url }}" 
+                class="custom-header__menu-link{% if link.active %} custom-header__menu-link--active{% endif %}"
+                {% if link.current %}aria-current="page"{% endif %}
+              >
+                {{ link.title }}
+              </a>
+              {%- if link.links != blank -%}
+                <ul class="custom-header__submenu">
+                  {%- for childlink in link.links -%}
+                    <li>
+                      <a href="{{ childlink.url }}" class="custom-header__submenu-link">
+                        {{ childlink.title }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </nav>
+
+    {%- comment -%} Icons Section {%- endcomment -%}
+    <div class="custom-header__icons">
+      
+      {%- comment -%} Search Icon {%- endcomment -%}
+      {%- if section.settings.enable_search -%}
+        {%- if settings.predictive_search_enabled -%}
+          <details-modal class="custom-header__search">
+            <details>
+              <summary class="custom-header__icon" aria-label="{{ 'general.search.search' | t }}">
+                <span class="svg-wrapper">
+                  {{ 'icon-search.svg' | inline_asset_content }}
+                </span>
+              </summary>
+              <div class="search-modal modal__content" role="dialog" aria-modal="true">
+                <div class="modal-overlay"></div>
+                <div class="search-modal__content">
+                  <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
+                    <form action="{{ routes.search_url }}" method="get" role="search" class="search">
+                      <div class="field">
+                        <input
+                          class="search__input field__input"
+                          id="header-search"
+                          type="search"
+                          name="q"
+                          placeholder="{{ 'general.search.search' | t }}"
+                          role="combobox"
+                          aria-expanded="false"
+                          aria-owns="predictive-search-results"
+                          aria-controls="predictive-search-results"
+                          aria-haspopup="listbox"
+                          aria-autocomplete="list"
+                        >
+                        <label class="field__label" for="header-search">{{ 'general.search.search' | t }}</label>
+                        <input type="hidden" name="options[prefix]" value="last">
+                        <button type="submit" class="search__button">
+                          <span class="svg-wrapper">
+                            {{ 'icon-search.svg' | inline_asset_content }}
+                          </span>
+                        </button>
+                      </div>
+                      <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search></div>
+                      <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+                    </form>
+                  </predictive-search>
+                  <button type="button" class="modal__close-button" aria-label="{{ 'accessibility.close' | t }}">
+                    <span class="svg-wrapper">
+                      {{ 'icon-close.svg' | inline_asset_content }}
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </details>
+          </details-modal>
+        {%- else -%}
+          <a href="{{ routes.search_url }}" class="custom-header__icon" aria-label="{{ 'general.search.search' | t }}">
+            <span class="svg-wrapper">
+              {{ 'icon-search.svg' | inline_asset_content }}
+            </span>
+          </a>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- comment -%} Account Icon {%- endcomment -%}
+      {%- if section.settings.enable_account -%}
+        <a 
+          href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+          class="custom-header__icon"
+          aria-label="{% if customer %}{{ 'customer.account_fallback' | t }}{% else %}{{ 'customer.log_in' | t }}{% endif %}"
+        >
+          <span class="svg-wrapper">
+            {{ 'icon-account.svg' | inline_asset_content }}
+          </span>
+        </a>
+      {%- endif -%}
+
+      {%- comment -%} Cart Icon {%- endcomment -%}
+      {%- if section.settings.enable_cart -%}
+        <a href="{{ routes.cart_url }}" class="custom-header__icon custom-header__icon--cart" aria-label="{{ 'templates.cart.cart' | t }}">
+          <span class="svg-wrapper">
+            {% if cart == empty %}
+              {{ 'icon-cart-empty.svg' | inline_asset_content }}
+            {% else %}
+              {{ 'icon-cart.svg' | inline_asset_content }}
+            {% endif %}
+          </span>
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+          {%- endif -%}
+        </a>
+      {%- endif -%}
+
+      {%- comment -%} Mobile Menu Toggle {%- endcomment -%}
+      <button class="custom-header__mobile-toggle" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="visually-hidden">{{ 'sections.header.menu' | t }}</span>
+      </button>
+    </div>
+  </div>
+
+  {%- comment -%} Mobile Menu Drawer {%- endcomment -%}
+  {% render 'custom-header-drawer', menu: section.settings.menu, section: section %}
+</header>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "class": "section-custom-header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo Settings"
+    },
+    {
+      "type": "select",
+      "id": "logo_type",
+      "label": "Logo Type",
+      "options": [
+        {
+          "value": "text",
+          "label": "Text"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "Your Store"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "logo_position_x",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Logo Position X",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "logo_position_y",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Logo Position Y",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Menu Settings"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "menu_bold",
+      "label": "Bold Menu Text",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "menu_hover_color",
+      "label": "Menu Hover Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "menu_active_color",
+      "label": "Active Page Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "menu_position_x",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Menu Position X",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "menu_position_y",
+      "min": -50,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "Menu Position Y",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Icon Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_search",
+      "label": "Enable Search",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_account",
+      "label": "Enable Account",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_cart",
+      "label": "Enable Cart",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
