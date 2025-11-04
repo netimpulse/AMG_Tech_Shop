@@ -1,0 +1,81 @@
+{% comment %}
+  Section: Text + Bild Block
+  Datei: sections/text-image-block.liquid
+{% endcomment %}
+{{ 'text-image-block.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="text-image-block-{{ section.id }}"
+  class="tib-wrapper tib-image-{{ section.settings.image_position }}"
+  style="--tib-bg: {{ section.settings.background_color }};"
+>
+  <div class="page-width">
+    {% render 'text-image-block', section: section %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Text + Bild Block",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#F2F3F5"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Bildposition",
+      "options": [
+        { "value": "right", "label": "Bild rechts" },
+        { "value": "left", "label": "Bild links" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bild"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Was ist Trockeneis?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Button anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button-Text",
+      "default": "Mehr erfahren"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button-Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text + Bild Block",
+      "category": "Inhalt"
+    }
+  ]
+}
+{% endschema %}
