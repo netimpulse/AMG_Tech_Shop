@@ -1,8 +1,8 @@
 .hero-dryice {
   position: relative;
-  min-height: 380px;
+  min-height: 420px;
   display: flex;
-  align-items: flex-start; /* statt center → orientiert oben */
+  align-items: center;
   overflow: hidden;
   background: #062a46;
 }
@@ -10,9 +10,8 @@
 .hero-dryice .page-width {
   max-width: var(--page-width, 120rem);
   margin: 0 auto;
-  /* bündig mit Kacheln darunter */
-  padding-left: var(--page-width-margin, 1.5rem);
-  padding-right: var(--page-width-margin, 1.5rem);
+  padding-inline: var(--page-width-margin, 2rem);
+  width: 100%;
 }
 
 .hero-dryice__bg {
@@ -38,18 +37,19 @@
 .hero-dryice__inner {
   position: relative;
   z-index: 3;
-  padding-block: 50px 100px; /* Text weiter nach oben */
+  padding-block: 120px 100px; /* mehr vertikaler Platz */
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .hero-dryice__content {
   max-width: 620px;
   color: var(--hero-text-color, #ffffff);
-  margin-top: 0;
+  margin-top: auto;
   margin-bottom: auto;
 }
 
+/* Zentrierung optional über Section-Setting */
 .hero-dryice--center .hero-dryice__content {
   margin: 0 auto;
   text-align: center;
@@ -102,18 +102,20 @@
   border: none;
 }
 
+/* Primärer Button ohne Glow */
 .hero-dryice__btn--primary {
   background: var(--hero-primary, #00b7d3);
   color: var(--hero-primary-text, #ffffff);
   padding: 11px 24px 12px;
-  box-shadow: none;
+  box-shadow: none; /* Glow entfernt */
 }
 
 .hero-dryice__btn--primary:hover {
   transform: translateY(-1px);
-  background: #009db8;
+  background: #009db8; /* etwas dunkler beim Hover */
 }
 
+/* Sekundärer Button */
 .hero-dryice__btn--secondary {
   background: transparent;
   color: var(--hero-text-color, #ffffff);
@@ -128,7 +130,7 @@
 /* Responsive Anpassungen */
 @media (max-width: 900px) {
   .hero-dryice__inner {
-    padding-block: 60px 70px;
+    padding-block: 90px 80px;
   }
 
   .hero-dryice__content {
@@ -149,8 +151,7 @@
   }
 
   .hero-dryice .page-width {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-inline: 1.25rem;
   }
 }
 
@@ -160,7 +161,7 @@
   }
 
   .hero-dryice__inner {
-    padding-block: 50px 60px;
+    padding-block: 80px 70px;
   }
 
   .hero-dryice__heading {
@@ -174,5 +175,9 @@
 
   .hero-dryice--center .hero-dryice__actions {
     align-items: center;
+  }
+
+  .hero-dryice__btn {
+    width: fit-content;
   }
 }
