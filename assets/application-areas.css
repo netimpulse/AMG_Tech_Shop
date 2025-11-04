@@ -5,6 +5,8 @@
 }
 
 .app-areas-wrapper .page-width {
+  max-width: 1300px; /* angepasste Breite */
+  margin: 0 auto;
   padding: 0 1.5rem;
 }
 
@@ -91,7 +93,7 @@
 }
 
 .app-area-text {
-  font-size: 0.78rem;
+  font-size: 0.9rem; /* etwas größer gemacht */
   line-height: 1.4;
   opacity: 0.9;
 }
@@ -114,5 +116,9 @@
 
   .app-areas-heading p {
     font-size: 1.7rem;
+  }
+
+  .app-areas-wrapper .page-width {
+    padding: 0 1rem;
   }
 }
