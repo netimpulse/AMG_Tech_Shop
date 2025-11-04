@@ -1,0 +1,47 @@
+{% comment %}
+  Snippet: Text + Bild Inhalt
+  Erwartet: section
+{% endcomment %}
+
+<div class="tib-inner">
+  <div class="tib-text">
+    {% if section.settings.heading != blank %}
+      <h2 class="tib-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <div class="tib-content rte">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_button and section.settings.button_label != blank %}
+      {% assign btn_link = section.settings.button_link %}
+      {% if btn_link != blank %}
+        <a href="{{ btn_link }}" class="tib-button">
+          {{ section.settings.button_label }}
+        </a>
+      {% else %}
+        <button type="button" class="tib-button">
+          {{ section.settings.button_label }}
+        </button>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="tib-media">
+    {% if section.settings.image != blank %}
+      <div class="tib-image-wrap">
+        <img
+          src="{{ section.settings.image | image_url: width: 1100 }}"
+          alt="{{ section.settings.heading | escape }}"
+          loading="lazy"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+        >
+      </div>
+    {% else %}
+      <div class="tib-image-placeholder">Bild hinzufügen</div>
+    {% endif %}
+  </div>
+</div>
