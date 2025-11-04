@@ -223,8 +223,8 @@
       "settings": {
         "background_color": "#ffffff",
         "card_background_color": "#f2f3f5",
-        "card_border_color": "#B3E6F1",
-        "card_border_hover_color": "#5ED7F2"
+        "card_border_color": "#b3e6f1",
+        "card_border_hover_color": "#5ed7f2"
       }
     },
     "text_image_block_m7dCwa": {
@@ -240,6 +240,21 @@
         "button_label": "Mehr erfahren",
         "button_link": ""
       }
+    },
+    "cta_block_LPidqf": {
+      "type": "cta-block",
+      "name": "Call-to-Action Block",
+      "settings": {
+        "background_color": "#062a46",
+        "text_color": "#ffffff",
+        "heading": "<p><strong>Bereit für professionellen Service?</strong></p>",
+        "subtext": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "show_button": true,
+        "button_label": "Kostenlose Beratung",
+        "button_link": "",
+        "button_color": "#16c1d8",
+        "button_hover_color": "#13a5bb"
+      }
     }
   },
   "order": [
@@ -249,6 +264,7 @@
     "text_image_block_g7iCEm",
     "application_areas_AMijia",
     "safety_info_AGwTpr",
-    "text_image_block_m7dCwa"
+    "text_image_block_m7dCwa",
+    "cta_block_LPidqf"
   ]
 }
