@@ -1,5 +1,5 @@
 {% comment %}
-  Section: Text + Bild Block
+  Section: Text + Bild Block (Richtext Überschrift)
   Datei: sections/text-image-block.liquid
 {% endcomment %}
 {{ 'text-image-block.css' | asset_url | stylesheet_tag }}
@@ -42,10 +42,10 @@
       "label": "Bild"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "heading",
-      "label": "Überschrift",
-      "default": "Was ist Trockeneis?"
+      "label": "Überschrift (Richtext)",
+      "default": "<p><strong>Was ist Trockeneis?</strong></p>"
     },
     {
       "type": "richtext",
