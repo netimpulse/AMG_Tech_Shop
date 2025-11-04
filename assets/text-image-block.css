@@ -1,14 +1,20 @@
+/* text-image-block.css */
+
+/* Abschnitt-Hintergrund + Abstand */
 .tib-wrapper {
   background: var(--tib-bg, #ffffff);
   padding: 50px 0;
 }
 
+/* WICHTIG: gleiche Breite wie das Theme */
 .tib-wrapper .page-width {
-  max-width: 1300px; /* angepasste Breite */
+  max-width: var(--page-width, 120rem); /* nimmt die Theme-Breite, falls vorhanden */
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-left: var(--page-width-margin, 2rem);
+  padding-right: var(--page-width-margin, 2rem);
 }
 
+/* Layout */
 .tib-inner {
   display: flex;
   gap: 40px;
@@ -16,6 +22,7 @@
   justify-content: space-between;
 }
 
+/* Textbereich */
 .tib-text {
   flex: 1 1 50%;
   max-width: 520px;
@@ -38,6 +45,7 @@
   margin-bottom: 12px;
 }
 
+/* Button */
 .tib-button {
   display: inline-flex;
   align-items: center;
@@ -60,10 +68,11 @@
   box-shadow: 0 8px 25px rgba(0, 106, 143, 0.28);
 }
 
+/* Bildbereich */
 .tib-media {
   flex: 1 1 50%;
   display: flex;
-  justify-content: flex-end; /* Bild am rechten Rand ausrichten */
+  justify-content: flex-end; /* Bild rechts an den Rand */
 }
 
 .tib-image-wrap {
@@ -79,7 +88,7 @@
   display: block;
 }
 
-/* Bildposition steuern */
+/* Bildposition steuern über Section-Setting */
 .tib-wrapper.tib-image-right .tib-inner {
   flex-direction: row;
 }
@@ -92,7 +101,7 @@
   justify-content: flex-start;
 }
 
-/* Platzhalter */
+/* Platzhalter, falls kein Bild gesetzt */
 .tib-image-placeholder {
   width: 100%;
   max-width: 480px;
@@ -108,10 +117,6 @@
 
 /* Responsive */
 @media (max-width: 960px) {
-  .tib-wrapper .page-width {
-    padding: 0 1rem;
-  }
-
   .tib-inner {
     flex-direction: column;
   }
@@ -137,5 +142,10 @@
 
   .tib-heading {
     font-size: 1.7rem;
+  }
+
+  .tib-wrapper .page-width {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
