@@ -1,0 +1,240 @@
+{% comment %}
+  Über Uns (Layout) – v2
+  - Titel: title_richtext (Richtext) + Fallback auf title (Text)
+  - Unterüberschrift: subtitle_richtext (Richtext) + Fallback auf subtitle (Text)
+  - Bild: show_image Toggle + No-Image-Layout (keine leere Spalte)
+  - Direktes <img> (kein externes Snippet nötig)
+{% endcomment %}
+
+{{ 'section-ueber-uns-layout-v2.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }}{
+    --background-color: {{ section.settings.background_color }};
+    --section-padding-top: {{ section.settings.section_padding_top }}px;
+    --section-padding-bottom: {{ section.settings.section_padding_bottom }}px;
+
+    --title-color: {{ section.settings.title_color }};
+    --title-font-size: {{ section.settings.title_font_size }}px;
+
+    --subtitle-color: {{ section.settings.subtitle_color }};
+    --subtitle-font-size: {{ section.settings.subtitle_font_size }}px;
+
+    --text-color: {{ section.settings.text_color }};
+    --text-font-size: {{ section.settings.text_font_size }}px;
+
+    --image-border-radius: {{ section.settings.image_border_radius }}px;
+    --image-max-width: {{ section.settings.image_max_width }}%;
+    --image-aspect-ratio: {{ section.settings.image_aspect_ratio }};
+
+    --features-per-row: {{ section.settings.features_per_row }};
+    --icon-size: {{ section.settings.icon_size }}px;
+    --icon-color: {{ section.settings.icon_color }};
+    --feature-title-color: {{ section.settings.feature_title_color }};
+  }
+</style>
+
+{%- liquid
+  assign image_on_left = false
+  if section.settings.layout_direction == 'image_left'
+    assign image_on_left = true
+  endif
+
+  assign show_image = section.settings.show_image
+  assign has_image = false
+  if section.settings.image != blank
+    assign has_image = true
+  endif
+  assign actually_show_image = false
+  if show_image and has_image
+    assign actually_show_image = true
+  endif
+
+  # Titel: Richtext bevorzugt, sonst Fallback-Text
+  assign title_html = section.settings.title_richtext
+  if title_html == blank and section.settings.title != blank
+    assign title_html = '<p>' | append: section.settings.title | append: '</p>'
+  endif
+
+  # Untertitel: Richtext bevorzugt, sonst Fallback-Text
+  assign subtitle_html = section.settings.subtitle_richtext
+  if subtitle_html == blank and section.settings.subtitle != blank
+    assign subtitle_html = '<p>' | append: section.settings.subtitle | append: '</p>'
+  endif
+-%}
+
+<div class="sis-about-section">
+  <div class="sis-about__container">
+    <div class="sis-about__grid{% if image_on_left %} sis-about__grid--image-left{% endif %}{% unless actually_show_image %} sis-about__grid--no-image{% endunless %}">
+
+      {%- if image_on_left -%}
+        {%- if actually_show_image -%}
+          <div class="sis-about__image">
+            <div class="sis-about__image-wrapper">
+              {% assign img = section.settings.image %}
+              <img
+                src="{{ img | image_url: width: 1200 }}"
+                srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
+                sizes="(max-width: 992px) 100vw, 50vw"
+                alt="{{ section.settings.image_alt | escape }}"
+                loading="lazy">
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
+      <div class="sis-about__content">
+        {% if title_html != blank %}
+          <div class="sis-about__title rte--title">
+            {{ title_html }}
+          </div>
+        {% endif %}
+
+        {% if subtitle_html != blank %}
+          <div class="sis-about__subtitle rte--subtitle">
+            {{ subtitle_html }}
+          </div>
+        {% endif %}
+
+        <div class="sis-about__description">
+          {{ section.settings.description }}
+        </div>
+
+        {% if section.blocks.size > 0 %}
+          <div class="sis-about__features">
+            {% for block in section.blocks %}
+              <div class="sis-about__feature" {{ block.shopify_attributes }}>
+                <div class="sis-about__feature-icon">
+                  {% if block.settings.icon_type == 'image' and block.settings.icon_image != blank %}
+                    <img
+                      src="{{ block.settings.icon_image | image_url: width: 160, height: 160 }}"
+                      alt="{{ block.settings.feature_title | escape }}"
+                      width="{{ section.settings.icon_size }}"
+                      height="{{ section.settings.icon_size }}"
+                      style="width:{{ section.settings.icon_size }}px;height:auto"
+                      loading="lazy">
+                  {% elsif block.settings.icon_type == 'svg' and block.settings.icon_svg != blank %}
+                    {{ block.settings.icon_svg }}
+                  {% endif %}
+                </div>
+                <div class="sis-about__feature-text">
+                  <h4 class="sis-about__feature-title">{{ block.settings.feature_title }}</h4>
+                  <p class="sis-about__feature-description">{{ block.settings.feature_description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      {%- unless image_on_left -%}
+        {%- if actually_show_image -%}
+          <div class="sis-about__image">
+            <div class="sis-about__image-wrapper">
+              {% assign img = section.settings.image %}
+              <img
+                src="{{ img | image_url: width: 1200 }}"
+                srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
+                sizes="(max-width: 992px) 100vw, 50vw"
+                alt="{{ section.settings.image_alt | escape }}"
+                loading="lazy">
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endunless -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Über Uns (Layout) – Neu",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "header", "content": "Layout & Abstände" },
+    {
+      "type": "select",
+      "id": "layout_direction",
+      "label": "Layout-Richtung",
+      "options": [
+        { "value": "text_left", "label": "Text links, Bild rechts" },
+        { "value": "image_left", "label": "Bild links, Text rechts" }
+      ],
+      "default": "text_left"
+    },
+
+    { "type": "checkbox", "id": "show_image", "label": "Bild anzeigen", "default": true },
+
+    { "type": "color", "id": "background_color", "label": "Hintergrundfarbe", "default": "#FFFFFF" },
+    { "type": "range", "id": "section_padding_top", "label": "Abstand oben", "min": 0, "max": 150, "step": 5, "unit": "px", "default": 80 },
+    { "type": "range", "id": "section_padding_bottom", "label": "Abstand unten", "min": 0, "max": 150, "step": 5, "unit": "px", "default": 80 },
+
+    { "type": "header", "content": "Überschrift" },
+    { "type": "text", "id": "title", "label": "Titel (Fallback, Text)", "default": "Über uns", "info": "Wird genutzt, wenn Richtext leer ist." },
+    { "type": "richtext", "id": "title_richtext", "label": "Titel (Richtext)", "default": "<p><strong>Über uns</strong></p>" },
+    { "type": "color", "id": "title_color", "label": "Titel Farbe", "default": "#111827" },
+    { "type": "range", "id": "title_font_size", "label": "Titel Schriftgröße", "min": 20, "max": 56, "step": 2, "unit": "px", "default": 32 },
+
+    { "type": "text", "id": "subtitle", "label": "Unterüberschrift (Fallback, Text)", "default": "Unsere Mission", "info": "Wird genutzt, wenn Richtext leer ist." },
+    { "type": "richtext", "id": "subtitle_richtext", "label": "Unterüberschrift (Richtext)", "default": "<p>Unsere Mission</p>" },
+    { "type": "color", "id": "subtitle_color", "label": "Unterüberschrift Farbe", "default": "#374151" },
+    { "type": "range", "id": "subtitle_font_size", "label": "Unterüberschrift Schriftgröße", "min": 16, "max": 32, "step": 1, "unit": "px", "default": 20 },
+
+    { "type": "header", "content": "Textinhalt" },
+    { "type": "richtext", "id": "description", "label": "Beschreibungstext", "default": "<p>Wir sind SIS Saar – ein innovatives Unternehmen …</p>" },
+    { "type": "color", "id": "text_color", "label": "Text Farbe", "default": "#6B7280" },
+    { "type": "range", "id": "text_font_size", "label": "Text Schriftgröße", "min": 14, "max": 22, "step": 1, "unit": "px", "default": 18 },
+
+    { "type": "header", "content": "Bild" },
+    { "type": "image_picker", "id": "image", "label": "Bild" },
+    { "type": "range", "id": "image_border_radius", "label": "Bild Eckenrundung", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 12 },
+    { "type": "text", "id": "image_alt", "label": "Bild Alt-Text" },
+    { "type": "range", "id": "image_max_width", "label": "Bild max. Breite (Spalte)", "min": 60, "max": 100, "step": 5, "unit": "%", "default": 85 },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Bild Seitenverhältnis",
+      "options": [
+        { "value": "auto", "label": "Automatisch" },
+        { "value": "16/9", "label": "16:9 (breit)" },
+        { "value": "4/3", "label": "4:3" },
+        { "value": "1/1", "label": "1:1 (quadratisch)" }
+      ],
+      "default": "4/3"
+    },
+
+    { "type": "header", "content": "Features (Punkte mit Icons)" },
+    {
+      "type": "select",
+      "id": "features_per_row",
+      "label": "Elemente pro Zeile (Desktop)",
+      "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ],
+      "default": "2"
+    },
+    { "type": "range", "id": "icon_size", "label": "Icon Größe", "min": 24, "max": 48, "step": 2, "unit": "px", "default": 32 },
+    { "type": "color", "id": "icon_color", "label": "SVG-Icon Farbe", "default": "#34D399" },
+    { "type": "color", "id": "feature_title_color", "label": "Feature Titel Farbe", "default": "#111827" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Punkt",
+      "settings": [
+        { "type": "header", "content": "Icon" },
+        { "type": "select", "id": "icon_type", "label": "Icon-Typ", "options": [ { "value": "svg", "label": "SVG-Code" }, { "value": "image", "label": "Bild" } ], "default": "svg" },
+        { "type": "html", "id": "icon_svg", "label": "SVG Code" },
+        { "type": "image_picker", "id": "icon_image", "label": "Icon-Bild" },
+
+        { "type": "header", "content": "Inhalt" },
+        { "type": "text", "id": "feature_title", "label": "Titel", "default": "Feature Titel" },
+        { "type": "text", "id": "feature_description", "label": "Beschreibung", "default": "Kurze Beschreibung des Features." }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Über Uns (Layout) – Neu", "blocks": [ { "type": "feature" }, { "type": "feature" } ] }
+  ]
+}
+{% endschema %}
