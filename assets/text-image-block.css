@@ -1,7 +1,7 @@
-/* TEXT + IMAGE BLOCK - optimiert auf Theme-Schriftgrößen */
+/* TEXT + IMAGE BLOCK – überarbeitete, saubere Version */
 
 .tib-wrapper {
-  background: var(--tib-bg, #ffffff);
+  background: var(--tib-bg, #f7f9fb);
   padding: 80px 0;
 }
 
@@ -25,7 +25,7 @@
 
 /* HEADLINE */
 .tib-heading {
-  font-size: 1.9rem; /* entspricht Richtext-Headline */
+  font-size: 1.9rem;
   font-weight: 700;
   color: #0a1e33;
   line-height: 1.25;
@@ -34,7 +34,7 @@
 
 /* CONTENT TEXT */
 .tib-content {
-  font-size: 1.1rem; /* identisch mit Dawn Body Text */
+  font-size: 1.1rem;
   line-height: 1.75;
   color: #0a1e33;
   margin-bottom: 28px;
@@ -42,6 +42,12 @@
 
 .tib-content p {
   margin-bottom: 14px;
+}
+
+/* BUTTON – direkt ausgerichtet, ohne Flex-Container-Probleme */
+.tib-button-wrapper {
+  display: block; /* entfernt flex-Verhalten */
+  margin-top: 10px;
 }
 
 .tib-button {
@@ -55,6 +61,8 @@
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -83,6 +91,7 @@
   display: block;
 }
 
+/* Layoutwechsel links/rechts */
 .tib-wrapper.tib-image-left .tib-inner {
   flex-direction: row-reverse;
 }
@@ -100,6 +109,10 @@
 
   .tib-content {
     font-size: 1rem;
+    text-align: center;
+  }
+
+  .tib-button-wrapper {
     text-align: center;
   }
 
