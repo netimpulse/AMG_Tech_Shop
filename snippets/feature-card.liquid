@@ -1,0 +1,30 @@
+{% comment %}
+  Snippet: einzelne Karte
+  Erwartet: block, border_color, hover_color
+{% endcomment %}
+<div
+  class="feature-card"
+  {{ block.shopify_attributes }}
+>
+  <div class="feature-card-icon">
+    {% if block.settings.icon != blank %}
+      <img
+        src="{{ block.settings.icon | image_url: width: 80 }}"
+        alt="{{ block.settings.title | escape }}"
+        loading="lazy"
+        width="64"
+        height="64"
+      >
+    {% else %}
+      <div class="feature-card-icon--placeholder" aria-hidden="true">★</div>
+    {% endif %}
+  </div>
+  {% if block.settings.title != blank %}
+    <h3 class="feature-card-title">{{ block.settings.title }}</h3>
+  {% endif %}
+  {% if block.settings.text != blank %}
+    <div class="feature-card-text rte">
+      {{ block.settings.text }}
+    </div>
+  {% endif %}
+</div>
