@@ -6,6 +6,8 @@
 }
 
 .cta-block-wrapper .page-width {
+  max-width: 1300px; /* angepasste Breite */
+  margin: 0 auto;
   padding: 0 1.5rem;
 }
 
@@ -47,6 +49,10 @@
 
 /* Mobile Anpassung */
 @media (max-width: 640px) {
+  .cta-block-wrapper .page-width {
+    padding: 0 1rem;
+  }
+
   .cta-heading {
     font-size: 1.6rem;
   }
