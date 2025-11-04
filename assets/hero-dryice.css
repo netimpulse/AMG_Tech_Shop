@@ -10,8 +10,9 @@
 .hero-dryice .page-width {
   max-width: var(--page-width, 120rem);
   margin: 0 auto;
-  padding-inline: var(--page-width-margin, 2rem);
-  width: 100%;
+  /* HIER angepasst: gleiches Padding wie restliche Sections */
+  padding-left: var(--page-width-margin, 1.5rem);
+  padding-right: var(--page-width-margin, 1.5rem);
 }
 
 .hero-dryice__bg {
@@ -37,7 +38,7 @@
 .hero-dryice__inner {
   position: relative;
   z-index: 3;
-  padding-block: 120px 100px; /* mehr vertikaler Platz */
+  padding-block: 120px 100px;
   display: flex;
   align-items: center;
 }
@@ -49,7 +50,6 @@
   margin-bottom: auto;
 }
 
-/* Zentrierung optional über Section-Setting */
 .hero-dryice--center .hero-dryice__content {
   margin: 0 auto;
   text-align: center;
@@ -89,7 +89,7 @@
   justify-content: center;
 }
 
-/* BUTTONS */
+/* Buttons */
 .hero-dryice__btn {
   display: inline-flex;
   align-items: center;
@@ -102,7 +102,6 @@
   border: none;
 }
 
-/* Primärer Button ohne Glow */
 .hero-dryice__btn--primary {
   background: var(--hero-primary, #00b7d3);
   color: var(--hero-primary-text, #ffffff);
@@ -112,10 +111,9 @@
 
 .hero-dryice__btn--primary:hover {
   transform: translateY(-1px);
-  background: #009db8; /* etwas dunkler beim Hover */
+  background: #009db8;
 }
 
-/* Sekundärer Button */
 .hero-dryice__btn--secondary {
   background: transparent;
   color: var(--hero-text-color, #ffffff);
@@ -127,7 +125,7 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Responsive Anpassungen */
+/* Responsive */
 @media (max-width: 900px) {
   .hero-dryice__inner {
     padding-block: 90px 80px;
@@ -141,17 +139,9 @@
     font-size: 2.2rem;
   }
 
-  .hero-dryice__subheading {
-    font-size: 1rem;
-  }
-
-  .hero-dryice__actions {
-    flex-direction: row;
-    gap: 10px;
-  }
-
   .hero-dryice .page-width {
-    padding-inline: 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 
@@ -175,9 +165,5 @@
 
   .hero-dryice--center .hero-dryice__actions {
     align-items: center;
-  }
-
-  .hero-dryice__btn {
-    width: fit-content;
   }
 }

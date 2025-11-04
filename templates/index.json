@@ -22,11 +22,11 @@
         "show_secondary_button": true,
         "secondary_button_label": "Angebot anfordern",
         "secondary_button_link": "",
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "overlay_color": "#062a46",
         "overlay_opacity": 75,
         "primary_button_color": "#00b7d3",
-        "primary_button_text_color": "#FFFFFF",
+        "primary_button_text_color": "#ffffff",
         "secondary_button_border": "#ffffff"
       }
     },
