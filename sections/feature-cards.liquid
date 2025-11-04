@@ -1,0 +1,105 @@
+{% comment %}
+  Section: Feature Cards
+  Datei: sections/feature-cards.liquid
+{% endcomment %}
+{{ 'feature-cards.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="feature-cards-{{ section.id }}"
+  class="feature-cards-wrapper"
+  style="
+    --fc-background: {{ section.settings.background_color }};
+    --fc-border: {{ section.settings.card_border_color }};
+    --fc-hover-border: {{ section.settings.card_hover_border_color }};
+  "
+>
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <div class="feature-cards-heading">
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="feature-cards-grid">
+      {% for block in section.blocks %}
+        {% render 'feature-card',
+          block: block,
+          border_color: section.settings.card_border_color,
+          hover_color: section.settings.card_hover_border_color
+        %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature-Karten (Icons)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Optionaler Titel",
+      "default": "Unsere Vorteile"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Rahmenfarbe Karten",
+      "default": "#E5EEF2"
+    },
+    {
+      "type": "color",
+      "id": "card_hover_border_color",
+      "label": "Rahmenfarbe bei Hover",
+      "default": "#5ED7F2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Karte",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon/Bild"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Schnelle Lieferung"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Feature-Karten (Icons)",
+      "category": "Abschnitte",
+      "blocks": [
+        { "type": "card", "settings": { "title": "Schnelle Lieferung" } },
+        { "type": "card", "settings": { "title": "Frische Produktion" } },
+        { "type": "card", "settings": { "title": "Hohe Kühlleistung" } },
+        { "type": "card", "settings": { "title": "Nachhaltig produziert" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
