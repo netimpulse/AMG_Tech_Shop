@@ -221,10 +221,24 @@
       ],
       "name": "Sicherheits-Hinweis Box",
       "settings": {
-        "background_color": "#EFF3F6",
-        "card_background_color": "#FFFFFF",
+        "background_color": "#ffffff",
+        "card_background_color": "#f2f3f5",
         "card_border_color": "#B3E6F1",
         "card_border_hover_color": "#5ED7F2"
+      }
+    },
+    "text_image_block_m7dCwa": {
+      "type": "text-image-block",
+      "name": "Text + Bild Block",
+      "settings": {
+        "background_color": "#ffffff",
+        "image_position": "left",
+        "image": "shopify://shop_images/team-production.jpg",
+        "heading": "<h2>Vertrauen & Qualität</h2>",
+        "text": "<p>Wir sind ein familiengeführtes Unternehmen mit persönlichem Service und langjähriger Erfahrung. Unser motiviertes und regional geschultes Personal steht Ihnen bei allen Fragen zur Seite.</p><p>Für uns gilt: <strong>Dienstleistung ist Vertrauenssache.</strong> Deshalb setzen wir unsere Arbeit nicht als kurzfristiger Auftrag, sondern als langfristige Partnerschaft. Unsere Kunden verlassen sich darauf, dass wir nicht schnell reagieren, sondern versuchsvoll denken und mitgestalten.</p>",
+        "show_button": true,
+        "button_label": "Mehr erfahren",
+        "button_link": ""
       }
     }
   },
@@ -234,6 +248,7 @@
     "featured_collection",
     "text_image_block_g7iCEm",
     "application_areas_AMijia",
-    "safety_info_AGwTpr"
+    "safety_info_AGwTpr",
+    "text_image_block_m7dCwa"
   ]
 }
