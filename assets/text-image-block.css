@@ -1,6 +1,8 @@
+/* TEXT + IMAGE BLOCK - optimiert auf Theme-Schriftgrößen */
+
 .tib-wrapper {
   background: var(--tib-bg, #ffffff);
-  padding: 70px 0;
+  padding: 80px 0;
 }
 
 .tib-wrapper .page-width {
@@ -13,26 +15,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 50px;
+  gap: 60px;
 }
 
 .tib-text {
   flex: 1 1 50%;
-  max-width: 540px;
+  max-width: 560px;
 }
 
+/* HEADLINE */
 .tib-heading {
-  font-size: 2.3rem;
+  font-size: 1.9rem; /* entspricht Richtext-Headline */
   font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 18px;
+  color: #0a1e33;
+  line-height: 1.25;
+  margin-bottom: 20px;
 }
 
+/* CONTENT TEXT */
 .tib-content {
-  font-size: 1.15rem;
+  font-size: 1.1rem; /* identisch mit Dawn Body Text */
   line-height: 1.75;
   color: #0a1e33;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .tib-content p {
@@ -44,8 +49,8 @@
   align-items: center;
   justify-content: center;
   background: #006a8f;
-  color: #fff;
-  padding: 12px 26px;
+  color: #ffffff;
+  padding: 12px 28px;
   border-radius: 9999px;
   font-weight: 600;
   font-size: 1rem;
@@ -58,6 +63,7 @@
   box-shadow: 0 8px 25px rgba(0, 106, 143, 0.28);
 }
 
+/* IMAGE */
 .tib-media {
   flex: 1 1 50%;
   display: flex;
@@ -65,7 +71,7 @@
 }
 
 .tib-image-wrap {
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   max-width: 520px;
@@ -81,17 +87,28 @@
   flex-direction: row-reverse;
 }
 
+/* RESPONSIVE */
 @media (max-width: 960px) {
   .tib-inner {
     flex-direction: column;
   }
 
   .tib-heading {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
+    text-align: center;
   }
 
   .tib-content {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .tib-button {
+    font-size: 0.95rem;
+  }
+
+  .tib-media {
+    justify-content: center;
   }
 
   .tib-wrapper .page-width {
