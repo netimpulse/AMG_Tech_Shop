@@ -38,8 +38,9 @@
     "custom-header": {
       "type": "custom-header",
       "settings": {
-        "logo_type": "text",
+        "logo_type": "image",
         "logo_text": "AMG Tech Shop",
+        "logo_image": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
         "logo_width": 150,
         "logo_position_x": 0,
         "logo_position_y": 0,

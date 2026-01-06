@@ -14,7 +14,7 @@
       "name": "Hero Banner (Trockeneis)",
       "settings": {
         "content_alignment": "left",
-        "heading": "<p><strong>Trockeneis – eiskalt effizient für Industrie, Gastronomie & Transport</strong></p>",
+        "heading": "<p><strong>Trockeneis –</strong><em><strong> Made im Saarland</strong></em></p>",
         "subheading": "<p>Höchste Kühlleistung, rückstandsfrei und nachhaltig produziert. Schnelle Lieferung deutschlandweit für alle Ihre Anforderungen.</p>",
         "show_primary_button": true,
         "primary_button_label": "Jetzt bestellen",
@@ -78,6 +78,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "all",
         "products_to_show": 8,
