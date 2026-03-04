@@ -1,0 +1,122 @@
+/* Über uns – Erfahrung/Stats */
+.ae-section {
+  --ae-gap: clamp(16px, 3vw, 28px);
+  --ae-card-pad: clamp(14px, 2.4vw, 22px);
+  --ae-radius: var(--ae-card-br, 16px);
+  background: var(--ae-bg, #f5f7f6);
+  color: var(--ae-text, #111);
+}
+.ae-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 56px) clamp(16px, 4vw, 32px);
+}
+.ae-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ae-gap);
+  align-items: start;
+}
+.ae-left { order: 1; }
+.ae-right { order: 2; }
+
+/* Typo */
+.ae-kicker {
+  font-size: clamp(12px, 1.4vw, 14px);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  opacity: .75;
+  margin: 0 0 8px;
+}
+.ae-heading {
+  font-size: clamp(28px, 4.2vw, 44px);
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+.ae-richtext {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.6;
+  opacity: .9;
+  margin-bottom: 16px;
+}
+
+/* Badges */
+.ae-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+.ae-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, .1);
+  color: var(--ae-accent, #22c55e);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Button */
+.ae-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--ae-accent, #22c55e);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+.ae-btn:hover { transform: translateY(-1px); }
+
+/* Cards */
+.ae-cards {
+  display: grid;
+  gap: var(--ae-gap);
+  grid-template-columns: 1fr 1fr;
+}
+.ae-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  background: var(--ae-card-bg, #fff);
+  border-radius: var(--ae-radius);
+  padding: var(--ae-card-pad);
+  box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+}
+.ae-card-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+.ae-card-title {
+  color: #0d7d3d;
+  font-weight: 800;
+  font-size: clamp(18px, 2.6vw, 22px);
+}
+.ae-card-subtitle {
+  font-size: clamp(12px, 1.6vw, 14px);
+  opacity: .8;
+}
+
+/* Responsive: Mobile zuerst Text, dann Karten */
+@media (max-width: 920px) {
+  .ae-grid {
+    grid-template-columns: 1fr;
+  }
+  .ae-left { order: 1; }
+  .ae-right { order: 2; }
+  .ae-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Be considerate with motion */
+@media (prefers-reduced-motion: reduce) {
+  .ae-btn { transition: none; }
+}

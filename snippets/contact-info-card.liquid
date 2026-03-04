@@ -1,0 +1,24 @@
+{%- assign b = block -%}
+<div class="cif-card" {{ block.shopify_attributes }}>
+  <div class="cif-card__icon">
+    {%- if b.settings.icon_image != blank -%}
+      <img loading="lazy" src="{{ b.settings.icon_image | image_url: width: 64 }}" width="32" height="32" alt="">
+    {%- else -%}
+      {%- case b.settings.icon -%}
+        {%- when 'phone' -%}
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.6 15.6 0 006.6 6.6l2.2-2.2a1.5 1.5 0 011.6-.36c1.13.43 2.36.66 3.6.66a1 1 0 011 1v3.3a1 1 0 01-1 1C10.3 21.8 2.2 13.7 2.2 4a1 1 0 011-1H6.5a1 1 0 011 1c0 1.24.23 2.47.66 3.6a1.5 1.5 0 01-.36 1.6l-2.2 2.2z"/></svg>
+        {%- when 'mail' -%}
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5a2 2 0 012-2h16a2 2 0 012 2v1.2l-10 6.25L2 6.2V5zm0 3.4V19a2 2 0 002 2h16a2 2 0 002-2V8.4l-10 6.25L2 8.4z"/></svg>
+        {%- when 'clock' -%}
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22A10 10 0 1122 12 10 10 0 0112 22zm1-10.6V6h-2v6l5 3 .9-1.8z"/></svg>
+        {%- else -%} {# map default #}
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1114.5 9 2.5 2.5 0 0112 11.5z"/></svg>
+        {%- endcase -%}
+    {%- endif -%}
+  </div>
+
+  <div class="cif-card__body">
+    <h3 class="cif-card__title">{{ b.settings.title }}</h3>
+    <div class="cif-card__text rte">{{ b.settings.text }}</div>
+  </div>
+</div>

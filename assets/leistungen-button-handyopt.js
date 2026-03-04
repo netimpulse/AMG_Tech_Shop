@@ -1,0 +1,84 @@
+{%- comment -%}
+  Section: Leistungen Button – Handyopt
+{%- endcomment -%}
+
+<section id="leistungen-{{ section.id }}" class="leistungen-button-handyopt" data-mobile-infinite="true">
+
+  {%- comment -%} CSS laden {%- endcomment -%}
+  <link rel="stylesheet" href="{{ 'leistungen-button-handyopt.css' | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ 'leistungen-button-handyopt.css' | asset_url | stylesheet_tag }}</noscript>
+
+  {% if section.settings.heading != blank %}
+    <div class="leistungen-neu-heading">
+      <h2>{{ section.settings.heading }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p>{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="carousel-wrapper">
+    <!-- Pfeile (auf Mobile via CSS versteckt) -->
+    <button class="carousel-arrow carousel-arrow--prev" aria-label="Zurück" type="button">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div class="carousel-viewport" id="viewport-{{ section.id }}">
+      <div class="carousel-track">
+        {%- for block in section.blocks -%}
+          {% render 'leistungen-button-handyopt-item', block: block %}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <button class="carousel-arrow carousel-arrow--next" aria-label="Weiter" type="button">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <div class="carousel-dots" aria-hidden="true"></div>
+
+  {% if section.settings.cta_text != blank %}
+    <div class="leistungen-button-cta">
+      {% if section.settings.cta_kicker != blank %}
+        <p class="leistungen-button-cta__kicker">{{ section.settings.cta_kicker }}</p>
+      {% endif %}
+      <a class="leistungen-button-cta__btn" href="{{ section.settings.cta_link | default: '#' }}">
+        {{ section.settings.cta_text }}
+      </a>
+    </div>
+  {% endif %}
+
+  {%- comment -%} JS laden {%- endcomment -%}
+  <script src="{{ 'leistungen-button-handyopt.js' | asset_url }}" defer="defer"></script>
+
+</section>
+
+{% schema %}
+{
+  "name": "Leistungen Button Handyopt",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Überschrift" },
+    { "type": "text", "id": "subheading", "label": "Untertitel" },
+    { "type": "text", "id": "cta_kicker", "label": "CTA Kicker" },
+    { "type": "text", "id": "cta_text", "label": "CTA Text" },
+    { "type": "url",  "id": "cta_link", "label": "CTA Link" }
+  ],
+  "blocks": [
+    {
+      "type": "leistung",
+      "name": "Leistung",
+      "settings": [
+        { "type": "image_picker", "id": "main_image", "label": "Hauptbild" },
+        { "type": "image_picker", "id": "number_icon", "label": "Nummern-Icon" },
+        { "type": "text", "id": "title", "label": "Titel" },
+        { "type": "text", "id": "subtitle", "label": "Untertitel" },
+        { "type": "richtext", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Leistungen Button Handyopt" }
+  ]
+}
+{% endschema %}

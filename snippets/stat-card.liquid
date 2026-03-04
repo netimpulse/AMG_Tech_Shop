@@ -1,0 +1,18 @@
+{%- comment -%}
+  Reusable Stat-Kachel
+  Übergaben: emoji, title, subtitle, aria_label, block
+{%- endcomment -%}
+
+<div class="ae-card" aria-label="{{ aria_label | default: title }}" {{ block.shopify_attributes }}>
+  <div class="ae-card-icon" aria-hidden="true">
+    {% if emoji != blank %}{{ emoji }}{% endif %}
+  </div>
+  <div class="ae-card-body">
+    {% if title != blank %}
+      <div class="ae-card-title">{{ title }}</div>
+    {% endif %}
+    {% if subtitle != blank %}
+      <div class="ae-card-subtitle">{{ subtitle }}</div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,234 @@
+
+{% comment %}
+  Blog Hero + Live-Suche (Artikel)
+  - Lädt Styles aus assets/blog-hero-search.css
+  - Nutzt Snippet 'article-search-item' zum Rendern einzelner Treffer
+  - Live-Suche via /search/suggest.json (resources[type]=article)
+{% endcomment %}
+
+{{ 'blog-hero-search.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="blog-hero-search-{{ section.id }}"
+  class="bh-wrapper"
+  style="
+    --bh-padding-y: {{ section.settings.padding_y_mobile }}px;
+    --bh-padding-x: {{ section.settings.padding_x_mobile }}px;
+    --bh-heading-color: {{ section.settings.heading_color }};
+    --bh-highlight-color: {{ section.settings.highlight_color }};
+    --bh-subtitle-color: {{ section.settings.subtitle_color }};
+    --bh-button-bg: {{ section.settings.button_bg }};
+    --bh-button-color: {{ section.settings.button_color }};
+    --bh-overlay: {{ section.settings.overlay }};
+  "
+>
+  <div class="bh-bg">
+    {% if section.settings.bg_image != blank %}
+      <img src="{{ section.settings.bg_image | image_url: width: 2000 }}"
+           srcset="
+            {{ section.settings.bg_image | image_url: width: 800 }} 800w,
+            {{ section.settings.bg_image | image_url: width: 1200 }} 1200w,
+            {{ section.settings.bg_image | image_url: width: 1600 }} 1600w,
+            {{ section.settings.bg_image | image_url: width: 2000 }} 2000w"
+           sizes="100vw"
+           alt="{{ section.settings.bg_image.alt | escape }}"
+           loading="lazy">
+    {% endif %}
+    <span class="bh-bg-overlay"></span>
+  </div>
+
+  <div class="bh-container {% if section.settings.content_width == 'narrow' %}bh-narrow{% endif %}">
+    <h1 class="bh-heading">
+      {{ section.settings.heading_prefix | escape }}
+      <span class="bh-highlight">{{ section.settings.heading_highlight | escape }}</span>
+    </h1>
+
+    {% if section.settings.subheading != blank %}
+      <p class="bh-subtitle">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <form class="bh-search" action="/search" method="get" role="search" novalidate>
+      <input type="hidden" name="type" value="article">
+      <input type="hidden" name="options[prefix]" value="last">
+      <div class="bh-search-field">
+        <input
+          class="bh-input"
+          type="search"
+          name="q"
+          autocomplete="off"
+          placeholder="{{ section.settings.search_placeholder | escape }}"
+          aria-label="{{ section.settings.search_placeholder | escape }}"
+        >
+        <button class="bh-button" type="submit">{{ section.settings.search_button_label | escape }}</button>
+      </div>
+
+      <fieldset class="bh-filters" aria-label="Filter">
+        <legend class="visually-hidden">Kategorien</legend>
+        <label class="bh-filter">
+          <input type="checkbox" name="filter" value="Gebäudeservice">
+          <span>Gebäudeservice</span>
+        </label>
+        <label class="bh-filter">
+          <input type="checkbox" name="filter" value="Industrieservice">
+          <span>Industrieservice</span>
+        </label>
+      </fieldset>
+
+      <div class="bh-results" data-results aria-live="polite" aria-relevant="additions removals"></div>
+    </form>
+  </div>
+
+  <script>
+    (function() {
+      const root   = document.getElementById('blog-hero-search-{{ section.id }}');
+      if (!root) return;
+
+      const input     = root.querySelector('.bh-input');
+      const resultsEl = root.querySelector('[data-results]');
+      const form      = root.querySelector('form');
+      const checkboxes= Array.from(root.querySelectorAll('.bh-filters input[type="checkbox"]'));
+
+      const t = {
+        noResults: "{{ section.settings.no_results | escape }}",
+        seeAll: "{{ section.settings.see_all | escape }}"
+      };
+
+      // Debounce helper
+      let timer;
+      const debounce = (fn, wait=250) => (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(null, args), wait);
+      };
+
+      // Render articles into results list (uses snippet markup shape)
+      function renderResults(articles, q) {
+        resultsEl.innerHTML = '';
+        if (!articles || !articles.length) {
+          resultsEl.innerHTML = `<div class="bh-empty">${t.noResults}</div>`;
+          return;
+        }
+        const frag = document.createDocumentFragment();
+        articles.forEach(a => {
+          const div = document.createElement('div');
+          div.className = 'bh-result';
+          const img = a.image ? `<img class="bh-thumb" src="${a.image}" alt="">` : '';
+          const date = a.published_at ? new Date(a.published_at).toLocaleDateString() : '';
+          const tags = a.tags && a.tags.length ? `<div class="bh-tags">${a.tags.slice(0,3).map(tag => `<span>${tag}</span>`).join('')}</div>` : '';
+          div.innerHTML = `
+            <a class="bh-card" href="${a.url}">
+              ${img}
+              <div class="bh-card-body">
+                <h3 class="bh-card-title">${a.title}</h3>
+                ${date ? `<div class="bh-date">${date}</div>` : ''}
+                ${tags}
+              </div>
+            </a>`;
+          frag.appendChild(div);
+        });
+        resultsEl.appendChild(frag);
+
+        // "Alle Ergebnisse" Link
+        if (q && q.trim().length) {
+          const params = new URLSearchParams({ q, type: 'article', 'options[prefix]':'last' });
+          const a = document.createElement('a');
+          a.className = 'bh-see-all';
+          a.href = '/search?' + params.toString();
+          a.textContent = t.seeAll;
+          resultsEl.appendChild(a);
+        }
+      }
+
+      function activeFilters() {
+        return checkboxes.filter(cb => cb.checked).map(cb => cb.value);
+      }
+
+      // Filter articles by selected tags (includes if article has ANY of the checked tags)
+      function applyFilters(articles) {
+        const filters = activeFilters();
+        if (!filters.length) return articles;
+        return articles.filter(a => {
+          if (!a.tags || !a.tags.length) return false;
+          return a.tags.some(tag => filters.includes(tag));
+        });
+      }
+
+      // Fetch from Shopify predictive search
+      async function fetchArticles(query) {
+        // If empty query: clear panel and stop
+        if (!query || !query.trim().length) {
+          resultsEl.innerHTML = '';
+          return;
+        }
+        const endpoint = `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=article&resources[limit]=8&resources[options][fields]=title,body,tags`;
+        try {
+          const res = await fetch(endpoint, {headers:{'Accept':'application/json'}});
+          if (!res.ok) throw new Error('Network error');
+          const data = await res.json();
+          const articles = (data?.resources?.results?.articles || []).map(a => ({
+            title: a.title,
+            url: a.url,
+            image: a.image ? a.image : (a.featured_image && a.featured_image.url) ? a.featured_image.url : '',
+            tags: a.tags || [],
+            published_at: a.published_at
+          }));
+          renderResults(applyFilters(articles), query);
+        } catch(e) {
+          console.error(e);
+          resultsEl.innerHTML = `<div class="bh-empty">${t.noResults}</div>`;
+        }
+      }
+
+      const onInput = debounce(() => fetchArticles(input.value), 300);
+      input.addEventListener('input', onInput);
+      checkboxes.forEach(cb => cb.addEventListener('change', () => fetchArticles(input.value)));
+
+      // Submit fallback keeps filters by appending tags to query
+      form.addEventListener('submit', (e) => {
+        const filters = activeFilters();
+        if (filters.length) {
+          // Append tags plainly to the query to help Shopify search surface them
+          const current = input.value || '';
+          input.value = (current + ' ' + filters.join(' ')).trim();
+        }
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Hero mit Suche",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Hintergrundbild" },
+    { "type": "text", "id": "heading_prefix", "label": "Überschrift – erster Teil", "default": "Moderne Einblicke für" },
+    { "type": "text", "id": "heading_highlight", "label": "Überschrift – Highlight", "default": "digitale Innovationen" },
+    { "type": "textarea", "id": "subheading", "label": "Beschreibung", "default": "Entdecken Sie die neuesten Trends, Best Practices und Expertenwissen aus der Welt der digitalen Transformation." },
+
+    { "type": "text", "id": "search_placeholder", "label": "Suchfeld Platzhalter", "default": "Blog-Artikel durchsuchen…" },
+    { "type": "text", "id": "search_button_label", "label": "Suchbutton Text", "default": "Suchen" },
+    { "type": "text", "id": "no_results", "label": "Text: Keine Ergebnisse", "default": "Keine Treffer. Bitte Suchbegriff anpassen." },
+    { "type": "text", "id": "see_all", "label": "Link: Alle Ergebnisse anzeigen", "default": "Alle Ergebnisse anzeigen" },
+
+    { "type": "select", "id": "content_width", "label": "Breite", "default": "narrow", "options": [
+      { "value": "narrow", "label": "Schmal" },
+      { "value": "full", "label": "Breit" }
+    ]},
+
+    { "type": "color", "id": "heading_color", "label": "Überschrift Farbe", "default": "#ffffff" },
+    { "type": "color", "id": "highlight_color", "label": "Highlight Farbe", "default": "#2b6cff" },
+    { "type": "color", "id": "subtitle_color", "label": "Beschreibung Farbe", "default": "#e8e8e8" },
+    { "type": "color", "id": "button_bg", "label": "Button Hintergrund", "default": "#2b6cff" },
+    { "type": "color", "id": "button_color", "label": "Button Text", "default": "#ffffff" },
+    { "type": "text", "id": "overlay", "label": "Overlay (rgba)", "default": "rgba(0,0,0,0.45)" },
+
+    { "type": "range", "id": "padding_y_mobile", "min": 40, "max": 180, "step": 4, "unit": "px", "label": "Vertikales Padding (mobil)", "default": 80 },
+    { "type": "range", "id": "padding_x_mobile", "min": 12, "max": 48, "step": 2, "unit": "px", "label": "Horizontales Padding (mobil)", "default": 20 }
+  ],
+  "presets": [
+    {
+      "name": "Blog Hero mit Suche",
+      "category": "Abschnitte"
+    }
+  ]
+}
+{% endschema %}

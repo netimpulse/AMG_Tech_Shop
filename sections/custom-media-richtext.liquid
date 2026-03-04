@@ -1,0 +1,248 @@
+{{ 'custom-media-richtext.css' | asset_url | stylesheet_tag }}
+
+<section id="media-richtext-{{ section.id }}"
+         class="cmr cmr--section"
+         style="--cmr-heading-size: {{ section.settings.heading_size_px }}px;">
+  <div class="cmr__inner page-width">
+    {%- if section.settings.section_heading != blank -%}
+      <div class="cmr__header rte">
+        {{ section.settings.section_heading }}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.section_subheading != blank -%}
+      <div class="cmr__subheader rte">
+        {{ section.settings.section_subheading }}
+      </div>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'media_row' -%}
+          {% render 'media-row', block: block, section_id: section.id %}
+        {%- endcase -%}
+    {%- endfor -%}
+
+    {%- assign gallery_blocks = section.blocks | where: 'type', 'gallery_item' -%}
+    {%- if gallery_blocks.size > 0 -%}
+      {%- if section.settings.gallery_heading != blank -%}
+        <div class="cmr__gallery-header rte">
+          {{ section.settings.gallery_heading }}
+        </div>
+      {%- endif -%}
+
+      <div class="cmr__gallery" role="list">
+        {%- for block in gallery_blocks -%}
+          <figure class="cmr__gallery-item" role="listitem" {{ block.shopify_attributes }}>
+            {% render 'block-custom-styles', block: block %}
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image
+                | image_url: width: 1500
+                | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw', alt: block.settings.alt | escape
+              }}
+            {%- else -%}
+              <div class="cmr__placeholder"></div>
+            {%- endif -%}
+            {%- if block.settings.caption != blank -%}
+              <figcaption class="cmr__caption rte">
+                {{ block.settings.caption }}
+              </figcaption>
+            {%- endif -%}
+          </figure>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "⚙️ Media Galerie",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "section_heading",
+      "label": "Überschrift (Richtext)",
+      "default": "<h2>Sand vs. Glasstrahlen – Strahlmedium</h2>"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_px",
+      "label": "Überschrift: Größe in Pixel",
+      "min": 16,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "richtext",
+      "id": "section_subheading",
+      "label": "Untertitel / Einleitung (Richtext)",
+      "default": "<p>Diese beiden Methoden sind in ihrer Vorgehensweise und Anwendung grundsätzlich ...</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "gallery_heading",
+      "label": "Galerie-Überschrift (Richtext)",
+      "default": "<h3>Vorher – Nachher Bilder</h3>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "media_row",
+      "name": "Medienreihe",
+      "limit": 50,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alternativtext (Barrierefreiheit)",
+          "default": "Bild"
+        },
+        {
+          "type": "select",
+          "id": "image_side",
+          "label": "Bildseite",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Links"
+            },
+            {
+              "value": "right",
+              "label": "Rechts"
+            }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Titel (Richtext)",
+          "default": "<h3>Titel der Reihe</h3>"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text (Richtext)",
+          "default": "<p>Hier steht der beschreibende Text zur jeweiligen Medienreihe.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_divider",
+          "label": "Trennlinie unterhalb anzeigen",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "gallery_item",
+      "name": "Galerie-Bild",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alternativtext",
+          "default": "Galeriebild"
+        },
+        {
+          "type": "richtext",
+          "id": "caption",
+          "label": "Bildunterschrift (Richtext)",
+          "default": "<p>Beschreibung oder Vorher/Nachher-Hinweis.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media + Richtext + Galerie",
+      "category": "Abschnitte",
+      "blocks": [
+        {
+          "type": "media_row"
+        },
+        {
+          "type": "gallery_item"
+        },
+        {
+          "type": "gallery_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

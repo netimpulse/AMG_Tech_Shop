@@ -1,0 +1,225 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-testimonials.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mtm sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    {%- if s.heading != blank -%}<h2 class="mtm__heading">{{ s.heading }}</h2>{%- endif -%}
+    <div class="mtm__grid mtm__grid--{{ s.columns }}">
+      {%- for block in section.blocks -%}
+        <div class="mtm__card" {{ block.shopify_attributes }} id="block-{{ block.id }}">
+          <div class="mtm__stars">
+            {%- for i in (1..5) -%}
+              {%- if i <= block.settings.rating -%}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              {%- else -%}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          {%- if block.settings.text != blank -%}<p class="mtm__text">"{{ block.settings.text }}"</p>{%- endif -%}
+          <div class="mtm__author">
+            {%- if block.settings.avatar != blank -%}<img src="{{ block.settings.avatar | image_url: width: 80 }}" alt="" class="mtm__avatar" width="40" height="40" loading="lazy">{%- endif -%}
+            <div>
+              {%- if block.settings.name != blank -%}<span class="mtm__name">{{ block.settings.name }}</span>{%- endif -%}
+              {%- if block.settings.role != blank -%}<span class="mtm__role">{{ block.settings.role }}</span>{%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Bewertungen",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Das sagen unsere Kunden"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Spalten",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Sektions-Hintergrund"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Bewertung",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Sterne",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Bewertungstext"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Max M."
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Zusatz (z.B. Verifizierter Kauf)"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Profilbild"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Bewertungen",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "text": "Super Produkt, schnelle Lieferung!",
+            "name": "Max M.",
+            "role": "Verifizierter Kauf",
+            "rating": 5
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "Sehr zufrieden, gerne wieder.",
+            "name": "Lisa S.",
+            "role": "Verifizierter Kauf",
+            "rating": 5
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "text": "Top Qualitaet zum fairen Preis.",
+            "name": "Tom K.",
+            "role": "Verifizierter Kauf",
+            "rating": 4
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

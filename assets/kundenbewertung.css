@@ -1,0 +1,99 @@
+.kundenbewertung-karussell {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px; /* Mehr Platz für die Pfeile */
+}
+
+.karussell-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.kundenbewertung-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 30px; /* Lücke zwischen den Karten */
+}
+
+.review-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  text-align: center;
+  /* Sorgt dafür, dass 3 Karten sichtbar sind und berücksichtigt den 'gap' */
+  flex: 0 0 calc(33.333% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.star-rating {
+  color: #ffc107;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.person-name {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.review-text p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.person-image {
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px; /* Abstand nach oben zum Text */
+}
+
+/* === ANPASSUNG START: Schlichtes Pfeil-Design === */
+
+.karussell-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  
+  /* Hintergrund und Rahmen wurden entfernt */
+  background-color: transparent;
+  border: none;
+
+  /* Pfeil-Farbe, -Größe und -Dicke angepasst */
+  color: #555;
+  font-size: 45px;
+  font-weight: 300;
+  
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+  
+  /* Sanfter Übergang für den Hover-Effekt */
+  transition: all 0.2s ease-in-out;
+}
+
+.karussell-button:hover {
+  color: #000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* === ANPASSUNG ENDE === */
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}

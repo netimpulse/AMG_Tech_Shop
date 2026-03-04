@@ -1,0 +1,23 @@
+{%- assign a = article -%}
+<div class="hb-card">
+  <a href="{{ a.url }}" class="hb-image-link">
+    {% if a.image %}
+      <img src="{{ a.image | img_url: '720x' }}" alt="{{ a.title | escape }}">
+    {% endif %}
+    {% if a.tags.size > 0 %}
+      <div class="hb-tag">{{ a.tags.first }}</div>
+    {% endif %}
+  </a>
+  <div class="hb-content">
+    <div class="hb-meta">
+      <span>{{ a.published_at | date: "%d. %B %Y" }}</span>
+      {% if a.author %} <span>• {{ a.author }}</span> {% endif %}
+      {% if a.reading_time %} <span>• {{ a.reading_time }} Min. Lesezeit</span> {% endif %}
+    </div>
+    <h3 class="hb-article-title">
+      <a href="{{ a.url }}">{{ a.title }}</a>
+    </h3>
+    <p class="hb-excerpt">{{ a.excerpt | strip_html | truncate: 140 }}</p>
+    <a href="{{ a.url }}" class="hb-readmore">Artikel lesen →</a>
+  </div>
+</div>

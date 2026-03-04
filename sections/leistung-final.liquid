@@ -1,0 +1,717 @@
+{% comment %} Section: Leistung final – Karussell (loop) + volle Button-Kontrolle {% endcomment %}
+{{ 'leistung-final.css' | asset_url | stylesheet_tag }}
+
+{%- assign section_id = 'leistung-final-' | append: section.id -%}
+
+{% comment %} Inline-Fallback CSS, falls Asset nicht lädt {% endcomment %}
+<style>
+  #{{ section_id }} .lf-viewport{overflow:hidden;}
+  #{{ section_id }} .lf-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--lf-gap,20px);}
+  @media(max-width:990px){#{{ section_id }} .lf-track{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media(max-width:640px){#{{ section_id }} .lf-track{grid-template-columns:1fr;}}
+
+  #{{ section_id }} .lf-carousel.lf-carousel--active .lf-track{display:flex;gap:0;transition:transform .35s ease;will-change:transform;}
+  #{{ section_id }} .lf-carousel.lf-carousel--active .lf-slide{flex:0 0 calc(100% / var(--lf-per-view,3));padding:0 10px;box-sizing:border-box;}
+
+  #{{ section_id }} .lf-carousel{position:relative;}
+  #{{ section_id }} .lf-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:999px;border:0;background:#f3f4f6;box-shadow:0 2px 10px rgba(0,0,0,.12);display:grid;place-items:center;cursor:pointer;transition:transform .15s,background .2s,opacity .2s;z-index:2}
+  #{{ section_id }} .lf-arrow:hover{transform:translateY(-50%) scale(1.05);background:#e5e7eb}
+  #{{ section_id }} .lf-prev{left:-24px} #{{ section_id }} .lf-next{right:-24px}
+  @media(max-width:640px){#{{ section_id }} .lf-prev{left:6px} #{{ section_id }} .lf-next{right:6px}}
+
+  #{{ section_id }} .lf-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+  #{{ section_id }} .lf-dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1;border:0;padding:0;cursor:pointer;transition:transform .15s,background .2s}
+  #{{ section_id }} .lf-dot:hover{transform:scale(1.1)} #{{ section_id }} .lf-dot.active{background:#111827}
+
+  #{{ section_id }} .lf-card{background:var(--lf-card-bg,#fff);border-radius:var(--lf-card-radius,12px);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);display:flex;flex-direction:column}
+  #{{ section_id }} .lf-img{width:100%;height:190px;object-fit:cover;display:block}
+
+  /* Typografie Variablen (unten befüllt) */
+  #{{ section_id }} .lf-heading{font-family:var(--lf-font-head);font-weight:var(--lf-head-fw);font-style:var(--lf-head-style);font-size:var(--lf-head-size);text-align:center;margin:0 0 8px;}
+  #{{ section_id }} .lf-subtext{font-family:var(--lf-font-body);font-weight:var(--lf-sub-fw);font-style:var(--lf-sub-style);font-size:var(--lf-sub-size);max-width:720px;line-height:1.6;margin:0 auto 24px;opacity:.9;text-align:center;}
+  #{{ section_id }} .lf-card-title{font-family:var(--lf-font-head);font-weight:var(--lf-title-fw);font-style:var(--lf-title-style);font-size:var(--lf-title-size);margin:0 0 8px;}
+  #{{ section_id }} .lf-card-text{font-family:var(--lf-font-body);font-weight:var(--lf-text-fw);font-style:var(--lf-text-style);font-size:var(--lf-text-size);margin:0 0 12px;opacity:.9;}
+  #{{ section_id }} .lf-card-link{font-family:var(--lf-font-body);font-weight:var(--lf-link-fw);font-style:var(--lf-link-style);font-size:var(--lf-link-size);color:var(--lf-accent);text-decoration:none;}
+  #{{ section_id }} .lf-card-link:hover{text-decoration:underline;}
+
+  /* CTA Container & Button */
+  #{{ section_id }} .lf-cta-wrap{ margin-top: var(--lf-btn-mt,28px); margin-bottom: var(--lf-btn-mb,0px); }
+  #{{ section_id }} .lf-cta-inner{ max-width: var(--lf-btn-maxw,420px); margin: 0 auto; }
+  #{{ section_id }} .lf-btn{
+    display:inline-block; width:auto;
+    padding: var(--lf-btn-py,10px) var(--lf-btn-px,20px);
+    border-radius: var(--lf-btn-radius,20px);
+    background: var(--lf-btn-bg,#8B8E93);
+    color: var(--lf-btn-text,#fff);
+    text-decoration:none; line-height:1;
+    font-family: var(--lf-font-body);
+    font-weight: var(--lf-btn-fw,600);
+    font-style: var(--lf-btn-style,normal);
+    font-size: var(--lf-btn-size,16px);
+    transition: transform .2s, background .2s, color .2s;
+  }
+  #{{ section_id }} .lf-btn:hover{ background: var(--lf-btn-hover-bg,#6f7276); color: var(--lf-btn-hover-text,#fff); transform: translateY(-1px); }
+  #{{ section_id }} .lf-btn--block{ display:block; width:100%; }
+</style>
+
+<section id="{{ section_id }}"
+  class="lf-container"
+  style="
+    --lf-bg: {{ section.settings.bg_color }};
+    --lf-text: {{ section.settings.text_color }};
+    --lf-accent: {{ section.settings.accent_color }};
+
+    --lf-card-bg: {{ section.settings.card_bg }};
+    --lf-card-hover-bg: {{ section.settings.card_hover_bg }};
+    --lf-card-radius: {{ section.settings.card_radius }}px;
+    --lf-card-lift: {{ section.settings.card_hover_lift | divided_by: 10.0 }}rem;
+
+    --lf-gap: {{ section.settings.grid_gap }}px;
+    --lf-pad: {{ section.settings.section_padding }}px;
+
+    /* Schriftfamilien */
+    --lf-font-head: {{ section.settings.font_heading.family }}, {{ section.settings.font_heading.fallback_families }};
+    --lf-font-body: {{ section.settings.font_body.family }}, {{ section.settings.font_body.fallback_families }};
+
+    /* Typografie-Variablen */
+    --lf-head-fw: {% if section.settings.heading_bold %}700{% else %}{{ section.settings.font_heading.weight | default: 600 }}{% endif %};
+    --lf-head-style: {% if section.settings.heading_italic %}italic{% else %}{{ section.settings.font_heading.style | default: 'normal' }}{% endif %};
+    --lf-head-size: {{ section.settings.heading_size | default: 32 }}px;
+
+    --lf-sub-fw: {% if section.settings.subtext_bold %}600{% else %}{{ section.settings.font_body.weight | default: 400 }}{% endif %};
+    --lf-sub-style: {% if section.settings.subtext_italic %}italic{% else %}{{ section.settings.font_body.style | default: 'normal' }}{% endif %};
+    --lf-sub-size: {{ section.settings.subtext_size | default: 16 }}px;
+
+    --lf-title-fw: {% if section.settings.card_title_bold %}700{% else %}{{ section.settings.font_heading.weight | default: 600 }}{% endif %};
+    --lf-title-style: {% if section.settings.card_title_italic %}italic{% else %}{{ section.settings.font_heading.style | default: 'normal' }}{% endif %};
+    --lf-title-size: {{ section.settings.card_title_size | default: 18 }}px;
+
+    --lf-text-fw: {% if section.settings.card_text_bold %}500{% else %}{{ section.settings.font_body.weight | default: 400 }}{% endif %};
+    --lf-text-style: {% if section.settings.card_text_italic %}italic{% else %}{{ section.settings.font_body.style | default: 'normal' }}{% endif %};
+    --lf-text-size: {{ section.settings.card_text_size | default: 14 }}px;
+
+    --lf-link-fw: {% if section.settings.card_link_bold %}700{% else %}{{ section.settings.font_body.weight | default: 600 }}{% endif %};
+    --lf-link-style: {% if section.settings.card_link_italic %}italic{% else %}{{ section.settings.font_body.style | default: 'normal' }}{% endif %};
+    --lf-link-size: {{ section.settings.card_link_size | default: 14 }}px;
+
+    /* CTA-Button Variablen */
+    --lf-btn-bg: {{ section.settings.button_bg }};
+    --lf-btn-hover-bg: {{ section.settings.button_hover_bg }};
+    --lf-btn-text: {{ section.settings.button_text }};
+    --lf-btn-hover-text: {{ section.settings.button_hover_text }};
+    --lf-btn-radius: {{ section.settings.button_radius }}px;
+    --lf-btn-fw: {% if section.settings.button_bold %}700{% else %}600{% endif %};
+    --lf-btn-style: {% if section.settings.button_italic %}italic{% else %}normal{% endif %};
+    --lf-btn-size: {{ section.settings.button_font_size }}px;
+    --lf-btn-px: {{ section.settings.button_padding_x }}px;
+    --lf-btn-py: {{ section.settings.button_padding_y }}px;
+    --lf-btn-mt: {{ section.settings.button_margin_top }}px;
+    --lf-btn-mb: {{ section.settings.button_margin_bottom }}px;
+    --lf-btn-maxw: {% if section.settings.button_max_width > 0 %}{{ section.settings.button_max_width }}px{% else %}420px{% endif %};
+  "
+>
+  <div class="lf-inner">
+    {% if section.settings.heading != blank %}<h2 class="lf-heading">{{ section.settings.heading }}</h2>{% endif %}
+    {% if section.settings.subtext != blank %}<p class="lf-subtext">{{ section.settings.subtext }}</p>{% endif %}
+
+    <div class="lf-carousel" data-section-id="{{ section.id }}">
+      <div class="lf-viewport">
+        <div class="lf-track">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'service_card_lf' -%}
+              <div class="lf-slide">
+                {% render 'service-card-leistung-final',
+                  image: block.settings.image,
+                  title: block.settings.title,
+                  text: block.settings.text,
+                  link_url: block.settings.link_url,
+                  link_label: block.settings.link_label,
+                  block_attrs: block.shopify_attributes
+                    {% render 'block-custom-styles', block: block %}
+                %}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <button class="lf-arrow lf-prev" aria-label="Zurück" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="lf-arrow lf-next" aria-label="Weiter" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="lf-dots" role="tablist" aria-label="Karussell Navigation"></div>
+    </div>
+
+    {% if section.settings.show_button and section.settings.button_label != blank %}
+      <div class="lf-cta-wrap" style="text-align: {{ section.settings.button_align }};">
+        <div class="lf-cta-inner">
+          <a class="lf-btn {% if section.settings.button_full_width %}lf-btn--block{% endif %}"
+             href="{{ section.settings.button_url | default: '#' }}">
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+(function(){
+  var root = document.querySelector('[data-section-id="{{ section.id }}"]');
+  if(!root) return;
+
+  var viewport = root.querySelector('.lf-viewport');
+  var track    = root.querySelector('.lf-track');
+  var slides   = Array.from(root.querySelectorAll('.lf-slide'));
+  var prevBtn  = root.querySelector('.lf-prev');
+  var nextBtn  = root.querySelector('.lf-next');
+  var dotsWrap = root.querySelector('.lf-dots');
+
+  function getState(){
+    var isMobile = window.matchMedia('(max-width: 640px)').matches;
+    var perView  = isMobile ? 1 : 3;
+    var enable   = isMobile || slides.length > 3;
+    return {isMobile:isMobile, perView:perView, enable:enable};
+  }
+
+  var current = 0, pages = 1, state = getState();
+
+  function setup(){
+    state = getState();
+
+    root.classList.remove('lf-carousel--active');
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+    dotsWrap.innerHTML = '';
+    track.style.transform = 'translateX(0)';
+
+    if(!state.enable) return;
+
+    root.classList.add('lf-carousel--active');
+    root.style.setProperty('--lf-per-view', state.perView);
+
+    pages = Math.max(1, Math.ceil(slides.length / state.perView));
+    if (pages <= 1){ return; }
+
+    prevBtn.style.display = '';
+    nextBtn.style.display = '';
+
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i < pages; i++){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'lf-dot';
+      b.setAttribute('role','tab');
+      b.setAttribute('aria-label','Seite ' + (i+1));
+      (function(idx){ b.addEventListener('click', function(){ goTo(idx); }); })(i);
+      dotsWrap.appendChild(b);
+    }
+    update();
+  }
+
+  function mod(n, m){ return ((n % m) + m) % m; }
+
+  function update(){
+    track.style.transform = 'translateX(' + (current * -100) + '%)';
+    Array.prototype.forEach.call(dotsWrap.children, function(d, i){
+      d.classList.toggle('active', i === current);
+    });
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+  }
+
+  function goTo(i){ current = mod(i, pages); update(); }
+
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+
+  var startX = 0, moved = 0, dragging = false;
+  function onStart(e){ dragging = true; startX = (e.touches?e.touches[0].clientX:e.clientX); moved = 0; track.style.transition = 'none'; }
+  function onMove(e){
+    if(!dragging) return;
+    var x = (e.touches?e.touches[0].clientX:e.clientX);
+    moved = x - startX;
+    var deltaPct = (moved / viewport.clientWidth) * 100;
+    track.style.transform = 'translateX(' + (-(current*100) + deltaPct) + '%)';
+  }
+  function onEnd(){
+    if(!dragging) return;
+    dragging = false; track.style.transition = '';
+    if(Math.abs(moved) > viewport.clientWidth * 0.15){ moved < 0 ? goTo(current + 1) : goTo(current - 1); }
+    else { update(); }
+  }
+  track.addEventListener('pointerdown', onStart);
+  window.addEventListener('pointermove', onMove);
+  window.addEventListener('pointerup', onEnd);
+  track.addEventListener('touchstart', onStart, {passive:true});
+  track.addEventListener('touchmove', onMove, {passive:true});
+  track.addEventListener('touchend', onEnd);
+
+  function init(){ setup(); }
+  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
+  window.addEventListener('resize', setup);
+  document.addEventListener('shopify:section:load', setup);
+  document.addEventListener('shopify:section:unload', setup);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Leistung final",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Unsere Leistungen"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Einleitungstext",
+      "default": "Mit Leidenschaft für Ihren Erfolg."
+    },
+    {
+      "type": "font_picker",
+      "id": "font_heading",
+      "label": "Schriftfamilie – Überschriften",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_body",
+      "label": "Schriftfamilie – Fließtext",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "header",
+      "content": "Typografie – Überschrift"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Überschrift – Größe (px)",
+      "min": 12,
+      "max": 64,
+      "step": 1,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_bold",
+      "label": "Überschrift fett",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_italic",
+      "label": "Überschrift kursiv",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typografie – Subtext"
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "label": "Subtext – Größe (px)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "subtext_bold",
+      "label": "Subtext fett",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "subtext_italic",
+      "label": "Subtext kursiv",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typografie – Karten"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "label": "Kartentitel – Größe (px)",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_title_bold",
+      "label": "Kartentitel fett",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "card_title_italic",
+      "label": "Kartentitel kursiv",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "label": "Kartentext – Größe (px)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_text_bold",
+      "label": "Kartentext fett",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "card_text_italic",
+      "label": "Kartentext kursiv",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "card_link_size",
+      "label": "Kartenlink – Größe (px)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_link_bold",
+      "label": "Kartenlink fett",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "card_link_italic",
+      "label": "Kartenlink kursiv",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Kacheln & Abstände"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Hintergrundfarbe",
+      "default": "#F3F6F9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#222222"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Akzentfarbe (Links)",
+      "default": "#ff6a00"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Kachel Hintergrund",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_hover_bg",
+      "label": "Kachel Hover Hintergrund",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "label": "Kachel Abrundung",
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_hover_lift",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "label": "Hover-Lift (px)",
+      "default": 6,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "label": "Abstand zwischen Karten",
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "label": "Innenabstand (Section)",
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "CTA-Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Button anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Text",
+      "default": "Mehr erfahren"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_align",
+      "label": "Ausrichtung",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Zentriert"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "button_full_width",
+      "label": "Button volle Breite (innerhalb Container)",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "button_max_width",
+      "label": "Max. Button-Breite (px, 0 = 420)",
+      "min": 0,
+      "max": 900,
+      "step": 10,
+      "default": 420,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Schriftgröße (px)",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_bold",
+      "label": "Fett",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "button_italic",
+      "label": "Kursiv",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "button_padding_x",
+      "label": "Padding X (px)",
+      "min": 8,
+      "max": 40,
+      "step": 1,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_y",
+      "label": "Padding Y (px)",
+      "min": 6,
+      "max": 24,
+      "step": 1,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_margin_top",
+      "label": "Abstand oben (px)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_margin_bottom",
+      "label": "Abstand unten (px)",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Hintergrund",
+      "default": "#8B8E93"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Textfarbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Hintergrund (Hover)",
+      "default": "#6f7276"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text",
+      "label": "Text (Hover)",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service_card_lf",
+      "name": "Kachel",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Titel"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Beschreibung",
+          "default": "Kurze Beschreibung hier."
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link-Text",
+          "default": "Mehr erfahren →"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Leistung final",
+      "blocks": [
+        {
+          "type": "service_card_lf"
+        },
+        {
+          "type": "service_card_lf"
+        },
+        {
+          "type": "service_card_lf"
+        },
+        {
+          "type": "service_card_lf"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

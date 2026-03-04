@@ -1,0 +1,865 @@
+{% comment %}
+  Section: Produkt-Info Block (v2)
+  =================================
+  Universeller Produkt-Block mit Kauf-Funktion.
+  Verfuegbar auf jeder Seite (dank presets).
+
+  Features:
+  - Produkt-Picker im Editor (waehle ein beliebiges Produkt)
+  - Produktbild mit Galerie
+  - Titel, Preis, MwSt-Hinweis, Einheitspreis
+  - Varianten-Auswahl (automatisch aus Produkt-Optionen)
+  - Mengen-Auswahl
+  - Nativer Shopify Add-to-Cart (funktioniert mit allen Checkout-Methoden)
+  - 8 togglebare Info-Komponenten (Beschreibung, Specs, Safety, Trust, CTA, Lieferung, Text, Bild)
+  - Block-Styling (Schrift, Farbe, Hintergrund)
+
+  Benoetigte Dateien:
+  - assets/product-info-block.css
+  - assets/product-info-block.js
+{% endcomment %}
+
+{{ 'product-info-block.css' | asset_url | stylesheet_tag }}
+
+{%- assign s = section.settings -%}
+{%- assign p = s.product -%}
+
+{%- comment -%} Section-Level Custom Styling {%- endcomment -%}
+{%- assign has_font_size = false -%}
+{%- assign has_font_color = false -%}
+{%- assign has_font_family = false -%}
+{%- assign has_block_bg = false -%}
+{%- if s.block_font_size > 0 -%}{%- assign has_font_size = true -%}{%- endif -%}
+{%- if s.block_font_color != blank -%}{%- assign has_font_color = true -%}{%- endif -%}
+{%- if s.block_font_family -%}{%- assign has_font_family = true -%}{%- endif -%}
+{%- if s.block_bg_color != blank -%}{%- assign has_block_bg = true -%}{%- endif -%}
+
+{%- if has_font_size or has_font_color or has_font_family or has_block_bg -%}
+<style>
+  #pib-{{ section.id }} {
+    {%- if has_font_size -%}font-size: {{ s.block_font_size }}px;{%- endif -%}
+    {%- if has_font_color -%}color: {{ s.block_font_color }};{%- endif -%}
+    {%- if has_font_family -%}
+      font-family: {{ s.block_font_family.family }}, {{ s.block_font_family.fallback_families }};
+      font-weight: {{ s.block_font_family.weight }};
+      font-style: {{ s.block_font_family.style }};
+    {%- endif -%}
+    {%- if has_block_bg -%}background: {{ s.block_bg_color }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+<div
+  class="pib"
+  id="pib-{{ section.id }}"
+  style="
+    {%- if s.section_bg_color != blank -%}background: {{ s.section_bg_color }};{%- endif -%}
+    padding-top: {{ s.section_padding_top }}px;
+    padding-bottom: {{ s.section_padding_bottom }}px;
+  "
+>
+  <div class="pib__inner page-width">
+
+    {%- if s.section_heading != blank -%}
+      <h2 class="pib__section-heading {{ s.heading_size }}">{{ s.section_heading }}</h2>
+    {%- endif -%}
+
+    {%- if p != blank -%}
+
+      {%- assign current_variant = p.selected_or_first_available_variant -%}
+
+      {%- comment -%} Variant-Daten fuer JavaScript {%- endcomment -%}
+      {%- capture variant_json -%}
+      [
+        {%- for variant in p.variants -%}
+          {
+            "id": {{ variant.id }},
+            "title": {{ variant.title | json }},
+            "price": {{ variant.price }},
+            "compare_at_price": {{ variant.compare_at_price | default: 0 }},
+            "available": {{ variant.available }},
+            "featured_image": {% if variant.featured_image %}{{ variant.featured_image | image_url: width: 800 | json }}{% else %}null{% endif %},
+            "options": {{ variant.options | json }},
+            "unit_price": {% if variant.unit_price %}{{ variant.unit_price }}{% else %}null{% endif %},
+            "unit_price_measurement": {% if variant.unit_price_measurement %}{{ variant.unit_price_measurement | json }}{% else %}null{% endif %}
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+      {%- endcapture -%}
+
+      <div
+        class="pib__product"
+        data-pib-section
+        data-pib-product-id="{{ p.id }}"
+        data-pib-variants='{{ variant_json | strip_newlines }}'
+        data-pib-money-format="{{ shop.money_format | escape }}"
+      >
+
+        {%- comment -%} ═══ PRODUKT-GRID: Bild + Kauf ═══ {%- endcomment -%}
+        <div class="pib__grid">
+
+          {%- comment -%} ── Linke Spalte: Produktbild ── {%- endcomment -%}
+          <div class="pib__media">
+            <div class="pib__image-wrapper">
+              {%- if p.featured_image != blank -%}
+                <img
+                  class="pib__image"
+                  data-pib-featured-image
+                  src="{{ p.featured_image | image_url: width: 800 }}"
+                  alt="{{ p.featured_image.alt | default: p.title | escape }}"
+                  width="800"
+                  height="{{ 800 | divided_by: p.featured_image.aspect_ratio | round }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="pib__image-placeholder">
+                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- comment -%} Thumbnail-Galerie (wenn mehrere Bilder) {%- endcomment -%}
+            {%- if p.images.size > 1 -%}
+              <div class="pib__thumbnails">
+                {%- for image in p.images limit: 6 -%}
+                  <button
+                    class="pib__thumbnail{% if forloop.first %} pib__thumbnail--active{% endif %}"
+                    data-pib-thumb
+                    data-pib-thumb-src="{{ image | image_url: width: 800 }}"
+                    type="button"
+                    aria-label="Bild {{ forloop.index }}"
+                  >
+                    <img
+                      src="{{ image | image_url: width: 120 }}"
+                      alt="{{ image.alt | default: p.title | escape }}"
+                      width="120"
+                      height="{{ 120 | divided_by: image.aspect_ratio | round }}"
+                      loading="lazy"
+                    >
+                  </button>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- comment -%} ── Rechte Spalte: Kaufbereich ── {%- endcomment -%}
+          <div class="pib__buy-area">
+
+            {%- comment -%} Titel {%- endcomment -%}
+            <h2 class="pib__title">{{ p.title }}</h2>
+
+            {%- comment -%} Hersteller {%- endcomment -%}
+            {%- if p.vendor != blank and s.show_vendor -%}
+              <p class="pib__vendor">{{ p.vendor }}</p>
+            {%- endif -%}
+
+            {%- comment -%} Preis-Bereich {%- endcomment -%}
+            <div class="pib__price-area" data-pib-price-area>
+              <span class="pib__price" data-pib-price>
+                {{ current_variant.price | money }}
+              </span>
+              {%- if current_variant.compare_at_price > current_variant.price -%}
+                <span class="pib__compare-price" data-pib-compare-price>
+                  {{ current_variant.compare_at_price | money }}
+                </span>
+              {%- else -%}
+                <span class="pib__compare-price" data-pib-compare-price style="display:none;"></span>
+              {%- endif -%}
+
+              {%- comment -%} MwSt-Hinweis {%- endcomment -%}
+              {%- if s.show_tax_info -%}
+                <div class="pib__tax-note" data-pib-tax-note>
+                  {%- if s.tax_text != blank -%}
+                    {{ s.tax_text }}
+                  {%- else -%}
+                    inkl. MwSt., zzgl. <a href="{{ policies.shipping_policy.url | default: '#' }}">Versandkosten</a>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Einheitspreis (pro kg etc.) {%- endcomment -%}
+              {%- if current_variant.unit_price -%}
+                <div class="pib__unit-price" data-pib-unit-price>
+                  {{ current_variant.unit_price | money }} / {{ current_variant.unit_price_measurement.reference_value }}{{ current_variant.unit_price_measurement.reference_unit }}
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- comment -%} ── SHOPIFY ADD-TO-CART FORM ── {%- endcomment -%}
+            <form
+              method="post"
+              action="/cart/add"
+              class="pib__form"
+              data-pib-form
+              enctype="multipart/form-data"
+            >
+              <input type="hidden" name="id" value="{{ current_variant.id }}" data-pib-variant-id>
+
+              {%- comment -%} Varianten-Optionen {%- endcomment -%}
+              {%- if p.has_only_default_variant == false -%}
+                <div class="pib__variants">
+                  {%- for option in p.options_with_values -%}
+                    <div class="pib__option-group">
+                      <label class="pib__option-label" for="pib-option-{{ section.id }}-{{ forloop.index0 }}">
+                        {{ option.name }}
+                      </label>
+                      <select
+                        class="pib__option-select"
+                        id="pib-option-{{ section.id }}-{{ forloop.index0 }}"
+                        data-pib-option
+                        data-pib-option-index="{{ forloop.index0 }}"
+                      >
+                        {%- for value in option.values -%}
+                          <option
+                            value="{{ value | escape }}"
+                            {% if option.selected_value == value %}selected{% endif %}
+                          >
+                            {{ value }}
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Menge {%- endcomment -%}
+              {%- if s.show_quantity -%}
+                <div class="pib__quantity-group">
+                  <label class="pib__option-label" for="pib-qty-{{ section.id }}">Menge</label>
+                  <div class="pib__quantity-wrapper">
+                    <button type="button" class="pib__qty-btn" data-pib-qty-minus aria-label="Menge verringern">
+                      <svg width="16" height="16" viewBox="0 0 16 16"><line x1="4" y1="8" x2="12" y2="8" stroke="currentColor" stroke-width="2"/></svg>
+                    </button>
+                    <input
+                      type="number"
+                      name="quantity"
+                      id="pib-qty-{{ section.id }}"
+                      class="pib__quantity-input"
+                      value="1"
+                      min="1"
+                      max="99"
+                      data-pib-quantity
+                    >
+                    <button type="button" class="pib__qty-btn" data-pib-qty-plus aria-label="Menge erhoehen">
+                      <svg width="16" height="16" viewBox="0 0 16 16"><line x1="4" y1="8" x2="12" y2="8" stroke="currentColor" stroke-width="2"/><line x1="8" y1="4" x2="8" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Verfuegbarkeits-Hinweis {%- endcomment -%}
+              <div class="pib__availability" data-pib-availability>
+                {%- if current_variant.available -%}
+                  <span class="pib__availability-dot pib__availability-dot--in-stock"></span>
+                  <span>Auf Lager</span>
+                {%- else -%}
+                  <span class="pib__availability-dot pib__availability-dot--out-of-stock"></span>
+                  <span>Ausverkauft</span>
+                {%- endif -%}
+              </div>
+
+              {%- comment -%} Add-to-Cart Button {%- endcomment -%}
+              <button
+                type="submit"
+                name="add"
+                class="pib__add-to-cart button"
+                data-pib-add-btn
+                {% unless current_variant.available %}disabled{% endunless %}
+              >
+                <span data-pib-add-text>
+                  {%- if current_variant.available -%}
+                    {{ s.add_to_cart_text | default: 'In den Warenkorb' }}
+                  {%- else -%}
+                    Ausverkauft
+                  {%- endif -%}
+                </span>
+                <span class="pib__add-spinner" data-pib-spinner style="display:none;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="31.4 31.4" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/></circle></svg>
+                </span>
+              </button>
+
+              {%- comment -%} Dynamische Checkout-Buttons (Shopify Pay etc.) {%- endcomment -%}
+              {%- if s.show_dynamic_checkout -%}
+                <div class="pib__dynamic-checkout" data-pib-dynamic-checkout>
+                  {{ form | payment_button }}
+                </div>
+              {%- endif -%}
+            </form>
+
+          </div>
+        </div>
+
+        {%- comment -%} ═══ INFO-BEREICH (togglebare Komponenten) ═══ {%- endcomment -%}
+        <div class="pib__info-area">
+
+          {%- comment -%} ── 1. Produktbeschreibung ── {%- endcomment -%}
+          {%- if s.enable_description -%}
+            <div class="pib__info-block pib__info-block--description">
+              {%- if s.description_heading != blank -%}
+                <h3 class="pib__info-heading">{{ s.description_heading }}</h3>
+              {%- endif -%}
+              <div class="pib__info-content rte">
+                {%- if s.description_source == 'product' -%}
+                  {{ p.description }}
+                {%- elsif s.description_text != blank -%}
+                  {{ s.description_text }}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} ── 2. Technische Daten ── {%- endcomment -%}
+          {%- if s.enable_specs -%}
+            <div class="pib__info-block pib__info-block--specs">
+              {%- if s.specs_heading != blank -%}
+                <h3 class="pib__info-heading">{{ s.specs_heading }}</h3>
+              {%- endif -%}
+              <table class="pib__specs-table">
+                <tbody>
+                  {%- if s.spec_label_1 != blank -%}<tr><td>{{ s.spec_label_1 }}</td><td>{{ s.spec_value_1 }}</td></tr>{%- endif -%}
+                  {%- if s.spec_label_2 != blank -%}<tr><td>{{ s.spec_label_2 }}</td><td>{{ s.spec_value_2 }}</td></tr>{%- endif -%}
+                  {%- if s.spec_label_3 != blank -%}<tr><td>{{ s.spec_label_3 }}</td><td>{{ s.spec_value_3 }}</td></tr>{%- endif -%}
+                  {%- if s.spec_label_4 != blank -%}<tr><td>{{ s.spec_label_4 }}</td><td>{{ s.spec_value_4 }}</td></tr>{%- endif -%}
+                  {%- if s.spec_label_5 != blank -%}<tr><td>{{ s.spec_label_5 }}</td><td>{{ s.spec_value_5 }}</td></tr>{%- endif -%}
+                  {%- if s.spec_label_6 != blank -%}<tr><td>{{ s.spec_label_6 }}</td><td>{{ s.spec_value_6 }}</td></tr>{%- endif -%}
+                </tbody>
+              </table>
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} ── 3. Sicherheitshinweis ── {%- endcomment -%}
+          {%- if s.enable_safety -%}
+            <div class="pib__info-block pib__info-block--safety">
+              <div class="pib__safety-inner">
+                {%- if s.safety_icon != blank -%}
+                  <div class="pib__safety-icon">
+                    <img src="{{ s.safety_icon | image_url: width: 48 }}" alt="" width="48" height="48" loading="lazy">
+                  </div>
+                {%- else -%}
+                  <div class="pib__safety-icon pib__safety-icon--default">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
+                {%- endif -%}
+                <div class="pib__safety-content">
+                  {%- if s.safety_heading != blank -%}<h3 class="pib__info-heading">{{ s.safety_heading }}</h3>{%- endif -%}
+                  {%- if s.safety_text != blank -%}<div class="rte">{{ s.safety_text }}</div>{%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} ── 4. Vertrauens-Badges ── {%- endcomment -%}
+          {%- if s.enable_trust -%}
+            <div class="pib__info-block pib__info-block--trust">
+              {%- if s.trust_heading != blank -%}<h3 class="pib__info-heading">{{ s.trust_heading }}</h3>{%- endif -%}
+              <div class="pib__trust-grid">
+                {%- if s.trust_text_1 != blank -%}
+                  <div class="pib__trust-item">
+                    {%- if s.trust_icon_1 != blank -%}<img src="{{ s.trust_icon_1 | image_url: width: 64 }}" alt="" class="pib__trust-icon" loading="lazy">{%- endif -%}
+                    <span>{{ s.trust_text_1 }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if s.trust_text_2 != blank -%}
+                  <div class="pib__trust-item">
+                    {%- if s.trust_icon_2 != blank -%}<img src="{{ s.trust_icon_2 | image_url: width: 64 }}" alt="" class="pib__trust-icon" loading="lazy">{%- endif -%}
+                    <span>{{ s.trust_text_2 }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if s.trust_text_3 != blank -%}
+                  <div class="pib__trust-item">
+                    {%- if s.trust_icon_3 != blank -%}<img src="{{ s.trust_icon_3 | image_url: width: 64 }}" alt="" class="pib__trust-icon" loading="lazy">{%- endif -%}
+                    <span>{{ s.trust_text_3 }}</span>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} ── 5. Kontakt-CTA ── {%- endcomment -%}
+          {%- if s.enable_cta -%}
+            <div class="pib__info-block pib__info-block--cta">
+              {%- if s.cta_heading != blank -%}<h3 class="pib__cta-heading">{{ s.cta_heading }}</h3>{%- endif -%}
+              {%- if s.cta_text != blank -%}<p class="pib__cta-text">{{ s.cta_text }}</p>{%- endif -%}
+              {%- if s.cta_button_text != blank -%}<a href="{{ s.cta_button_link }}" class="pib__cta-btn button">{{ s.cta_button_text }}</a>{%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} ── 6. Lieferinformationen ── {%- endcomment -%}
+          {%- if s.enable_delivery -%}
+            <div class="pib__info-block pib__info-block--delivery">
+              {%- if s.delivery_heading != blank -%}<h3 class="pib__info-heading">{{ s.delivery_heading }}</h3>{%- endif -%}
+              {%- if s.delivery_text != blank -%}<div class="rte">{{ s.delivery_text }}</div>{%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} ── 7. Freier Text-Block ── {%- endcomment -%}
+          {%- if s.enable_richtext -%}
+            <div class="pib__info-block pib__info-block--richtext">
+              {%- if s.richtext_heading != blank -%}<h3 class="pib__info-heading">{{ s.richtext_heading }}</h3>{%- endif -%}
+              {%- if s.richtext_content != blank -%}<div class="rte">{{ s.richtext_content }}</div>{%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} ── 8. Bild-Block ── {%- endcomment -%}
+          {%- if s.enable_image -%}
+            <div class="pib__info-block pib__info-block--image">
+              {%- if s.image_block_image != blank -%}
+                <img src="{{ s.image_block_image | image_url: width: s.image_max_width }}" alt="{{ s.image_block_image.alt | escape }}" class="pib__info-image" loading="lazy">
+              {%- endif -%}
+              {%- if s.image_caption != blank -%}<p class="pib__image-caption">{{ s.image_caption }}</p>{%- endif -%}
+            </div>
+          {%- endif -%}
+
+        </div>
+      </div>
+
+    {%- else -%}
+      {%- comment -%} Platzhalter wenn kein Produkt ausgewaehlt {%- endcomment -%}
+      <div class="pib__placeholder">
+        <div class="pib__placeholder-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
+        <p class="pib__placeholder-text">Waehlen Sie ein Produkt im Editor aus</p>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<script src="{{ 'product-info-block.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Produkt-Info Block",
+  "tag": "section",
+  "class": "section-product-info-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Produkt"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Produkt auswaehlen"
+    },
+    {
+      "type": "header",
+      "content": "Allgemein"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Ueberschrift der Sektion"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Ueberschrift-Groesse",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg_color",
+      "label": "Hintergrundfarbe der Sektion"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Abstand oben (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Abstand unten (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Kaufbereich"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Hersteller anzeigen",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tax_info",
+      "label": "MwSt-Hinweis anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tax_text",
+      "label": "MwSt-Text (leer = Standard)",
+      "info": "Standard: inkl. MwSt., zzgl. Versandkosten"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quantity",
+      "label": "Mengenauswahl anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Warenkorb-Button Text",
+      "default": "In den Warenkorb"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dynamic_checkout",
+      "label": "Dynamische Checkout-Buttons anzeigen",
+      "default": false,
+      "info": "Shopify Pay, PayPal Express etc."
+    },
+    {
+      "type": "header",
+      "content": "━━ Produktbeschreibung ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_description",
+      "label": "Produktbeschreibung anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "description_heading",
+      "label": "Ueberschrift",
+      "default": "Beschreibung"
+    },
+    {
+      "type": "select",
+      "id": "description_source",
+      "label": "Quelle",
+      "options": [
+        { "value": "product", "label": "Vom Produkt (automatisch)" },
+        { "value": "custom", "label": "Eigener Text" }
+      ],
+      "default": "product"
+    },
+    {
+      "type": "richtext",
+      "id": "description_text",
+      "label": "Eigener Text"
+    },
+    {
+      "type": "header",
+      "content": "━━ Technische Daten ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_specs",
+      "label": "Technische Daten anzeigen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "specs_heading",
+      "label": "Ueberschrift",
+      "default": "Technische Daten"
+    },
+    {
+      "type": "text",
+      "id": "spec_label_1",
+      "label": "Zeile 1 - Bezeichnung"
+    },
+    {
+      "type": "text",
+      "id": "spec_value_1",
+      "label": "Zeile 1 - Wert"
+    },
+    {
+      "type": "text",
+      "id": "spec_label_2",
+      "label": "Zeile 2 - Bezeichnung"
+    },
+    {
+      "type": "text",
+      "id": "spec_value_2",
+      "label": "Zeile 2 - Wert"
+    },
+    {
+      "type": "text",
+      "id": "spec_label_3",
+      "label": "Zeile 3 - Bezeichnung"
+    },
+    {
+      "type": "text",
+      "id": "spec_value_3",
+      "label": "Zeile 3 - Wert"
+    },
+    {
+      "type": "text",
+      "id": "spec_label_4",
+      "label": "Zeile 4 - Bezeichnung"
+    },
+    {
+      "type": "text",
+      "id": "spec_value_4",
+      "label": "Zeile 4 - Wert"
+    },
+    {
+      "type": "text",
+      "id": "spec_label_5",
+      "label": "Zeile 5 - Bezeichnung"
+    },
+    {
+      "type": "text",
+      "id": "spec_value_5",
+      "label": "Zeile 5 - Wert"
+    },
+    {
+      "type": "text",
+      "id": "spec_label_6",
+      "label": "Zeile 6 - Bezeichnung"
+    },
+    {
+      "type": "text",
+      "id": "spec_value_6",
+      "label": "Zeile 6 - Wert"
+    },
+    {
+      "type": "header",
+      "content": "━━ Sicherheitshinweis ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_safety",
+      "label": "Sicherheitshinweis anzeigen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "safety_heading",
+      "label": "Ueberschrift",
+      "default": "Sicherheitshinweis"
+    },
+    {
+      "type": "richtext",
+      "id": "safety_text",
+      "label": "Sicherheitstext"
+    },
+    {
+      "type": "image_picker",
+      "id": "safety_icon",
+      "label": "Icon (optional)"
+    },
+    {
+      "type": "header",
+      "content": "━━ Vertrauens-Badges ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_trust",
+      "label": "Vertrauens-Badges anzeigen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "trust_heading",
+      "label": "Ueberschrift"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_1",
+      "label": "Badge 1 - Icon"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_1",
+      "label": "Badge 1 - Text",
+      "default": "Schneller Versand"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_2",
+      "label": "Badge 2 - Icon"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_2",
+      "label": "Badge 2 - Text",
+      "default": "Sichere Zahlung"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_3",
+      "label": "Badge 3 - Icon"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_3",
+      "label": "Badge 3 - Text",
+      "default": "Top Qualitaet"
+    },
+    {
+      "type": "header",
+      "content": "━━ Kontakt-CTA ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_cta",
+      "label": "Kontakt-CTA anzeigen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "Ueberschrift",
+      "default": "Fragen? Kontaktieren Sie uns!"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button-Text",
+      "default": "Kontakt aufnehmen"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button-Link"
+    },
+    {
+      "type": "header",
+      "content": "━━ Lieferinformationen ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_delivery",
+      "label": "Lieferinformationen anzeigen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "delivery_heading",
+      "label": "Ueberschrift",
+      "default": "Lieferinformationen"
+    },
+    {
+      "type": "richtext",
+      "id": "delivery_text",
+      "label": "Liefertext"
+    },
+    {
+      "type": "header",
+      "content": "━━ Freier Text-Block ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_richtext",
+      "label": "Freien Text-Block anzeigen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "richtext_heading",
+      "label": "Ueberschrift"
+    },
+    {
+      "type": "richtext",
+      "id": "richtext_content",
+      "label": "Inhalt"
+    },
+    {
+      "type": "header",
+      "content": "━━ Bild-Block ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image",
+      "label": "Bild-Block anzeigen",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image_block_image",
+      "label": "Bild"
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "label": "Maximale Breite (px)",
+      "min": 200,
+      "max": 1200,
+      "step": 50,
+      "default": 800,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "image_caption",
+      "label": "Bildunterschrift"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produkt-Info Block",
+      "settings": {
+        "enable_description": true,
+        "show_vendor": true,
+        "show_tax_info": true,
+        "show_quantity": true
+      }
+    }
+  ]
+}
+{% endschema %}

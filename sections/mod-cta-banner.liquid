@@ -1,0 +1,155 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-cta-banner.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mcb sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width mcb__inner" style="text-align:{{ s.text_align }};">
+    {%- if s.heading != blank -%}<h2 class="mcb__heading {{ s.heading_size }}">{{ s.heading }}</h2>{%- endif -%}
+    {%- if s.text != blank -%}<p class="mcb__text">{{ s.text }}</p>{%- endif -%}
+    <div class="mcb__btns">
+      {%- if s.btn1_text != blank -%}<a href="{{ s.btn1_link }}" class="mcb__btn button">{{ s.btn1_text }}</a>{%- endif -%}
+      {%- if s.btn2_text != blank -%}<a href="{{ s.btn2_link }}" class="mcb__btn mcb__btn--outline">{{ s.btn2_text }}</a>{%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: CTA Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Bereit zum Bestellen?"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Groesse",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Ausrichtung",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Mitte"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "text",
+      "id": "btn1_text",
+      "label": "Button 1 Text",
+      "default": "Jetzt bestellen"
+    },
+    {
+      "type": "url",
+      "id": "btn1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "btn2_text",
+      "label": "Button 2 Text"
+    },
+    {
+      "type": "url",
+      "id": "btn2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 56,
+      "unit": "px"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Sektions-Hintergrund"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: CTA Banner"
+    }
+  ]
+}
+{% endschema %}

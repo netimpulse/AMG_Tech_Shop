@@ -1,0 +1,191 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-product-carousel.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mpc sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    {%- if s.heading != blank -%}
+      <div class="mpc__header">
+        <h2 class="mpc__heading">{{ s.heading }}</h2>
+        {%- if s.view_all_link != blank -%}<a href="{{ s.view_all_link }}" class="mpc__view-all">{{ s.view_all_text | default: 'Alle anzeigen' }} &rarr;</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="mpc__track-wrap page-width">
+    <button class="mpc__arrow mpc__arrow--prev" aria-label="Zurueck" type="button">&lsaquo;</button>
+    <div class="mpc__track" data-speed="{{ s.auto_scroll_speed }}" data-autoplay="{{ s.auto_play }}">
+      {%- if s.collection != blank -%}
+        {%- for product in s.collection.products limit: s.product_limit -%}
+          <div class="mpc__slide" style="min-width:{{ s.card_width }}px;">
+            <a href="{{ product.url }}" class="mpc__card">
+              <div class="mpc__img-wrap">
+                {%- if product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" class="mpc__img" width="500" height="{{ 500 | divided_by: product.featured_image.aspect_ratio | round }}">
+                {%- endif -%}
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="mpc__badge">Sale</span>
+                {%- endif -%}
+              </div>
+              <div class="mpc__info">
+                {%- if s.show_vendor -%}<span class="mpc__vendor">{{ product.vendor }}</span>{%- endif -%}
+                <span class="mpc__title">{{ product.title }}</span>
+                <span class="mpc__price">
+                  {%- if product.compare_at_price > product.price -%}
+                    <s class="mpc__price--old">{{ product.compare_at_price | money }}</s>
+                  {%- endif -%}
+                  {{ product.price | money }}
+                </span>
+              </div>
+            </a>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..6) -%}
+          <div class="mpc__slide" style="min-width:{{ s.card_width }}px;">
+            <div class="mpc__card"><div class="mpc__img-wrap"><div class="mpc__placeholder">{{ 'product-' | append: i | placeholder_svg_tag }}</div></div>
+            <div class="mpc__info"><span class="mpc__title">Beispielprodukt {{ i }}</span><span class="mpc__price">{{ 2999 | money }}</span></div></div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <button class="mpc__arrow mpc__arrow--next" aria-label="Weiter" type="button">&rsaquo;</button>
+  </div>
+</div>
+
+<script src="{{ 'mod-product-carousel.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Mod: Produkt-Karussell",
+  "tag": "section",
+  "class": "section-mod-product-carousel",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Kollektion"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Bestseller"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Max. Produkte",
+      "min": 3,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "card_width",
+      "label": "Kartenbreite (px)",
+      "min": 180,
+      "max": 400,
+      "step": 10,
+      "default": 260,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_play",
+      "label": "Automatisch scrollen",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "auto_scroll_speed",
+      "label": "Auto-Scroll Geschw. (ms)",
+      "min": 2000,
+      "max": 8000,
+      "step": 500,
+      "default": 4000,
+      "unit": "ms"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Hersteller anzeigen",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Hintergrundfarbe"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "'Alle anzeigen' Link"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "'Alle anzeigen' Text",
+      "default": "Alle anzeigen"
+    },
+    {
+      "type": "header",
+      "content": "Globale Schrift & Farbe"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Abschnitt-Hintergrund"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Produkt-Karussell"
+    }
+  ]
+}
+{% endschema %}

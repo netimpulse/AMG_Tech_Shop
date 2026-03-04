@@ -1,0 +1,431 @@
+{% comment %}
+  Section: Kontaktinformationen + Nachricht senden
+{% endcomment %}
+
+{{ 'contact-info-form.css' | asset_url | stylesheet_tag }}
+
+<section class="cif container">
+  <div class="cif__inner">
+    <div class="cif__left">
+      <h2 class="cif__title">{{ section.settings.left_title }}</h2>
+
+      <div class="cif__cards">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'info_card' -%}
+            {%- render 'contact-info-card', block: block -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="cif__right">
+      <h2 class="cif__title">{{ section.settings.right_title }}</h2>
+
+      {% form 'contact', id: 'ContactForm', class: 'cif__form' %}
+        {% if form.posted_successfully? %}
+          <p class="cif__success">{{ section.settings.success_text }}</p>
+        {% else %}
+          {% if form.errors %}
+            <div class="cif__errors" role="alert" aria-live="polite">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <div class="cif__grid">
+            {%- assign fprefix = 'contact' -%}
+
+            <div class="cif__field">
+              <label for="ContactFirst">{{ section.settings.label_firstname }}</label>
+              <input required type="text" id="ContactFirst" name="{{ fprefix }}[{{ section.settings.label_firstname }}]" placeholder="{{ section.settings.ph_firstname }}">
+            </div>
+
+            <div class="cif__field">
+              <label for="ContactLast">{{ section.settings.label_lastname }}</label>
+              <input required type="text" id="ContactLast" name="{{ fprefix }}[{{ section.settings.label_lastname }}]" placeholder="{{ section.settings.ph_lastname }}">
+            </div>
+
+            <div class="cif__field cif__field--full">
+              <label for="ContactEmail">{{ section.settings.label_email }}</label>
+              <input required type="email" id="ContactEmail" name="contact[email]" placeholder="{{ section.settings.ph_email }}">
+            </div>
+
+            <div class="cif__field">
+              <label for="ContactPhone">{{ section.settings.label_phone }}</label>
+              <input type="tel" id="ContactPhone" name="{{ fprefix }}[{{ section.settings.label_phone }}]" placeholder="{{ section.settings.ph_phone }}">
+            </div>
+
+            <div class="cif__field">
+              <label for="ContactCompany">{{ section.settings.label_company }}</label>
+              <input type="text" id="ContactCompany" name="{{ fprefix }}[{{ section.settings.label_company }}]" placeholder="{{ section.settings.ph_company }}">
+            </div>
+
+            <div class="cif__field cif__field--full">
+              <label for="ContactSubject">{{ section.settings.label_subject }}</label>
+              <input required type="text" id="ContactSubject" name="{{ fprefix }}[{{ section.settings.label_subject }}]" placeholder="{{ section.settings.ph_subject }}">
+            </div>
+
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'extra_field' -%}
+                <div class="cif__field {% if block.settings.full_width %}cif__field--full{% endif %}" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+                  {% render 'block-custom-styles', block: block %}
+                  <label for="ExtraField-{{ block.id }}">{{ block.settings.field_label }}</label>
+                  {%- if block.settings.field_type == 'text' -%}
+                    <input {% if block.settings.required %}required{% endif %} type="text" id="ExtraField-{{ block.id }}" name="{{ fprefix }}[{{ block.settings.field_label }}]" placeholder="{{ block.settings.placeholder }}">
+                  {%- elsif block.settings.field_type == 'tel' -%}
+                    <input {% if block.settings.required %}required{% endif %} type="tel" id="ExtraField-{{ block.id }}" name="{{ fprefix }}[{{ block.settings.field_label }}]" placeholder="{{ block.settings.placeholder }}">
+                  {%- elsif block.settings.field_type == 'email' -%}
+                    <input {% if block.settings.required %}required{% endif %} type="email" id="ExtraField-{{ block.id }}" name="{{ fprefix }}[{{ block.settings.field_label }}]" placeholder="{{ block.settings.placeholder }}">
+                  {%- elsif block.settings.field_type == 'select' -%}
+                    {%- assign options_str = block.settings.options | default: '' -%}
+                    {%- assign options_arr = options_str | split: ',' -%}
+                    <select {% if block.settings.required %}required{% endif %} id="ExtraField-{{ block.id }}" name="{{ fprefix }}[{{ block.settings.field_label }}]">
+                      {%- for opt in options_arr -%}
+                        <option value="{{ opt | strip }}">{{ opt | strip }}</option>
+                      {%- endfor -%}
+                    </select>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+
+            <div class="cif__field cif__field--full">
+              <label for="ContactMessage">{{ section.settings.label_message }}</label>
+              <textarea required id="ContactMessage" name="{{ fprefix }}[{{ section.settings.label_message }}]" rows="6" placeholder="{{ section.settings.ph_message }}"></textarea>
+            </div>
+
+            <div class="cif__consent cif__field--full">
+              <input required type="checkbox" id="ContactConsent" name="{{ fprefix }}[{{ section.settings.consent_label }}]">
+              <label for="ContactConsent">
+                {{ section.settings.consent_text }}
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="cif__submit">{{ section.settings.button_label }}</button>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kontakt Nachricht",
+  "tag": "section",
+  "class": "contact-info-form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Überschrift linke Spalte",
+      "default": "Kontaktinformationen"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Überschrift rechte Spalte",
+      "default": "Nachricht senden"
+    },
+    {
+      "type": "text",
+      "id": "label_firstname",
+      "label": "Label Vorname",
+      "default": "Vorname *"
+    },
+    {
+      "type": "text",
+      "id": "ph_firstname",
+      "label": "Platzhalter Vorname",
+      "default": "Ihr Vorname"
+    },
+    {
+      "type": "text",
+      "id": "label_lastname",
+      "label": "Label Nachname",
+      "default": "Nachname *"
+    },
+    {
+      "type": "text",
+      "id": "ph_lastname",
+      "label": "Platzhalter Nachname",
+      "default": "Ihr Nachname"
+    },
+    {
+      "type": "text",
+      "id": "label_email",
+      "label": "Label E-Mail",
+      "default": "E-Mail *"
+    },
+    {
+      "type": "text",
+      "id": "ph_email",
+      "label": "Platzhalter E-Mail",
+      "default": "ihre.email@beispiel.de"
+    },
+    {
+      "type": "text",
+      "id": "label_phone",
+      "label": "Label Telefon",
+      "default": "Telefon"
+    },
+    {
+      "type": "text",
+      "id": "ph_phone",
+      "label": "Platzhalter Telefon",
+      "default": "Ihre Telefonnummer"
+    },
+    {
+      "type": "text",
+      "id": "label_company",
+      "label": "Label Unternehmen",
+      "default": "Unternehmen"
+    },
+    {
+      "type": "text",
+      "id": "ph_company",
+      "label": "Platzhalter Unternehmen",
+      "default": "Ihr Unternehmen"
+    },
+    {
+      "type": "text",
+      "id": "label_subject",
+      "label": "Label Betreff",
+      "default": "Betreff *"
+    },
+    {
+      "type": "text",
+      "id": "ph_subject",
+      "label": "Platzhalter Betreff",
+      "default": "Worum geht es?"
+    },
+    {
+      "type": "text",
+      "id": "label_message",
+      "label": "Label Nachricht",
+      "default": "Nachricht *"
+    },
+    {
+      "type": "text",
+      "id": "ph_message",
+      "label": "Platzhalter Nachricht",
+      "default": "Beschreiben Sie Ihr Anliegen..."
+    },
+    {
+      "type": "richtext",
+      "id": "consent_text",
+      "label": "Datenschutz-Hinweis",
+      "default": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>"
+    },
+    {
+      "type": "text",
+      "id": "consent_label",
+      "label": "Feldname für Zustimmung",
+      "default": "Datenschutz zugestimmt"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button-Text",
+      "default": "Nachricht senden"
+    },
+    {
+      "type": "text",
+      "id": "success_text",
+      "label": "Text nach erfolgreichem Versand",
+      "default": "Danke für Ihre Nachricht! Wir melden uns bald."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_card",
+      "name": "Info-Karte (links)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Adresse"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Straße 1<br>12345 Stadt</p>"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Standard-Icon",
+          "default": "map",
+          "options": [
+            {
+              "value": "map",
+              "label": "Adresse / Karte"
+            },
+            {
+              "value": "phone",
+              "label": "Telefon"
+            },
+            {
+              "value": "mail",
+              "label": "E-Mail"
+            },
+            {
+              "value": "clock",
+              "label": "Uhr / Zeiten"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Eigenes Icon (optional, SVG/PNG)"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "extra_field",
+      "name": "Zusatzfeld (rechts)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "field_label",
+          "label": "Feldlabel",
+          "default": "Zusatzfeld"
+        },
+        {
+          "type": "select",
+          "id": "field_type",
+          "label": "Typ",
+          "default": "text",
+          "options": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "tel",
+              "label": "Telefon"
+            },
+            {
+              "value": "email",
+              "label": "E-Mail"
+            },
+            {
+              "value": "select",
+              "label": "Auswahl (Kommagetrennte Optionen)"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "options",
+          "label": "Optionen (nur für Auswahl)",
+          "default": "Option 1,Option 2"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Platzhalter",
+          "default": "Platzhalter"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Pflichtfeld?",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "full_width",
+          "label": "Volle Breite?",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "Kontaktbereich mit Formular",
+      "category": "Kontakt",
+      "blocks": [
+        {
+          "type": "info_card"
+        },
+        {
+          "type": "info_card"
+        },
+        {
+          "type": "info_card"
+        },
+        {
+          "type": "info_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

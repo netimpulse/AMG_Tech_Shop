@@ -1,0 +1,29 @@
+{%- comment -%}
+  Snippet: einzelne Service-Kachel (leistung-final)
+  Übergabewerte (via render):
+  - image, title, text, link_url, link_label, block_attrs
+{%- endcomment -%}
+
+<article class="lf-card" {{ block_attrs }}>
+  <div class="lf-card-media">
+    {%- if image != blank -%}
+      {{ image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'lf-img', alt: title }}
+    {%- else -%}
+      <div class="lf-img lf-img--placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="lf-card-body">
+    {%- if title != blank -%}
+      <h3 class="lf-card-title">{{ title }}</h3>
+    {%- endif -%}
+
+    {%- if text != blank -%}
+      <p class="lf-card-text">{{ text }}</p>
+    {%- endif -%}
+
+    {%- if link_label != blank -%}
+      <a class="lf-card-link" href="{{ link_url | default: '#' }}">{{ link_label }}</a>
+    {%- endif -%}
+  </div>
+</article>

@@ -1,0 +1,39 @@
+<div id="slide-{{ block.id }}" class="slide{% if slide_index == 0 %} active{% endif %}"
+     style="
+       background-image: url('{{ block.settings.bg_image | img_url: 'master' }}');
+       --heading-color: {{ block.settings.heading_color }};
+       --heading-font: {{ block.settings.heading_font.family | json }};
+       --heading-size: {{ block.settings.heading_font_size }}px;
+       --text-color: {{ block.settings.text_color }};
+       --text-font: {{ block.settings.text_font.family | json }};
+       --text-size: {{ block.settings.text_font_size }}px;
+       --button-color: {{ block.settings.button_text_color }};
+       --button-bg: {{ block.settings.button_bg_color }};
+       --button-hover-color: {{ block.settings.button_text_hover_color }};
+       --button-hover-bg: {{ block.settings.button_bg_hover_color }};
+       --button-radius: {{ block.settings.button_border_radius }}px;
+       --button-font: {{ block.settings.button_font.family | json }};
+       --button-size: {{ block.settings.button_font_size }}px;
+       {% if block.settings.show_logo %}
+         --logo-color: {{ block.settings.logo_color }};
+         --logo-font: {{ block.settings.logo_font.family | json }};
+         --logo-size: {{ block.settings.logo_font_size }}px;
+         --logo-radius: {{ block.settings.logo_border_radius }}px;
+       {% endif %}
+     ">
+  {% if block.settings.show_logo %}
+    <div class="slide-logo">{{ block.settings.logo_text }}</div>
+  {% endif %}
+
+  <div class="slide-content">
+    {% if block.settings.heading %}
+      <h2 class="slide-heading">{{ block.settings.heading }}</h2>
+    {% endif %}
+    {% if block.settings.text %}
+      <p class="slide-text">{{ block.settings.text }}</p>
+    {% endif %}
+    {% if block.settings.show_button %}
+      <a href="{{ block.settings.button_link }}" class="slider-button">{{ block.settings.button_label }}</a>
+    {% endif %}
+  </div>
+</div>

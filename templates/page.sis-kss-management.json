@@ -1,0 +1,590 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sticky_header_n9khEP": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/industrieservice-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "hero_building_section_9aRtBx": {
+      "type": "hero-building-section",
+      "name": "Hero Building",
+      "settings": {
+        "background_image": "shopify://shop_images/shutterstock_375261961.jpg",
+        "enable_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.5,
+        "heading": "KSS- Management",
+        "subheading": "",
+        "button_label": "Jetzt Angebot anfordern",
+        "button_link": "shopify://pages/industrieservice-kontakt",
+        "button_color": "#007acc",
+        "button_text_color": "#ffffff",
+        "button_radius": 4,
+        "heading_color": "#ffffff",
+        "text_color": "#f5f5f5",
+        "heading_size": 48,
+        "text_size": 18,
+        "font_family": "Arial, sans-serif",
+        "font_bold": true,
+        "font_italic": false,
+        "text_alignment": "left"
+      }
+    },
+    "leistung_showcase_aYDTB9": {
+      "type": "leistung-showcase",
+      "blocks": {
+        "showcase_item_jBnVzc": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Systemreinigung und Komplettwechsel</p>"
+          }
+        },
+        "showcase_item_XBNBrQ": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Messung und Nachdosierung</p>"
+          }
+        },
+        "showcase_item_CQ9AJr": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>frühzeitige Erkennung kritischer Zustände </p>"
+          }
+        },
+        "showcase_item_cQViC3": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Reduzierung von Maschinenstillständen </p>"
+          }
+        }
+      },
+      "block_order": [
+        "showcase_item_jBnVzc",
+        "showcase_item_XBNBrQ",
+        "showcase_item_CQ9AJr",
+        "showcase_item_cQViC3"
+      ],
+      "name": "Leistung Showcase",
+      "settings": {
+        "heading_html": "",
+        "heading_align": "left",
+        "heading_italic": false,
+        "heading_weight": "700",
+        "subtext": "",
+        "show_image": false,
+        "main_image": "shopify://shop_images/shutterstock_262821758.jpg",
+        "image_radius": 12,
+        "image_position": "left",
+        "left_heading_html": "<h2><strong>Kühlschmierstoffe (KSS)</strong></h2>",
+        "left_heading_align": "right",
+        "left_heading_italic": false,
+        "left_heading_weight": "700",
+        "left_text": "<p>Wir messen, prüfen, dosieren und tauschen Ihre Kühlschmierstoffe fachgerecht aus.</p>",
+        "bg_color": "#f6f8fb",
+        "section_padding": 24,
+        "points_title": "Unsere Dienstleistungen:",
+        "points_as_card": true,
+        "points_bg": "#ffffff",
+        "points_border": "#e5e8ee",
+        "points_btn_label": "Jetzt anfragen",
+        "points_btn_url": "shopify://pages/industrieservice-kontakt",
+        "points_btn_align": "left",
+        "fallback_bullet_color": "#2b6cb0"
+      }
+    },
+    "leistungen_button_Didgg8": {
+      "type": "leistungen-button",
+      "blocks": {
+        "service_block_E9zHe9": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        },
+        "service_block_C3fk7J": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        },
+        "service_block_nDPUVx": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        },
+        "service_block_efGdrb": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "service_block_E9zHe9",
+        "service_block_C3fk7J",
+        "service_block_nDPUVx",
+        "service_block_efGdrb"
+      ],
+      "disabled": true,
+      "name": "Leistungen Button",
+      "settings": {
+        "heading": "Unsere Leistungen",
+        "heading_font": "system_ui_n4",
+        "heading_bold": true,
+        "heading_italic": false,
+        "heading_font_size": 42,
+        "heading_color": "#333333",
+        "section_scale": 100,
+        "item_spacing": 30,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "section_bg_color": "#ffffff",
+        "arrow_color": "#111111",
+        "line_color": "#dddddd",
+        "cta_kicker": "Mehr zu unseren Services",
+        "cta_btn_label": "Alle Leistungen ansehen",
+        "cta_btn_link": "shopify://pages/industrieservice-leistungen",
+        "cta_btn_newtab": false,
+        "cta_btn_style": "primary",
+        "cta_align": "center",
+        "cta_kicker_color": "#555555",
+        "cta_btn_bg_color": "#111111",
+        "cta_btn_text_color": "#ffffff"
+      }
+    },
+    "about_section_v3_J4Vb8T": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_BwfDKN": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Vermeidung mikrobiologischer Belastungen",
+            "feature_description": ""
+          }
+        },
+        "feature_FdxBxe": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Verlängerung der KSS-Standzeit",
+            "feature_description": ""
+          }
+        },
+        "feature_z6xwUX": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Überwachung, Messung, Protokollierung",
+            "feature_description": ""
+          }
+        },
+        "feature_QaHGPB": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Reduzierung von Maschinenstillständen",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_BwfDKN",
+        "feature_FdxBxe",
+        "feature_z6xwUX",
+        "feature_QaHGPB"
+      ],
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 50,
+        "section_padding_bottom": 50,
+        "title": "",
+        "title_richtext": "<p><strong>KSS Service</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Messung, Nachdosierung, Komplettwechsel und Tankreinigung – professionell & normgerecht</strong></p><p>Kühlschmierstoffe (KSS) spielen eine zentrale Rolle in der metallverarbeitenden Industrie. Sie sorgen nicht nur für die notwendige Kühlung und Schmierung während der Bearbeitung, sondern tragen auch wesentlich zur Qualität des Werkstücks und zur Standzeit der Werkzeuge bei. Damit KSS ihre Wirkung optimal entfalten können und gleichzeitig keine Gefahr für Mensch und Umwelt darstellen, ist eine regelmäßige Kontrolle, Wartung und Reinigung unerlässlich.</p><p>Unser KSS-Service orientiert sich an den Vorgaben der <strong>TRGS 611 (Technische Regeln für Gefahrstoffe – Kühlschmierstoffe)</strong> und bietet Ihnen alles, was Sie für einen sicheren und effizienten Umgang mit Kühlschmierstoffen benötigen – vom Messen über die Nachdosierung bis hin zur vollständigen Reinigung und Wiederbefüllung Ihrer Anlagen.</p><p></p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "about_section_v3_Qj98fY": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "title": "",
+        "title_richtext": "<p><strong>Unser Service</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>✅ <strong>Professionelle KSS-Messung </strong> <br/>Wir führen präzise Analysen Ihrer KSS-Systeme durch, um die Qualität und Sicherheit der eingesetzten Medien sicherzustellen. Dabei prüfen wir unter anderem die<strong> Konzentration des Kühlschmierstoffs</strong> zur Sicherstellung einer optimalen Schmierleistung und Korrosionsschutzwirkung, den<strong> pH-Wert</strong> zur Beurteilung biologischer Stabilität und möglicher mikrobiologischer Belastungen. Den<strong> Nitrit-Gehalt</strong> als Indikator für eine mögliche mikrobiologische Zersetzung des KSS. Sowie die<strong> Wasserqualität</strong>, z. B. Härte und Leitfähigkeit, um Ablagerungen oder chemische Reaktionen vorzubeugen.</p><p>Alle Messergebnisse werden <strong>transparent dokumentiert</strong> und auf Wunsch digital zur Verfügung gestellt – inklusive Handlungsempfehlungen bei Abweichungen vom Soll-Zustand. </p><p>✅ <strong>Fachgerechte KSS-Nachdosierung</strong> <br/>Sinkt die Konzentration Ihres KSS-Systems unter den optimalen Wert, dosieren wir den Kühlschmierstoff fachgerecht nach – unter Berücksichtigung der bestehenden Anlagenbedingungen und gemäß Herstellerangaben. Ziel ist es, das Emulsionsverhältnis exakt einzustellen, um Leistung und Standzeit Ihrer Maschinen zu maximieren und gleichzeitig biologische Risiken zu minimieren. </p><p>✅ <strong>KSS-Komplettwechsel mit Systemreinigung</strong> <br/>Ist ein kompletter Austausch des Kühlschmierstoffes erforderlich – z. B. bei starker Verschmutzung, Geruchsbildung oder Bakterienbefall – übernehmen wir den gesamten Ablauf für Sie. Wir <strong>führen die Entleerung</strong> des bestehenden Kühlschmierstoffsystems durch, reinigen<strong> die KSS-Behälter, Maschineninnenräume und alle relevanten Anlagenbereiche</strong> Wir entfernen von Ablagerungen, Spänen, Ölreste und mikrobiologischen Rückstände und übernehmen die <strong>Bodenreinigung</strong> im direkten Maschinenumfeld. Außerdem kümmern wir uns um die <strong>Wiederbefüllung mit frischem KSS-Konzentrat</strong> nach Herstellervorgaben und führen die anschließende Erstmessung zur Freigabe durch. <br/>Diese Maßnahme verbessert nicht nur die Prozesssicherheit, sondern verlängert auch deutlich die Standzeit Ihrer Kühlschmierstoffe. </p><p>✅ <strong>Reinigung und Pflege Ihrer KSS-Tanks</strong> <br/>Auch außerhalb eines Komplettwechsels empfiehlt sich eine regelmäßige Reinigung der KSS-Tanks, um Späne, Ablagerungen und Rückstände zu entfernen, die den Umlauf des Kühlschmierstoffs behindern oder das System biologisch belasten können. Unsere Leistungen umfassen dabei die <strong>mechanische und manuelle Reinigung</strong> der Tankinnenräume und schwer zugänglichen Bereiche, die<strong> Absaugung von Altmedien, Ölen und Ablagerungen</strong>, die Entfernung von <strong>Fett, leicht anhaftenden Schmutzstoffen</strong> sowie Emulsionsresten. Außerdem gehört die <strong>Reinigung der Bodenflächen</strong> rund um die Maschine zur Minimierung von Rutschgefahren und Arbeitsrisiken zu unserem Service.</p><p>Die Reinigung erfolgt schonend, effizient und unter Berücksichtigung aller sicherheitsrelevanten Aspekte. </p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/k-hlschmierstoff-in-einem-industrietank-industriehalle-im-hintergrund.png",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "about_section_v3_jQreNi": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 25,
+        "section_padding_bottom": 25,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "<p><strong>Warum ist ein TRGS-611-konformer KSS-Service wichtig?</strong></p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Die TRGS 611 gibt klare Regelungen vor, um Gesundheitsrisiken durch Kühlschmierstoffe zu vermeiden. Besonders wichtig sind dabei: </p><ul><li><strong>Vermeidung mikrobiologischer Belastungen</strong>, die zu Hauterkrankungen oder Atemwegsproblemen führen können </li><li><strong>Verlängerung der KSS-Standzeit</strong> durch richtige Pflege und Überwachung </li><li><strong>Sicherstellung des Arbeitsschutzes</strong> für Mitarbeitende in der Fertigung </li><li><strong>Reduzierung von Maschinenstillständen</strong> durch frühzeitige Erkennung kritischer Zustände </li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "custom_cta_block_iDt7fX": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_G9LnJF": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/industrieservice-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_G9LnJF"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Service?</strong></p>",
+        "heading_size": 40,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_footer_neu_ijzVUj": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_UX7WK3": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "unternehmen_link_iTCQ39": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_ML9VXN": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/industrieservice-karriere"
+          }
+        },
+        "unternehmen_link_hE36aH": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_RNaAdp": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_QC38gC": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": "shopify://pages/industrieservice-impressum"
+          }
+        },
+        "kontakt_link_PWX6qV": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_nWCEwN": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_QNcDQ8": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_qTrHM6": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_UX7WK3",
+        "unternehmen_link_iTCQ39",
+        "unternehmen_link_ML9VXN",
+        "unternehmen_link_hE36aH",
+        "unternehmen_link_RNaAdp",
+        "kontakt_link_QC38gC",
+        "kontakt_link_PWX6qV",
+        "partner_logo_nWCEwN",
+        "partner_logo_QNcDQ8",
+        "partner_logo_qTrHM6"
+      ],
+      "name": "SIS Footer NEU- Industrieservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar - Industrie - Service GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@sissaar.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sticky_header_n9khEP",
+    "hero_building_section_9aRtBx",
+    "leistung_showcase_aYDTB9",
+    "leistungen_button_Didgg8",
+    "about_section_v3_J4Vb8T",
+    "about_section_v3_Qj98fY",
+    "about_section_v3_jQreNi",
+    "custom_cta_block_iDt7fX",
+    "sis_footer_neu_ijzVUj"
+  ]
+}

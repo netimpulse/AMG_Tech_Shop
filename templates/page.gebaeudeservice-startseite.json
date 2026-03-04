@@ -1,0 +1,531 @@
+{
+  "sections": {
+    "sticky_header_FqAYjf": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "geb-udeservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/gebaudeservice-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "hero_overlay_section_kbemep": {
+      "type": "hero-overlay-section",
+      "name": "Hero – Service Overlay",
+      "settings": {
+        "bg_image": "shopify://shop_images/2025-09-23_12_41_45-shutterstock_138092369_jpg.png",
+        "overlay_color": "#2baaa2",
+        "overlay_opacity": 70,
+        "section_height": 60,
+        "section_height_mobile": 40,
+        "content_max_width": 760,
+        "heading": "Gebäudeservice                                        Lösungen für Ihre Immobilie",
+        "heading_font": "system_ui_n4",
+        "heading_size": 64,
+        "heading_color": "#ffffff",
+        "text": "<p>Wir bieten erstklassige Reinigungs - und Facility Services für Unternehmen und Privatkunden</p>",
+        "text_font": "system_ui_n4",
+        "text_size": 20,
+        "text_color": "#ffffff",
+        "btn1_text": "Mehr über unsere Services",
+        "btn1_link": "shopify://pages/gebaeudeservice-leistungen",
+        "btn1_font": "system_ui_n4",
+        "btn1_font_size": 16,
+        "btn1_padding_x": 28,
+        "btn1_padding_y": 14,
+        "btn1_radius": 10,
+        "btn1_bg": "#2baaa2",
+        "btn1_bg_hover": "#238b84",
+        "btn1_text_color": "#ffffff",
+        "btn1_text_hover": "#ffffff",
+        "btn2_text": "JETZT ANRUFEN",
+        "btn2_link": "shopify://pages/gebaudeservice-kontakt",
+        "btn2_font": "system_ui_n4",
+        "btn2_font_size": 16,
+        "btn2_padding_x": 24,
+        "btn2_padding_y": 14,
+        "btn2_radius": 10,
+        "btn2_bg": "#ffffff",
+        "btn2_bg_hover": "#e6e6e6",
+        "btn2_text_color": "#2baaa2",
+        "btn2_text_hover": "#238b84"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "leistung_final_pQB9VM": {
+      "type": "leistung-final",
+      "blocks": {
+        "service_card_lf_ngKVqM": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_368560784.jpg",
+            "title": "Unterhaltsreinigung",
+            "text": "für einen sauberen Auftritt Ihrer Geschäftsräume",
+            "link_url": "shopify://pages/unterhaltsreinigung",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_PXJaE6": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_492241702.jpg",
+            "title": "Glas-/ Rahmenreinigung",
+            "text": "Lassen Sie die Sonne in Ihre Räume",
+            "link_url": "shopify://pages/glas-lamellenreinigung",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_EqV6LD": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/iStock-160738327.jpg",
+            "title": "Baubegleitende und Bauschluss- Reinigung",
+            "text": "der letzte Feinschliff",
+            "link_url": "shopify://pages/bauschlussreinigung",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_nn8th7": {
+          "type": "service_card_lf",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_672030043.jpg",
+            "title": "Reinraumreinigung",
+            "text": "hygienisch einwandfrei",
+            "link_url": "shopify://pages/sonderreinigung",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_YdeX6B": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_657542155.jpg",
+            "title": "Reinigung von Ferien- und Freizeitanlagen",
+            "text": "Wir lassen Ihre Ferienparks und Campingplätze in neuem Glanz erstrahlen.",
+            "link_url": "shopify://pages/ferienparks",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_finbgW": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_181375295.jpg",
+            "title": "Sonderreinigung",
+            "text": "Lassen Sie uns gemeinsam eine Lösung für Ihre Herausforderung finden.",
+            "link_url": "shopify://pages/gs-sonderreinigung",
+            "link_label": "Mehr erfahren →"
+          }
+        }
+      },
+      "block_order": [
+        "service_card_lf_ngKVqM",
+        "service_card_lf_PXJaE6",
+        "service_card_lf_EqV6LD",
+        "service_card_lf_nn8th7",
+        "service_card_lf_YdeX6B",
+        "service_card_lf_finbgW"
+      ],
+      "name": "Leistung final",
+      "settings": {
+        "heading": "Unsere Leistungen",
+        "subtext": "Mit Leidenschaft für Ihren Erfolg.",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "heading_size": 36,
+        "heading_bold": true,
+        "heading_italic": false,
+        "subtext_size": 16,
+        "subtext_bold": false,
+        "subtext_italic": false,
+        "card_title_size": 18,
+        "card_title_bold": true,
+        "card_title_italic": false,
+        "card_text_size": 14,
+        "card_text_bold": false,
+        "card_text_italic": false,
+        "card_link_size": 14,
+        "card_link_bold": true,
+        "card_link_italic": false,
+        "bg_color": "#f3f6f9",
+        "text_color": "#222222",
+        "accent_color": "#007acc",
+        "card_bg": "#ffffff",
+        "card_hover_bg": "#ffffff",
+        "card_radius": 12,
+        "card_hover_lift": 6,
+        "grid_gap": 20,
+        "section_padding": 24,
+        "show_button": true,
+        "button_label": "Alle Leistungen im Überblick",
+        "button_url": "shopify://pages/gebaeudeservice-leistungen",
+        "button_align": "center",
+        "button_full_width": false,
+        "button_max_width": 420,
+        "button_font_size": 16,
+        "button_bold": true,
+        "button_italic": false,
+        "button_padding_x": 20,
+        "button_padding_y": 10,
+        "button_margin_top": 28,
+        "button_margin_bottom": 0,
+        "button_bg": "#000000",
+        "button_text": "#ffffff",
+        "button_hover_bg": "#334fb4",
+        "button_hover_text": "#ffffff"
+      }
+    },
+    "amenities_hotspots_tap6zf": {
+      "type": "amenities-hotspots",
+      "blocks": {
+        "hotspot_YGhMHC": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Glasreinigung",
+            "text": "",
+            "pos_x": 7,
+            "pos_y": 40,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-right",
+            "open_by_default": false
+          }
+        },
+        "hotspot_3agTmd": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Teppichreinigung",
+            "text": "",
+            "pos_x": 62,
+            "pos_y": 84,
+            "dot_color": "#4ade80",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        },
+        "hotspot_7PGJ9X": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Oberflächenreinigung",
+            "text": "",
+            "pos_x": 27,
+            "pos_y": 63,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        },
+        "hotspot_8Q8LiF": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Deckenreinigung",
+            "text": "",
+            "pos_x": 35,
+            "pos_y": 28,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        },
+        "hotspot_dA7kHR": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Küchenreinigung",
+            "text": "",
+            "pos_x": 87,
+            "pos_y": 60,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        },
+        "hotspot_MaxEzi": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Sanitärreinigung",
+            "text": "",
+            "pos_x": 57,
+            "pos_y": 48,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_YGhMHC",
+        "hotspot_3agTmd",
+        "hotspot_7PGJ9X",
+        "hotspot_8Q8LiF",
+        "hotspot_dA7kHR",
+        "hotspot_MaxEzi"
+      ],
+      "name": "Amenities Hotspots",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_13._Aug._2025_23_28_29_1.png",
+        "content_side": "left",
+        "kicker": "",
+        "heading": "SIS  Saar Gebäudeservice GmbH",
+        "body": "",
+        "heading_font": "poppins_n4",
+        "heading_size": 44,
+        "heading_weight": "700",
+        "heading_italic": false,
+        "heading_color": "#111111",
+        "body_font": "poppins_n4",
+        "body_size": 16,
+        "body_weight": "400",
+        "body_italic": false,
+        "body_color": "#444444",
+        "btn_label": "Call now",
+        "btn_link": "",
+        "button_bg": "#4caf78",
+        "button_color": "#ffffff",
+        "btn_newtab": false,
+        "section_bg": "#ffffff",
+        "content_gap": 40,
+        "pad_y": 40,
+        "pad_x": 24,
+        "dot_size": 25,
+        "pulse_size": 12,
+        "close_others": true,
+        "panel_maxw": 360
+      }
+    },
+    "custom_cta_block_PhfGkC": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_XQhwYe": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        },
+        "button_gEUNEk": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/allgemeiner-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_XQhwYe",
+        "button_gEUNEk"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Gebäudeservice?</strong></p>",
+        "heading_size": 36,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_footer_neu_XYgyQL": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_cLHmrd": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Gebäudeservice",
+            "link": "shopify://pages/gebaeudeservice-leistungen"
+          }
+        },
+        "unternehmen_link_c7Lwdb": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/gebaudeservice-kontakt"
+          }
+        },
+        "unternehmen_link_XAB3Tj": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/gebaudeservice-karriere"
+          }
+        },
+        "unternehmen_link_XRMjFa": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_4kPVdg": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_kAWWjA": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-impressum"
+          }
+        },
+        "kontakt_link_6CdRj4": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_YckYce": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_RwiBdj": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_daf6NA": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_cLHmrd",
+        "unternehmen_link_c7Lwdb",
+        "unternehmen_link_XAB3Tj",
+        "unternehmen_link_XRMjFa",
+        "unternehmen_link_4kPVdg",
+        "kontakt_link_kAWWjA",
+        "kontakt_link_6CdRj4",
+        "partner_logo_YckYce",
+        "partner_logo_RwiBdj",
+        "partner_logo_daf6NA"
+      ],
+      "name": "SIS Footer NEU - Gebäudeservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar Gebäudeservice GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@gebaeudeservice.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_FqAYjf",
+    "hero_overlay_section_kbemep",
+    "main",
+    "leistung_final_pQB9VM",
+    "amenities_hotspots_tap6zf",
+    "custom_cta_block_PhfGkC",
+    "sis_footer_neu_XYgyQL"
+  ]
+}

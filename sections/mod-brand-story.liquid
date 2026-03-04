@@ -1,0 +1,182 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-brand-story.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mbs sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width mbs__inner">
+    {%- if s.heading != blank -%}<h2 class="mbs__heading">{{ s.heading }}</h2>{%- endif -%}
+    <div class="mbs__timeline">
+      {%- for block in section.blocks -%}
+        <div class="mbs__step" {{ block.shopify_attributes }} id="block-{{ block.id }}">
+          <div class="mbs__dot"></div>
+          <div class="mbs__content">
+            {%- if block.settings.year != blank -%}<span class="mbs__year">{{ block.settings.year }}</span>{%- endif -%}
+            {%- if block.settings.title != blank -%}<h3 class="mbs__title">{{ block.settings.title }}</h3>{%- endif -%}
+            {%- if block.settings.text != blank -%}<p class="mbs__text">{{ block.settings.text }}</p>{%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Markengeschichte",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Unsere Geschichte"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Sektions-Hintergrund"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Meilenstein",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Jahr/Zeitpunkt",
+          "default": "2020"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Gruendung"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Beschreibung"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Markengeschichte",
+      "blocks": [
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2020",
+            "title": "Gruendung",
+            "text": "Alles begann mit einer Idee."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2022",
+            "title": "Wachstum",
+            "text": "Ueber 1.000 Kunden gewonnen."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2025",
+            "title": "Heute",
+            "text": "Ihr vertrauensvoller Partner."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

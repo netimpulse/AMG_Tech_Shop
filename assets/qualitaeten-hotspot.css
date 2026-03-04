@@ -1,0 +1,86 @@
+/* Qualitäten Hotspot */
+.hi-wrap { padding: clamp(24px, 4vw, 56px) 0; }
+.hi-inner { max-width: var(--page-width, 1200px); margin: 0 auto; }
+
+.hi-title {
+  text-align: center;
+  margin: 0 0 8px;
+  line-height: 1.15;
+  font-size: clamp(26px, 3.5vw, 40px);
+}
+.hi-intro { text-align: center; max-width: 980px; margin: 0 auto 32px; opacity: .9; }
+
+.hi-grid {
+  display: grid;
+  gap: var(--hi-gap, 24px);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .hi-grid { grid-template-columns: repeat(var(--hi-cols-t, 2), minmax(0, 1fr)); }
+  .hi-grid.hi-cols-t-1 { --hi-cols-t: 1; }
+  .hi-grid.hi-cols-t-2 { --hi-cols-t: 2; }
+  .hi-grid.hi-cols-t-3 { --hi-cols-t: 3; }
+  .hi-grid.hi-cols-t-4 { --hi-cols-t: 4; }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .hi-grid { grid-template-columns: repeat(var(--hi-cols-d, 3), minmax(0, 1fr)); }
+  .hi-grid.hi-cols-d-2 { --hi-cols-d: 2; }
+  .hi-grid.hi-cols-d-3 { --hi-cols-d: 3; }
+  .hi-grid.hi-cols-d-4 { --hi-cols-d: 4; }
+  .hi-grid.hi-cols-d-5 { --hi-cols-d: 5; }
+}
+
+.hi-card { text-align: center; padding: 8px 12px 16px; }
+.hi-icon {
+  margin: 0 auto 16px;
+  width: var(--hi-icon-size, 88px);
+  height: var(--hi-icon-size, 88px);
+  border-radius: var(--hi-radius, 999px);
+  display: grid;
+  place-items: center;
+}
+.hi-icon__img { width: 60%; height: 60%; object-fit: contain; }
+.hi-icon__placeholder { font-size: calc(var(--hi-icon-size, 88px) / 3); opacity: .5; }
+
+/* Kein Icon => Abstand anpassen */
+.hi-card.no-icon .hi-card__title { margin-top: 6px; }
+
+.hi-card__title {
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.hi-card__text { margin: 0 auto 12px; max-width: 38ch; opacity: .9; }
+
+/* Unterpunkte (Liste) */
+.hi-subpoints { margin: 0 auto 14px; padding: 0; list-style: none; max-width: 42ch; }
+.hi-subpoints li {
+  margin: 6px 0;
+  padding-left: 1.25em;
+  text-align: left;
+  position: relative;
+  opacity: .95;
+}
+.hi-subpoints li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 1;
+}
+
+.hi-btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: var(--hi-btn-bg, #0b63c8);
+  color: var(--hi-btn-tx, #fff);
+  font-weight: 600;
+}
+.hi-btn.is-disabled { opacity: .55; pointer-events: none; }

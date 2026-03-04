@@ -1,0 +1,433 @@
+{% comment %} Leistung Showcase – Überschriften flexibel (Richtext), Bild optional, Punkte-Liste {% endcomment %}
+{{ 'leistung-showcase.css' | asset_url | stylesheet_tag }}
+
+<section class="lsc-section"
+  style="
+    --lsc-bg: {{ section.settings.bg_color }};
+    --lsc-pad: {{ section.settings.section_padding }}px;
+    --lsc-radius: {{ section.settings.image_radius }}px;
+    --lsc-bullet: {{ section.settings.fallback_bullet_color }};
+    --lsc-card-bg: {{ section.settings.points_bg }};
+    --lsc-card-bd: {{ section.settings.points_border }};
+    --lsc-font-heading: {{ section.settings.font_heading.family }}, {{ section.settings.font_heading.fallback_families }};
+    --lsc-font-body: {{ section.settings.font_body.family }}, {{ section.settings.font_body.fallback_families }};
+  "
+>
+  <div class="lsc-inner">
+    <div class="lsc-grid lsc-pos-{{ section.settings.image_position }}">
+
+      {%- comment -%} Linke Spalte: Bild ODER Textblock {%- endcomment -%}
+      <div class="lsc-media">
+        {% if section.settings.show_image %}
+          {% if section.settings.main_image != blank %}
+            {{ section.settings.main_image
+              | image_url: width: 1400
+              | image_tag:
+                  loading: 'lazy',
+                  sizes: '(min-width: 990px) 720px, 100vw',
+                  class: 'lsc-img',
+                  alt: section.settings.heading_html | strip_html | escape
+            }}
+          {% else %}
+            <div class="lsc-img lsc-img--placeholder" aria-hidden="true"></div>
+          {% endif %}
+        {% else %}
+          <div class="lsc-leftblock">
+            {% if section.settings.left_heading_html != blank %}
+              <div
+                class="lsc-left-heading text-{{ section.settings.left_heading_align }}"
+                style="
+                  font-style:{% if section.settings.left_heading_italic %}italic{% else %}normal{% endif %};
+                  font-weight:{{ section.settings.left_heading_weight }};
+                "
+              >
+                {{ section.settings.left_heading_html }}
+              </div>
+            {% endif %}
+            {% if section.settings.left_text != blank %}
+              <div class="lsc-left-text rte">{{ section.settings.left_text }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      {%- comment -%} Rechte Spalte: Hauptüberschrift + Text + Punkte {%- endcomment -%}
+      <div class="lsc-rightcol">
+        <div class="lsc-content">
+          {% if section.settings.heading_html != blank %}
+            <div
+              class="lsc-heading text-{{ section.settings.heading_align }}"
+              style="
+                font-style:{% if section.settings.heading_italic %}italic{% else %}normal{% endif %};
+                font-weight:{{ section.settings.heading_weight }};
+                font-family: var(--lsc-font-heading);
+              "
+            >
+              {{ section.settings.heading_html }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.subtext != blank %}
+            <div class="lsc-text rte" style="font-family: var(--lsc-font-body);">{{ section.settings.subtext }}</div>
+          {% endif %}
+        </div>
+
+        <aside class="lsc-points{% if section.settings.points_as_card %} is-card{% endif %}">
+          {% if section.settings.points_title != blank %}
+            <h3 class="lsc-points-title">{{ section.settings.points_title }}</h3>
+          {% endif %}
+
+          <div class="lsc-points-list">
+            {% for block in section.blocks %}
+              {% if block.type == 'showcase_item' %}
+                {% render 'point-item-showcase',
+                  icon: block.settings.icon,
+                  text: block.settings.text,
+                  id: block.id
+                %}
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% if section.settings.points_btn_label != blank %}
+            <div class="lsc-points-cta" style="text-align: {{ section.settings.points_btn_align }};">
+              <a class="lsc-btn" href="{{ section.settings.points_btn_url | default: '#' }}">
+                {{ section.settings.points_btn_label }}
+              </a>
+            </div>
+          {% endif %}
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Leistung Showcase",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading_html",
+      "label": "Überschrift (Richtext)",
+      "default": "<p><strong>Überschrift bei Überschrift</strong></p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Überschrift Ausrichtung",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Zentriert"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_italic",
+      "label": "Überschrift kursiv",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Überschrift Gewicht",
+      "default": "700",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Halbfett"
+        },
+        {
+          "value": "700",
+          "label": "Fett"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Einleitungstext",
+      "default": "<p>hier steht ein text</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "Bild anzeigen",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Bild"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Bild-Abrundung",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Bild-Position (Desktop)",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "left_heading_html",
+      "label": "Linke Überschrift (wenn Bild aus) – Richtext",
+      "default": "<p><strong>Zusätzliche Informationen</strong></p>"
+    },
+    {
+      "type": "select",
+      "id": "left_heading_align",
+      "label": "Linke Überschrift Ausrichtung",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Zentriert"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "left_heading_italic",
+      "label": "Linke Überschrift kursiv",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "left_heading_weight",
+      "label": "Linke Überschrift Gewicht",
+      "default": "700",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Halbfett"
+        },
+        {
+          "value": "700",
+          "label": "Fett"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "left_text",
+      "label": "Linker Text (wenn Bild aus)",
+      "default": "<p>Eigener Textblock, der erscheint, wenn das Bild ausgeblendet ist.</p>"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Hintergrundfarbe Abschnitt",
+      "default": "#F6F8FB"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Innenabstand",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Punkte-Container"
+    },
+    {
+      "type": "text",
+      "id": "points_title",
+      "label": "Titel Punkte-Container",
+      "default": "Unsere Dienstleistungen:"
+    },
+    {
+      "type": "checkbox",
+      "id": "points_as_card",
+      "label": "Container als Kachel",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "points_bg",
+      "label": "Container-Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "points_border",
+      "label": "Container-Rahmen",
+      "default": "#E5E8EE"
+    },
+    {
+      "type": "text",
+      "id": "points_btn_label",
+      "label": "Button-Text im Punkte-Container",
+      "default": "Jetzt anfragen"
+    },
+    {
+      "type": "url",
+      "id": "points_btn_url",
+      "label": "Button-Link"
+    },
+    {
+      "type": "select",
+      "id": "points_btn_align",
+      "label": "Button-Ausrichtung",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Zentriert"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "fallback_bullet_color",
+      "label": "Fallback-Bullet-Farbe (wenn kein Icon)",
+      "default": "#2B6CB0"
+    },
+    {
+      "type": "header",
+      "content": "Schriftarten"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_heading",
+      "label": "Schriftfamilie – Überschriften",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_body",
+      "label": "Schriftfamilie – Fließtext",
+      "default": "helvetica_n4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "showcase_item",
+      "name": "Punkt",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (SVG/PNG)"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text (mehrzeilig möglich)",
+          "default": "<p>hier steht ein text</p>"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "Leistung Showcase",
+      "blocks": [
+        {
+          "type": "showcase_item"
+        },
+        {
+          "type": "showcase_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

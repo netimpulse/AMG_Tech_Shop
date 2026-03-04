@@ -1,0 +1,170 @@
+{{ 'kundenbewertung.css' | asset_url | stylesheet_tag }}
+
+<div class="kundenbewertung-section" style="background-color: {{ section.settings.background_color }}; padding: {{ section.settings.section_padding }}px 0;">
+  <div class="kundenbewertung-karussell">
+    <button class="karussell-button prev-button">❮</button>
+    <div class="karussell-viewport">
+      <div class="kundenbewertung-container">
+        {% for block in section.blocks %}
+          {% render 'kundenbewertung-snippet', block: block %}
+        {% endfor %}
+      </div>
+    </div>
+    <button class="karussell-button next-button">❯</button>
+  </div>
+</div>
+
+<script src="{{ 'kundenbewertung-karussell.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Kundenbewertung",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Abstand (Größe des Blocks)",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Bewertung",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "person_image",
+          "label": "Bild der Person"
+        },
+        {
+          "type": "range",
+          "id": "image_size",
+          "min": 50,
+          "max": 150,
+          "step": 10,
+          "unit": "px",
+          "label": "Bildgröße",
+          "default": 80
+        },
+        {
+          "type": "text",
+          "id": "person_name",
+          "label": "Name der Person",
+          "default": "Max Mustermann"
+        },
+        {
+          "type": "font_picker",
+          "id": "name_font",
+          "label": "Schriftart des Namens",
+          "default": "helvetica_n4"
+        },
+        {
+          "type": "range",
+          "id": "name_font_size",
+          "min": 14,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße des Namens",
+          "default": 18
+        },
+        {
+          "type": "richtext",
+          "id": "review_text",
+          "label": "Bewertungstext",
+          "default": "<p>Eine tolle Erfahrung! Ich bin sehr zufrieden mit dem Produkt und dem Service.</p>"
+        },
+        {
+          "type": "font_picker",
+          "id": "text_font",
+          "label": "Schriftart des Textes",
+          "default": "helvetica_n4"
+        },
+        {
+          "type": "range",
+          "id": "text_font_size",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße des Textes",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "star_rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Sternebewertung",
+          "default": 5
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kundenbewertung",
+      "blocks": [
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

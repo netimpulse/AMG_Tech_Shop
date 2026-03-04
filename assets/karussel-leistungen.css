@@ -1,0 +1,93 @@
+/* Karussell Leistungen – Styles (endloser Slider) */
+.svc-wrap { padding: clamp(24px, 4vw, 56px) 0; }
+.svc-inner { position: relative; }
+.svc-head { text-align: center; max-width: 900px; margin: 0 auto 24px; }
+.svc-title { margin: 0 0 8px; font-size: clamp(24px, 3.2vw, 36px); line-height: 1.15; }
+.svc-subtitle { margin: 0 auto; color: rgba(15,23,42,.8); }
+
+.svc-scroller {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  position: relative;
+}
+.svc-scroller.is-drag { cursor: grabbing; }
+.svc-scroller--scrollbar { scrollbar-width: thin; }
+.svc-scroller:not(.svc-scroller--scrollbar)::-webkit-scrollbar { display: none; }
+
+/* Einreihiges, responsives Karussell */
+.svc-row {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--svc-gap, 16px);
+  padding: 8px;
+  /* Sichtbare Spalten -> Kartengröße */
+  --kl-cols: var(--kl-cols-desktop, 4);
+  grid-auto-columns: minmax(240px, calc((100% - (var(--kl-cols) - 1) * var(--svc-gap)) / var(--kl-cols)));
+  scroll-snap-type: x mandatory;
+}
+.svc-row > * { scroll-snap-align: start; }
+
+@media (min-width: 640px) and (max-width: 991px) {
+  .svc-row { --kl-cols: var(--kl-cols-tablet, 3); }
+}
+@media (max-width: 639px) {
+  .svc-row {
+    --kl-cols: 1.2; /* sorgt für ~80% Breite pro Karte */
+    padding-bottom: 8px;
+  }
+}
+
+/* Karte */
+.svc-card {
+  background: var(--svc-card-bg, #fff);
+  color: var(--svc-card-text, #0f172a);
+  border-radius: var(--svc-radius, 14px);
+  box-shadow: 0 1px 2px rgba(2,6,23,.05);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transform: translateZ(0);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.svc-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(2,6,23,.12);
+}
+
+.svc-card__media { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+.svc-card__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.svc-card__placeholder { width:100%; height:100%; background: linear-gradient(135deg,#e5e7eb,#f3f4f6); }
+
+.svc-card__badge {
+  position: absolute; left: 12px; bottom: 12px;
+  padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 12px;
+  background: var(--svc-badge-bg,#eef2ff); color: var(--svc-badge-tx,#3730a3);
+}
+
+.svc-card__body { padding: 16px; display:flex; flex-direction:column; gap: 8px; }
+.svc-card__title { font-size: 18px; margin: 0; }
+.svc-card__text { margin: 0; opacity: .9; }
+
+.svc-card__list { margin: 8px 0 0; padding: 0; list-style: none; }
+.svc-card__li {
+  position: relative; padding-left: 18px; margin: 8px 0 0;
+}
+.svc-card__li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: 8px; height: 8px; border-radius: 2px; background: var(--svc-bullet,#10b981);
+}
+
+.svc-card__footer { padding: 0 16px 16px; margin-top: auto; }
+.svc-btn {
+  display: inline-block; padding: 10px 14px; border-radius: 10px;
+  border: 1px solid currentColor; text-decoration: none; font-weight: 600;
+}
+.svc-btn.is-disabled { opacity: .5; pointer-events: none; }
+
+/* Pfeile */
+.svc-arrows { display:flex; gap: 8px; justify-content:center; margin-top: 16px; }
+.svc-arrow { border: 1px solid #d1d5db; background:#fff; border-radius: 10px; padding: 8px 12px; cursor: pointer; }
+.svc-arrow:hover { box-shadow: 0 4px 12px rgba(2,6,23,.12); }
+
+/* Editor/Focus-States */
+.svc-card:focus-within { outline: 2px solid #0ea5e9; outline-offset: 2px; }

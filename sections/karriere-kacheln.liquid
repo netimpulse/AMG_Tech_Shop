@@ -1,0 +1,423 @@
+{% comment %}
+  sections/karriere-kacheln.liquid
+  "Karriere-Kacheln" – Badge oben links über dem Titel, Richtext, Details ausklappbar
+{% endcomment %}
+
+{{ 'karriere-kacheln.css' | asset_url | stylesheet_tag }}
+
+<section id="karriere-{{ section.id }}" class="jobs-section"
+  style="
+    --jobs-section-bg: {{ section.settings.section_bg }};
+    --jobs-pad-y: {{ section.settings.padding_y }}px;
+    --jobs-gap: {{ section.settings.grid_gap }}px;
+    --jobs-cols: {{ section.settings.columns }};
+    --card-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="jobs-container">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <header class="jobs-header text-{{ section.settings.text_align }}">
+        {% if section.settings.heading != blank %}
+          <div class="jobs-title">{{ section.settings.heading }}</div>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <div class="jobs-subtitle">{{ section.settings.subheading }}</div>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="jobs-grid">
+      {% for block in section.blocks %}
+        {% assign badge_label = block.settings.badge_label %}
+        {% if badge_label == blank %}
+          {% case block.settings.time %}
+            {% when 'vollzeit' %}{% assign badge_label = 'Vollzeit' %}
+            {% when 'teilzeit' %}{% assign badge_label = 'Teilzeit' %}
+            {% when 'beides'   %}{% assign badge_label = 'Vollzeit / Teilzeit' %}
+            {% when 'minijob'  %}{% assign badge_label = 'Minijob' %}
+            {% else %}{% assign badge_label = '' %}
+          {% endcase %}
+        {% endif %}
+
+        <article class="job-card text-{{ block.settings.card_align }}" id="block-{{ block.id }}" {{ block.shopify_attributes }}
+          {% render 'block-custom-styles', block: block %}
+          style="--card-bg: {{ block.settings.card_bg | default: section.settings.card_bg }};"
+        >
+          <!-- Kopf: Badge ÜBER dem Titel -->
+          <div class="job-head">
+            {% if badge_label != blank %}
+              {% render 'karriere-badge',
+                label: badge_label,
+                bg_color: block.settings.badge_bg | default: section.settings.badge_bg,
+                text_color: block.settings.badge_text | default: section.settings.badge_text
+              %}
+            {% endif %}
+
+            {% if block.settings.title_html != blank %}
+              <div class="job-title">{{ block.settings.title_html }}</div>
+            {% endif %}
+          </div>
+
+          {% if block.settings.desc_html != blank %}
+            <div class="job-desc">{{ block.settings.desc_html }}</div>
+          {% endif %}
+
+          {% if block.settings.location_html != blank %}
+            <div class="job-meta">{{ block.settings.location_html }}</div>
+          {% endif %}
+
+          {% if block.settings.details_html != blank %}
+            {% assign _details_id = 'job-details-' | append: block.id %}
+            <div class="job-details">
+              <button
+                class="job-details__toggle"
+                type="button"
+                aria-controls="{{ _details_id }}"
+                aria-expanded="{{ block.settings.details_open | default: false }}"
+              >
+                {{ block.settings.details_toggle | default: 'Details anzeigen' }}
+              </button>
+              <div
+                id="{{ _details_id }}"
+                class="job-details__content"
+                {% unless block.settings.details_open %}hidden{% endunless %}
+              >
+                {{ block.settings.details_html }}
+              </div>
+            </div>
+          {% endif %}
+
+          {% if block.settings.btn_label != blank and block.settings.btn_url != blank %}
+            <a
+              href="{{ block.settings.btn_url }}"
+              class="job-button"
+              target="{{ block.settings.btn_newtab | default: false | if: '_blank', else: '_self' }}"
+            >
+              {{ block.settings.btn_label }}
+            </a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    function bindToggles(scope){
+      scope.querySelectorAll('.job-details__toggle').forEach(function(btn){
+        var content = document.getElementById(btn.getAttribute('aria-controls'));
+        if (!content) return;
+
+        var startOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (startOpen) { content.hidden = false; }
+
+        btn.addEventListener('click', function(){
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          expanded = !expanded;
+          btn.setAttribute('aria-expanded', expanded);
+          content.hidden = !expanded;
+        });
+
+        content.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            btn.setAttribute('aria-expanded', 'false');
+            content.hidden = true;
+            btn.focus();
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){ bindToggles(document); });
+    document.addEventListener('shopify:section:load', function(e){ bindToggles(e.target); });
+    document.addEventListener('shopify:section:select', function(e){ bindToggles(e.target); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Karriere-Kacheln",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Karriere-Kacheln Titel",
+      "default": "<p><strong>Aktuelle Stellenausschreibungen</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Karriere-Kacheln Untertitel",
+      "default": "<p>Finden Sie Ihre nächste berufliche Herausforderung bei uns</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Ausrichtung (Titel & Untertitel)",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Zentriert"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Hintergrundfarbe der Section",
+      "default": "#F6F7FB"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Standard Kachel-Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Innenabstand oben/unten (px)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Kachel-Abstand (px)",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Kachel-Abrundung (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Spalten (ab Tablet)",
+      "default": "2",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Badge Hintergrund (Default)",
+      "default": "#D1FADF"
+    },
+    {
+      "type": "color",
+      "id": "badge_text",
+      "label": "Badge Textfarbe (Default)",
+      "default": "#065F46"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "career_tile",
+      "name": "Karriere-Kachel",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title_html",
+          "label": "Titel (Richtext)",
+          "default": "<p><strong>Reinigungskraft (m/w/d)</strong></p>"
+        },
+        {
+          "type": "richtext",
+          "id": "desc_html",
+          "label": "Kurzbeschreibung (Richtext)",
+          "default": "<p>Für die professionelle Gebäudereinigung in Bürogebäuden und öffentlichen Einrichtungen</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "location_html",
+          "label": "Standort (Richtext)",
+          "default": "<p>Saarbrücken</p>"
+        },
+        {
+          "type": "select",
+          "id": "time",
+          "label": "Badge automatisch",
+          "default": "beides",
+          "options": [
+            {
+              "value": "vollzeit",
+              "label": "Vollzeit"
+            },
+            {
+              "value": "teilzeit",
+              "label": "Teilzeit"
+            },
+            {
+              "value": "beides",
+              "label": "Vollzeit / Teilzeit"
+            },
+            {
+              "value": "minijob",
+              "label": "Minijob"
+            },
+            {
+              "value": "none",
+              "label": "Kein Badge"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "badge_label",
+          "label": "Badge-Text (optional, überschreibt Auswahl)"
+        },
+        {
+          "type": "color",
+          "id": "badge_bg",
+          "label": "Badge Hintergrund (optional)"
+        },
+        {
+          "type": "color",
+          "id": "badge_text",
+          "label": "Badge Textfarbe (optional)"
+        },
+        {
+          "type": "richtext",
+          "id": "details_html",
+          "label": "Detailtext (Richtext)"
+        },
+        {
+          "type": "text",
+          "id": "details_toggle",
+          "label": "Details Button-Text",
+          "default": "Details anzeigen"
+        },
+        {
+          "type": "checkbox",
+          "id": "details_open",
+          "label": "Details beim Laden geöffnet",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button-Text",
+          "default": "Jetzt bewerben"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button-Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "btn_newtab",
+          "label": "Link in neuem Tab öffnen",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "card_align",
+          "label": "Ausrichtung (nur diese Kachel)",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Links"
+            },
+            {
+              "value": "center",
+              "label": "Zentriert"
+            },
+            {
+              "value": "right",
+              "label": "Rechts"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Kachel-Hintergrund (optional)"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    {
+      "name": "Karriere-Kacheln",
+      "blocks": [
+        {
+          "type": "career_tile"
+        },
+        {
+          "type": "career_tile"
+        },
+        {
+          "type": "career_tile"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

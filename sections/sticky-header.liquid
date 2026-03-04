@@ -1,0 +1,255 @@
+{{ 'sticky-header.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #sticky-header-{{ section.id }}{ position:fixed; top:0; left:0; right:0; z-index:1000; width:100%; }
+  /* Mobile CTA sichtbar unter 990px, am Desktop ausgeblendet */
+  @media (min-width: 991px){ .custom-header__cta-mobile{ display:none !important; } }
+  @media (max-width: 990px){ .custom-header__cta-mobile{ display:flex; } }
+</style>
+
+<style>
+  .custom-header-section-{{ section.id }}{
+    --header-bg-color: {{ section.settings.background_color }};
+    --padding-vertical: {{ section.settings.padding_vertical }}px;
+    --padding-horizontal: {{ section.settings.padding_horizontal }}px;
+
+    --logo-height: {{ section.settings.logo_height | default: 40 }}px;
+    --header-min-height: calc(var(--logo-height) + (var(--padding-vertical) * 2));
+    --brand-gap: 16px;
+
+    /* Navigation Typo */
+    --nav-font-family: {{ section.settings.nav_font.family }}, {{ section.settings.nav_font.fallback_families }};
+    --nav-font-style: {{ section.settings.nav_font.style }};
+    --nav-font-weight: {% if section.settings.nav_font_bold %}bold{% else %}{{ section.settings.nav_font.weight }}{% endif %};
+    --nav-text-color: {{ section.settings.nav_text_color }};
+    --nav-hover-color: {{ section.settings.nav_hover_color }};
+    --nav-font-size: {{ section.settings.nav_font_size }}px;
+
+    --btn-text-color: {{ section.settings.button_text_color }};
+    --btn-bg-color: {{ section.settings.button_bg_color }};
+    --btn-hover-text-color: {{ section.settings.button_hover_text_color }};
+    --btn-hover-bg-color: {{ section.settings.button_hover_bg_color }};
+
+    /* Back/Label Typo */
+    --back-font-family: {{ section.settings.back_font.family }}, {{ section.settings.back_font.fallback_families }};
+    --back-font-style: {{ section.settings.back_font.style }};
+    --back-font-weight: {% if section.settings.back_font_bold %}bold{% else %}{{ section.settings.back_font.weight }}{% endif %};
+    --back-text-color: {{ section.settings.back_text_color }};
+    --back-hover-color: {{ section.settings.back_hover_color }};
+    --back-font-size: {{ section.settings.back_font_size }}px;
+  }
+</style>
+
+<header id="sticky-header-{{ section.id }}" class="custom-header-section custom-header-section-{{ section.id }}">
+  <div class="custom-header__container">
+
+    <!-- Logo + Zurück nebeneinander -->
+    <div class="custom-header__brand">
+      <a href="{{ shop.url }}" class="custom-header__logo">
+        {% if section.settings.logo %}
+          {% liquid
+            assign h = section.settings.logo_height | default: 40
+            assign w = h | times: section.settings.logo.aspect_ratio | round
+          %}
+          <img src="{{ section.settings.logo | image_url: width: w }}"
+               alt="{{ section.settings.logo.alt | default: shop.name }}"
+               class="custom-header__logo-img"
+               height="{{ h }}" width="{{ w }}">
+        {% else %}
+          <span class="custom-header__logo-text"
+                style="color: {{ section.settings.logo_color }}; font-size: {{ section.settings.logo_font_size }}px;">
+            {{ section.settings.logo_text | default: shop.name }}
+          </span>
+        {% endif %}
+      </a>
+
+      {% if section.settings.back_link != blank or section.settings.back_label != blank %}
+        <a href="{{ section.settings.back_link | default: shop.url }}"
+           class="custom-header__back"
+           aria-label="{{ section.settings.back_label | default: 'Zurück' }}"
+           title="{{ section.settings.back_label | default: 'Zurück' }}">
+          <svg class="custom-header__back-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          {% if section.settings.back_label != blank %}
+            <span class="custom-header__back-label">{{ section.settings.back_label }}</span>
+          {% endif %}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Navigation + Desktop-CTA -->
+    <div class="custom-header__nav-wrapper">
+      <nav class="custom-header__nav" role="navigation">
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}" class="custom-header__nav-link {% if link.active %}active{% endif %}">{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
+
+      {%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+        <a href="{{ section.settings.button_link }}" class="custom-header__contact-btn">{{ section.settings.button_text }}</a>
+      {%- endif -%}
+    </div>
+
+    <!-- Mobile CTA (sichtbar < 991px) -->
+    {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="custom-header__contact-btn custom-header__cta-mobile">
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+
+    <!-- Burger-Button (mit ARIA) -->
+    <button class="custom-header__mobile-toggle"
+            aria-label="Menü öffnen"
+            aria-controls="mobile-drawer-{{ section.id }}"
+            aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Overlay -->
+    <div class="custom-header__overlay" data-drawer-overlay hidden></div>
+
+    <!-- Mobile Drawer (rechts) -->
+    <aside id="mobile-drawer-{{ section.id }}"
+           class="custom-header__drawer"
+           aria-hidden="true"
+           tabindex="-1">
+      <div class="custom-header__drawer-header">
+        <p class="custom-header__drawer-title">{{ section.settings.logo_text | default: shop.name }}</p>
+        <button class="custom-header__drawer-close" aria-label="Menü schließen">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="custom-header__drawer-nav" role="navigation" aria-label="Mobile Navigation">
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}" class="custom-header__drawer-link {% if link.active %}active{% endif %}">
+            {{ link.title }}
+          </a>
+        {%- endfor -%}
+      </nav>
+
+      {%- if section.settings.button_text != blank and section.settings.button_link != blank -%}
+        <div class="custom-header__drawer-cta">
+          <a href="{{ section.settings.button_link }}" class="custom-header__contact-btn" style="width:100%; text-align:center;">
+            {{ section.settings.button_text }}
+          </a>
+        </div>
+      {%- endif -%}
+    </aside>
+
+  </div>
+</header>
+
+<script>
+  (function(){
+    var header = document.getElementById('sticky-header-{{ section.id }}');
+    if(!header) return;
+    function setOffsets(){
+      var h = header.offsetHeight;
+      var bar = document.querySelector('[data-announcement-bar], .announcement-bar, .shopify-section-announcement');
+      if (bar) {
+        var barH = bar.offsetHeight || 0;
+        header.style.top = barH + 'px';
+        h = header.offsetHeight + barH;
+      } else {
+        header.style.top = '0px';
+      }
+      document.body.style.paddingTop = h + 'px';
+    }
+    setOffsets();
+    window.addEventListener('resize', setOffsets);
+    if('ResizeObserver' in window) new ResizeObserver(setOffsets).observe(header);
+  })();
+</script>
+
+<script>
+  (function(){
+    var header = document.getElementById('sticky-header-{{ section.id }}');
+    if(!header) return;
+
+    var toggle  = header.querySelector('.custom-header__mobile-toggle');
+    var drawer  = document.getElementById('mobile-drawer-{{ section.id }}');
+    var overlay = header.querySelector('[data-drawer-overlay]');
+    var closeBtn = header.querySelector('.custom-header__drawer-close');
+
+    function openDrawer(){
+      if(!drawer) return;
+      header.classList.add('is-drawer-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      toggle && toggle.setAttribute('aria-expanded','true');
+      overlay && (overlay.hidden = false);
+      document.documentElement.classList.add('no-scroll');
+      setTimeout(function(){ drawer.focus(); }, 10);
+    }
+
+    function closeDrawer(){
+      if(!drawer) return;
+      header.classList.remove('is-drawer-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      toggle && toggle.setAttribute('aria-expanded','false');
+      document.documentElement.classList.remove('no-scroll');
+      setTimeout(function(){ overlay && (overlay.hidden = true); }, 300);
+    }
+
+    toggle && toggle.addEventListener('click', function(e){
+      e.preventDefault();
+      if (header.classList.contains('is-drawer-open')) { closeDrawer(); } else { openDrawer(); }
+    });
+
+    overlay && overlay.addEventListener('click', closeDrawer);
+    closeBtn && closeBtn.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeDrawer(); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Sticky header",
+  "tag": "header",
+  "class": "shopify-section-header",
+  "settings": [
+    { "type": "color", "id": "background_color", "label": "Hintergrundfarbe", "default": "#ffffff" },
+    { "type": "range", "id": "padding_vertical", "label": "Padding Oben/Unten (px)", "min": 0, "max": 50, "step": 1, "default": 16, "unit": "px" },
+    { "type": "range", "id": "padding_horizontal", "label": "Padding Links/Rechts (px)", "min": 0, "max": 100, "step": 1, "default": 24, "unit": "px" },
+
+    { "type": "range", "id": "logo_height", "label": "Logo-Höhe (px)", "min": 20, "max": 120, "step": 1, "default": 40, "unit": "px" },
+
+    { "type": "header", "content": "Zurück-Pfeil" },
+    { "type": "url", "id": "back_link", "label": "Link für Zurück-Pfeil" },
+    { "type": "text", "id": "back_label", "label": "Text neben Pfeil (optional)", "default": "Zurück" },
+    { "type": "font_picker", "id": "back_font", "label": "Pfeil/Label Schriftart", "default": "sans-serif" },
+    { "type": "checkbox", "id": "back_font_bold", "label": "Fett", "default": false },
+    { "type": "color", "id": "back_text_color", "label": "Farbe", "default": "#374151" },
+    { "type": "color", "id": "back_hover_color", "label": "Farbe (Hover)", "default": "#4ade80" },
+    { "type": "range", "id": "back_font_size", "label": "Schriftgröße (px)", "min": 12, "max": 28, "step": 1, "default": 16, "unit": "px" },
+
+    { "type": "header", "content": "Logo" },
+    { "type": "image_picker", "id": "logo", "label": "Logo Bild" },
+    { "type": "text", "id": "logo_text", "label": "Logo Text (Fallback)", "default": "Mein Shop" },
+    { "type": "color", "id": "logo_color", "label": "Logo Textfarbe", "default": "#1e40af" },
+    { "type": "range", "id": "logo_font_size", "label": "Logo Schriftgröße", "min": 16, "max": 48, "step": 1, "default": 24, "unit": "px" },
+
+    { "type": "header", "content": "Navigation" },
+    { "type": "link_list", "id": "menu", "label": "Menü auswählen", "default": "main-menu" },
+    { "type": "font_picker", "id": "nav_font", "label": "Navigation Schriftart", "default": "sans-serif" },
+    { "type": "checkbox", "id": "nav_font_bold", "label": "Navigation fettgedruckt", "default": false },
+    { "type": "color", "id": "nav_text_color", "label": "Navigation Textfarbe", "default": "#374151" },
+    { "type": "color", "id": "nav_hover_color", "label": "Navigation Hover-Farbe", "default": "#4ade80" },
+    { "type": "range", "id": "nav_font_size", "label": "Navigation Schriftgröße", "min": 12, "max": 24, "step": 1, "default": 16, "unit": "px" },
+
+    { "type": "header", "content": "Kontakt Button" },
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "Kontakt" },
+    { "type": "url", "id": "button_link", "label": "Button Link" },
+    { "type": "color", "id": "button_text_color", "label": "Button Textfarbe", "default": "#ffffff" },
+    { "type": "color", "id": "button_bg_color", "label": "Button Hintergrund", "default": "#4ade80" },
+    { "type": "color", "id": "button_hover_text_color", "label": "Button Textfarbe (Hover)", "default": "#ffffff" },
+    { "type": "color", "id": "button_hover_bg_color", "label": "Button Hintergrund (Hover)", "default": "#22c55e" }
+  ],
+  "presets": [{ "name": "Sticky header" }]
+}
+{% endschema %}

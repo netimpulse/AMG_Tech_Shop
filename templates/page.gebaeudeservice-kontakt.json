@@ -1,0 +1,354 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sticky_header_atN6jW": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Zur Hauptseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "geb-udeservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/gebaudeservice-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "contact_info_form_tjiQNz": {
+      "type": "contact-info-form",
+      "blocks": {
+        "info_card_Utzr7H": {
+          "type": "info_card",
+          "settings": {
+            "title": "Adresse",
+            "text": "<p>SIS Saar-Industrie-Service GmbH und SIS Saar Gebäudeservice GmbH<br/>Vorderster Berg 13<br/>D-66333 Völklingen<br/><br/></p>",
+            "icon": "mail",
+            "icon_image": "shopify://shop_images/office-location-icon-design-in-black-color-vector-removebg-preview.png"
+          }
+        },
+        "info_card_Ht4E9k": {
+          "type": "info_card",
+          "settings": {
+            "title": "Telefon",
+            "text": "<p>+49 (0) 6898 / 16 90 900<br/><br/></p>",
+            "icon": "phone"
+          }
+        },
+        "extra_field_NrfkGn": {
+          "type": "extra_field",
+          "settings": {
+            "field_label": "Dienstleistung*",
+            "field_type": "select",
+            "options": "Gebäudeservice, Industrieservice, beides",
+            "placeholder": "bitte auswählen",
+            "required": true,
+            "full_width": true
+          }
+        }
+      },
+      "block_order": [
+        "info_card_Utzr7H",
+        "info_card_Ht4E9k",
+        "extra_field_NrfkGn"
+      ],
+      "disabled": true,
+      "name": "Kontaktbereich mit Formular- allgemeiner Kontakt",
+      "settings": {
+        "left_title": "Kontaktinformationen",
+        "right_title": "Nachricht senden",
+        "label_firstname": "Vorname *",
+        "ph_firstname": "Ihr Vorname",
+        "label_lastname": "Nachname *",
+        "ph_lastname": "Ihr Nachname",
+        "label_email": "E-Mail *",
+        "ph_email": "ihre.email@beispiel.de",
+        "label_phone": "Telefon",
+        "ph_phone": "Ihre Telefonnummer",
+        "label_company": "Unternehmen",
+        "ph_company": "Ihr Unternehmen",
+        "label_subject": "Betreff *",
+        "ph_subject": "Worum geht es?",
+        "label_message": "Nachricht *",
+        "ph_message": "Beschreiben Sie Ihr Anliegen...",
+        "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
+        "consent_label": "Datenschutz zugestimmt",
+        "button_label": "Nachricht senden",
+        "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
+      }
+    },
+    "contact_info_form_7jPGxN": {
+      "type": "contact-info-form",
+      "blocks": {
+        "info_card_QFfGFM": {
+          "type": "info_card",
+          "settings": {
+            "title": "Adresse",
+            "text": "<p>SIS Saar Gebäudeservice GmbH<br/>Vorderster Berg 13<br/>D-66333 Völklingen<br/><br/></p>",
+            "icon": "map",
+            "icon_image": "shopify://shop_images/office-location-icon-design-in-black-color-vector-removebg-preview.png"
+          }
+        },
+        "info_card_9Pghk9": {
+          "type": "info_card",
+          "settings": {
+            "title": "Telefon",
+            "text": "<p><a href=\"tel:+49 (0) 6898 / 16 90 900\" title=\"+49 (0) 6898 / 16 90 900\">+49 (0) 6898 / 16 90 900</a></p>",
+            "icon": "phone"
+          }
+        },
+        "info_card_tNi8fF": {
+          "type": "info_card",
+          "settings": {
+            "title": "Telefon",
+            "text": "<p><a href=\"mailto:gebaeudeservice@sissaar.de\" title=\"gebaeudeservice@sissaar.de\">gebaeudeservice@sissaar.de</a></p>",
+            "icon": "mail"
+          }
+        },
+        "extra_field_PDyXBd": {
+          "type": "extra_field",
+          "settings": {
+            "field_label": "Dienstleistung*",
+            "field_type": "select",
+            "options": "Gebäudeservice, Industrieservice, beides",
+            "placeholder": "bitte auswählen",
+            "required": true,
+            "full_width": true
+          }
+        }
+      },
+      "block_order": [
+        "info_card_QFfGFM",
+        "info_card_9Pghk9",
+        "info_card_tNi8fF",
+        "extra_field_PDyXBd"
+      ],
+      "name": "Kontaktbereich mit Formular- GS",
+      "settings": {
+        "left_title": "Kontaktinformationen",
+        "right_title": "Nachricht senden",
+        "label_firstname": "Vorname *",
+        "ph_firstname": "Ihr Vorname",
+        "label_lastname": "Nachname *",
+        "ph_lastname": "Ihr Nachname",
+        "label_email": "E-Mail *",
+        "ph_email": "ihre.email@beispiel.de",
+        "label_phone": "Telefon",
+        "ph_phone": "Ihre Telefonnummer",
+        "label_company": "Unternehmen",
+        "ph_company": "Ihr Unternehmen",
+        "label_subject": "Betreff *",
+        "ph_subject": "Worum geht es?",
+        "label_message": "Nachricht *",
+        "ph_message": "Beschreiben Sie Ihr Anliegen...",
+        "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
+        "consent_label": "Datenschutz zugestimmt",
+        "button_label": "Nachricht senden",
+        "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
+      }
+    },
+    "sis_footer_cFcxeB": {
+      "type": "sis-footer",
+      "blocks": {
+        "gebaeude_legal_VefYaP": {
+          "type": "gebaeude_legal",
+          "settings": {
+            "text": "Impressum",
+            "link": ""
+          }
+        },
+        "gebaeude_legal_F6XDm3": {
+          "type": "gebaeude_legal",
+          "settings": {
+            "text": "Datenschutz",
+            "link": ""
+          }
+        },
+        "industrie_legal_cN9PhC": {
+          "type": "industrie_legal",
+          "settings": {
+            "text": "Impressum",
+            "link": ""
+          }
+        },
+        "industrie_legal_axm4QD": {
+          "type": "industrie_legal",
+          "settings": {
+            "text": "Datenschutz",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "gebaeude_legal_VefYaP",
+        "gebaeude_legal_F6XDm3",
+        "industrie_legal_cN9PhC",
+        "industrie_legal_axm4QD"
+      ],
+      "disabled": true,
+      "name": "SIS Footer",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "gebaeude_title": "SIS Saar Gebäude Service",
+        "gebaeude_address": "Musterstraße 1, 12345 Musterstadt",
+        "gebaeude_phone": "0123 / 456 789",
+        "gebaeude_email": "gebaeude@sis-saar.de",
+        "industrie_title": "SIS Saar Industrie Service",
+        "industrie_address": "Beispielweg 2, 54321 Beispielhausen",
+        "industrie_phone": "0987 / 654 321",
+        "industrie_email": "industrie@sis-saar.de",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    },
+    "sis_footer_neu_G3VJJT": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_8AtLGx": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "leistungen_link_qHFQxf": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Gebäudeservice",
+            "link": "shopify://pages/gebaeudeservice-leistungen"
+          }
+        },
+        "unternehmen_link_R8Nn7J": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_GEQTaX": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/gebaudeservice-karriere"
+          }
+        },
+        "kontakt_link_VhX7wa": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": "shopify://pages/industrieservice-impressum"
+          }
+        },
+        "kontakt_link_LVgkzY": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-impressum"
+          }
+        },
+        "kontakt_link_BeAVgX": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_8NWLFQ": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner",
+            "link": "",
+            "new_tab": true
+          }
+        },
+        "partner_logo_eJmeRw": {
+          "type": "partner_logo",
+          "disabled": true,
+          "settings": {
+            "logo": "shopify://shop_images/logo_Industrieservice_exact_v2.png",
+            "alt": "Partner",
+            "link": "",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_8AtLGx",
+        "leistungen_link_qHFQxf",
+        "unternehmen_link_R8Nn7J",
+        "unternehmen_link_GEQTaX",
+        "kontakt_link_VhX7wa",
+        "kontakt_link_LVgkzY",
+        "kontakt_link_BeAVgX",
+        "partner_logo_8NWLFQ",
+        "partner_logo_eJmeRw"
+      ],
+      "name": "SIS Footer NEU - GS",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar Gebäudeservice GmbH",
+        "contact_address": "Vorderster Berg 13, 66333 Völklingen",
+        "contact_phone": "06898 16 90 900",
+        "contact_email": "gebaeudeservice@sissaar.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sticky_header_atN6jW",
+    "contact_info_form_tjiQNz",
+    "contact_info_form_7jPGxN",
+    "sis_footer_cFcxeB",
+    "sis_footer_neu_G3VJJT"
+  ]
+}

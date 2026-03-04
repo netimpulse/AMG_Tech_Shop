@@ -1,0 +1,29 @@
+{% comment %}
+  Dieses Snippet rendert einen einzelnen Stichpunkt.
+  Erwartete Variablen:
+  - block: Der Block aus der Section-Schleife.
+{% endcomment %}
+
+<div class="iwf-feature-item" {{ block.shopify_attributes }}>
+  {%- if block.settings.icon != blank -%}
+    <div class="iwf-feature-icon-wrapper">
+      <img
+        src="{{ block.settings.icon | image_url: width: 60 }}"
+        alt="{{ block.settings.icon.alt | escape }}"
+        class="iwf-feature-icon"
+        loading="lazy"
+        width="30"
+        height="{{ 30 | divided_by: block.settings.icon.aspect_ratio | round }}"
+      >
+    </div>
+  {%- endif -%}
+
+  <div class="iwf-feature-content">
+    {%- if block.settings.heading != blank -%}
+      <h3 class="iwf-heading">{{ block.settings.heading }}</h3>
+    {%- endif -%}
+    {%- if block.settings.text != blank -%}
+      <p class="iwf-text">{{ block.settings.text }}</p>
+    {%- endif -%}
+  </div>
+</div>

@@ -1,0 +1,109 @@
+/* Base layout */
+.leh-container{
+  background: var(--leh-bg);
+  color: var(--leh-text);
+  padding: var(--leh-pad);
+  font-family: var(--leh-font-body);
+}
+.leh-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.leh-heading {
+  font-family: var(--leh-font-head);
+  font-size: clamp(24px, 2.4vw, 32px);
+  margin: 0 0 8px;
+  text-align: center;      /* NEU */
+}
+
+.leh-subtext {
+  max-width: 720px;
+  line-height: 1.6;
+  margin: 0 auto 24px;     /* auto links/rechts = mittig */
+  opacity: .9;
+  text-align: center;      /* NEU */
+}
+
+/* Grid */
+.leh-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--leh-gap);
+}
+@media (max-width: 990px){
+  .leh-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 640px){
+  .leh-grid{ grid-template-columns: 1fr; }
+}
+
+/* Card */
+.leh-card{
+  background: var(--leh-card-bg);
+  border-radius: var(--leh-card-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.leh-card:hover{
+  background: var(--leh-card-hover-bg);
+  transform: translateY(calc(var(--leh-card-lift) * -1));
+  box-shadow: 0 14px 34px rgba(0,0,0,.16);
+}
+
+/* Media */
+.leh-card-media{ position: relative; }
+.leh-img{
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+.leh-img--placeholder{
+  background: #eaeaea;
+}
+
+/* Body */
+.leh-card-body{
+  padding: 18px 18px 14px;
+}
+.leh-card-title{
+  font-family: var(--leh-font-head);
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+.leh-card-text{
+  margin: 0 0 12px;
+  opacity: .9;
+}
+.leh-card-link{
+  color: var(--leh-accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+}
+.leh-card-link:hover{
+  text-decoration: underline;
+}
+
+/* CTA Button (pill style) */
+.leh-cta-wrap{ margin-top: 28px; }
+.leh-btn{
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--leh-btn-bg);
+  color: var(--leh-btn-text);
+  border-radius: var(--leh-btn-radius);
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12) inset, 0 1px 0 rgba(255,255,255,.2);
+  transition: transform .2s ease, background .2s ease;
+}
+.leh-btn:hover{
+  background: var(--leh-btn-hover-bg);
+  transform: translateY(-1px);
+}

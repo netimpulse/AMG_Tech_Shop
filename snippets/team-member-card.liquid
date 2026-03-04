@@ -1,0 +1,45 @@
+{% comment %}
+  Renders a single team member card.
+
+  Accepts:
+  - image
+  - image_size
+  - name
+  - position
+  - name_color, name_font_size
+  - position_color, position_font_size
+{% endcomment %}
+
+<div class="team-member-card" role="group" aria-label="{{ name | escape }}{% if position != blank %}, {{ position | escape }}{% endif %}">
+  <div class="team-member-card__image-wrapper">
+    {%- if image != blank -%}
+      <img
+        class="team-member-card__image"
+        src="{{ image | image_url: width: 400, height: 400, crop: 'center' }}"
+        alt="{{ image.alt | default: name | escape }}"
+        width="{{ image_size }}"
+        height="{{ image_size }}"
+        loading="lazy"
+        decoding="async"
+        draggable="false"
+        style="width: {{ image_size }}px; height: {{ image_size }}px;"
+      >
+    {%- else -%}
+      <div class="team-member-card__image" style="width: {{ image_size }}px; height: {{ image_size }}px; background-color: #e2e8f0; display: flex; align-items: center; justify-content: center;" draggable="false">
+        <span style="font-size: 24px; color: #4A6965;">Team</span>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if name != blank -%}
+    <h3 class="team-member-card__name" style="color: {{ name_color }}; font-size: {{ name_font_size }}px;">
+      {{ name }}
+    </h3>
+  {%- endif -%}
+
+  {%- if position != blank -%}
+    <p class="team-member-card__position" style="color: {{ position_color }}; font-size: {{ position_font_size }}px;">
+      {{ position }}
+    </p>
+  {%- endif -%}
+</div>

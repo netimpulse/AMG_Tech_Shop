@@ -1,0 +1,424 @@
+{{ 'dual-service-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="dual-service-hero" id="dual-service-hero-{{ section.id }}">
+  <div class="dual-service-container">
+    
+    <!-- Left Side -->
+    <div class="service-side service-left">
+      <div class="service-image-container">
+        <img 
+          src="{{ section.settings.left_image | img_url: '800x600' }}" 
+          alt="{{ section.settings.left_image.alt | default: section.settings.left_title }}"
+          class="service-image default-image"
+          loading="lazy"
+        >
+        {% if section.settings.left_hover_image %}
+          <img 
+            src="{{ section.settings.left_hover_image | img_url: '800x600' }}" 
+            alt="{{ section.settings.left_hover_image.alt | default: section.settings.left_title }}"
+            class="service-image hover-image"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+      
+      <div class="service-content">
+        <div class="service-text">
+          <h2 class="service-title" style="font-size: {{ section.settings.dual_hero_title_size }}px !important; color: {{ section.settings.dual_hero_title_color }} !important; font-weight: {{ section.settings.dual_hero_title_weight }} !important;">{{ section.settings.left_title }}</h2>
+          <p class="service-subtitle" style="font-size: {{ section.settings.dual_hero_subtitle_size }}px !important; color: {{ section.settings.dual_hero_subtitle_color }} !important; font-weight: {{ section.settings.dual_hero_subtitle_weight }} !important;">{{ section.settings.left_subtitle }}</p>
+        </div>
+        
+        {% if section.settings.left_show_button and section.settings.left_button_text != blank %}
+          <div class="service-button-container">
+            <a 
+              href="{{ section.settings.left_button_link | default: '#' }}" 
+              class="service-button service-button-left"
+            >
+              {{ section.settings.left_button_text }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="service-side service-right">
+      <div class="service-image-container">
+        <img 
+          src="{{ section.settings.right_image | img_url: '800x600' }}" 
+          alt="{{ section.settings.right_image.alt | default: section.settings.right_title }}"
+          class="service-image default-image"
+          loading="lazy"
+        >
+        {% if section.settings.right_hover_image %}
+          <img 
+            src="{{ section.settings.right_hover_image | img_url: '800x600' }}" 
+            alt="{{ section.settings.right_hover_image.alt | default: section.settings.right_title }}"
+            class="service-image hover-image"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+      
+      <div class="service-content">
+        <div class="service-text">
+          <h2 class="service-title" style="font-size: {{ section.settings.dual_hero_title_size }}px !important; color: {{ section.settings.dual_hero_title_color }} !important; font-weight: {{ section.settings.dual_hero_title_weight }} !important;">{{ section.settings.right_title }}</h2>
+          <p class="service-subtitle" style="font-size: {{ section.settings.dual_hero_subtitle_size }}px !important; color: {{ section.settings.dual_hero_subtitle_color }} !important; font-weight: {{ section.settings.dual_hero_subtitle_weight }} !important;">{{ section.settings.right_subtitle }}</p>
+        </div>
+        
+        {% if section.settings.right_show_button and section.settings.right_button_text != blank %}
+          <div class="service-button-container">
+            <a 
+              href="{{ section.settings.right_button_link | default: '#' }}" 
+              class="service-button service-button-right"
+            >
+              {{ section.settings.right_button_text }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #dual-service-hero-{{ section.id }} .service-button-left {
+    background-color: {{ section.settings.left_button_bg_color }};
+    color: {{ section.settings.left_button_text_color }};
+    border: 2px solid {{ section.settings.left_button_border_color }};
+  }
+  
+  #dual-service-hero-{{ section.id }} .service-button-left:hover {
+    background-color: {{ section.settings.left_button_hover_bg_color }};
+    color: {{ section.settings.left_button_hover_text_color }};
+    border-color: {{ section.settings.left_button_hover_border_color }};
+  }
+  
+  #dual-service-hero-{{ section.id }} .service-button-right {
+    background-color: {{ section.settings.right_button_bg_color }};
+    color: {{ section.settings.right_button_text_color }};
+    border: 2px solid {{ section.settings.right_button_border_color }};
+  }
+  
+  #dual-service-hero-{{ section.id }} .service-button-right:hover {
+    background-color: {{ section.settings.right_button_hover_bg_color }};
+    color: {{ section.settings.right_button_hover_text_color }};
+    border-color: {{ section.settings.right_button_hover_border_color }};
+  }
+  
+  #dual-service-hero-{{ section.id }} .service-left .service-content {
+    left: {{ section.settings.left_content_x }}%;
+    top: {{ section.settings.left_content_y }}%;
+  }
+  
+  #dual-service-hero-{{ section.id }} .service-right .service-content {
+    left: {{ section.settings.right_content_x }}%;
+    top: {{ section.settings.right_content_y }}%;
+  }
+  
+  #dual-service-hero-{{ section.id }} .service-left .service-content:hover {
+    top: calc({{ section.settings.left_content_y }}% - 5px);
+  }
+  
+  #dual-service-hero-{{ section.id }} .service-right .service-content:hover {
+    top: calc({{ section.settings.right_content_y }}% - 5px);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dual Service Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Linke Seite"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Bild (Links)"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_hover_image",
+      "label": "Hover-Bild (Links)"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Titel (Links)",
+      "default": "COMMERCIAL CLEANING"
+    },
+    {
+      "type": "text",
+      "id": "left_subtitle",
+      "label": "Untertitel (Links)",
+      "default": "LOOKING FOR"
+    },
+    {
+      "type": "checkbox",
+      "id": "left_show_button",
+      "label": "Button anzeigen (Links)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "left_button_text",
+      "label": "Button Text (Links)",
+      "default": "GET CLEANING SERVICES"
+    },
+    {
+      "type": "url",
+      "id": "left_button_link",
+      "label": "Button Link (Links)"
+    },
+    {
+      "type": "color",
+      "id": "left_button_bg_color",
+      "label": "Button Hintergrundfarbe (Links)",
+      "default": "#007bff"
+    },
+    {
+      "type": "color",
+      "id": "left_button_text_color",
+      "label": "Button Textfarbe (Links)",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "left_button_border_color",
+      "label": "Button Rahmenfarbe (Links)",
+      "default": "#007bff"
+    },
+    {
+      "type": "color",
+      "id": "left_button_hover_bg_color",
+      "label": "Button Hover Hintergrundfarbe (Links)",
+      "default": "#0056b3"
+    },
+    {
+      "type": "color",
+      "id": "left_button_hover_text_color",
+      "label": "Button Hover Textfarbe (Links)",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "left_button_hover_border_color",
+      "label": "Button Hover Rahmenfarbe (Links)",
+      "default": "#0056b3"
+    },
+    {
+      "type": "header",
+      "content": "Rechte Seite"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Bild (Rechts)"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_hover_image",
+      "label": "Hover-Bild (Rechts)"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Titel (Rechts)",
+      "default": "FRANCHISE OPPORTUNITIES"
+    },
+    {
+      "type": "text",
+      "id": "right_subtitle",
+      "label": "Untertitel (Rechts)",
+      "default": "LOOKING FOR"
+    },
+    {
+      "type": "checkbox",
+      "id": "right_show_button",
+      "label": "Button anzeigen (Rechts)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "right_button_text",
+      "label": "Button Text (Rechts)",
+      "default": "GET STARTED"
+    },
+    {
+      "type": "url",
+      "id": "right_button_link",
+      "label": "Button Link (Rechts)"
+    },
+    {
+      "type": "color",
+      "id": "right_button_bg_color",
+      "label": "Button Hintergrundfarbe (Rechts)",
+      "default": "#28a745"
+    },
+    {
+      "type": "color",
+      "id": "right_button_text_color",
+      "label": "Button Textfarbe (Rechts)",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "right_button_border_color",
+      "label": "Button Rahmenfarbe (Rechts)",
+      "default": "#28a745"
+    },
+    {
+      "type": "color",
+      "id": "right_button_hover_bg_color",
+      "label": "Button Hover Hintergrundfarbe (Rechts)",
+      "default": "#1e7e34"
+    },
+    {
+      "type": "color",
+      "id": "right_button_hover_text_color",
+      "label": "Button Hover Textfarbe (Rechts)",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "right_button_hover_border_color",
+      "label": "Button Hover Rahmenfarbe (Rechts)",
+      "default": "#1e7e34"
+    },
+    {
+      "type": "header",
+      "content": "Typografie"
+    },
+    {
+      "type": "range",
+      "id": "dual_hero_title_size",
+      "label": "Titel Schriftgröße",
+      "min": 16,
+      "max": 72,
+      "step": 2,
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "dual_hero_title_color",
+      "label": "Titel Farbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "dual_hero_title_weight",
+      "label": "Titel Schriftstärke",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "dual_hero_subtitle_size",
+      "label": "Untertitel Schriftgröße",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "dual_hero_subtitle_color",
+      "label": "Untertitel Farbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "dual_hero_subtitle_weight",
+      "label": "Untertitel Schriftstärke",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Position Einstellungen"
+    },
+    {
+      "type": "range",
+      "id": "left_content_x",
+      "label": "Position X - Links (%)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "left_content_y",
+      "label": "Position Y - Links (%)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "right_content_x",
+      "label": "Position X - Rechts (%)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "right_content_y",
+      "label": "Position Y - Rechts (%)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Service Hero"
+    }
+  ]
+}
+{% endschema %}

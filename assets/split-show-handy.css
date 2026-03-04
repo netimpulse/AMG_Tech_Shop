@@ -1,0 +1,160 @@
+/*
+ * Dateiname: split-show-handy.css
+ * Beschreibung: Responsiver "Split Showcase" mit optimiertem Mobile-Layout.
+ */
+
+/* Grundstruktur und Container */
+.sc-container-wrapper{
+  width:100%;
+  padding:50px 0;
+}
+
+.sc-container{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 25px;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+/* Header */
+.sc-header{
+  text-align:center;
+  max-width:800px;
+  margin:0 auto;
+}
+.sc-heading{font-weight:600;margin:0 0 15px 0;line-height:1.2;}
+.sc-subheading{line-height:1.6;margin:0;}
+.sc-subheading p{margin:0;}
+
+/* Grid */
+.sc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+/* Boxen */
+.sc-box-link{
+  text-decoration:none;
+  display:block;
+  overflow:hidden;
+  border-radius:var(--sc-border-radius,12px);
+}
+
+.sc-box{
+  position:relative;
+  height:480px;
+  padding:40px;
+  overflow:hidden;
+  transition:transform .3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover-Effekte nur auf Desktop */
+@media (min-width: 901px) {
+  .sc-box-link:hover .sc-box{ transform:scale(1.03); }
+  .sc-box-link:hover .sc-image--default{opacity:0;}
+  .sc-box-link:hover .sc-image--hover{opacity:1;}
+  .sc-box-link:hover .sc-content{ transform:translate(-50%,-50%) scale(1.05); }
+}
+
+/* Bilder */
+.sc-image-wrapper{
+  position:absolute; inset:0; width:100%; height:100%; z-index:1;
+}
+.sc-image{
+  width:100%; height:100%; object-fit:cover; transition:opacity .4s ease;
+}
+.sc-image--hover{position:absolute; inset:0; opacity:0;}
+
+/* Overlay */
+.sc-box::before{
+  content:"";
+  position:absolute; inset:0;
+  z-index:2; transition:background .3s ease;
+}
+
+/* Inhalt */
+.sc-content{
+  position:absolute;
+  z-index:3;
+  width:calc(100% - 80px);
+  max-width:450px;
+  text-align:center;
+  left:var(--pos-x,50%);
+  top:var(--pos-y,50%);
+  transform:translate(-50%,-50%);
+  transition:transform .3s ease;
+}
+
+.sc-icon-wrapper{ margin:0 auto 20px; }
+.sc-title{ margin:0 0 10px 0; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
+.sc-description{ margin:0 0 25px 0; line-height:1.5; }
+
+.sc-button{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:6px;
+  font-weight:500;
+  text-decoration:none;
+  transition:all .3s ease;
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  min-height:44px;
+}
+
+/* Bewegungsreduktion */
+@media (prefers-reduced-motion: reduce){
+  .sc-box, .sc-image, .sc-content{ transition:none !important; }
+}
+
+/* ===== Mobile/Tablet Optimierung ===== */
+@media (max-width: 900px){
+  .sc-grid{ grid-template-columns:1fr; gap:25px; }
+
+  .sc-box{
+    height:clamp(320px, 56vw, 420px);
+    padding:24px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  }
+
+  .sc-content{
+    position:relative;
+    left:auto; top:auto; transform:none;
+    width:100%; max-width:100%; text-align:left;
+  }
+
+  .sc-box::before{ background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15)) !important; }
+
+  .sc-icon-wrapper{ margin:0 0 12px 0; }
+  .sc-title{ letter-spacing:.5px; }
+
+  /* Hover und Active auf Mobile deaktivieren */
+  .sc-box-link:hover .sc-box,
+  .sc-box-link:active .sc-box,
+  .sc-box-link:focus .sc-box{ transform:none !important; }
+
+  .sc-box-link:hover .sc-image--default,
+  .sc-box-link:active .sc-image--default,
+  .sc-box-link:focus .sc-image--default{ opacity:1 !important; }
+
+  .sc-box-link:hover .sc-image--hover,
+  .sc-box-link:active .sc-image--hover,
+  .sc-box-link:focus .sc-image--hover{ opacity:0 !important; }
+
+  .sc-box-link:hover .sc-content,
+  .sc-box-link:active .sc-content,
+  .sc-box-link:focus .sc-content{ transform:none !important; }
+}
+
+@media (max-width: 480px){
+  .sc-container-wrapper{ padding:30px 0; }
+  .sc-container{ padding:0 15px; }
+  .sc-box{ height:clamp(300px, 62vw, 380px); padding:18px; }
+  .sc-title{ font-size: clamp(18px, 5.6vw, 22px); }
+  .sc-description{ font-size: clamp(14px, 4.3vw, 16px); margin-bottom:18px; }
+  .sc-button{ width:auto; padding:12px 18px; }
+}

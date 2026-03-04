@@ -1,0 +1,19 @@
+{%- if section.settings.image != blank -%}
+  <div class="sis-about__image-wrapper">
+    <img 
+      src="{{ section.settings.image | image_url: width: 1200 }}"
+      srcset="{{ section.settings.image | image_url: width: 600 }} 600w,
+              {{ section.settings.image | image_url: width: 800 }} 800w,
+              {{ section.settings.image | image_url: width: 1200 }} 1200w"
+      sizes="(max-width: 768px) 100vw, 50vw"
+      alt="{{ section.settings.image_alt | escape | default: section.settings.title }}"
+      loading="lazy"
+      width="{{ section.settings.image.width }}"
+      height="{{ section.settings.image.height }}"
+    >
+  </div>
+{%- else -%}
+  <div class="sis-about__image-wrapper">
+    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+  </div>
+{%- endif -%}

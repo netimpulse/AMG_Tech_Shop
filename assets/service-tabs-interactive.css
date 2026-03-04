@@ -1,0 +1,122 @@
+/* --- Grundlegende Sektions-Styles --- */
+.service-tabs-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* --- Karussell / Tabs Navigation --- */
+.service-tabs-nav-carousel {
+  margin-bottom: 50px;
+  display: flex;
+  overflow-x: auto; /* Erlaubt horizontales Scrollen auf kleinen Geräten */
+  -webkit-overflow-scrolling: touch; /* Flüssiges Scrollen auf iOS */
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 20px; /* Platz für Scrollbar, ohne Inhalt zu verdecken */
+  gap: 15px;
+}
+
+.service-tabs-nav-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.nav-item-cell {
+  flex: 0 0 180px; /* Feste Breite für jedes Element, passt sich nicht an */
+}
+
+.nav-item {
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.nav-item:hover {
+  transform: translateY(-5px);
+}
+
+.nav-item__image-wrapper {
+  position: relative;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-item__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-item__title {
+  margin: 0;
+  font-weight: bold; /* Standard, wird von Liquid überschrieben */
+}
+
+/* --- Inhaltsbereich --- */
+.interactive-content-area {
+  padding: 40px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  min-height: 300px;
+}
+
+.interactive-content__panel {
+  display: none; /* Wichtig: Standardmäßig ausgeblendet */
+  gap: 40px;
+  align-items: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.interactive-content__panel.is-active {
+  display: grid; /* Nur der aktive Panel wird sichtbar */
+  grid-template-columns: 1fr 1fr;
+}
+
+.content__image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+  max-height: 450px;
+  display: block;
+}
+
+.content__title {
+  margin-top: 0;
+}
+
+.content__description p {
+    margin-top: 0;
+}
+
+.content__button {
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Anpassungen --- */
+@media (max-width: 990px) {
+  .interactive-content__panel.is-active {
+     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 749px) {
+  .interactive-content-area {
+    padding: 20px;
+  }
+  .nav-item-cell {
+    flex-basis: 130px; /* Kleinere Basisbreite auf Mobilgeräten */
+  }
+}

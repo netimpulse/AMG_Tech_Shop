@@ -1,0 +1,718 @@
+{
+  "sections": {
+    "sticky_header_trVgjG": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "geb-udeservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "hero_overlay_section_eNXhFF": {
+      "type": "hero-overlay-section",
+      "name": "Hero – Service Overlay",
+      "settings": {
+        "bg_image": "shopify://shop_images/2025-09-23_12_41_45-shutterstock_138092369_jpg.png",
+        "overlay_color": "#2baaa2",
+        "overlay_opacity": 70,
+        "section_height": 60,
+        "section_height_mobile": 40,
+        "content_max_width": 760,
+        "heading": "Gebäudeservice                                        Lösungen für Ihre Immobilie",
+        "heading_font": "system_ui_n4",
+        "heading_size": 64,
+        "heading_color": "#ffffff",
+        "text": "<p>Wir bieten erstklassige Reinigungs - und Facility Services für Unternehmen und Privatkunden</p>",
+        "text_font": "system_ui_n4",
+        "text_size": 20,
+        "text_color": "#ffffff",
+        "btn1_text": "Mehr über unsere Services",
+        "btn1_link": "shopify://pages/gebaeudeservice-leistungen",
+        "btn1_font": "system_ui_n4",
+        "btn1_font_size": 16,
+        "btn1_padding_x": 28,
+        "btn1_padding_y": 14,
+        "btn1_radius": 10,
+        "btn1_bg": "#2baaa2",
+        "btn1_bg_hover": "#238b84",
+        "btn1_text_color": "#ffffff",
+        "btn1_text_hover": "#ffffff",
+        "btn2_text": "JETZT ANRUFEN",
+        "btn2_link": "shopify://pages/gebaudeservice-kontakt",
+        "btn2_font": "system_ui_n4",
+        "btn2_font_size": 16,
+        "btn2_padding_x": 24,
+        "btn2_padding_y": 14,
+        "btn2_radius": 10,
+        "btn2_bg": "#ffffff",
+        "btn2_bg_hover": "#e6e6e6",
+        "btn2_text_color": "#2baaa2",
+        "btn2_text_hover": "#238b84"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "leistung_suche_grid_v2_baghyU": {
+      "type": "leistung-suche-grid-v2",
+      "blocks": {
+        "service_jayyw7": {
+          "type": "service",
+          "name": "Leistung Block - Unterhaltsreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_368560784.jpg",
+            "title_html": "<p>Unterhaltsreinigung</p>",
+            "text_html": "<p>für einen sauberen Auftritt Ihrer Geschäftsräume</p>",
+            "keywords": "Büro, sauber, Reinigung",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/unterhaltsreinigung"
+          }
+        },
+        "service_eGxGaa": {
+          "type": "service",
+          "name": "Leistung Block - Reinigung von Ferien- und Freizeitanlagen",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_657542155.jpg",
+            "title_html": "<p><strong>Reinigung von Ferien- und Freizeitanlagen</strong></p>",
+            "text_html": "<p>Ferienparks, Campingplätze</p>",
+            "keywords": "camping, saison, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/ferienparks"
+          }
+        },
+        "service_Kcpy9r": {
+          "type": "service",
+          "name": "Leistung Block - Glas-/ Rahmenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_492241702.jpg",
+            "title_html": "<p><strong>Glas-/ Rahmenreinigung</strong></p>",
+            "text_html": "<p>Lamellenreinigung, Wintergartenreinigung, Fassadenreinigung</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/glas-lamellenreinigung"
+          }
+        },
+        "service_qx63Jr": {
+          "type": "service",
+          "name": "Leistung Block - Desinfektion und Dampfreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_119988076.jpg",
+            "title_html": "<p><strong>Desinfektion und Dampfreinigung</strong></p>",
+            "text_html": "<p>wenn Sauberkeit alleine nicht ausreicht</p>",
+            "keywords": "180°C, antibakteriell, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/dampfreinigung"
+          }
+        },
+        "service_y7FP4T": {
+          "type": "service",
+          "name": "Leistung Block - Baubegleitende und Bauschluss- Reinigung",
+          "settings": {
+            "image": "shopify://shop_images/iStock-160738327.jpg",
+            "title_html": "<p><strong>Baubegleitende und Bauschluss- Reinigung</strong></p>",
+            "text_html": "",
+            "keywords": "Bauschutt, Staub, bezugsfertig, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/bauschlussreinigung"
+          }
+        },
+        "service_egXbER": {
+          "type": "service",
+          "name": "Leistung Block - Teppichreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_373423378.jpg",
+            "title_html": "<p><strong>Teppichreinigung</strong></p>",
+            "text_html": "",
+            "keywords": "Sprühextraktion, Shampoonierung, tiefgründig, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/teppichreinigung"
+          }
+        },
+        "service_T4MQb3": {
+          "type": "service",
+          "name": "Leistung Block - Beschichtung von Bodenbelägen",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_460822750.jpg",
+            "title_html": "<p><strong>Beschichtung von Bodenbelägen</strong></p>",
+            "text_html": "",
+            "keywords": "Gumminoppen, Farbanpassung, PVC, Neutralisierung, Grundierung",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/bodenbelaege-beschichtung"
+          }
+        },
+        "service_fVA8yg": {
+          "type": "service",
+          "name": "Leistung Block - Grünschnittpflege und Gartenarbeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_604150469.jpg",
+            "title_html": "<p><strong>Grünschnittpflege und Gartenarbeiten</strong></p>",
+            "text_html": "",
+            "keywords": "saisonal, Hecken, Abruf, Beet",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/gruenschnittpflege"
+          }
+        },
+        "service_tmm6m3": {
+          "type": "service",
+          "name": "Leistung Block - Tatortreinigung / Zellenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/tatort-im-innenbereich-absperrband-ohne-erkennbaren-text.png",
+            "title_html": "<p><strong>Tatortreinigung / Zellenreinigung</strong></p>",
+            "text_html": "",
+            "keywords": "Hafträume, Treppenhäuser, Gewahrsamszellen, Sammelzellen, Dienstfahrzeuge",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/tatortreinigung"
+          }
+        },
+        "service_bkfAtb": {
+          "type": "service",
+          "name": "Leistung Block - Hausmeistertätigkeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_432654235.jpg",
+            "title_html": "<p><strong>Hausmeistertätigkeiten</strong></p>",
+            "text_html": "",
+            "keywords": "Schlüsseldienst, Kontrollgänge, flexibel, vor Ort",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/hausmeistertaetigkeiten"
+          }
+        },
+        "service_tDfWQ8": {
+          "type": "service",
+          "name": "Leistung Block - Sonderreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_181375295.jpg",
+            "title_html": "<p>Sonderreinigung</p>",
+            "text_html": "<p>Lassen Sie uns gemeinsam eine Lösung für Ihre Herausforderung finden.</p>",
+            "keywords": "Graffiti, Kaugummi, Wasserschaden, Schimmel, Veranstaltung",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/gs-sonderreinigung"
+          }
+        }
+      },
+      "block_order": [
+        "service_jayyw7",
+        "service_eGxGaa",
+        "service_Kcpy9r",
+        "service_qx63Jr",
+        "service_y7FP4T",
+        "service_egXbER",
+        "service_T4MQb3",
+        "service_fVA8yg",
+        "service_tmm6m3",
+        "service_bkfAtb",
+        "service_tDfWQ8"
+      ],
+      "name": "Leistung Suche Grid v2",
+      "settings": {
+        "heading": "<p><strong>Unsere Leistungen</strong></p>",
+        "subheading": "<p>Mit Leidenschaft für gemeinsamen Erfolg.</p>",
+        "text_align": "center",
+        "show_search": true,
+        "search_placeholder": "Leistungen oder Keywords suchen…",
+        "badge_style": "solid",
+        "keyword_badge_bg": "#e6f0ff",
+        "keyword_badge_color": "#0f1c3f",
+        "card_bg": "#ffffff",
+        "card_radius": 18,
+        "card_shadow": true,
+        "grid_gap": 20,
+        "show_cta": false,
+        "cta_label": "Mehr erfahren",
+        "cta_link": "",
+        "button_style": "primary"
+      }
+    },
+    "leistung_suche_grid_Ai9p6q": {
+      "type": "leistung-suche-grid",
+      "blocks": {
+        "service_tfbgGj": {
+          "type": "service",
+          "name": "Leistung Suche Block - Unterhaltsreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_368560784.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>für einen sauberen Auftritt Ihrer Geschäftsräume</p>",
+            "keywords": "Büro, sauber",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/unterhaltsreinigung"
+          }
+        },
+        "service_frAzEa": {
+          "type": "service",
+          "name": "Leistung Suche Block - Ferienparks und Freizeitanlagen",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_657542155.jpg",
+            "title_html": "<p><strong>Reinigung von </strong>Ferien- und Freizeitanlagen</p>",
+            "text_html": "<p>Ferienparks, Campingplätze</p>",
+            "keywords": "camping, saison, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/ferienparks"
+          }
+        },
+        "service_Ugg4QN": {
+          "type": "service",
+          "name": "Leistung Suche Block - Glas-/ Rahmenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_492241702.jpg",
+            "title_html": "<p>Glas-/ Rahmenreinigung</p>",
+            "text_html": "<p>Lamellenreinigung, wintergartenreinigung, Fassadenreinigung</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/glas-lamellenreinigung"
+          }
+        },
+        "service_FrKBPP": {
+          "type": "service",
+          "name": "Leistung Suche Block - Desinfektion und Dampfreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_119988076.jpg",
+            "title_html": "<p><strong>Desinfektion und Dampfreinigung</strong></p>",
+            "text_html": "<p>wenn Sauberkeit alleine nicht ausreicht</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/dampfreinigung"
+          }
+        },
+        "service_J4tGfm": {
+          "type": "service",
+          "name": "Leistung Suche Block - Baubegleitende und Bauschluss- Reinigung",
+          "settings": {
+            "image": "shopify://shop_images/iStock-160738327.jpg",
+            "title_html": "<p>Baubegleitende und Bauschluss- Reinigung</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/bauschlussreinigung"
+          }
+        },
+        "service_xGVYNY": {
+          "type": "service",
+          "name": "Leistung Suche Block - Teppichreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_373423378.jpg",
+            "title_html": "<p>Teppichreinigung</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/teppichreinigung"
+          }
+        },
+        "service_tkniVV": {
+          "type": "service",
+          "name": "Leistung Suche Block -  Grünschnittpflege und Gartenarbeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_604150469.jpg",
+            "title_html": "<p>Grünschnittpflege und Gartenarbeiten</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "tag",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_eVDjPU": {
+          "type": "service",
+          "name": "Leistung Suche Block - Neu-Beschichtung von Bodenbelägen",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_460822750.jpg",
+            "title_html": "<p>Beschichtung von Bodenbelägen</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_TtBgAd": {
+          "type": "service",
+          "name": "Leistung Suche Block - Tatortreinigung / Zellenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/tatort-im-innenbereich-absperrband-ohne-erkennbaren-text.png",
+            "title_html": "<p>Tatortreinigung / Zellenreinigung</p>",
+            "text_html": "<p>Hafträume, Treppenhäuser, Gewahrsamszellen, Sammelzellen, Dienstfahrzeuge</p>",
+            "keywords": "tag",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_V6MDEQ": {
+          "type": "service",
+          "name": "Leistung Suche Block - Hausmeistertätigkeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_432654235.jpg",
+            "title_html": "<p>Hausmeistertätigkeiten</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "tag",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_YhK7Yn": {
+          "type": "service",
+          "name": "Leistung Suche Block - Sonderreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_181375295.jpg",
+            "title_html": "<p>Sonderreinigung</p>",
+            "text_html": "<p>Lassen Sie uns gemeinsam eine Lösung für Ihre Herausforderung finden.</p>",
+            "keywords": "tag",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "service_tfbgGj",
+        "service_frAzEa",
+        "service_Ugg4QN",
+        "service_FrKBPP",
+        "service_J4tGfm",
+        "service_xGVYNY",
+        "service_tkniVV",
+        "service_eVDjPU",
+        "service_TtBgAd",
+        "service_V6MDEQ",
+        "service_YhK7Yn"
+      ],
+      "disabled": true,
+      "name": "Leistung Suche Grid -  Glasreinigung",
+      "settings": {
+        "heading": "<p><strong>Unsere Leistungen auf einen Blick</strong></p>",
+        "subheading": "",
+        "text_align": "center",
+        "show_search": true,
+        "search_placeholder": "Leistungen oder Keywords suchen…",
+        "badge_style": "solid",
+        "keyword_badge_bg": "#e6f0ff",
+        "keyword_badge_color": "#121212",
+        "card_bg": "#ffffff",
+        "card_radius": 18,
+        "card_shadow": true,
+        "grid_gap": 20,
+        "show_cta": true,
+        "cta_label": "Mehr erfahren",
+        "cta_link": "",
+        "button_style": "primary"
+      }
+    },
+    "qualitaeten_hotspot_HKLnY6": {
+      "type": "qualitaeten-hotspot",
+      "blocks": {
+        "item_gqefMF": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Qualitäten Hotspot",
+            "text": "Kurzer, prägnanter Beschreibungstext für diesen Qualitäten Hotspot.",
+            "subpoints": "Erster Unterpunkt\nZweiter Unterpunkt",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_4FnnFt": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Qualitäten Hotspot",
+            "text": "Kurzer, prägnanter Beschreibungstext für diesen Qualitäten Hotspot.",
+            "subpoints": "Erster Unterpunkt\nZweiter Unterpunkt",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_hGAYEB": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#ffffff",
+            "title": "Qualitäten Hotspot",
+            "text": "Kurzer, prägnanter Beschreibungstext für diesen Qualitäten Hotspot.",
+            "subpoints": "Erster Unterpunkt\nZweiter Unterpunkt",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "item_gqefMF",
+        "item_4FnnFt",
+        "item_hGAYEB"
+      ],
+      "disabled": true,
+      "name": "Qualitäten Hotspot",
+      "settings": {
+        "heading": "Qualitäten Hotspot",
+        "intro": "<p>Kurzer Einleitungstext für den Qualitäten Hotspot.</p>",
+        "color_scheme": "background-1",
+        "gap": 24,
+        "cols_desktop": 3,
+        "cols_tablet": 2,
+        "show_icons": true,
+        "icon_size": 88,
+        "icon_radius": 1000
+      }
+    },
+    "leistung_showcase_Wq4Ytn": {
+      "type": "leistung-showcase",
+      "blocks": {
+        "showcase_item_t9Yecd": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>hier steht ein text</p>"
+          }
+        },
+        "showcase_item_3try3B": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>hier steht ein text</p>"
+          }
+        }
+      },
+      "block_order": [
+        "showcase_item_t9Yecd",
+        "showcase_item_3try3B"
+      ],
+      "disabled": true,
+      "name": "Leistung Showcase",
+      "settings": {
+        "heading_html": "<p><strong>Überschrift bei Überschrift</strong></p>",
+        "heading_align": "left",
+        "heading_italic": false,
+        "heading_weight": "700",
+        "subtext": "<p>hier steht ein text</p>",
+        "show_image": true,
+        "main_image": "shopify://shop_images/ChatGPT_Image_13._Aug._2025_23_28_29_1.png",
+        "image_radius": 12,
+        "image_position": "left",
+        "left_heading_html": "<p><strong>Zusätzliche Informationen</strong></p>",
+        "left_heading_align": "left",
+        "left_heading_italic": false,
+        "left_heading_weight": "700",
+        "left_text": "<p>Eigener Textblock, der erscheint, wenn das Bild ausgeblendet ist.</p>",
+        "bg_color": "#ffffff",
+        "section_padding": 24,
+        "points_title": "Unsere Dienstleistungen:",
+        "points_as_card": true,
+        "points_bg": "#ffffff",
+        "points_border": "#e5e8ee",
+        "points_btn_label": "Jetzt anfragen",
+        "points_btn_url": "",
+        "points_btn_align": "left",
+        "fallback_bullet_color": "#2b6cb0"
+      }
+    },
+    "custom_cta_block_xMcPbA": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_ALFWjf": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/gebaudeservice-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_ALFWjf"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Gebäudeservice?</strong></p>",
+        "heading_size": 36,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_footer_neu_bMQxjg": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_fp4fCr": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Gebäudeservice",
+            "link": "shopify://pages/gebaeudeservice-leistungen"
+          }
+        },
+        "unternehmen_link_Uj4RnT": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/gebaudeservice-kontakt"
+          }
+        },
+        "unternehmen_link_bgdQxU": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/gebaudeservice-karriere"
+          }
+        },
+        "unternehmen_link_9x8mfa": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_L6Qpbz": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_dFJd9e": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-impressum"
+          }
+        },
+        "kontakt_link_tANTT8": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_nNDUeQ": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_rWJgXr": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_PAHGHN": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_fp4fCr",
+        "unternehmen_link_Uj4RnT",
+        "unternehmen_link_bgdQxU",
+        "unternehmen_link_9x8mfa",
+        "unternehmen_link_L6Qpbz",
+        "kontakt_link_dFJd9e",
+        "kontakt_link_tANTT8",
+        "partner_logo_nNDUeQ",
+        "partner_logo_rWJgXr",
+        "partner_logo_PAHGHN"
+      ],
+      "name": "SIS Footer NEU - Gebäudeservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar Gebäudeservice GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@gebaeudeservice.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_trVgjG",
+    "hero_overlay_section_eNXhFF",
+    "main",
+    "leistung_suche_grid_v2_baghyU",
+    "leistung_suche_grid_Ai9p6q",
+    "qualitaeten_hotspot_HKLnY6",
+    "leistung_showcase_Wq4Ytn",
+    "custom_cta_block_xMcPbA",
+    "sis_footer_neu_bMQxjg"
+  ]
+}

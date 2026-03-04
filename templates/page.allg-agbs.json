@@ -1,0 +1,316 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sticky_header_n9khEP": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Zur Hauptseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/industrieservice-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "leistungen_button_Didgg8": {
+      "type": "leistungen-button",
+      "blocks": {
+        "service_block_E9zHe9": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        },
+        "service_block_C3fk7J": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        },
+        "service_block_nDPUVx": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        },
+        "service_block_efGdrb": {
+          "type": "service_block",
+          "settings": {
+            "image_diameter": 150,
+            "image_border_color": "#e0e0e0",
+            "image_border_width": 4,
+            "title": "Industrieservice",
+            "subtitle": "Gebäudeservice",
+            "text": "<p>Listenpunkt 1<br>Listenpunkt 2</p>",
+            "title_font": "system_ui_n4",
+            "title_bold": true,
+            "title_italic": false,
+            "title_font_size": 20,
+            "title_color": "#000000",
+            "subtitle_font": "system_ui_n4",
+            "subtitle_bold": false,
+            "subtitle_italic": false,
+            "subtitle_font_size": 16,
+            "subtitle_color": "#555555",
+            "text_font": "system_ui_n4",
+            "text_bold": false,
+            "text_italic": false,
+            "text_font_size": 14,
+            "text_color": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "service_block_E9zHe9",
+        "service_block_C3fk7J",
+        "service_block_nDPUVx",
+        "service_block_efGdrb"
+      ],
+      "disabled": true,
+      "name": "Leistungen Button",
+      "settings": {
+        "heading": "Unsere Leistungen",
+        "heading_font": "system_ui_n4",
+        "heading_bold": true,
+        "heading_italic": false,
+        "heading_font_size": 42,
+        "heading_color": "#333333",
+        "section_scale": 100,
+        "item_spacing": 30,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "section_bg_color": "#ffffff",
+        "arrow_color": "#111111",
+        "line_color": "#dddddd",
+        "cta_kicker": "Mehr zu unseren Services",
+        "cta_btn_label": "Alle Leistungen ansehen",
+        "cta_btn_link": "shopify://pages/industrieservice-leistungen",
+        "cta_btn_newtab": false,
+        "cta_btn_style": "primary",
+        "cta_align": "center",
+        "cta_kicker_color": "#555555",
+        "cta_btn_bg_color": "#111111",
+        "cta_btn_text_color": "#ffffff"
+      }
+    },
+    "contact_info_form_qe4FUR": {
+      "type": "contact-info-form",
+      "blocks": {
+        "info_card_YEwHz4": {
+          "type": "info_card",
+          "settings": {
+            "title": "Adresse",
+            "text": "<p>SIS Saar - Industrie - Service GmbH<br/>Vorderster Berg 13<br/>D-66333 Völklingen</p>",
+            "icon": "map",
+            "icon_image": "shopify://shop_images/office-location-icon-design-in-black-color-vector-removebg-preview.png"
+          }
+        },
+        "info_card_7H4cnx": {
+          "type": "info_card",
+          "settings": {
+            "title": "E-Mail",
+            "text": "<p><a href=\"mailto:info@sissaar.de\" title=\"mailto:info@sissaar.de\">info@sissaar.de</a></p>",
+            "icon": "mail"
+          }
+        },
+        "info_card_XyeyNk": {
+          "type": "info_card",
+          "settings": {
+            "title": "Telefon",
+            "text": "<p>06898 16 90 900</p>",
+            "icon": "phone"
+          }
+        },
+        "info_card_tfrF9i": {
+          "type": "info_card",
+          "settings": {
+            "title": "Öffnungszeiten",
+            "text": "<p>Mo - Fr. 08.00-16.00 Uhr<br/>und nach Vereinbarung</p>",
+            "icon": "clock"
+          }
+        }
+      },
+      "block_order": [
+        "info_card_YEwHz4",
+        "info_card_7H4cnx",
+        "info_card_XyeyNk",
+        "info_card_tfrF9i"
+      ],
+      "name": "Kontaktbereich mit Formular",
+      "settings": {
+        "left_title": "Kontaktinformationen",
+        "right_title": "Nachricht senden",
+        "label_firstname": "Vorname *",
+        "ph_firstname": "Ihr Vorname",
+        "label_lastname": "Nachname *",
+        "ph_lastname": "Ihr Nachname",
+        "label_email": "E-Mail *",
+        "ph_email": "ihre.email@beispiel.de",
+        "label_phone": "Telefon",
+        "ph_phone": "Ihre Telefonnummer",
+        "label_company": "Unternehmen",
+        "ph_company": "Ihr Unternehmen",
+        "label_subject": "Betreff *",
+        "ph_subject": "Worum geht es?",
+        "label_message": "Nachricht *",
+        "ph_message": "Beschreiben Sie Ihr Anliegen...",
+        "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
+        "consent_label": "Datenschutz zugestimmt",
+        "button_label": "Nachricht senden",
+        "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
+      }
+    },
+    "about_section_v3_X8bBYH": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_zytzcj": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung"
+          }
+        },
+        "feature_kY7gHy": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung"
+          }
+        }
+      },
+      "block_order": [
+        "feature_zytzcj",
+        "feature_kY7gHy"
+      ],
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#FFFFFF",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Allgemeine Geschäftsbedingungen</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "Unsere Mission",
+        "subtitle_richtext": "<p>Unsere Mission</p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Wir sind SIS Saar – ein innovatives Unternehmen …</p>",
+        "text_color": "#6B7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34D399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sticky_header_n9khEP",
+    "leistungen_button_Didgg8",
+    "contact_info_form_qe4FUR",
+    "about_section_v3_X8bBYH"
+  ]
+}

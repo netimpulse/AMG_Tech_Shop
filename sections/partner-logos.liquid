@@ -1,0 +1,291 @@
+{% comment %}
+  Section: Partner-Logos (Grid)
+  Benötigt:
+    - snippets/partner-logo-item.liquid
+    - assets/partner-logos.css
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'partner-logos.css' | asset_url }}" media="all">
+
+<section class="pl-wrap color-{{ section.settings.color_scheme }}"
+  style="
+    --pl-gap: {{ section.settings.gap }}px;
+    --pl-logo-h: {{ section.settings.logo_max_height }}px;
+    --pl-font-heading: {{ section.settings.font_heading.family }}, {{ section.settings.font_heading.fallback_families }};
+    --pl-font-body: {{ section.settings.font_body.family }}, {{ section.settings.font_body.fallback_families }};
+  "
+>
+  <div class="pl-inner page-width">
+    {% if section.settings.eyebrow != blank %}
+      <div class="pl-eyebrow">
+        {% if section.settings.eyebrow_marker %}<span class="pl-dot" aria-hidden="true"></span>{% endif %}
+        <span>{{ section.settings.eyebrow | escape }}</span>
+      </div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="pl-title" style="font-family: var(--pl-font-heading);">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.subtext != blank %}
+      <div class="pl-subtext rte" style="font-family: var(--pl-font-body);">{{ section.settings.subtext }}</div>
+    {% endif %}
+
+    <div class="
+      pl-grid
+      pl-cols-d-{{ section.settings.cols_desktop }}
+      pl-cols-t-{{ section.settings.cols_tablet }}
+      {% if section.settings.show_dividers %}pl-has-dividers{% endif %}
+      {% if section.settings.gray_on %}pl-gray{% endif %}
+    ">
+      {%- for block in section.blocks -%}
+        {% render 'partner-logo-item',
+          block: block,
+          open_new: section.settings.open_new,
+          hover_opacity: section.settings.hover_opacity
+        %}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Partner-Logos (Grid)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Überzeile (Eyebrow)",
+      "default": "MIT WEM ARBEITEN WIR ZUSAMMEN?"
+    },
+    {
+      "type": "checkbox",
+      "id": "eyebrow_marker",
+      "label": "Kleinen Marker vor der Überzeile anzeigen",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "<p>Lernen Sie <strong>unsere Partner</strong> kennen</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Einleitung",
+      "default": "<p>Entdecken Sie die Unternehmen, deren erstklassige Produkte und Dienstleistungen wir nutzen.</p>"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Farbschema",
+      "default": "background-1",
+      "options": [
+        {
+          "value": "background-1",
+          "label": "Standard"
+        },
+        {
+          "value": "background-2",
+          "label": "Alternative"
+        },
+        {
+          "value": "inverse",
+          "label": "Invertiert"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Abstand zwischen Logos",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "cols_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Spalten Desktop",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "cols_tablet",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Spalten Tablet",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Trennlinien zwischen Zellen anzeigen",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Logo-Optionen"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_height",
+      "min": 40,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Max. Logo-Höhe",
+      "default": 72
+    },
+    {
+      "type": "checkbox",
+      "id": "gray_on",
+      "label": "Logos in Graustufen anzeigen",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "hover_opacity",
+      "min": 60,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Logo-Deckkraft (normal)",
+      "default": 100
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new",
+      "label": "Links in neuem Tab öffnen",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Schriftarten"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_heading",
+      "label": "Schriftfamilie – Überschriften",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_body",
+      "label": "Schriftfamilie – Fließtext",
+      "default": "helvetica_n4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Partner-Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt-Text (Bildbeschreibung)",
+          "default": "Partner-Logo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "custom_size",
+          "label": "Eigene Logo-Höhe verwenden",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "logo_height",
+          "min": 40,
+          "max": 160,
+          "step": 4,
+          "unit": "px",
+          "label": "Eigene Höhe (falls aktiviert)",
+          "default": 72
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    {
+      "name": "Partner-Logos (Grid)",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

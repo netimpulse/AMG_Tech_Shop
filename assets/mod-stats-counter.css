@@ -1,0 +1,6 @@
+.msc__heading{text-align:center;font-size:1.75rem;font-weight:700;margin:0 0 2rem}
+.msc__grid{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem}
+.msc__item{text-align:center;padding:1.5rem 2rem;flex:1;min-width:150px}
+.msc__number{display:block;font-size:2.5rem;font-weight:800;line-height:1;letter-spacing:-.02em;margin-bottom:.4rem}
+.msc__label{font-size:.9rem;color:rgba(0,0,0,.55);font-weight:500}
+@media(max-width:480px){.msc__grid{flex-direction:column;align-items:center}.msc__item{min-width:auto}}

@@ -1,0 +1,1194 @@
+{
+  "sections": {
+    "sticky_header_mWiXqk": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_building_section_xFPFdb": {
+      "type": "hero-building-section",
+      "name": "Hero Building",
+      "settings": {
+        "background_image": "shopify://shop_images/shutterstock_448075252.jpg",
+        "enable_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.5,
+        "heading": "Reinigung von RLT Anlagen",
+        "subheading": "",
+        "button_label": "Jetzt Angebot anfragen",
+        "button_link": "shopify://pages/industrieservice-kontakt",
+        "button_color": "#007acc",
+        "button_text_color": "#ffffff",
+        "button_radius": 4,
+        "heading_color": "#007acc",
+        "text_color": "#f5f5f5",
+        "heading_size": 51,
+        "text_size": 18,
+        "font_family": "Arial, sans-serif",
+        "font_bold": true,
+        "font_italic": false,
+        "text_alignment": "left"
+      }
+    },
+    "leistung_showcase_haMeXH": {
+      "type": "leistung-showcase",
+      "blocks": {
+        "showcase_item_CN3FLi": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p> VDI 6022</p>"
+          }
+        },
+        "showcase_item_4qiKCe": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Foto-/ Videoinspektion</p>"
+          }
+        },
+        "showcase_item_gmnHqc": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>rotierende Bürsten</p>"
+          }
+        },
+        "showcase_item_wMDqgA": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Hygiene-Check und Desinfektion</p>"
+          }
+        }
+      },
+      "block_order": [
+        "showcase_item_CN3FLi",
+        "showcase_item_4qiKCe",
+        "showcase_item_gmnHqc",
+        "showcase_item_wMDqgA"
+      ],
+      "name": "Leistung Showcase",
+      "settings": {
+        "heading_html": "",
+        "heading_align": "left",
+        "heading_italic": false,
+        "heading_weight": "700",
+        "subtext": "",
+        "show_image": false,
+        "main_image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "image_radius": 12,
+        "image_position": "left",
+        "left_heading_html": "<p><strong>Saubere Luft - Gesunde Räume</strong></p>",
+        "left_heading_align": "right",
+        "left_heading_italic": false,
+        "left_heading_weight": "700",
+        "left_text": "",
+        "bg_color": "#f6f8fb",
+        "section_padding": 24,
+        "points_title": "Unsere Dienstleistungen:",
+        "points_as_card": true,
+        "points_bg": "#ffffff",
+        "points_border": "#e5e8ee",
+        "points_btn_label": "Jetzt anfragen",
+        "points_btn_url": "shopify://pages/industrieservice-kontakt",
+        "points_btn_align": "left",
+        "fallback_bullet_color": "#2b6cb0"
+      }
+    },
+    "about_section_v2_YLaRmg": {
+      "type": "about-section-v2",
+      "name": "Warum",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 0,
+        "title": "Über uns",
+        "title_richtext": "<p><strong>Lüftungsanlage reinigen - Warum?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v3_TwMWej": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Dachluftzentralen sind zentrale Bestandteile raumlufttechnischer Anlagen und versorgen Produktions- und Aufenthaltsbereiche<br/>mit konditionierter Zuluft. Um die hygienische Qualität der Luft sicherzustellen und den einwandfreien Betrieb zu gewährleisten, schreibt z.B. die VDI 6022 regelmäßige Inspektionen und Reinigungen dieser Anlagen vor.</p><p>Relevante Anlagenteile sind dabei zum Beispiel Filterstufen, Wärmetauscher, Tropfenabscheider, Kondensatwannen und -abläufe, Zuluft- und Abluftventilatoren, Schalldämpfer, Klappen, Luftführungskanäle etc.</p><p><strong>Typische Belastungen:</strong><br/>In industriellen und gewerblichen Umgebungen lagern sich im Betrieb Staub, Fasern, Aerosole, Ölnebel und mikrobiologische Kontaminationen in den Komponenten der Anlage ab. Ohne regelmäßige Reinigung steigt nicht nur der Energieverbrauch – auch die Luftqualität leidet, und es besteht das Risiko hygienischer Mängel. Außerdem können Fettablagerungen in Abluftkanälen zu einer erhöhten Brandgefahr führen.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "about_section_v2_dWieTW": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_eyW8dj": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Mehr Sicherheit",
+            "feature_description": ""
+          }
+        },
+        "feature_jrD3Pf": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/Titelbild_Video.png",
+            "feature_title": "Weniger Risiko",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_eyW8dj",
+        "feature_jrD3Pf"
+      ],
+      "name": "mehr Sciherheit weniger Risiko",
+      "settings": {
+        "layout_direction": "image_left",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 20,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_32780383_Lueftung_071ea26b-f6fa-4f00-9478-957d15e32254.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v2_9TACzD": {
+      "type": "about-section-v2",
+      "name": "Auszug unserer Leistungen",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 0,
+        "title": "",
+        "title_richtext": "<p><strong>Auszug unserer Leistungen</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v3_FYy8t7": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3 - Auszug Leistungen",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 35,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>✅ <em>Sichtprüfung und Dokumentation des hygienischen </em><em><strong>Anlagenzustands</strong></em></p><p>✅ <em><strong>Fachgerechte </strong></em><em>Reinigung von Filtern, Ventilatoren, Wärmetauschern, Tropfenabscheidern, Kondensatwannen etc.</em></p><p>✅ <em><strong>Manuelle</strong></em><em>, </em><em><strong>mechanische </strong></em><em>oder </em><em><strong>chemische </strong></em><em>Reinigung, je nach Anlagentyp und Verschmutzungsgrad</em></p><p>✅ <em>Einsatz von </em><em><strong>rotierenden Bürsten </strong></em><em>(systemgerecht angepasst) und Pressluft, um die Verunreinigungen zu lösen</em></p><p>✅ <em><strong>Entfernung von Fremdkörpern</strong></em><em> wie Staub und Ablagerungen in Luftführungskanälen</em></p><p>✅ <em>Bei Bedarf </em><em><strong>Desinfektion</strong></em><em>smaßnahmen (z.B. bei mikrobieller Belastung) </em></p><p>✅ <em><strong>Dokumentation </strong></em><em>durch Foto- oder Videoaufnahmen vor und nach der Reinigung<br/></em></p><p>Gerne führen wir auch eine Hygiene-Erstinspektion durch und erstellen ein individuelles Reinigungskonzept für Ihre Raumlufttechnische Anlage.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "center"
+      }
+    },
+    "about_section_v3_xqD4zk": {
+      "type": "about-section-v3",
+      "disabled": true,
+      "name": "Über Uns (Layout) – v3 - Auszug Leistungen",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 45,
+        "title": "",
+        "title_richtext": "<p><strong>Auszug unserer Leistungen</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p></p><p>✅ Sichtprüfung und Dokumentation des hygienischen <strong>Anlagenzustands</strong></p><p>✅ <strong>Fachgerechte </strong>Reinigung von Filtern, Ventilatoren, Wärmetauschern, Tropfenabscheidern, Kondensatwannen etc.</p><p>✅ <strong>Manuelle</strong>, <strong>mechanische </strong>oder <strong>chemische </strong>Reinigung, je nach Anlagentyp und Verschmutzungsgrad</p><p>✅ Einsatz von <strong>rotierenden Bürsten </strong>(systemgerecht angepasst) und Pressluft, um die Verunreinigungen zu lösen</p><p>✅ <strong>Entfernung von Fremdkörpern</strong> wie Staub und Ablagerungen in Luftführungskanälen</p><p>✅ Bei Bedarf <strong>Desinfektion</strong>smaßnahmen (z.B. bei mikrobieller Belastung) </p><p>✅ <strong>Dokumentation </strong>durch Foto- oder Videoaufnahmen vor und nach der Reinigung<br/></p><p>Gerne führen wir auch eine Hygiene-Erstinspektion durch und erstellen ein individuelles Reinigungskonzept für Ihre RLT - Anlage.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "slideshow_bMYEwg": {
+      "type": "slideshow",
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 7,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow zu deiner Marke"
+      }
+    },
+    "about_section_v2_pyLLNW": {
+      "type": "about-section-v2",
+      "name": "Warum - vorher nachher bilder",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 0,
+        "title": "Über uns",
+        "title_richtext": "<p><strong>Vorher - Nachher Bilder</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "custom_media_richtext_9HjMKq": {
+      "type": "custom-media-richtext",
+      "blocks": {
+        "media_row_LRpemH": {
+          "type": "media_row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_555365941.jpg",
+            "alt": "Bild",
+            "image_side": "left",
+            "title": "<h3>Vorher</h3>",
+            "text": "<p>ungereinigter Filter einer Küchenabluftanlage</p>",
+            "show_divider": true
+          }
+        },
+        "media_row_nPEiwD": {
+          "type": "media_row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_555365941.jpg",
+            "alt": "Bild",
+            "image_side": "right",
+            "title": "<h3>Nachher</h3>",
+            "text": "<p>gereinigter Filter einer Küchenabluftanlage</p>",
+            "show_divider": true
+          }
+        },
+        "gallery_item_rnQakM": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Bild_2025-02-27_um_16.56.57_d304b748.jpg",
+            "alt": "Galeriebild",
+            "caption": "<p>Lüftungskanal Vorher/Nachher</p>"
+          }
+        },
+        "gallery_item_P6aeYH": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/9.jpg",
+            "alt": "Galeriebild",
+            "caption": "<p>Staubablagerung in Rohr</p>"
+          }
+        },
+        "gallery_item_79x6aT": {
+          "type": "gallery_item",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Bild_2025-02-27_um_17.15.54_b420a0ec.jpg",
+            "alt": "Galeriebild",
+            "caption": "<p>Filter Vorher/Nachher</p>"
+          }
+        }
+      },
+      "block_order": [
+        "media_row_LRpemH",
+        "media_row_nPEiwD",
+        "gallery_item_rnQakM",
+        "gallery_item_P6aeYH",
+        "gallery_item_79x6aT"
+      ],
+      "name": "Media + Richtext + Galerie",
+      "settings": {
+        "section_heading": "",
+        "heading_size_px": 40,
+        "section_subheading": "",
+        "gallery_heading": ""
+      }
+    },
+    "about_experience_fUL8PE": {
+      "type": "about-experience",
+      "blocks": {
+        "stat_yW9hdt": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Bessere Luftqualität und Hygiene",
+            "subtitle": "Potential für Schimmelbildung wird reduziert, negative Gerüche beseitigt,",
+            "aria_label": "1"
+          }
+        },
+        "stat_jPmEMF": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Beseititgung von Gesundheitsgefährdungen",
+            "subtitle": "durch Staub, Schmutz und Mikroben",
+            "aria_label": "1"
+          }
+        },
+        "stat_KrPi3x": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Reduzierte Brandrisiken",
+            "subtitle": "durch Beseitigung von Brandlasten (z.B. Fettablagerungen in den Abluftsystemen)",
+            "aria_label": "1"
+          }
+        },
+        "stat_XrLF9Y": {
+          "type": "stat",
+          "settings": {
+            "emoji": "🌱",
+            "title": "Energieeinsparung und Effizienzsteigerung",
+            "subtitle": "Reduzierte Betriebskosten",
+            "aria_label": "1"
+          }
+        },
+        "stat_wNTYhz": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Verlängerung der Lebensdauer der Anlagen",
+            "subtitle": "Kosteneinsparung",
+            "aria_label": "1"
+          }
+        },
+        "stat_JQFhdt": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Einhaltung gesetzlicher Vorgaben, Richtlinien und Standards",
+            "subtitle": "Rechtssicherheit durch Nachweis einer hygienischen Wartung, Arbeitsschutz etc.",
+            "aria_label": "1"
+          }
+        }
+      },
+      "block_order": [
+        "stat_yW9hdt",
+        "stat_jPmEMF",
+        "stat_KrPi3x",
+        "stat_XrLF9Y",
+        "stat_wNTYhz",
+        "stat_JQFhdt"
+      ],
+      "disabled": true,
+      "name": "Ihre Vorteile – Erfahrung/Stats",
+      "settings": {
+        "kicker": "",
+        "heading": "Ihre Vorteile",
+        "richtext": "",
+        "btn_label": "",
+        "btn_link": "",
+        "btn_newtab": false,
+        "bg_color": "#ffffff",
+        "card_bg": "#ffffff",
+        "card_radius": 16,
+        "text_color": "#111111",
+        "accent_color": "#22c55e"
+      }
+    },
+    "about_section_v2_t3ejyA": {
+      "type": "about-section-v2",
+      "name": "Ihre Vorteile Features",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 45,
+        "section_padding_bottom": 35,
+        "title": "",
+        "title_richtext": "<p><strong>Ihre Vorteile</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v2_GARtaw": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_dtKXfT": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Bessere Luftqualität und Hygiene",
+            "feature_description": "Potential für Schimmelbildung wird reduziert, negative Gerüche beseitigt,"
+          }
+        },
+        "feature_tzXUhx": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Beseititgung von Gesundheitsgefährdungen",
+            "feature_description": "durch Staub, Schmutz und Mikroben"
+          }
+        },
+        "feature_zGHNtc": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Reduzierte Brandrisiken",
+            "feature_description": "durch Beseitigung von Brandlasten (z.B. Fettablagerungen in den Abluftsystemen)"
+          }
+        },
+        "feature_9VXdx9": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Energieeinsparung und Effizienzsteigerung",
+            "feature_description": "Reduzierte Betriebskosten"
+          }
+        },
+        "feature_tDcx8y": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Verlängerung der Lebensdauer der Anlagen",
+            "feature_description": "Kosteneinsparung"
+          }
+        },
+        "feature_f7f6xb": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Einhaltung gesetzlicher Vorgaben, Richtlinien und Standards",
+            "feature_description": "Rechtssicherheit durch Nachweis einer hygienischen Wartung, Arbeitsschutz etc."
+          }
+        }
+      },
+      "block_order": [
+        "feature_dtKXfT",
+        "feature_tzXUhx",
+        "feature_zGHNtc",
+        "feature_9VXdx9",
+        "feature_tDcx8y",
+        "feature_f7f6xb"
+      ],
+      "disabled": true,
+      "name": "Ihre Vorteile Features",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Ihre Vorteile</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "kachelview_DfEMD4": {
+      "type": "kachelview",
+      "blocks": {
+        "stat_qQYazp": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "Bessere Luftqualität und Hygiene",
+            "subtitle": "Potential für Schimmelbildung wird reduziert, negative Gerüche beseitigt,",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_ciBfyk": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "Beseititgung von Gesundheitsgefährdungen",
+            "subtitle": "durch Staub, Schmutz und Mikroben",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_H8LfRk": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "Reduzierte Brandrisiken",
+            "subtitle": "durch Beseitigung von Brandlasten (z.B. Fettablagerungen in den Abluftsystemen)",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_4kTHjR": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "Energieeinsparung und Effizienzsteigerung",
+            "subtitle": "Reduzierte Betriebskosten",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_HcbUaq": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "Verlängerung der Lebensdauer der Anlagen",
+            "subtitle": "Kosteneinsparung",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_aemwyP": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "Einhaltung gesetzlicher Vorgaben, Richtlinien und Standards",
+            "subtitle": "Rechtssicherheit durch Nachweis einer hygienischen Wartung, Arbeitsschutz etc.",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        }
+      },
+      "block_order": [
+        "stat_qQYazp",
+        "stat_ciBfyk",
+        "stat_H8LfRk",
+        "stat_4kTHjR",
+        "stat_HcbUaq",
+        "stat_aemwyP"
+      ],
+      "name": "Kachelview",
+      "settings": {
+        "bg_color": "#f3f8f5",
+        "card_bg": "#ffffff",
+        "card_radius": 16,
+        "text_color": "#111111",
+        "accent_color": "#22c55e"
+      }
+    },
+    "about_section_v2_azXaPJ": {
+      "type": "about-section-v2",
+      "name": "Ihre Vorteile Features",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 15,
+        "title": "",
+        "title_richtext": "<p><strong>VDI 6022</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v3_QHjnVq": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3 - VDI 6022",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 45,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p></p><p>Die <strong>VDI 6022</strong> ist die zentrale Richtlinie für Hygiene in <strong>raumlufttechnischen Anlagen (RLT-Anlagen)</strong> und <strong>Luftbefeuchtern</strong>. Sie legt verbindliche Anforderungen an Planung, Betrieb, Inspektion und Reinigung fest, um dauerhaft eine gesunde Raumluftqualität sicherzustellen.</p><p>Zu den wichtigsten Hygieneanforderungen gehören:</p><ul><li>regelmäßige <strong>Inspektion, Wartung und Reinigung</strong> aller Anlagenteile<br/></li><li>hygienische Ausführung von <strong>Filtern, Luftbefeuchtern und Luftkanälen</strong><br/></li><li>Vorbeugung gegen <strong>Keime, Schimmel und Schadstoffe</strong><br/></li><li>lückenlose <strong>Dokumentation</strong> der Maßnahmen</li></ul><p>Die <strong>VDI 6022</strong> unterscheidet zwischen Kategorie A und B. Fachkräfte mit <strong>Kategorie A</strong> dürfen gesetzlich vorgeschriebene Hygieneinspektionen durchführen und dokumentieren, während <strong>Kategorie B</strong> für Reinigungs- und Wartungsarbeiten qualifiziert. So wird sichergestellt, dass alle Maßnahmen an raumlufttechnischen Anlagen fachgerecht und nach höchsten Hygieneanforderungen erfolgen.</p><p>Eine Reinigung nach VDI 6022 schützt nachweislich die Gesundheit, verbessert das Raumklima, sorgt für Energieeffizienz und stellt die Einhaltung gesetzlicher Vorgaben sicher.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "about_section_v3_ULVX9g": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_Fn9UUV": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🏭 Industrie und Produktion",
+            "feature_description": ""
+          }
+        },
+        "feature_4RTHgy": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🧍 Büro- und Verwaltungsgebäude",
+            "feature_description": ""
+          }
+        },
+        "feature_xWHPye": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🍽️ Gewerbliche Küche / Gastronomie",
+            "feature_description": ""
+          }
+        },
+        "feature_zttQpb": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🚛 Lager / Logistik",
+            "feature_description": ""
+          }
+        },
+        "feature_WHggnj": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🏫 Schulen / Kindergärten",
+            "feature_description": ""
+          }
+        },
+        "feature_FAymY7": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🏫 öffentliche Gebäude",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_Fn9UUV",
+        "feature_4RTHgy",
+        "feature_xWHPye",
+        "feature_zttQpb",
+        "feature_WHggnj",
+        "feature_FAymY7"
+      ],
+      "name": "Über Uns (Layout) – v3 - Bredarfsbranchen",
+      "settings": {
+        "image_position": "left",
+        "image_vertical_align": "center",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 45,
+        "title": "",
+        "title_richtext": "<p><strong>Einige Bedarfsbranchen im Überblick</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "center"
+      }
+    },
+    "about_section_v3_43xXtz": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_xMyEEa": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🏭 Industrie und Produktion",
+            "feature_description": ""
+          }
+        },
+        "feature_gX4X34": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🧍 Büro- und Verwaltungsgebäude",
+            "feature_description": ""
+          }
+        },
+        "feature_JbAdbG": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🍽️ Gewerbliche Küche / Gastronomie",
+            "feature_description": ""
+          }
+        },
+        "feature_E7WWBT": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🚛 Lager / Logistik",
+            "feature_description": ""
+          }
+        },
+        "feature_jr8c6t": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "🏫 Schulen / öffentliche Gebäude",
+            "feature_description": ""
+          }
+        },
+        "feature_UiRXYq": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung"
+          }
+        }
+      },
+      "block_order": [
+        "feature_xMyEEa",
+        "feature_gX4X34",
+        "feature_JbAdbG",
+        "feature_E7WWBT",
+        "feature_jr8c6t",
+        "feature_UiRXYq"
+      ],
+      "disabled": true,
+      "name": "Über Uns (Layout) – v3 - VDI 2052",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 45,
+        "title": "",
+        "title_richtext": "<p><strong>Beispiele für Branchen</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<h3>🏭 Industrie und Produktion</h3><h3>🧍 Büro- und Verwaltungsgebäude</h3><h3>🍽️ Gewerbliche Küche / Gastronomie</h3><h3>🚛 Lager / Logistik</h3><h3>🏫 Schulen / öffentliche Gebäude<br/></h3>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "custom_cta_block_7jDMtP": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_NBcHYf": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/industrieservice-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_NBcHYf"
+      ],
+      "name": "Custom CTA Block - prof. Service",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Service?</strong></p>",
+        "heading_size": 36,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_footer_neu_Q8mQ68": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_yUq6XT": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "unternehmen_link_EUQyFb": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_br6YcT": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/industrieservice-karriere"
+          }
+        },
+        "unternehmen_link_qHbzXc": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_PHPd78": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_FAKMrU": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": "shopify://pages/industrieservice-impressum"
+          }
+        },
+        "kontakt_link_KtqkEb": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_BWHKwc": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_G649jM": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_x4LfiD": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_yUq6XT",
+        "unternehmen_link_EUQyFb",
+        "unternehmen_link_br6YcT",
+        "unternehmen_link_qHbzXc",
+        "unternehmen_link_PHPd78",
+        "kontakt_link_FAKMrU",
+        "kontakt_link_KtqkEb",
+        "partner_logo_BWHKwc",
+        "partner_logo_G649jM",
+        "partner_logo_x4LfiD"
+      ],
+      "name": "SIS Footer NEU- Industrieservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar - Industrie - Service GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@sissaar.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_mWiXqk",
+    "main",
+    "hero_building_section_xFPFdb",
+    "leistung_showcase_haMeXH",
+    "about_section_v2_YLaRmg",
+    "about_section_v3_TwMWej",
+    "about_section_v2_dWieTW",
+    "about_section_v2_9TACzD",
+    "about_section_v3_FYy8t7",
+    "about_section_v3_xqD4zk",
+    "slideshow_bMYEwg",
+    "about_section_v2_pyLLNW",
+    "custom_media_richtext_9HjMKq",
+    "about_experience_fUL8PE",
+    "about_section_v2_t3ejyA",
+    "about_section_v2_GARtaw",
+    "kachelview_DfEMD4",
+    "about_section_v2_azXaPJ",
+    "about_section_v3_QHjnVq",
+    "about_section_v3_ULVX9g",
+    "about_section_v3_43xXtz",
+    "custom_cta_block_7jDMtP",
+    "sis_footer_neu_Q8mQ68"
+  ]
+}

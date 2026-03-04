@@ -1,0 +1,212 @@
+{{ 'section-image-with-features.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Dynamische Stile für Schriftarten, Farben und Größen {% endcomment %}
+<style>
+  #shopify-section-{{ section.id }} .iwf-section {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  #shopify-section-{{ section.id }} .iwf-heading {
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_font_size }}px;
+    font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    font-weight: {{ section.settings.heading_font.weight }};
+    font-style: {{ section.settings.heading_font.style }};
+  }
+
+  #shopify-section-{{ section.id }} .iwf-text {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.text_font_size }}px;
+    font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+    font-weight: {{ section.settings.text_font.weight }};
+    font-style: {{ section.settings.text_font.style }};
+  }
+</style>
+
+<div class="iwf-section">
+  <div class="iwf-container">
+    {%- if section.settings.image != blank -%}
+      <div class="iwf-image-wrapper">
+        <div class="iwf-image-circle">
+          <img
+            src="{{ section.settings.image | image_url: width: 1000 }}"
+            alt="{{ section.settings.image.alt | default: 'Feature Bild' | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="iwf-features-wrapper">
+      {%- for block in section.blocks -%}
+        {% render 'feature-list-item', block: block %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bild mit Stichpunkten",
+  "tag": "section",
+  "class": "custom-image-with-text-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Allgemeine Einstellungen"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Rundes Bild"
+    },
+    {
+      "type": "header",
+      "content": "Schriftarten & Farben"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Schriftart der Überschriften",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße der Überschriften",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Schriftfarbe der Überschriften",
+      "default": "#333333"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Schriftart des Textes",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße des Textes",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Schriftfarbe des Textes",
+      "default": "#555555"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Stichpunkt",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (Bild)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Überschrift",
+          "default": "Effizienz"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "schnelle und sorgfältige Reinigung"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bild mit Stichpunkten",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "heading": "Effizienz",
+            "text": "schnelle und sorgfältige Reinigung"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "heading": "Diskretion",
+            "text": "sensible Bereiche sind bei uns sicher"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "heading": "Professionalität",
+            "text": "im Umgang mit Ihnen und Ihren Kunden"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "heading": "Sicherheit",
+            "text": "die Einhaltung von Vorschriften und Richtlinien sind selbstverständlich"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

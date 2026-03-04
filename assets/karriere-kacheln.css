@@ -1,0 +1,150 @@
+/* Karriere-Kacheln — Vollständige Styles mit Overflow-Fix und Badge oben links */
+.jobs-section {
+  --jobs-section-bg: #f6f7fb;
+  --jobs-pad-y: 48px;
+  --jobs-gap: 24px;
+  --jobs-cols: 2;
+  --card-radius: 16px;
+}
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.jobs-container {
+  background: var(--jobs-section-bg);
+  padding: var(--jobs-pad-y) 0;
+}
+
+.jobs-header {
+  margin: 0 auto 24px;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+.jobs-title {
+  margin: 0 0 6px;
+  line-height: 1.1;
+  font-size: clamp(28px, 3.2vw, 48px);
+  font-weight: 800;
+}
+.jobs-title p { margin: 0; }
+.jobs-subtitle { margin: 0; opacity: 0.85; }
+.jobs-subtitle p { margin: 0; }
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--jobs-cols), minmax(0, 1fr));
+  gap: var(--jobs-gap);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 990px) {
+  .jobs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .jobs-grid { grid-template-columns: 1fr; }
+}
+
+.job-card {
+  background: var(--card-bg, #fff);
+  border-radius: var(--card-radius);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden; /* verhindert Überlauf aus der Karte */
+}
+
+/* --- Badge oben links über Titel --- */
+.job-head { display: block !important; }
+
+.job-card .job-head .job-badge {
+  display: inline-block !important;
+  float: none !important;
+  clear: both !important;
+  margin: 0 0 8px 0 !important;
+  border-radius: 999px;
+  padding: 6px 12px;
+  line-height: 1;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.job-card .job-head .job-title {
+  display: block !important;
+  clear: both !important;
+  margin: 0 !important;
+  line-height: 1.25;
+  font-size: 22px;
+  font-weight: 700;
+}
+.job-card .job-head .job-title p { margin: 0; }
+
+/* Texte */
+.job-desc { margin: 0; opacity: 0.95; }
+.job-desc p { margin: 0 0 0.6em; }
+.job-meta { margin: 2px 0 0; opacity: 0.9; }
+.job-meta p { margin: 0.2em 0 0; }
+
+/* Button */
+.job-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  width: fit-content;
+  background: #111827;
+  color: #fff;
+}
+.job-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(2, 6, 23, 0.12);
+}
+
+/* Details */
+.job-details {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  margin-top: 4px;
+  padding-top: 10px;
+}
+.job-details__toggle {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 6px 0;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* --- Overflow-Fix für Detailtext --- */
+.job-details__content {
+  margin-top: 8px;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.job-details__content p { margin: 0 0 0.6em; }
+.job-details__content ul,
+.job-details__content ol { margin: 0.25em 0 0.5em 1.2em; }
+
+/* Medien im Detailbereich skalieren */
+.job-details__content img,
+.job-details__content video,
+.job-details__content iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lange URLs umbrechen */
+.job-details__content a { word-break: break-all; }

@@ -1,0 +1,15 @@
+.mhb{position:relative;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;overflow:hidden}
+.mhb__overlay{position:absolute;inset:0;pointer-events:none}
+.mhb__content{position:relative;z-index:2;padding:3rem 2rem;max-width:800px;margin:0 auto;color:#fff}
+.mhb__badge{display:inline-block;padding:.35rem 1rem;border-radius:50px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;color:inherit}
+.mhb__heading{font-weight:800;line-height:1.1;margin:0 0 .75rem;letter-spacing:-.02em;color:inherit}
+.mhb__heading.h1{font-size:clamp(2rem,5vw,4rem)}
+.mhb__heading.h2{font-size:clamp(1.5rem,4vw,3rem)}
+.mhb__sub{font-size:clamp(1rem,1.5vw,1.25rem);opacity:.85;margin:0 0 2rem;line-height:1.6;color:inherit}
+.mhb__btns{display:flex;gap:1rem;justify-content:inherit;flex-wrap:wrap}
+.mhb__btn{padding:.85rem 2rem;border-radius:8px;font-weight:600;text-decoration:none;transition:all .2s}
+.mhb__btn--primary{background:#fff;color:#000}
+.mhb__btn--primary:hover{background:#f0f0f0;transform:translateY(-2px)}
+.mhb__btn--secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.mhb__btn--secondary:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+@media(max-width:749px){.mhb__content{padding:2rem 1rem}.mhb__btns{flex-direction:column;align-items:stretch}}

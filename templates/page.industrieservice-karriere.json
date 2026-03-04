@@ -1,0 +1,411 @@
+{
+  "sections": {
+    "sticky_header_NaNAWz": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "karriere_kacheln_nJHMAj": {
+      "type": "karriere-kacheln",
+      "blocks": {
+        "career_tile_RyURLw": {
+          "type": "career_tile",
+          "settings": {
+            "title_html": "<p><strong>Reinigungskraft (m/w/d)</strong></p>",
+            "desc_html": "<p>zuverlässige und erfahrene Reinigungskraft für Industriereinigung</p>",
+            "location_html": "<p>Homburg</p>",
+            "time": "beides",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "details_html": "",
+            "details_toggle": "Details anzeigen",
+            "details_open": false,
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "shopify://pages/bewerbung-industrie",
+            "btn_newtab": false,
+            "card_align": "left",
+            "card_bg": ""
+          }
+        },
+        "career_tile_LjGjVM": {
+          "type": "career_tile",
+          "settings": {
+            "title_html": "<p><strong>Staplerfahrer (m/w/d)</strong></p>",
+            "desc_html": "<p>zur Verstärkung unseres Teams suchen wir ab sofort StaplerfahrerInnen. Erfahrung gewünscht, übertarifliche Entlohnung.</p>",
+            "location_html": "<p>Wadern-Büschfeld</p>",
+            "time": "beides",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "details_html": "",
+            "details_toggle": "Details anzeigen",
+            "details_open": false,
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "shopify://pages/bewerbung-industrie",
+            "btn_newtab": false,
+            "card_align": "left",
+            "card_bg": ""
+          }
+        },
+        "career_tile_B3VqFi": {
+          "type": "career_tile",
+          "name": "Karriere-Kachel - Initiativbewerbung",
+          "settings": {
+            "title_html": "<p><strong>Initiativbewerbung willkommen!</strong></p>",
+            "desc_html": "<p>Aktuell keine passende Stelle ausgeschrieben? Kein Problem!<br/>Wir freuen uns immer über Bewerbungen von engagierten Fachkräften, die Lust haben, unser Team zu verstärken. <br/>Senden Sie uns gerne Ihre Initiativbewerbung.</p>",
+            "location_html": "",
+            "time": "none",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "details_html": "",
+            "details_toggle": "Details anzeigen",
+            "details_open": false,
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "",
+            "btn_newtab": false,
+            "card_align": "left",
+            "card_bg": ""
+          }
+        }
+      },
+      "block_order": [
+        "career_tile_RyURLw",
+        "career_tile_LjGjVM",
+        "career_tile_B3VqFi"
+      ],
+      "name": "Karriere-Kacheln",
+      "settings": {
+        "heading": "<p><strong>Aktuelle Stellenausschreibungen</strong></p>",
+        "subheading": "<p>Finden Sie Ihre nächste berufliche Herausforderung bei uns</p>",
+        "text_align": "center",
+        "section_bg": "#f6f7fb",
+        "card_bg": "#ffffff",
+        "padding_y": 48,
+        "grid_gap": 24,
+        "card_radius": 16,
+        "columns": "2",
+        "badge_bg": "#d1fadf",
+        "badge_text": "#065f46"
+      }
+    },
+    "custom_cta_block_YtgYiU": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_eYbpUr": {
+          "type": "button",
+          "name": "Button - jetzt bewerben",
+          "settings": {
+            "label": "<p>jetzt bewerben</p>",
+            "link": "shopify://pages/industrieservice-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_eYbpUr"
+      ],
+      "name": "Custom CTA Block - Teil des Teams",
+      "settings": {
+        "heading": "<p><strong>Werde Teil unseres Teams</strong></p>",
+        "heading_size": 36,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>✔ (über-)tarifliche Entlohnung ✔ flexible Arbeitszeiten ✔ multikulturelles Team und vieles mehr. Jetzt bewerben 👍</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_single_footer_DNrhdy": {
+      "type": "sis-single-footer",
+      "blocks": {
+        "legal_link_73bNii": {
+          "type": "legal_link",
+          "settings": {
+            "label": "Impressum",
+            "url": ""
+          }
+        },
+        "legal_link_cEjgGN": {
+          "type": "legal_link",
+          "settings": {
+            "label": "Datenschutz",
+            "url": ""
+          }
+        },
+        "legal_link_Ma6rW3": {
+          "type": "legal_link",
+          "settings": {
+            "label": "AGBs",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "legal_link_73bNii",
+        "legal_link_cEjgGN",
+        "legal_link_Ma6rW3"
+      ],
+      "disabled": true,
+      "name": "SIS – Einzelfooter",
+      "settings": {
+        "title": "SIS Saar Industrie Service",
+        "contact_heading": "Kontakt",
+        "address_line_1": "Musterstraße 1, 12345 Musterstadt",
+        "address_line_2": "1",
+        "phone": "0123 / 456 789",
+        "email": "gebaeude@sis-saar.de",
+        "legal_heading": "Rechtliches",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten.",
+        "bg_color": "#0f1621",
+        "text_color": "#cbd5e1",
+        "heading_color": "#ffffff",
+        "link_color": "#3b82f6",
+        "divider_color": "#1e293b"
+      }
+    },
+    "team_RkTwC6": {
+      "type": "team",
+      "blocks": {
+        "team_member_FhCKpW": {
+          "type": "team_member",
+          "settings": {
+            "name": "Max Mustermann",
+            "position": "CEO & Founder",
+            "name_color": "#1e293b",
+            "name_font_size": 20,
+            "position_color": "#4a6965",
+            "position_font_size": 16
+          }
+        },
+        "team_member_bExWEQ": {
+          "type": "team_member",
+          "settings": {
+            "name": "Max Mustermann",
+            "position": "CEO & Founder",
+            "name_color": "#1e293b",
+            "name_font_size": 20,
+            "position_color": "#4a6965",
+            "position_font_size": 16
+          }
+        },
+        "team_member_R8t9ht": {
+          "type": "team_member",
+          "settings": {
+            "name": "Max Mustermann",
+            "position": "CEO & Founder",
+            "name_color": "#1e293b",
+            "name_font_size": 20,
+            "position_color": "#4a6965",
+            "position_font_size": 16
+          }
+        }
+      },
+      "block_order": [
+        "team_member_FhCKpW",
+        "team_member_bExWEQ",
+        "team_member_R8t9ht"
+      ],
+      "disabled": true,
+      "name": "Team",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title": "Unser Team",
+        "title_color": "#1e293b",
+        "title_font": "sans_serif_n7",
+        "title_font_size": 48,
+        "subtitle": "Experten mit Leidenschaft für Ihren digitalen Erfolg.",
+        "subtitle_color": "#475569",
+        "subtitle_font_size": 18,
+        "image_size": 160,
+        "image_shadow_opacity": 0.1
+      }
+    },
+    "sis_footer_neu_BV4Y4n": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_aK6zV9": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "unternehmen_link_bWCrnW": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_gYf4Px": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/industrieservice-karriere"
+          }
+        },
+        "unternehmen_link_8q9wJe": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_GBaVCi": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_hQRLGQ": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": "shopify://pages/industrieservice-impressum"
+          }
+        },
+        "kontakt_link_w4yn8R": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": ""
+          }
+        },
+        "partner_logo_bwP86r": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_bYg94g": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_Ph3YR6": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_aK6zV9",
+        "unternehmen_link_bWCrnW",
+        "unternehmen_link_gYf4Px",
+        "unternehmen_link_8q9wJe",
+        "unternehmen_link_GBaVCi",
+        "kontakt_link_hQRLGQ",
+        "kontakt_link_w4yn8R",
+        "partner_logo_bwP86r",
+        "partner_logo_bYg94g",
+        "partner_logo_Ph3YR6"
+      ],
+      "name": "SIS Footer NEU- Industrieservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar - Industrie - Service GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@sissaar.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_NaNAWz",
+    "main",
+    "karriere_kacheln_nJHMAj",
+    "custom_cta_block_YtgYiU",
+    "sis_single_footer_DNrhdy",
+    "team_RkTwC6",
+    "sis_footer_neu_BV4Y4n"
+  ]
+}

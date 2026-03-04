@@ -1,0 +1,183 @@
+{% comment %}
+  Kachelview – nur Karten-Grid, kein Text, keine Badges
+{% endcomment %}
+
+{{ 'erfahrungen-stats.css' | asset_url | stylesheet_tag }}
+
+<section class="es-section"
+  style="
+    --es-bg-color: {{ section.settings.bg_color }};
+    --es-card-bg-color: {{ section.settings.card_bg }};
+    --es-card-br: {{ section.settings.card_radius }}px;
+    --es-text-color: {{ section.settings.text_color }};
+    --es-accent-color: {{ section.settings.accent_color }};
+  "
+>
+  <div class="es-container">
+    <div class="es-cards">
+      {%- assign stat_blocks = section.blocks | where: 'type', 'stat' -%}
+      {% for block in stat_blocks %}
+        {% render 'snippet-erfahrungen-stat-card',
+          emoji: block.settings.emoji,
+          title: block.settings.title,
+          subtitle: block.settings.subtitle,
+          featured: block.settings.featured,
+          aria_label: block.settings.aria_label,
+          block: block
+        %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+/* Letzte Karte volle Breite, wenn sie alleine unten steht */
+.es-cards > .es-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Kachelview",
+  "tag": "section",
+  "class": "section-kachelview",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Hintergrund",
+      "default": "#F3F8F5"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Karten-Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Karten-Radius",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Akzentfarbe",
+      "default": "#22C55E"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Kachel",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Icon/Emoji",
+          "default": "✅"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Kachel Titel"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Untertitel",
+          "default": "Kurze Beschreibung der Kachel."
+        },
+        {
+          "type": "checkbox",
+          "id": "featured",
+          "label": "Hervorheben (Umriss)",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "aria_label",
+          "label": "Beschriftung Screenreader",
+          "default": "Kachel"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kachelview",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Kachel 1",
+            "subtitle": "Beschreibung 1"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Kachel 2",
+            "subtitle": "Beschreibung 2"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "Kachel 3",
+            "subtitle": "Beschreibung 3"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

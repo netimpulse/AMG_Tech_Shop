@@ -1,0 +1,532 @@
+{% comment %}
+  ** Service Tabs Interaktiv Sektion **
+  - Verwendet externe CSS- und JS-Dateien.
+{% endcomment %}
+
+{{ 'service-tabs-interactive.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign first_block_id = section.blocks[0].id
+-%}
+
+{%- comment -%}
+  Dieser Style-Block ist notwendig, damit die Einstellungen aus dem
+  Theme Editor (Farben, Schriftgrößen etc.) funktionieren können.
+  Die grundlegende Struktur liegt in der externen CSS-Datei.
+{%- endcomment -%}
+{%- style -%}
+  .section-{{ section.id }} {
+    --section-bg-color: {{ section.settings.section_bg_color }};
+    --heading-color: {{ section.settings.heading_color }};
+    --heading-font-size: {{ section.settings.heading_font_size }}px;
+    --content-bg-color: {{ section.settings.content_area_bg_color }};
+    --content-text-color: {{ section.settings.content_text_color }};
+    --content-title-color: {{ section.settings.content_title_color }};
+    --button-bg-color: {{ section.settings.button_bg_color }};
+    --button-text-color: {{ section.settings.button_text_color }};
+    --button-bg-hover-color: {{ section.settings.button_bg_hover_color }};
+    --button-text-hover-color: {{ section.settings.button_text_hover_color }};
+
+    background-color: var(--section-bg-color);
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .section-{{ section.id }} .service-tabs-heading {
+    color: var(--heading-color);
+    font-size: var(--heading-font-size);
+    font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    font-weight: {% if section.settings.heading_bold %}bold{% else %}normal{% endif %};
+    font-style: {% if section.settings.heading_italic %}italic{% else %}normal{% endif %};
+  }
+
+  .section-{{ section.id }} .nav-item.is-active .nav-item__image-wrapper {
+     box-shadow: 0 0 0 4px {{ section.settings.section_bg_color }}, 0 0 0 6px {{ section.settings.active_tab_color }};
+  }
+
+  .section-{{ section.id }} .content__button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+  }
+  
+  .section-{{ section.id }} .content__button:hover {
+     background-color: var(--button-bg-hover-color);
+     color: var(--button-text-hover-color);
+  }
+
+  .section-{{ section.id }} .interactive-content-area {
+    background-color: var(--content-bg-color);
+  }
+
+  .section-{{ section.id }} .content__text-wrapper {
+     color: var(--content-text-color);
+  }
+
+  .section-{{ section.id }} .content__title {
+    color: var(--content-title-color);
+  }
+
+  {% for block in section.blocks %}
+    .section-{{ section.id }} .nav-item-{{ block.id }} .nav-item__image-wrapper {
+      width: {{ block.settings.image_diameter }}px;
+      height: {{ block.settings.image_diameter }}px;
+      border: {{ block.settings.image_border_width }}px solid {{ block.settings.image_border_color }};
+    }
+    .section-{{ section.id }} .nav-item-{{ block.id }} .nav-item__title {
+      font-size: {{ block.settings.title_font_size }}px;
+      color: {{ block.settings.title_color }};
+      font-family: {{ block.settings.title_font.family }}, {{ block.settings.title_font.fallback_families }};
+      font-weight: {% if block.settings.title_bold %}bold{% else %}normal{% endif %};
+      font-style: {% if block.settings.title_italic %}italic{% else %}normal{% endif %};
+    }
+    .section-{{ section.id }} .content-panel-{{ block.id }} .content__title {
+        font-size: {{ block.settings.content_title_font_size }}px;
+        font-family: {{ block.settings.content_title_font.family }}, {{ block.settings.content_title_font.fallback_families }};
+        font-weight: {% if block.settings.content_title_bold %}bold{% else %}normal{% endif %};
+        font-style: {% if block.settings.content_title_italic %}italic{% else %}normal{% endif %};
+    }
+    .section-{{ section.id }} .content-panel-{{ block.id }} .content__description {
+        font-size: {{ block.settings.content_text_font_size }}px;
+        font-family: {{ block.settings.content_text_font.family }}, {{ block.settings.content_text_font.fallback_families }};
+        font-weight: {% if block.settings.content_text_bold %}bold{% else %}normal{% endif %};
+        font-style: {% if block.settings.content_text_italic %}italic{% else %}normal{% endif %};
+    }
+  {% endfor %}
+{%- endstyle -%}
+
+<div class="page-width service-tabs-interactive-section section-{{ section.id }}" data-section-id="{{ section.id }}">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="service-tabs-heading">{{ section.settings.heading | escape }}</h2>
+  {%- endif -%}
+
+  <div class="service-tabs-nav-carousel">
+    {%- for block in section.blocks -%}
+      <div
+        class="nav-item-cell"
+        id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+          {% render 'block-custom-styles', block: block %}
+        <div 
+          class="nav-item nav-item-{{ block.id }} {% if forloop.first %}is-active{% endif %}" 
+          data-tab-for="{{ block.id }}" 
+          aria-controls="content-panel-{{ block.id }}">
+          <div class="nav-item__image-wrapper">
+            {%- if block.settings.tab_image != blank -%}
+              <img class="nav-item__image" src="{{ block.settings.tab_image | image_url: width: 300 }}" alt="{{ block.settings.tab_image.alt | escape }}" loading="lazy">
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'nav-item__image placeholder' }}
+            {%- endif -%}
+          </div>
+          <div class="nav-item__content">
+            {%- if block.settings.title != blank -%}
+              <h3 class="nav-item__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <div class="interactive-content-area">
+    {%- for block in section.blocks -%}
+      <div 
+        id="content-panel-{{ block.id }}" 
+        class="interactive-content__panel content-panel-{{ block.id }} {% if forloop.first %}is-active{% endif %}"
+        data-content-for="{{ block.id }}">
+        
+        <div class="content__image-wrapper">
+          {%- if block.settings.content_image != blank -%}
+            <img src="{{ block.settings.content_image | image_url: width: 1000 }}" alt="{{ block.settings.content_image.alt | escape }}" loading="lazy">
+          {%- else -%}
+             {{ 'image' | placeholder_svg_tag: 'placeholder-background' }}
+          {%- endif -%}
+        </div>
+
+        <div class="content__text-wrapper">
+          {%- if block.settings.content_title != blank -%}
+            <h2 class="content__title">{{ block.settings.content_title }}</h2>
+          {%- endif -%}
+          {%- if block.settings.content_description != blank -%}
+            <div class="content__description">{{ block.settings.content_description }}</div>
+          {%- endif -%}
+          {%- if block.settings.content_button_label != blank and block.settings.content_button_link != blank -%}
+            <a href="{{ block.settings.content_button_link }}" class="content__button">
+              {{ block.settings.content_button_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script src="{{ 'service-tabs-interactive.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Leistungen Interaktiv (3 Dateien)",
+  "tag": "section",
+  "class": "service-tabs-interactive-wrapper",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Allgemeine Sektions-Einstellungen"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Unsere Leistungen im Detail"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Schriftart (Überschrift)",
+      "default": "sans-serif"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_bold",
+      "label": "Fett",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_italic",
+      "label": "Kursiv",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße (Überschrift)",
+      "default": 42
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Farbe (Überschrift)",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Abstände & Farben"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Innenabstand Oben",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Innenabstand Unten",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Hintergrundfarbe (Sektion)",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "active_tab_color",
+      "label": "Akzentfarbe (Aktiver Tab)",
+      "default": "#4CAF50"
+    },
+    {
+      "type": "header",
+      "content": "Styling Inhaltsbereich"
+    },
+    {
+      "type": "color",
+      "id": "content_area_bg_color",
+      "label": "Hintergrundfarbe (Inhalt)",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "color",
+      "id": "content_title_color",
+      "label": "Farbe (Titel im Inhalt)",
+      "default": "#222222"
+    },
+    {
+      "type": "color",
+      "id": "content_text_color",
+      "label": "Farbe (Text im Inhalt)",
+      "default": "#444444"
+    },
+    {
+      "type": "header",
+      "content": "Button im Inhaltsbereich"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Hintergrundfarbe",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Textfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover_color",
+      "label": "Hintergrundfarbe (Hover)",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "button_text_hover_color",
+      "label": "Textfarbe (Hover)",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service_tab",
+      "name": "Leistung",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tab Navigation (rundes Icon)"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Rundes Icon-Bild"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel unter dem Icon",
+          "default": "Industrieservice"
+        },
+        {
+          "type": "range",
+          "id": "image_diameter",
+          "min": 80,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "label": "Größe des Icon-Bildes",
+          "default": 130
+        },
+        {
+          "type": "color",
+          "id": "image_border_color",
+          "label": "Randfarbe des Icons",
+          "default": "#E0E0E0"
+        },
+        {
+          "type": "range",
+          "id": "image_border_width",
+          "min": 0,
+          "max": 15,
+          "step": 1,
+          "unit": "px",
+          "label": "Randbreite des Icons",
+          "default": 3
+        },
+        {
+          "type": "font_picker",
+          "id": "title_font",
+          "label": "Schriftart (Titel unter Icon)",
+          "default": "sans-serif"
+        },
+        {
+          "type": "checkbox",
+          "id": "title_bold",
+          "label": "Fett",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "title_italic",
+          "label": "Kursiv",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "title_font_size",
+          "min": 12,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße",
+          "default": 16
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Farbe",
+          "default": "#333333"
+        },
+        {
+          "type": "header",
+          "content": "Inhaltsbereich (wird bei Klick angezeigt)"
+        },
+        {
+          "type": "image_picker",
+          "id": "content_image",
+          "label": "Großes Inhaltsbild"
+        },
+        {
+          "type": "text",
+          "id": "content_title",
+          "label": "Titel im Inhaltsbereich",
+          "default": "Detaillierter Titel"
+        },
+        {
+          "type": "richtext",
+          "id": "content_description",
+          "label": "Beschreibung",
+          "default": "<p>Hier steht die ausführliche Beschreibung der Leistung. Erklären Sie hier genau, was der Kunde erwarten kann.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Button (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "content_button_label",
+          "label": "Button Text",
+          "default": "Mehr erfahren"
+        },
+        {
+          "type": "url",
+          "id": "content_button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "header",
+          "content": "Text-Styling im Inhaltsbereich"
+        },
+        {
+          "type": "font_picker",
+          "id": "content_title_font",
+          "label": "Schriftart (Titel)",
+          "default": "sans-serif"
+        },
+        {
+          "type": "checkbox",
+          "id": "content_title_bold",
+          "label": "Fett",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "content_title_italic",
+          "label": "Kursiv",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "content_title_font_size",
+          "min": 18,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße (Titel)",
+          "default": 28
+        },
+        {
+          "type": "font_picker",
+          "id": "content_text_font",
+          "label": "Schriftart (Beschreibung)",
+          "default": "sans-serif"
+        },
+        {
+          "type": "checkbox",
+          "id": "content_text_bold",
+          "label": "Fett",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "content_text_italic",
+          "label": "Kursiv",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "content_text_font_size",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße (Beschreibung)",
+          "default": 16
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Leistungen Interaktiv (3 Dateien)",
+      "blocks": [
+        {
+          "type": "service_tab"
+        },
+        {
+          "type": "service_tab"
+        },
+        {
+          "type": "service_tab"
+        },
+        {
+          "type": "service_tab"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

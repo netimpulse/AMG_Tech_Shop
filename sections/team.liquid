@@ -1,0 +1,289 @@
+{{ 'section-team.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --image-shadow-opacity: {{ section.settings.image_shadow_opacity }};
+  }
+{%- endstyle -%}
+
+<div class="team-section" style="background-color: {{ section.settings.background_color }}; padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="team-section__container">
+
+    <div class="team-section__header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="team-section__title" style="color: {{ section.settings.title_color }}; font-size: {{ section.settings.title_font_size }}px; font-family: {{ section.settings.title_font.family }}, {{ section.settings.title_font.fallback_families }};">
+          {{ section.settings.title | escape }}
+        </h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="team-section__subtitle" style="color: {{ section.settings.subtitle_color }}; font-size: {{ section.settings.subtitle_font_size }}px;">
+          {{ section.settings.subtitle }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="team-carousel" role="region" aria-label="Team Karussell" data-section-id="{{ section.id }}">
+        <button class="team-carousel__btn team-carousel__btn--prev" aria-label="Vorheriges">
+          &#10094;
+        </button>
+
+        <div class="team-carousel__viewport">
+          <div class="team-carousel__track">
+            {%- for block in section.blocks -%}
+              <div class="team-carousel__item" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+                {% render 'block-custom-styles', block: block %}
+                {%- render 'team-member-card',
+                  image: block.settings.image,
+                  image_size: section.settings.image_size,
+                  name: block.settings.name,
+                  position: block.settings.position,
+                  name_color: block.settings.name_color,
+                  name_font_size: block.settings.name_font_size,
+                  position_color: block.settings.position_color,
+                  position_font_size: block.settings.position_font_size
+                -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <button class="team-carousel__btn team-carousel__btn--next" aria-label="Nächstes">
+          &#10095;
+        </button>
+
+        <div class="team-carousel__dots" aria-hidden="true"></div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{{ 'team-carousel.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Team",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Allgemeine Sektion"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Abstand oben",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Abstand unten",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Kopfzeile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titel",
+      "default": "Unser Team"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Titelfarbe",
+      "default": "#1e293b"
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "label": "Schriftart des Titels",
+      "default": "helvetica_n7"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Schriftgröße Titel",
+      "default": 48
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Untertitel",
+      "default": "Experten mit Leidenschaft für Ihren digitalen Erfolg."
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Untertitelfarbe",
+      "default": "#475569"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße Untertitel",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Team-Bilder (Global)"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "min": 80,
+      "max": 250,
+      "step": 10,
+      "unit": "px",
+      "label": "Größe der Bilder (Durchmesser)",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "image_shadow_opacity",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.1,
+      "unit": "%",
+      "label": "Stärke des Bild-Schattens",
+      "default": 0.1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team-Mitglied",
+      "limit": 30,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild der Person"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Max Mustermann"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position / Titel",
+          "default": "CEO & Founder"
+        },
+        {
+          "type": "header",
+          "content": "Text-Styling"
+        },
+        {
+          "type": "color",
+          "id": "name_color",
+          "label": "Farbe des Namens",
+          "default": "#1e293b"
+        },
+        {
+          "type": "range",
+          "id": "name_font_size",
+          "min": 14,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße des Namens",
+          "default": 20
+        },
+        {
+          "type": "color",
+          "id": "position_color",
+          "label": "Farbe der Position",
+          "default": "#4A6965"
+        },
+        {
+          "type": "range",
+          "id": "position_font_size",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße der Position",
+          "default": 16
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team",
+      "blocks": [
+        {
+          "type": "team_member"
+        },
+        {
+          "type": "team_member"
+        },
+        {
+          "type": "team_member"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

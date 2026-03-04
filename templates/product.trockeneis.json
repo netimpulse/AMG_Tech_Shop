@@ -1,0 +1,115 @@
+{
+  "sections": {
+    "main": {
+      "type": "trockeneis-product",
+      "blocks": {
+        "desc_1": {
+          "type": "product_description",
+          "settings": {
+            "heading": "Produktbeschreibung",
+            "text": "<p>Unsere Trockeneispellets werden aus hochreinem CO2 hergestellt und eignen sich ideal fuer industrielle Reinigung, Lebensmitteltransport und Spezialanwendungen.</p>"
+          }
+        },
+        "specs_1": {
+          "type": "product_specs",
+          "settings": {
+            "heading": "Technische Daten",
+            "spec_1_label": "Material",
+            "spec_1_value": "Festes CO2 (Kohlendioxid)",
+            "spec_2_label": "Temperatur",
+            "spec_2_value": "-78,5 Grad C",
+            "spec_3_label": "Pelletgroessen",
+            "spec_3_value": "1,5 mm / 3 mm",
+            "spec_4_label": "Reinheit",
+            "spec_4_value": "Lebensmittelqualitaet",
+            "spec_5_label": "Haltbarkeit",
+            "spec_5_value": "Ca. 24-48 Std. (isoliert)",
+            "spec_6_label": "Verpackung",
+            "spec_6_value": "Isolierte Thermobox"
+          }
+        },
+        "safety_1": {
+          "type": "safety_info",
+          "settings": {
+            "heading": "Sicherheitshinweis",
+            "text": "<p>Trockeneis nur in gut beluefteten Raeumen verwenden. Schutzhandschuhe tragen. Von Kindern fernhalten.</p>"
+          }
+        },
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Wie wird Trockeneis geliefert?",
+            "answer": "<p>In speziell isolierten Thermoboxen. Bei Expresslieferung innerhalb von 24 Stunden.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Welche Pelletgroesse ist die richtige?",
+            "answer": "<p><strong>1,5 mm:</strong> Ideal fuer Trockeneisstrahlen.<br><strong>3 mm:</strong> Optimal fuer Kuehlung und Transport.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Wie lagere ich Trockeneis richtig?",
+            "answer": "<p>In der mitgelieferten Thermobox aufbewahren. Nie in luftdichten Behaeltern lagern.</p>"
+          }
+        },
+        "delivery_1": {
+          "type": "delivery_info",
+          "settings": {
+            "heading": "Versandinformationen",
+            "text": "<p>Versand montags bis donnerstags in isolierten Thermoboxen.</p>"
+          }
+        },
+        "cta_1": {
+          "type": "contact_cta",
+          "settings": {
+            "heading": "Groessere Mengen oder Sonderwuensche?",
+            "text": "Ab 30 kg erstellen wir Ihnen ein individuelles Angebot.",
+            "button_label": "Kontakt aufnehmen",
+            "button_link": "/pages/kontakt"
+          }
+        }
+      },
+      "block_order": [
+        "desc_1",
+        "specs_1",
+        "safety_1",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "delivery_1",
+        "cta_1"
+      ],
+      "settings": {
+        "subtitle": "Hochwertige Trockeneispellets fuer Industrie und Gewerbe",
+        "price_note": "Preis inkl. MwSt., zzgl. Versandkosten",
+        "cart_note": "Sichere Zahlung ueber Shopify Payments",
+        "default_size": "3mm",
+        "pickup_address": "Abholung an unserem Standort im Saarland",
+        "dhl_price": "auf Anfrage",
+        "dhl_price_raw": "0",
+        "dhl_conditions": "<ul><li>Express-Lieferung in 1-2 Werktagen</li><li>Sendungsverfolgung inklusive</li><li>Versicherter Versand</li></ul>",
+        "dpd_price": "auf Anfrage",
+        "dpd_price_raw": "0",
+        "dpd_conditions": "<ul><li>Lieferung in 1-3 Werktagen</li><li>Predict-Service: Lieferzeitfenster per SMS</li><li>Sendungsverfolgung inklusive</li></ul>",
+        "go_price": "auf Anfrage",
+        "go_price_raw": "0",
+        "go_conditions": "<ul><li>Same-Day oder Overnight-Lieferung</li><li>Temperaturgefuehrter Transport moeglich</li><li>Direkte Zustellung</li></ul>",
+        "feature_1": "Premium-Qualitaet",
+        "feature_2": "Sofort verfuegbar",
+        "feature_3": "Flexible Mengen"
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "related"
+  ]
+}

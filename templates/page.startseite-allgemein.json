@@ -1,0 +1,229 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_header_FyPYw6": {
+      "type": "custom-header",
+      "name": "Custom Header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo": "shopify://shop_images/Logo_SIS_Saar__1_-removebg-preview.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "logo_position_x": 0,
+        "logo_position_y": 0,
+        "menu": "main-menu",
+        "nav_font": "sans-serif",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "menu_position_x": 0,
+        "menu_position_y": 0,
+        "button_text": "Kontakt",
+        "button_link": "",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "split_showcase_rQEiy6": {
+      "type": "split-showcase",
+      "name": "Split Showcase",
+      "settings": {
+        "heading": "Ihr Partner für professionelle Service-Lösungen",
+        "heading_color": "#121212",
+        "heading_font_size": 36,
+        "subheading": "<p>Zwei spezialisierte Unternehmen unter einem Dach - für Gebäude- und Industrieservice auf höchstem Niveau.</p>",
+        "subheading_color": "#454545",
+        "subheading_font_size": 18,
+        "box_bg_color": "#f5f5f5",
+        "box_corner_radius": 12,
+        "overlay_color": "linear-gradient(#0000004D, #00000080)",
+        "overlay_hover_color": "linear-gradient(#0000001A, #00000066)",
+        "text_color": "#FFFFFF",
+        "icon_size": 48,
+        "title_size": 24,
+        "description_size": 16,
+        "button_bg_color": "rgba(255, 255, 255, 0.1)",
+        "button_border_color": "rgba(255, 255, 255, 0.3)",
+        "button_hover_bg_color": "rgba(255, 255, 255, 0.2)",
+        "button_hover_border_color": "rgba(255, 255, 255, 0.5)",
+        "left_content_x": 50,
+        "left_content_y": 50,
+        "right_content_x": 50,
+        "right_content_y": 50,
+        "left_image": "shopify://shop_images/ChatGPT_Image_29._Juli_2025_00_15_46_cleanup.png",
+        "left_hover_image": "shopify://shop_images/mage_29._Juli_2025_00_15_46.png",
+        "left_icon": "",
+        "left_title": "GEBÄUDE SERVICE",
+        "left_description": "Facility Management, Reinigung und Hausmeisterservice",
+        "left_button_text": "Mehr erfahren",
+        "left_button_link": "shopify://pages/sis-saar-gebaeudeservice",
+        "right_image": "shopify://shop_images/ChatGPT_Image_29._Juli_2025_20_41_34_cleanup.png",
+        "right_hover_image": "shopify://shop_images/Image_29._Juli_2025_20_41_34_cleanup.png",
+        "right_icon": "",
+        "right_title": "INDUSTRIE SERVICE",
+        "right_description": "Anlagenwartung, Reparatur und Industriedienstleistungen",
+        "right_button_text": "Mehr erfahren",
+        "right_button_link": "shopify://pages/industrieservice"
+      }
+    },
+    "text_mit_bild_iRbx77": {
+      "type": "text-mit-bild",
+      "name": "Text mit Bild",
+      "settings": {
+        "image_position": "right",
+        "image_shadow_strength": 20,
+        "heading": "Über uns",
+        "heading_font": "sans-serif",
+        "heading_font_size": 42,
+        "heading_color": "#1f1f1f",
+        "subheading": "Wer wir sind und was uns auszeichnet",
+        "subheading_font": "sans-serif",
+        "subheading_font_size": 18,
+        "subheading_color": "#555555",
+        "text": "<p>Beschreiben Sie hier Ihr Unternehmen, Ihre Produkte oder Dienstleistungen. Dieser Text ist vollständig anpassbar und unterstützt auch Formatierungen wie <strong>fett</strong> oder <em>kursiv</em>.</p>",
+        "text_font": "sans-serif",
+        "text_font_size": 16,
+        "text_color": "#333333"
+      }
+    },
+    "interactive_map_kPPPCB": {
+      "type": "interactive-map",
+      "name": "Interaktive Karte",
+      "settings": {
+        "api_key": "",
+        "title": "So finden Sie uns",
+        "subtitle": "Besuchen Sie uns in unseren Geschäftsräumen",
+        "title_color": "#0B2545",
+        "title_size": 36,
+        "title_font": "inherit",
+        "subtitle_color": "#54627A",
+        "subtitle_size": 16,
+        "subtitle_font": "inherit",
+        "card_bg": "#F5F7FA",
+        "lat": 49,
+        "lng": 6,
+        "zoom": 14,
+        "height_desktop": 420,
+        "height_mobile": 360,
+        "draggable": true,
+        "scrollwheel": true,
+        "marker_title": "Unser Standort",
+        "pin_w": 40,
+        "pin_h": 40,
+        "pin_anchor_x": 20,
+        "pin_anchor_y": 40,
+        "radius_enabled": true,
+        "radius_km": 25,
+        "radius_stroke_color": "#16a34a",
+        "radius_stroke_weight": 2,
+        "radius_fill_color": "#16a34a",
+        "radius_fill_opacity": 1,
+        "placeholder_title": "Interaktive Karte",
+        "placeholder_text": "Hier würde eine interaktive Google Maps Karte eingebettet werden"
+      }
+    },
+    "kundenbewertung_t38Nip": {
+      "type": "Kundenbewertung",
+      "blocks": {
+        "review_B6aFFn": {
+          "type": "review",
+          "settings": {
+            "image_size": 80,
+            "person_name": "Max Mustermann",
+            "name_font": "helvetica_n4",
+            "name_font_size": 18,
+            "review_text": "<p>Eine tolle Erfahrung! Ich bin sehr zufrieden mit dem Produkt und dem Service.</p>",
+            "text_font": "helvetica_n4",
+            "text_font_size": 16,
+            "star_rating": 5
+          }
+        },
+        "review_GayiPC": {
+          "type": "review",
+          "settings": {
+            "image_size": 80,
+            "person_name": "Max Mustermann",
+            "name_font": "helvetica_n4",
+            "name_font_size": 18,
+            "review_text": "<p>Eine tolle Erfahrung! Ich bin sehr zufrieden mit dem Produkt und dem Service.</p>",
+            "text_font": "helvetica_n4",
+            "text_font_size": 16,
+            "star_rating": 5
+          }
+        },
+        "review_jLiVAe": {
+          "type": "review",
+          "settings": {
+            "image_size": 80,
+            "person_name": "Max Mustermann",
+            "name_font": "helvetica_n4",
+            "name_font_size": 18,
+            "review_text": "<p>Eine tolle Erfahrung! Ich bin sehr zufrieden mit dem Produkt und dem Service.</p>",
+            "text_font": "helvetica_n4",
+            "text_font_size": 16,
+            "star_rating": 5
+          }
+        },
+        "review_JVUNMT": {
+          "type": "review",
+          "settings": {
+            "image_size": 80,
+            "person_name": "Max Mustermann",
+            "name_font": "helvetica_n4",
+            "name_font_size": 18,
+            "review_text": "<p>Eine tolle Erfahrung! Ich bin sehr zufrieden mit dem Produkt und dem Service.</p>",
+            "text_font": "helvetica_n4",
+            "text_font_size": 16,
+            "star_rating": 5
+          }
+        },
+        "review_N9rNwX": {
+          "type": "review",
+          "settings": {
+            "image_size": 80,
+            "person_name": "Max Mustermann",
+            "name_font": "helvetica_n4",
+            "name_font_size": 18,
+            "review_text": "<p>Eine tolle Erfahrung! Ich bin sehr zufrieden mit dem Produkt und dem Service.</p>",
+            "text_font": "helvetica_n4",
+            "text_font_size": 16,
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "review_B6aFFn",
+        "review_GayiPC",
+        "review_jLiVAe",
+        "review_JVUNMT",
+        "review_N9rNwX"
+      ],
+      "name": "Kundenbewertung",
+      "settings": {
+        "background_color": "#f9f9f9",
+        "section_padding": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_header_FyPYw6",
+    "split_showcase_rQEiy6",
+    "text_mit_bild_iRbx77",
+    "interactive_map_kPPPCB",
+    "kundenbewertung_t38Nip"
+  ]
+}

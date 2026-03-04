@@ -1,0 +1,254 @@
+{% comment %}
+  Section: Custom Slider
+  Achtung: damit ihr mehrere Slider auf einer Seite nutzen könnt,
+  wird die section.id als Teil der Element-ID verwendet.
+{% endcomment %}
+<link href="{{ 'slider.css' | asset_url }}" rel="stylesheet" type="text/css" />
+
+<div id="custom-slider-{{ section.id }}" class="custom-slider">
+  <div class="slides">
+    {% for block in section.blocks %}
+      {% render 'slide', block: block, slide_index: forloop.index0 %}
+    {% endfor %}
+  </div>
+  <button class="slider-arrow prev" aria-label="Vorherige Slide">
+    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+  </button>
+  <button class="slider-arrow next" aria-label="Nächste Slide">
+    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var slider = document.getElementById('custom-slider-{{ section.id }}');
+  if(!slider) return;
+  var slides = slider.querySelectorAll('.slide');
+  var current = 0;
+  slides.forEach(function(s,i){ if(i!==0) s.classList.remove('active'); });
+  slides[0].classList.add('active');
+
+  function showSlide(idx){
+    slides[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  slider.querySelector('.slider-arrow.next')
+        .addEventListener('click', function(){ showSlide(current+1); });
+  slider.querySelector('.slider-arrow.prev')
+        .addEventListener('click', function(){ showSlide(current-1); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Custom Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "id": "bg_image",
+          "type": "image_picker",
+          "label": "Hintergrundbild"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Überschrift"
+        },
+        {
+          "id": "heading_font",
+          "type": "font_picker",
+          "label": "Schriftart Überschrift"
+        },
+        {
+          "id": "heading_font_size",
+          "type": "range",
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße Überschrift"
+        },
+        {
+          "id": "heading_color",
+          "type": "color",
+          "label": "Farbe Überschrift"
+        },
+        {
+          "id": "text",
+          "type": "textarea",
+          "label": "Fließtext"
+        },
+        {
+          "id": "text_font",
+          "type": "font_picker",
+          "label": "Schriftart Text"
+        },
+        {
+          "id": "text_font_size",
+          "type": "range",
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße Text"
+        },
+        {
+          "id": "text_color",
+          "type": "color",
+          "label": "Farbe Text"
+        },
+        {
+          "id": "show_button",
+          "type": "checkbox",
+          "label": "Button anzeigen",
+          "default": false
+        },
+        {
+          "id": "button_label",
+          "type": "text",
+          "label": "Button-Text",
+          "default": "Mehr"
+        },
+        {
+          "id": "button_link",
+          "type": "url",
+          "label": "Button-Link"
+        },
+        {
+          "id": "button_font",
+          "type": "font_picker",
+          "label": "Schriftart Button"
+        },
+        {
+          "id": "button_font_size",
+          "type": "range",
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße Button"
+        },
+        {
+          "id": "button_text_color",
+          "type": "color",
+          "label": "Textfarbe Button"
+        },
+        {
+          "id": "button_bg_color",
+          "type": "color",
+          "label": "Hintergrundfarbe Button"
+        },
+        {
+          "id": "button_text_hover_color",
+          "type": "color",
+          "label": "Hover Textfarbe Button"
+        },
+        {
+          "id": "button_bg_hover_color",
+          "type": "color",
+          "label": "Hover Hintergrundfarbe Button"
+        },
+        {
+          "id": "button_border_radius",
+          "type": "range",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Button Ecken-Rundung"
+        },
+        {
+          "id": "show_logo",
+          "type": "checkbox",
+          "label": "Logo anzeigen",
+          "default": false
+        },
+        {
+          "id": "logo_text",
+          "type": "text",
+          "label": "Logo-Text"
+        },
+        {
+          "id": "logo_font",
+          "type": "font_picker",
+          "label": "Schriftart Logo"
+        },
+        {
+          "id": "logo_font_size",
+          "type": "range",
+          "min": 16,
+          "max": 60,
+          "step": 1,
+          "unit": "px",
+          "label": "Schriftgröße Logo"
+        },
+        {
+          "id": "logo_color",
+          "type": "color",
+          "label": "Farbe Logo"
+        },
+        {
+          "id": "logo_border_radius",
+          "type": "range",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Logo Ecken-Rundung"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Slider",
+      "category": "Slideshow",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

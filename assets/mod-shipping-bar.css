@@ -1,0 +1,4 @@
+.msb{padding:.75rem 0}
+.msb__inner{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem 3rem}
+.msb__item{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:500}
+.msb__icon{width:24px;height:24px;object-fit:contain}

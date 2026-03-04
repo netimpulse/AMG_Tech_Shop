@@ -1,0 +1,26 @@
+{%- comment -%}
+  Buttons im eigenen Container – mit Inline-Fallback-Styles,
+  damit es auch ohne externe CSS-Datei korrekt aussieht.
+  Erwartete Variablen:
+  - btn1_text, btn1_link, btn1_bg, btn1_color
+  - btn2_text, btn2_link, btn2_bg, btn2_color
+{%- endcomment -%}
+
+<div class="hero-overlay__btn-container"
+     style="display:inline-flex;gap:16px;margin-top:24px;flex-wrap:wrap;align-items:center;justify-content:flex-start;">
+  {%- if btn1_text != blank -%}
+    <a class="hero-overlay__btn hero-overlay__btn--1"
+       href="{{ btn1_link | default: '#' }}"
+       style="display:inline-block;text-decoration:none;border:none;cursor:pointer;line-height:1;border-radius:10px;padding:14px 24px;font-weight:600;background:{{ btn1_bg | default: '#2BAAA2' }};color:{{ btn1_color | default: '#FFFFFF' }};">
+      {{ btn1_text }}
+    </a>
+  {%- endif -%}
+
+  {%- if btn2_text != blank -%}
+    <a class="hero-overlay__btn hero-overlay__btn--2"
+       href="{{ btn2_link | default: '#' }}"
+       style="display:inline-block;text-decoration:none;border:none;cursor:pointer;line-height:1;border-radius:10px;padding:14px 24px;font-weight:600;background:{{ btn2_bg | default: '#FFFFFF' }};color:{{ btn2_color | default: '#2BAAA2' }};">
+      {{ btn2_text }}
+    </a>
+  {%- endif -%}
+</div>

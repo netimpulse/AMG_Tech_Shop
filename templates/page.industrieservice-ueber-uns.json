@@ -1,0 +1,858 @@
+{
+  "sections": {
+    "sticky_header_XtXzjY": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Zurück",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_overlay_section_Rk9gNP": {
+      "type": "hero-overlay-section",
+      "name": "Hero – Service Overlay",
+      "settings": {
+        "bg_image": "shopify://shop_images/SIS-Haus.jpg",
+        "overlay_color": "#2baaa2",
+        "overlay_opacity": 70,
+        "section_height": 60,
+        "section_height_mobile": 40,
+        "content_max_width": 760,
+        "heading": "Ihre Partner für professionelle Service-Lösungen",
+        "heading_font": "system_ui_n4",
+        "heading_size": 64,
+        "heading_color": "#ffffff",
+        "text": "<p>Zwei spezialisierte Unternehmen unter einem Dach. Ihre Experten und Dienstleistungspartner auf höchstem Niveau.</p>",
+        "text_font": "system_ui_n4",
+        "text_size": 20,
+        "text_color": "#ffffff",
+        "btn1_text": "Mehr über unsere Services",
+        "btn1_link": "shopify://pages/industrieservice-leistungen",
+        "btn1_font": "system_ui_n4",
+        "btn1_font_size": 16,
+        "btn1_padding_x": 28,
+        "btn1_padding_y": 14,
+        "btn1_radius": 10,
+        "btn1_bg": "#2baaa2",
+        "btn1_bg_hover": "#238b84",
+        "btn1_text_color": "#ffffff",
+        "btn1_text_hover": "#ffffff",
+        "btn2_text": "Kontakt aufnehmen",
+        "btn2_link": "shopify://pages/industrieservice-kontakt",
+        "btn2_font": "system_ui_n4",
+        "btn2_font_size": 16,
+        "btn2_padding_x": 24,
+        "btn2_padding_y": 14,
+        "btn2_radius": 10,
+        "btn2_bg": "#ffffff",
+        "btn2_bg_hover": "#e6e6e6",
+        "btn2_text_color": "#2baaa2",
+        "btn2_text_hover": "#238b84"
+      }
+    },
+    "erfahrungen_stats_aCR3TH": {
+      "type": "erfahrungen-stats",
+      "blocks": {
+        "badge_iAHifG": {
+          "type": "badge",
+          "settings": {
+            "badge_text": "200+ Kunden"
+          }
+        },
+        "badge_cD7tNP": {
+          "type": "badge",
+          "settings": {
+            "badge_text": "150+ Beschäftigte"
+          }
+        },
+        "badge_UfVMDV": {
+          "type": "badge",
+          "settings": {
+            "badge_text": "20+ Jahre Erfahrung"
+          }
+        },
+        "stat_rWGNy9": {
+          "type": "stat",
+          "settings": {
+            "emoji": "🌳",
+            "title": "Regional verwurzelt – überregional stark",
+            "subtitle": "Wir stehen für saarländische Verlässlichkeit mit professionellem Anspruch.",
+            "featured": false,
+            "aria_label": "Wert/Stat-Karte"
+          }
+        },
+        "stat_YDx4Qn": {
+          "type": "stat",
+          "settings": {
+            "emoji": "⭐",
+            "title": "Qualität durch Leidenschaft",
+            "subtitle": "Sauberkeit ist für uns mehr als ein Standard – sie ist unsere Überzeugung.",
+            "featured": false,
+            "aria_label": "Wert/Stat-Karte"
+          }
+        },
+        "stat_HYnD7y": {
+          "type": "stat",
+          "settings": {
+            "emoji": "👤",
+            "title": "Menschen im Mittelpunkt",
+            "subtitle": "Schulung, Sicherheit und Wertschätzung sind für uns selbstverständlich.",
+            "featured": false,
+            "aria_label": "Wert/Stat-Karte"
+          }
+        },
+        "stat_jApDNg": {
+          "type": "stat",
+          "settings": {
+            "emoji": "🌱",
+            "title": "Nachhaltigkeit im Blick",
+            "subtitle": "Moderne, ressourcenschonende Verfahren für gelebte Praxis.",
+            "featured": false,
+            "aria_label": "Wert/Stat-Karte"
+          }
+        },
+        "stat_NnTRd7": {
+          "type": "stat",
+          "settings": {
+            "emoji": "🤝",
+            "title": "Partnerschaft auf Augenhöhe",
+            "subtitle": "Wir hören zu, verstehen Bedürfnisse und liefern Lösungen, die passen.",
+            "featured": false,
+            "aria_label": "Wert/Stat-Karte"
+          }
+        }
+      },
+      "block_order": [
+        "badge_iAHifG",
+        "badge_cD7tNP",
+        "badge_UfVMDV",
+        "stat_rWGNy9",
+        "stat_YDx4Qn",
+        "stat_HYnD7y",
+        "stat_jApDNg",
+        "stat_NnTRd7"
+      ],
+      "name": "Erfahrungen • Stats",
+      "settings": {
+        "kicker": "Über 20 Jahre Erfahrung",
+        "heading": "<p><strong>Unsere Werte</strong></p>",
+        "richtext": "<p>Als familiengeführtes Unternehmen legen wir Wert auf persönlichen Service und langfristige Kundenbeziehungen. Unser Team von über 150 qualifizierten Mitarbeitenden sorgt täglich dafür, dass mehr als 200 zufriedene KundInnen auf unsere Zuverlässigkeit vertrauen.</p>",
+        "btn_label": "Mehr über uns",
+        "btn_link": "",
+        "btn_newtab": false,
+        "bg_color": "#ffffff",
+        "card_bg": "#ffffff",
+        "card_radius": 16,
+        "text_color": "#111111",
+        "accent_color": "#22c55e"
+      }
+    },
+    "about_section_v2_YRVhnt": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_Tm4gx9": {
+          "type": "feature",
+          "name": "Feature Punkt - kurze Reaktionszeiten",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/25327197-e14f-4df3-a683-b1e471aac8ae.png",
+            "feature_title": "✅ kurze Reaktionszeiten",
+            "feature_description": ""
+          }
+        },
+        "feature_EKrAma": {
+          "type": "feature",
+          "name": "Feature Punkt - langjährige Erfahrung",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ langjährige Erfahrung",
+            "feature_description": ""
+          }
+        },
+        "feature_TyyGkn": {
+          "type": "feature",
+          "name": "Feature Punkt - geschultes Personal",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ geschultes Personal",
+            "feature_description": ""
+          }
+        },
+        "feature_fVBWTg": {
+          "type": "feature",
+          "name": "Feature Punkt - beste Qualität",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ beste Qualität",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_Tm4gx9",
+        "feature_EKrAma",
+        "feature_TyyGkn",
+        "feature_fVBWTg"
+      ],
+      "disabled": true,
+      "name": "Über Uns (Layout) – Neu-SIS",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "Über uns",
+        "title_richtext": "<p><strong>Über uns</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Wir unterstützen Ihr Kerngeschäft mit gründlicher, flexibler und leistungsstarker Dienstleistung, damit Sie sich auf Ihre Ziele konzentrieren können. Unsere motivierten und regelmäßig geschulten Mitarbeitenden sind das Herzstück unseres Erfolgs.  Gemeinsam nutzen wir Innovationen und nachhaltige Arbeitsmethoden, um Ausfallzeiten zu minimieren und die Umwelt zu schützen.</p><p><strong>Was uns antreibt</strong></p><p>Für uns gilt: <strong>Dienstleistung ist Vertrauenssache.</strong><br/>Deshalb sehen wir unsere Arbeit nicht als kurzfristigen Auftrag, sondern als <strong>langfristige Partnerschaft</strong>. Unsere Kunden verlassen sich darauf, dass wir nicht nur schnell reagieren, sondern vorausschauend denken und mitgestalten.</p><p></p><p><strong>Warum SIS<br/>Saar-Industrie-Service GmbH?</strong></p><p><strong>Kompetenz, auf die sie sich verlassen können</strong><br/>Mit jahrelanger Erfahrung im Industrieservice bieten wir durchdachte, maßgeschneiderte Lösungen für höchste Anforderungen – zuverlässig, effizient und mit Blick fürs Detail.</p><p><br/><strong>Zuverlässigkeit & Qualität</strong><br/>Unsere Arbeit steht für nachhaltige Sauberkeit, Sicherheit und den <br/>langfristigen Werterhalt Ihrer Anlagen – professionell umgesetzt und <br/>lückenlos dokumentiert.</p><p><strong>Regional stark – persönlich betreut</strong><br/>Kurze Wege, schnelle Reaktionszeiten, direkter Draht: Wir sind in Ihrer Nähe und für Sie da, wenn es darauf ankommt.<br/><br/><strong>Unser Qualitätsversprechen</strong></p><p><strong>Professionelle Ausführung</strong><br/>Jedes Projekt wird sorgfältig geplant und fachgerecht umgesetzt – effizient, gründlich und termintreu.<br/><strong><br/>Erfahrenes Fachpersonal</strong><br/>Unsere geschulten Teams bringen Know-how und Branchenverständnis mit – und denken im Sinne Ihrer Abläufe mit.<br/><strong><br/>Modernste Technik & Equipment</strong><br/>Wir setzen auf leistungsstarke, umweltschonende Reinigungsverfahren –abgestimmt auf Ihre spezifischen Anforderungen.<br/><br/><strong>Flexibilität & Zeitersparnis</strong><br/>Ob nachts, am Wochenende oder im laufenden Betrieb – wir arbeiten im Hintergrund, ohne Ihre Abläufe zu stören.<br/><strong><br/>Individuelle Lösungen</strong><br/>Statt Standards bieten wir maßgeschneiderte Konzepte – analysiert, geplant und umgesetzt auf Basis Ihrer Ziele.<br/><strong><br/>Alles aus einer Hand</strong><br/>Von der ersten Beratung bis zur Nachbetreuung erhalten Sie einen umfassenden Service mit einem festen Ansprechpartner.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_370492946.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v3_YePBYF": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_yKjwE9": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "image",
+            "icon_svg": "",
+            "feature_title": "✅ Kurze Reaktionszeit",
+            "feature_description": ""
+          }
+        },
+        "feature_kpXH63": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ langjährige Erfahrung",
+            "feature_description": ""
+          }
+        },
+        "feature_aKiWpQ": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ geschultes Personal",
+            "feature_description": ""
+          }
+        },
+        "feature_VaRcQC": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ beste Qualität",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_yKjwE9",
+        "feature_kpXH63",
+        "feature_aKiWpQ",
+        "feature_VaRcQC"
+      ],
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 30,
+        "title": "Über uns",
+        "title_richtext": "<p><strong>Über uns</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Wir unterstützen Ihr Kerngeschäft mit gründlicher, flexibler und leistungsstarker Dienstleistung, damit Sie sich auf Ihre Ziele konzentrieren können. Unsere motivierten und regelmäßig geschulten Mitarbeitenden sind das Herzstück unseres Erfolgs.  Gemeinsam nutzen wir Innovationen und nachhaltige Arbeitsmethoden, um Ausfallzeiten zu minimieren und die Umwelt zu schützen.</p><p>Für uns gilt: <strong>Dienstleistung ist Vertrauenssache.</strong><br/>Deshalb sehen wir unsere Arbeit nicht als kurzfristigen Auftrag, sondern als <strong>langfristige Partnerschaft</strong>. Unsere Kunden verlassen sich darauf, dass wir nicht nur schnell reagieren, sondern vorausschauend denken und mitgestalten.</p><p></p><p></p>",
+        "text_color": "#121212",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_181375295.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "kachelview_kwibTj": {
+      "type": "kachelview",
+      "blocks": {
+        "stat_eVrG7E": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "Kurze Reaktionszeit",
+            "subtitle": "",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_9pEpY7": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "langjährige Erfahrung",
+            "subtitle": "",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_dPc6pQ": {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "geschultes Personal",
+            "subtitle": "",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        },
+        "stat_dFWrGb": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "beste Qualität",
+            "subtitle": "",
+            "featured": false,
+            "aria_label": "Kachel"
+          }
+        }
+      },
+      "block_order": [
+        "stat_eVrG7E",
+        "stat_9pEpY7",
+        "stat_dPc6pQ",
+        "stat_dFWrGb"
+      ],
+      "disabled": true,
+      "name": "Kachelview",
+      "settings": {
+        "bg_color": "#ffffff",
+        "card_bg": "#ffffff",
+        "card_radius": 16,
+        "text_color": "#111111",
+        "accent_color": "#ffffff"
+      }
+    },
+    "about_section_v3_mUVrDy": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#f3f3f3",
+        "section_padding_top": 20,
+        "section_padding_bottom": 40,
+        "title": "",
+        "title_richtext": "<p><strong>Warum wir?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Kompetenz, auf die sie sich verlassen können</strong><br/>Mit jahrelanger Erfahrung im Industrie- und Gebäudeservice bieten wir durchdachte, maßgeschneiderte Lösungen für höchste Anforderungen – zuverlässig, effizient und mit Blick fürs Detail.</p><p><strong>Zuverlässigkeit & Qualität</strong><br/>Unsere Arbeit steht für nachhaltige Sauberkeit, Sicherheit und den <br/>langfristigen Werterhalt Ihrer Anlagen – professionell umgesetzt und <br/>lückenlos dokumentiert.</p><p><strong>Regional stark – persönlich betreut</strong><br/>Kurze Wege, schnelle Reaktionszeiten, direkter Draht: Wir sind in Ihrer Nähe und für Sie da, wenn es darauf ankommt.<br/><br/></p>",
+        "text_color": "#121212",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_782845411.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "qualitaeten_hotspot_NRYkEG": {
+      "type": "qualitaeten-hotspot",
+      "blocks": {
+        "item_ipRgzR": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Professionelle Ausführung",
+            "text": "Jedes Projekt wird sorgfältig geplant und fachgerecht umgesetzt – effizient, gründlich und termintreu.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_QBGez8": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Erfahrenes Fachpersonal",
+            "text": "Unsere geschulten Teams bringen Know-how und Branchenverständnis mit – und denken im Sinne Ihrer Abläufe mit.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_6jTTTY": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Technik & Equipment",
+            "text": "Wir setzen auf leistungsstarke, umweltschonende Reinigungsverfahren –abgestimmt auf Ihre Anforderungen.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_3DxrDQ": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Flexibilität & Zeitersparnis",
+            "text": "Ob nachts, am Wochenende oder im laufenden Betrieb – wir arbeiten im Hintergrund, und das ohne Ihre Abläufe zu stören.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_8EeTNE": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Individuelle Lösungen",
+            "text": "Statt Standards bieten wir maßgeschneiderte Konzepte – analysiert, geplant und umgesetzt auf Basis Ihrer Ziele.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_UB3Qq3": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Alles aus einer Hand",
+            "text": "Von der ersten Beratung bis zur Nachbetreuung erhalten Sie einen umfassenden Service mit konkreten Ansprechpartnern",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "item_ipRgzR",
+        "item_QBGez8",
+        "item_6jTTTY",
+        "item_3DxrDQ",
+        "item_8EeTNE",
+        "item_UB3Qq3"
+      ],
+      "name": "Qualitäten Hotspot",
+      "settings": {
+        "heading": "Unser Qualitätsversprechen",
+        "intro": "<p></p><p></p>",
+        "color_scheme": "background-1",
+        "gap": 24,
+        "cols_desktop": 3,
+        "cols_tablet": 2,
+        "show_icons": true,
+        "icon_size": 88,
+        "icon_radius": 1000
+      }
+    },
+    "highlights_icons_4mpBYK": {
+      "type": "highlights-icons",
+      "blocks": {
+        "item_i9UUbX": {
+          "type": "item",
+          "settings": {
+            "icon_bg": "#e5e7eb",
+            "title": "QUALITÄT",
+            "text": "Kurzer, prägnanter Beschreibungstext für dieses Highlight.",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_pAbpfw": {
+          "type": "item",
+          "settings": {
+            "icon_bg": "#e5e7eb",
+            "title": "UNTERNEHMEN",
+            "text": "Kurzer, prägnanter Beschreibungstext für dieses Highlight.",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_6HCQ76": {
+          "type": "item",
+          "settings": {
+            "icon_bg": "#e5e7eb",
+            "title": "PERSONAL",
+            "text": "Kurzer, prägnanter Beschreibungstext für dieses Highlight.",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "item_i9UUbX",
+        "item_pAbpfw",
+        "item_6HCQ76"
+      ],
+      "disabled": true,
+      "name": "Highlights – Icons",
+      "settings": {
+        "heading": "Unsere Qualitäten",
+        "intro": "<p>Kurzer Einleitungstext, der die Highlights erklärt.</p>",
+        "color_scheme": "background-1",
+        "gap": 24,
+        "cols_desktop": 3,
+        "cols_tablet": 2,
+        "icon_size": 88,
+        "icon_radius": 1000
+      }
+    },
+    "team_Vf9RQW": {
+      "type": "team",
+      "blocks": {
+        "team_member_3rhAX4": {
+          "type": "team_member",
+          "settings": {
+            "name": "Max Mustermann",
+            "position": "CEO & Founder",
+            "name_color": "#1e293b",
+            "name_font_size": 20,
+            "position_color": "#4a6965",
+            "position_font_size": 16
+          }
+        },
+        "team_member_QkgkCg": {
+          "type": "team_member",
+          "settings": {
+            "name": "Max Mustermann",
+            "position": "CEO & Founder",
+            "name_color": "#1e293b",
+            "name_font_size": 20,
+            "position_color": "#4a6965",
+            "position_font_size": 16
+          }
+        },
+        "team_member_CFREkQ": {
+          "type": "team_member",
+          "settings": {
+            "name": "Max Mustermann",
+            "position": "CEO & Founder",
+            "name_color": "#1e293b",
+            "name_font_size": 20,
+            "position_color": "#4a6965",
+            "position_font_size": 16
+          }
+        },
+        "team_member_AAAThP": {
+          "type": "team_member",
+          "settings": {
+            "name": "Max Mustermann",
+            "position": "CEO & Founder",
+            "name_color": "#1e293b",
+            "name_font_size": 20,
+            "position_color": "#4a6965",
+            "position_font_size": 16
+          }
+        }
+      },
+      "block_order": [
+        "team_member_3rhAX4",
+        "team_member_QkgkCg",
+        "team_member_CFREkQ",
+        "team_member_AAAThP"
+      ],
+      "disabled": true,
+      "name": "Team",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title": "Unser Team",
+        "title_color": "#1e293b",
+        "title_font": "sans_serif_n7",
+        "title_font_size": 48,
+        "subtitle": "Experten mit Leidenschaft für Ihren digitalen Erfolg.",
+        "subtitle_color": "#475569",
+        "subtitle_font_size": 18,
+        "image_size": 160,
+        "image_shadow_opacity": 0.1
+      }
+    },
+    "custom_cta_block_dYKCrA": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_h3XEdV": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/industrieservice-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_h3XEdV"
+      ],
+      "name": "Custom CTA Block - prof. Service",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Service?</strong></p>",
+        "heading_size": 36,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_footer_neu_Kxjd4c": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_7fzrgY": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "leistungen_link_mDBtbi": {
+          "type": "leistungen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Gebäudeservice",
+            "link": "shopify://pages/gebaeudeservice-leistungen"
+          }
+        },
+        "unternehmen_link_T3NxXc": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_wEVwKK": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/gebaudeservice-karriere"
+          }
+        },
+        "unternehmen_link_WgDGnG": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_4xm9h9": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_XD9WYc": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": ""
+          }
+        },
+        "kontakt_link_b6VkAT": {
+          "type": "kontakt_link",
+          "disabled": true,
+          "settings": {
+            "text": "Impressum Gebäudeservice",
+            "link": ""
+          }
+        },
+        "kontakt_link_m3PUCp": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": ""
+          }
+        },
+        "partner_logo_JCMfrx": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner",
+            "link": "",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_7fzrgY",
+        "leistungen_link_mDBtbi",
+        "unternehmen_link_T3NxXc",
+        "unternehmen_link_wEVwKK",
+        "unternehmen_link_WgDGnG",
+        "unternehmen_link_4xm9h9",
+        "kontakt_link_XD9WYc",
+        "kontakt_link_b6VkAT",
+        "kontakt_link_m3PUCp",
+        "partner_logo_JCMfrx"
+      ],
+      "name": "SIS Footer NEU",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar Industrieservice",
+        "contact_address": "Musterstraße 1, 12345 Musterstadt",
+        "contact_phone": "0123 / 456 789",
+        "contact_email": "info@sis-saar.de",
+        "contact_hours": "Mo–Fr 8–17 Uhr",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_XtXzjY",
+    "main",
+    "hero_overlay_section_Rk9gNP",
+    "erfahrungen_stats_aCR3TH",
+    "about_section_v2_YRVhnt",
+    "about_section_v3_YePBYF",
+    "kachelview_kwibTj",
+    "about_section_v3_mUVrDy",
+    "qualitaeten_hotspot_NRYkEG",
+    "highlights_icons_4mpBYK",
+    "team_Vf9RQW",
+    "custom_cta_block_dYKCrA",
+    "sis_footer_neu_Kxjd4c"
+  ]
+}

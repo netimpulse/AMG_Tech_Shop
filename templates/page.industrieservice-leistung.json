@@ -1,0 +1,773 @@
+{
+  "sections": {
+    "sticky_header_mnpjhg": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_overlay_section_JbVrjR": {
+      "type": "hero-overlay-section",
+      "name": "Hero – Service Overlay",
+      "settings": {
+        "bg_image": "shopify://shop_images/sis2025-09-24_11_01_34-shutterstock_536582824_jpg_338456ba-db1b-4684-9cbb-f661455d34f3.png",
+        "overlay_color": "#2baaa2",
+        "overlay_opacity": 70,
+        "section_height": 60,
+        "section_height_mobile": 40,
+        "content_max_width": 760,
+        "heading": "Ihr Partner für die Industrie",
+        "heading_font": "system_ui_n4",
+        "heading_size": 64,
+        "heading_color": "#ffffff",
+        "text": "<p>Wir sind Ihre Experten und Dienstleistungspartner auf höchstem Niveau.</p>",
+        "text_font": "system_ui_n4",
+        "text_size": 20,
+        "text_color": "#ffffff",
+        "btn1_text": "Mehr über unsere Services",
+        "btn1_link": "shopify://pages/industrieservice-leistungen",
+        "btn1_font": "system_ui_n4",
+        "btn1_font_size": 16,
+        "btn1_padding_x": 28,
+        "btn1_padding_y": 14,
+        "btn1_radius": 10,
+        "btn1_bg": "#2baaa2",
+        "btn1_bg_hover": "#238b84",
+        "btn1_text_color": "#ffffff",
+        "btn1_text_hover": "#ffffff",
+        "btn2_text": "JETZT ANRUFEN",
+        "btn2_link": "shopify://pages/allgemeiner-kontakt",
+        "btn2_font": "system_ui_n4",
+        "btn2_font_size": 16,
+        "btn2_padding_x": 24,
+        "btn2_padding_y": 14,
+        "btn2_radius": 10,
+        "btn2_bg": "#ffffff",
+        "btn2_bg_hover": "#e6e6e6",
+        "btn2_text_color": "#2baaa2",
+        "btn2_text_hover": "#238b84"
+      }
+    },
+    "leistung_suche_grid_CNDctg": {
+      "type": "leistung-suche-grid",
+      "blocks": {
+        "service_yAW4Lw": {
+          "type": "service",
+          "name": "Leistung Suche Block - Industrie und Maschinenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_549798139.jpg",
+            "title_html": "<p><strong>Industrie- und Maschinenreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/maschinenreinigung"
+          }
+        },
+        "service_qM4UjF": {
+          "type": "service",
+          "name": "Leistung Suche Block - Wartung und Instandhaltung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_93443800.jpg",
+            "title_html": "<p><strong>Wartung und Instandhaltung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/wartung-instandhaltung"
+          }
+        },
+        "service_3EXgy7": {
+          "type": "service",
+          "name": "Leistung Suche Block - Raumlufttechnik",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_160555946_Lueftung.jpg",
+            "title_html": "<p><strong>Reinigung von RLT-Anlagen</strong></p>",
+            "text_html": "<p>Wir reinigen Ihre Raumlufttechnischen Anlagen unterschiedlicher Art</p>",
+            "keywords": "VDI 6022, Hygiene, Luft, Produktionsstätten",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/lueftungskanalreinigung"
+          }
+        },
+        "service_TjgEwQ": {
+          "type": "service",
+          "name": "Leistung Suche Block - Küche",
+          "settings": {
+            "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+            "title_html": "<p><strong>Reinigung von Zu-und Abluft in gew. Küchen</strong></p>",
+            "text_html": "<p>Wir reinigen Ihre Zu-und Abluftkanäle in gewerblichen Küchen</p>",
+            "keywords": "VDI 2052, Hygiene, Luft, Küche",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/kuechen-rlt-reinigung"
+          }
+        },
+        "service_mtirNV": {
+          "type": "service",
+          "name": "Leistung Suche Block - Strahlarbeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_65689291.jpg",
+            "title_html": "<p><strong>Strahlarbeiten</strong></p>",
+            "text_html": "<p>(Sand-/Soda-/Glasstrahlen, crushed glas)</p>",
+            "keywords": "Sand, Soda, Glas, crushed Glas",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/strahlarbeiten"
+          }
+        },
+        "service_7y4xhU": {
+          "type": "service",
+          "name": "Leistung Suche Block- Montage, Demontage, Maschinenumzüge",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_328419737.jpg",
+            "title_html": "<p>Montage, Demontage, Maschinenumzüge und Maschinenverschrottung</p>",
+            "text_html": "<p>Sie planen einen Umbau Ihrer Anlagen? Neue Geräte wurden angeschafft und dafür müssen die alten weichen? Wir unterstützen Sie bei größeren und kleineren Aktionen</p>",
+            "keywords": "Verschrottung, Schlosser, Helfer, Umzug",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/montage-demontage"
+          }
+        },
+        "service_YUWEK3": {
+          "type": "service",
+          "name": "Leistung Suche Block- Schweiß und Richtarbeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_785685529.jpg",
+            "title_html": "<p>Schweiß- und Richtarbeiten</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_CmCLLj": {
+          "type": "service",
+          "name": "Leistung Suche Block- Hallen Bodenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_547239928.jpg",
+            "title_html": "<p>(Hallen-) Bodenreinigung</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/hallenbodenreinigung"
+          }
+        },
+        "service_9AATdz": {
+          "type": "service",
+          "name": "Leistung Suche Block- Beschichtung Bodenbeläge",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_460822750.jpg",
+            "title_html": "<p><strong>(Neu-)Beschichtung von<br/>Bodenbelägen</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_qkkrgG": {
+          "type": "service",
+          "name": "Leistung Suche Block - HallenDecken und Konstruktionsreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_365570120.jpg",
+            "title_html": "<p>Hallen-/Decken-/und<br/>Konstruktionsreinigung</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/decken-wandreinigung"
+          }
+        },
+        "service_qypYnd": {
+          "type": "service",
+          "name": "Leistung Suche Block - Trockeneisstrahlen",
+          "settings": {
+            "image": "shopify://shop_images/Trockeneis_AA_2.jpg",
+            "title_html": "<p>Trockeneisstrahlen</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/trockeneisstrahlen"
+          }
+        },
+        "service_7c7A6L": {
+          "type": "service",
+          "name": "Leistung Suche Block - Oldtimer Restauration",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_917940.jpg",
+            "title_html": "<p>Oldtimer Restauration</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_EpQxNt": {
+          "type": "service",
+          "name": "Leistung Suche Block - KSS-ManagementRestauration",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_375261961.jpg",
+            "title_html": "<p>KSS-Management</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/kss-management"
+          }
+        },
+        "service_jrn8GJ": {
+          "type": "service",
+          "name": "Leistung Suche Block - Abfallmanagement und innerbetriebliche Logistik",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_1107691484.jpg",
+            "title_html": "<p>Abfallmanagement und<br/>innerbetriebliche Logistik</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        },
+        "service_x8djWD": {
+          "type": "service",
+          "name": "Leistung Suche Block - Sonderarbeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_782845411.jpg",
+            "title_html": "<p>Sonderarbeiten</p>",
+            "text_html": "<p>Lassen Sie uns gemeinsam eine Lösung für Ihre Herausforderung finden</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "service_yAW4Lw",
+        "service_qM4UjF",
+        "service_3EXgy7",
+        "service_TjgEwQ",
+        "service_mtirNV",
+        "service_7y4xhU",
+        "service_YUWEK3",
+        "service_CmCLLj",
+        "service_9AATdz",
+        "service_qkkrgG",
+        "service_qypYnd",
+        "service_7c7A6L",
+        "service_EpQxNt",
+        "service_jrn8GJ",
+        "service_x8djWD"
+      ],
+      "disabled": true,
+      "name": "Leistung Suche Grid",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "text_align": "center",
+        "show_search": true,
+        "search_placeholder": "Leistungen oder Keywords suchen…",
+        "badge_style": "solid",
+        "keyword_badge_bg": "#e6f0ff",
+        "keyword_badge_color": "#0f1c3f",
+        "card_bg": "#ffffff",
+        "card_radius": 18,
+        "card_shadow": true,
+        "grid_gap": 20,
+        "show_cta": true,
+        "cta_label": "jetzt Beratungstermin vereinbaren",
+        "cta_link": "shopify://pages/industrieservice-kontakt",
+        "button_style": "secondary"
+      }
+    },
+    "leistung_suche_grid_v2_64mKtE": {
+      "type": "leistung-suche-grid-v2",
+      "blocks": {
+        "service_Up8i8H": {
+          "type": "service",
+          "name": "Leistung Block - Industrie- und Maschinenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_549798139.jpg",
+            "title_html": "<p><strong>Industrie- und Maschinenreinigung</strong></p>",
+            "text_html": "<p>Wir reinigen Ihre Industrieanlagen, Bearbeitungsmaschinen, Produktionsstätten, Lagerhallen und andere industrielle Einrichtungen professionell und sicher. Durch modernste Reinigungsverfahren entfernen wir Öl, Schmierstoffe, Metallabrieb und andere Rückstände, um Maschinenlaufzeiten zu verlängern und Produktionsausfälle zu minimieren.</p>",
+            "keywords": "CNC, Anlagen, Öl, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/maschinenreinigung"
+          }
+        },
+        "service_h9zhf3": {
+          "type": "service",
+          "name": "Leistung Block - Wartung und Instandhaltung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_93443800.jpg",
+            "title_html": "<p><strong>Wartung und Instandhaltung</strong></p>",
+            "text_html": "<p>Wir sorgen dafür, dass Ihre Maschinen und Anlagen kontinuierlich betriebsbereit bleiben. Unser Service umfasst Inspektionen, Reparaturen, präventive Wartungsmaßnahmen und Dokumentation.</p>",
+            "keywords": "Verschleiß, Korrosion, Justage, Störungsbehebung, Filter",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/wartung-instandhaltung"
+          }
+        },
+        "service_DzTDzd": {
+          "type": "service",
+          "name": "Leistung Block - Strahlarbeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_65689291.jpg",
+            "title_html": "<p><strong>Strahlservice</strong></p>",
+            "text_html": "<p>Durch unterschiedliche Strahlverfahren entfernen wir Rost, Lack oder Verschmutzungen von unterschiedlichen Flächen, z.B. Kunststoff, Metall oder auch Holz. Die Wahl des Strahlmediums beeinflusst dabei Oberflächenrauigkeit und Materialschonung. Wir strahlen unter anderem mit Trockeneis, Sand, Soda, Glas und crushed glass.</p>",
+            "keywords": "Holz, Sand, Soda, Glas, crushed Glas",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/strahlarbeiten"
+          }
+        },
+        "service_DGz4MT": {
+          "type": "service",
+          "name": "Leistung Block - Reinigung von Zu-und Abluft in gew. Küchen",
+          "settings": {
+            "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+            "title_html": "<p><strong>Reinigung von Zu- und Abluft in gew. Küchen</strong></p>",
+            "text_html": "<p>Wir reinigen Ihre Zu- und Abluftkanäle in gewerblichen Küchen gem. VDI 2052 und dokumentieren die Ergebnisse.</p>",
+            "keywords": "VDI 2052, Hygiene, Luft, Fett, Filter",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/kuechen-rlt-reinigung"
+          }
+        },
+        "service_cWxTHy": {
+          "type": "service",
+          "name": "Leistung Block - Trockeneisstrahlen",
+          "settings": {
+            "image": "shopify://shop_images/Trockeneis_AA_3.jpg",
+            "title_html": "<p><strong>Trockeneisreinigung</strong></p>",
+            "text_html": "<p>Viele Anlagen dürfen nicht mit Wasser und chemischen Reinigungsmitteln in Berührung kommen und stellen bei der Reinigung somit eine besondere Herausforderung dar. Trockeneisstrahlen bietet dabei eine besonders schonende Reinigungsmöglichkeit.</p>",
+            "keywords": "Lebensmittelanlage, festes CO2, -78°C, nicht abrasiv, Gießerei",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/trockeneisstrahlen"
+          }
+        },
+        "service_TDd7pL": {
+          "type": "service",
+          "name": "Leistung Block - Montage, Demontage",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_328419737.jpg",
+            "title_html": "<p><strong>Montage, Demontage, Maschinenumzüge und Maschinenverschrottung</strong></p>",
+            "text_html": "<p>Sie planen einen Umbau Ihrer Anlagen? Neue Geräte wurden angeschafft und dafür müssen die alten weichen? Wir unterstützen Sie bei größeren und kleineren Aktionen</p>",
+            "keywords": "Verschrottung, Schlosser, Helfer, Umzug",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/montage-demontage"
+          }
+        },
+        "service_98UN9G": {
+          "type": "service",
+          "name": "Leistung Block - Abfallmanagement und innerbetriebliche Logistik",
+          "settings": {
+            "image": "shopify://shop_images/staplerfahrer-mit-schutzausr-stung-von-hinten-auf-stapler-der-einen-m-llcontainer-auf-einem-industriegel-nde-transportiert.png",
+            "title_html": "<p><strong>Abfallmanagement und innerbetriebliche Logistik</strong></p>",
+            "text_html": "<p>Wir übernehmen für Sie die anfallenden Transporte innerhalb der Produktionslinien, egal ob mit Gabelstapler, Schlepper oder sonstigen Flurförderzeugen. Die Sortierung der Abfälle sowie optimierte Transportwege und Recyclingprozesse schützen Ressourcen, reduzieren Schäden und steigern die Effizienz von Lagerhaltung und Produktion.</p>",
+            "keywords": "Transport, Recycling, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/abfallmanagement-innerbetriebliche-logistik"
+          }
+        },
+        "service_hc9rDT": {
+          "type": "service",
+          "name": "Leistung Block - Reinigung von RLT-Anlagen",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_160555946_Lueftung.jpg",
+            "title_html": "<p><strong>Reinigung von RLT-Anlagen</strong></p>",
+            "text_html": "<p>Wir reinigen Ihre Raumlufttechnischen Anlagen unterschiedlicher Art</p>",
+            "keywords": "VDI 6022, Hygiene, Luft, Wäremtauscher, DLZ, Produktionsstätten, Filter, Wanne",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/lueftungskanalreinigung"
+          }
+        },
+        "service_WnRUJA": {
+          "type": "service",
+          "name": "Leistung Block - Schweiß- und Richtarbeiten",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_785685529.jpg",
+            "title_html": "<p><strong>Schweiß - und Richtarbeiten</strong></p>",
+            "text_html": "<p>Wir arbeiten an verschiedenen Konstruktionen, Bauteilen und Rammschutzanlagen etc. Dabei korrigieren wir Verformungen, richten Metallstrukuren aus und tauschen und justieren Rollen.<br/><br/></p>",
+            "keywords": "Rollen, Justierung, Unfallschäden",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/schweissarbeiten"
+          }
+        },
+        "service_8gTfda": {
+          "type": "service",
+          "name": "Leistung Block - (Hallen-) Bodenreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_547239928.jpg",
+            "title_html": "<p><strong>(Hallen-) Bodenreinigung</strong></p>",
+            "text_html": "<p>Unsere professionelle Bodenreinigung schützt vor Verschleiß, erhöht die Sicherheit und senkt langfristig Kosten. Durch den Einsatz moderner Reinigungstechniken und Maschinen sowie passender Versiegelungen lassen sich selbst stark beanspruchte Böden jahrelang erhalten – ohne teuren Austausch.</p>",
+            "keywords": "Industrie, Produktion, Lebensmittelindustrie, öffentliche Gebäude, Gesundheitseinrichtungen",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/hallenbodenreinigung"
+          }
+        },
+        "service_4XzgJG": {
+          "type": "service",
+          "name": "Leistung Block - (Neu-)Beschichtung von Bodenbelägen",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_460822750.jpg",
+            "title_html": "<p><strong>(Neu-) Beschichtung von Bodenbelägen</strong></p>",
+            "text_html": "<p>Ob abgenutzte Betonböden, empfindliche Natursteinflächen oder stark beanspruchte Lagerhallen – mit unserer professionellen Bodenreinigung, Versiegelung und Beschichtung verlängern wir die Lebensdauer Ihrer Böden kostengünstig, nachhaltig und ohne aufwendigen Austausch.</p>",
+            "keywords": "nachhaltig, Beton, PVC, Gumminoppen,Versiegelung",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/bodenbeschichtung"
+          }
+        },
+        "service_BnANGW": {
+          "type": "service",
+          "name": "Leistung Block - Hallen-/Decken-/und Konstruktionsreinigung",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_365570120.jpg",
+            "title_html": "<p><strong>Hallen-/Decken-/und Konstruktionsreinigung</strong></p>",
+            "text_html": "<p>Wir entfernen Schmutz und Ablagerungen und sorgen für bessere Funktionalität und Sichereheit Ihrer Konstruktionen</p>",
+            "keywords": "Industriehalle, Lebensmittelbetrieb, Stahlbau, Parkhaus, Landwirtschaft",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/decken-wandreinigung"
+          }
+        },
+        "service_r36UdF": {
+          "type": "service",
+          "name": "Leistung Block - Oldtimer Restauration",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_917940.jpg",
+            "title_html": "<p><strong>Oldtimer Restauration</strong></p>",
+            "text_html": "<p>Wir arbeiten mit erfahrenen Partnern zusammen, damit Ihr Oldtimer wieder rund läuft.</p>",
+            "keywords": "Strahlservice, Lackierarbeiten, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/oldtimerrestauration"
+          }
+        },
+        "service_4YkQjG": {
+          "type": "service",
+          "name": "Leistung Block - KSS-Management",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_375261961.jpg",
+            "title_html": "<p><strong>KSS-Management</strong></p>",
+            "text_html": "<p>Ob Einzelmessung, turnusmäßige Wartung oder Komplettreinigung – wir kümmern uns um Ihre Kühlschmierstoffsysteme mit Fachkompetenz, modernster Messtechnik und einem hohen Qualitätsanspruch. </p>",
+            "keywords": "messen, Kühlschmierstoff, Dosierung",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/kss-management"
+          }
+        },
+        "service_4zzdYj": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_782845411.jpg",
+            "title_html": "<p><strong>Sonderarbeiten</strong></p>",
+            "text_html": "<p>Lassen Sie uns gemeinsam eine Lösung für Ihre Herausforderung finden</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/sis-sonderarbeiten"
+          }
+        }
+      },
+      "block_order": [
+        "service_Up8i8H",
+        "service_h9zhf3",
+        "service_DzTDzd",
+        "service_DGz4MT",
+        "service_cWxTHy",
+        "service_TDd7pL",
+        "service_98UN9G",
+        "service_hc9rDT",
+        "service_WnRUJA",
+        "service_8gTfda",
+        "service_4XzgJG",
+        "service_BnANGW",
+        "service_r36UdF",
+        "service_4YkQjG",
+        "service_4zzdYj"
+      ],
+      "name": "Leistung Suche Grid v2",
+      "settings": {
+        "heading": "",
+        "subheading": "<h3>Mit Leidenschaft für gemeinsamen Erfolg.</h3>",
+        "text_align": "center",
+        "show_search": true,
+        "search_placeholder": "Leistungen oder Keywords suchen…",
+        "badge_style": "solid",
+        "keyword_badge_bg": "#e6f0ff",
+        "keyword_badge_color": "#0f1c3f",
+        "card_bg": "#ffffff",
+        "card_radius": 18,
+        "card_shadow": true,
+        "grid_gap": 20,
+        "show_cta": false,
+        "cta_label": "Mehr erfahren",
+        "cta_link": "",
+        "button_style": "primary"
+      }
+    },
+    "qualitaeten_hotspot_7aUQfj": {
+      "type": "qualitaeten-hotspot",
+      "blocks": {
+        "item_mgWaYV": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon": "shopify://shop_images/shutterstock_424584634.jpg",
+            "icon_bg": "#ffffff",
+            "title": "Professionelle Ausführung",
+            "text": "Jedes Projekt wird sorgfältig geplant und fachgerecht umgesetzt – effizient, \ngründlich und termintreu.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "shopify://pages/industrieservice-uber-uns",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_49gWim": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon": "shopify://shop_images/shutterstock_424584634.jpg",
+            "icon_bg": "#ffffff",
+            "title": "Erfahrenes Fachpersonal",
+            "text": "Unsere geschulten Teams bringen Know-how und Branchenverständnis mit – und \ndenken im Sinne Ihrer Abläufe mit.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "shopify://pages/industrieservice-uber-uns",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_aTejJf": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon": "shopify://shop_images/shutterstock_424584634.jpg",
+            "icon_bg": "#ffffff",
+            "title": "Technik & Equipment",
+            "text": "Wir setzen auf leistungsstarke, umweltschonende Reinigungsverfahren –\nabgestimmt auf Ihre spezifischen Anforderungen.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "shopify://pages/industrieservice-uber-uns",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_HbRVWe": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Flexibilität & Zeitersparnis",
+            "text": "Ob nachts, am Wochenende oder im laufenden Betrieb – wir arbeiten im \nHintergrund, ohne Ihre Abläufe zu stören.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "shopify://pages/industrieservice-uber-uns",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_bEqLqK": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Individuelle Lösungen",
+            "text": "Statt Standards bieten wir maßgeschneiderte Konzepte – analysiert, geplant und \numgesetzt auf Basis Ihrer Ziele.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "shopify://pages/industrieservice-uber-uns",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_43Ugy6": {
+          "type": "item",
+          "settings": {
+            "show_icon": true,
+            "icon_bg": "#e5e7eb",
+            "title": "Alles aus einer Hand",
+            "text": "Von der ersten Beratung bis zur Nachbetreuung erhalten Sie einen umfassenden Service mit festen Ansprechpartnern.",
+            "subpoints": "",
+            "show_btn": false,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "shopify://pages/industrieservice-uber-uns",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "item_mgWaYV",
+        "item_49gWim",
+        "item_aTejJf",
+        "item_HbRVWe",
+        "item_bEqLqK",
+        "item_43Ugy6"
+      ],
+      "name": "Qualitäten Hotspot - Unser Qualitätsversprechen",
+      "settings": {
+        "heading": "",
+        "intro": "<h1><strong>Unser Qualitätsversprechen</strong></h1>",
+        "color_scheme": "background-1",
+        "gap": 34,
+        "cols_desktop": 3,
+        "cols_tablet": 2,
+        "show_icons": true,
+        "icon_size": 100,
+        "icon_radius": 1000
+      }
+    },
+    "sis_footer_neu_PbQHiM": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_rf3xna": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "unternehmen_link_kjHtQh": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_LYyzKp": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/industrieservice-karriere"
+          }
+        },
+        "unternehmen_link_X87y4c": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_WJEyXJ": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_FYkxUh": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": "shopify://pages/industrieservice-impressum"
+          }
+        },
+        "kontakt_link_qq7dyQ": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_LYrBmt": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_Yx8bVD": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_tTTmBK": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_rf3xna",
+        "unternehmen_link_kjHtQh",
+        "unternehmen_link_LYyzKp",
+        "unternehmen_link_X87y4c",
+        "unternehmen_link_WJEyXJ",
+        "kontakt_link_FYkxUh",
+        "kontakt_link_qq7dyQ",
+        "partner_logo_LYrBmt",
+        "partner_logo_Yx8bVD",
+        "partner_logo_tTTmBK"
+      ],
+      "name": "SIS Footer NEU- Industrieservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar - Industrie - Service GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@sissaar.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_mnpjhg",
+    "main",
+    "hero_overlay_section_JbVrjR",
+    "leistung_suche_grid_CNDctg",
+    "leistung_suche_grid_v2_64mKtE",
+    "qualitaeten_hotspot_7aUQfj",
+    "sis_footer_neu_PbQHiM"
+  ]
+}

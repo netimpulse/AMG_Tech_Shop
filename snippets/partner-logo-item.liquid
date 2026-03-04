@@ -1,0 +1,33 @@
+{%- liquid
+  assign img = block.settings.logo
+  assign alt = block.settings.alt | default: 'Partner-Logo'
+  assign link = block.settings.link
+  assign use_custom = block.settings.custom_size
+  assign h = block.settings.logo_height
+  assign normal_opacity = section.settings.hover_opacity | default: 100
+-%}
+
+<article class="pl-item" style="--pl-item-h: {% if use_custom and h %}{{ h }}px{% else %}var(--pl-logo-h){% endif %}; --pl-normal-op: {{ normal_opacity }}%;">
+  {% if img %}
+    {% capture image_tag %}
+      {{ img
+        | image_url: width: 600
+        | image_tag:
+          loading: 'lazy',
+          class: 'pl-img',
+          alt: alt,
+          widths: '120,180,240,360,480,600'
+      }}
+    {% endcapture %}
+
+    {% if link != blank %}
+      <a class="pl-link" href="{{ link }}" {% if section.settings.open_new %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        {{ image_tag }}
+      </a>
+    {% else %}
+      <div class="pl-link is-static">{{ image_tag }}</div>
+    {% endif %}
+  {% else %}
+    <div class="pl-placeholder" aria-hidden="true">Logo</div>
+  {% endif %}
+</article>

@@ -1,0 +1,469 @@
+{
+  "sections": {
+    "sticky_header_mWiXqk": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "geb-udeservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_building_section_xFPFdb": {
+      "type": "hero-building-section",
+      "name": "Hero Building",
+      "settings": {
+        "background_image": "shopify://shop_images/iStock-160738327.jpg",
+        "enable_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.5,
+        "heading": "Bauschlussreinigung",
+        "subheading": "",
+        "button_label": "Jetzt Angebot anfordern",
+        "button_link": "shopify://pages/gebaudeservice-kontakt",
+        "button_color": "#007acc",
+        "button_text_color": "#ffffff",
+        "button_radius": 4,
+        "heading_color": "#ffffff",
+        "text_color": "#f5f5f5",
+        "heading_size": 48,
+        "text_size": 18,
+        "font_family": "Arial, sans-serif",
+        "font_bold": true,
+        "font_italic": false,
+        "text_alignment": "left"
+      }
+    },
+    "leistung_showcase_gJ8Pfp": {
+      "type": "leistung-showcase",
+      "blocks": {
+        "showcase_item_ARnVN6": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Verkehrswege, Arbeitsflächen</p>"
+          }
+        },
+        "showcase_item_8pKFbk": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Entsorgung nach Absprache</p>"
+          }
+        },
+        "showcase_item_8G4nNh": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Glas- und Rahmenreinigung</p>"
+          }
+        },
+        "showcase_item_h67ehk": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Feuchtreinigung, Küchenreinigung</p>"
+          }
+        },
+        "showcase_item_JDzYi4": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>Sanitärreinigung</p>"
+          }
+        }
+      },
+      "block_order": [
+        "showcase_item_ARnVN6",
+        "showcase_item_8pKFbk",
+        "showcase_item_8G4nNh",
+        "showcase_item_h67ehk",
+        "showcase_item_JDzYi4"
+      ],
+      "name": "Leistung Showcase",
+      "settings": {
+        "heading_html": "",
+        "heading_align": "left",
+        "heading_italic": false,
+        "heading_weight": "700",
+        "subtext": "",
+        "show_image": false,
+        "main_image": "shopify://shop_images/ChatGPT_Image_29._Juli_2025_20_41_34_cleanup.png",
+        "image_radius": 12,
+        "image_position": "left",
+        "left_heading_html": "<p><strong>Von Baustelle bis bezugsbereit - <br/>wir sorgen für den sauberen Abschluss</strong></p>",
+        "left_heading_align": "right",
+        "left_heading_italic": false,
+        "left_heading_weight": "700",
+        "left_text": "<p>Rohbau, Innenausbau oder der letzte Feinschliff vor der Übergabe </p>",
+        "bg_color": "#f6f8fb",
+        "section_padding": 24,
+        "points_title": "Unsere Dienstleistungen:",
+        "points_as_card": true,
+        "points_bg": "#ffffff",
+        "points_border": "#e5e8ee",
+        "points_btn_label": "Jetzt anfragen",
+        "points_btn_url": "",
+        "points_btn_align": "left",
+        "fallback_bullet_color": "#2b6cb0"
+      }
+    },
+    "about_section_v3_Pg7B6c": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 10,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "<p><strong>Baubegleitende Reinigung </strong></p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Bereits während der Bauphase sorgen wir für regelmäßige Grobreinigungen. Ziel ist es, den Baufortschritt nicht zu behindern,  sondern zu erleichtern: <br/>✅ Beseitigung von Bauschutt, Verpackungsmaterial, Staub<br/>✅ Reinigung von Verkehrswegen und Arbeitsflächen<br/>✅ Sichtkontrolle für Bauleitung und Fachgewerke<br/>✅ Entsorgung nach Absprache</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "about_section_v3_F8BxLh": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "bottom",
+        "image_vertical_align": "start",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 10,
+        "section_padding_bottom": 20,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "<p><strong>Bauschlussreinigung </strong></p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Nach der Fertigstellung des Bauprojekts folgt die gründliche Reinigung aller Oberflächen – mit dem Ziel, das Objekt in einem sauberen, präsentierbaren Zustand zu übergeben. Dazu gehören:</p><p>✅ Entfernung von Mörtelresten, Kleber, Farb- und Lackspritzern<br/>✅ Reinigung von Fenstern (inkl. Rahmen, Falzen und ggf. Schutzfolien)<br/>✅ Feuchtreinigung aller Böden, Türen, Zargen, Steckdosen, Heizkörper<br/>✅ Sanitär- und Küchenbereiche hygienisch aufbereiten<br/>✅ Staubfreie Übergabe inklusive Sichtprüfung</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_210387985.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "about_section_v3_ewAX7K": {
+      "type": "about-section-v3",
+      "disabled": true,
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Baubegleitende Reinigung </strong><br/>Bereits während der Bauphase sorgen wir für regelmäßige Grobreinigungen. Ziel ist es, den Baufortschritt nicht zu behindern,  ondern zu erleichtern: Beseitigung von Bauschutt, Verpackungsmaterial, Staub</p><p>✅ Reinigung von Verkehrswegen und Arbeitsflächen<br/>✅ Sichtkontrolle für Bauleitung und Fachgewerke<br/>✅ Entsorgung nach Absprache</p><p><strong>Bauschlussreinigung </strong><br/>Nach der Fertigstellung des Bauprojekts folgt die gründliche Reinigung aller Oberflächen – mit dem Ziel, das Objekt in einem sauberen, präsentierbaren Zustand zu übergeben. Dazu gehören:</p><p>✅ Entfernung von Mörtelresten, Kleber, Farb- und Lackspritzern<br/>✅ Reinigung von Fenstern (inkl. Rahmen, Falzen und ggf. Schutzfolien)<br/>✅ Feuchtreinigung aller Böden, Türen, Zargen, Steckdosen, Heizkörper<br/>✅ Sanitär- und Küchenbereiche hygienisch aufbereiten<br/>✅ Staubfreie Übergabe inklusive Sichtprüfung</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_210387985.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left"
+      }
+    },
+    "about_section_v2_JerFAY": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_DDCmxA": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Neubauten",
+            "feature_description": ""
+          }
+        },
+        "feature_gFbTYK": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Reinigung",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_DDCmxA",
+        "feature_gFbTYK"
+      ],
+      "name": "Über Uns (Layout) – Neu",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 25,
+        "section_padding_bottom": 25,
+        "title": "",
+        "title_richtext": "",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "<p><strong>Warum ist das fachlich anspruchsvoll?</strong></p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Weil man hier mit unterschiedlichsten Materialien und Verschmutzungen zu tun hat – oft auf empfindlichen Oberflächen. Acrylwannen, Edelstahl, lackierte Türen, Natursteinböden: Wer da mit dem falschen Mittel oder Werkzeug rangeht, kann mehr kaputt- als sauber machen. Deshalb arbeiten wir mit abgestimmten Reinigungsverfahren – und mit Leuten, die wissen, was sie tun.</p><p><strong>Wann lohnt sich das?</strong></p><ul><li>Bei Neubauten, Sanierungen, Umbauten oder Modernisierungen</li><li>Für Bauträger, Projektentwickler, Architekturbüros, Hausverwaltungen</li><li>Vor Übergabe an Mieter, Käufer oder Nutzer</li></ul><p></p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_210387985.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "custom_cta_block_Y6hmWD": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_hfEK7p": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/gebaudeservice-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_hfEK7p"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Gebäudeservice?</strong></p>",
+        "heading_size": 40,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_footer_neu_6xYV4V": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_hQYptr": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Gebäudeservice",
+            "link": "shopify://pages/gebaeudeservice-leistungen"
+          }
+        },
+        "unternehmen_link_gripLM": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/gebaudeservice-kontakt"
+          }
+        },
+        "unternehmen_link_rbmahy": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/gebaudeservice-karriere"
+          }
+        },
+        "unternehmen_link_CLNJ6x": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_q94pLL": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_LRCh6m": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-impressum"
+          }
+        },
+        "kontakt_link_fVL4CQ": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_rQqAmz": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_Qcdii6": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_gVa8bj": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_hQYptr",
+        "unternehmen_link_gripLM",
+        "unternehmen_link_rbmahy",
+        "unternehmen_link_CLNJ6x",
+        "unternehmen_link_q94pLL",
+        "kontakt_link_LRCh6m",
+        "kontakt_link_fVL4CQ",
+        "partner_logo_rQqAmz",
+        "partner_logo_Qcdii6",
+        "partner_logo_gVa8bj"
+      ],
+      "name": "SIS Footer NEU - Gebäudeservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar Gebäudeservice GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@gebaeudeservice.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_mWiXqk",
+    "main",
+    "hero_building_section_xFPFdb",
+    "leistung_showcase_gJ8Pfp",
+    "about_section_v3_Pg7B6c",
+    "about_section_v3_F8BxLh",
+    "about_section_v3_ewAX7K",
+    "about_section_v2_JerFAY",
+    "custom_cta_block_Y6hmWD",
+    "sis_footer_neu_6xYV4V"
+  ]
+}

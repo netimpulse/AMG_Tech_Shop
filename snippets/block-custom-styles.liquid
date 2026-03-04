@@ -1,0 +1,58 @@
+{%- comment -%}
+  Snippet: block-custom-styles
+  ============================
+  Gibt dynamisches CSS für Block-Styling aus (Schriftgröße, -farbe, -art, Hintergrund).
+  Wird innerhalb einer Block-Schleife aufgerufen:
+    {% render 'block-custom-styles', block: block %}
+{%- endcomment -%}
+
+{%- liquid
+  assign has_font_size = false
+  assign has_font_color = false
+  assign has_font_family = false
+  assign has_bg = false
+
+  if block.settings.block_font_size != blank and block.settings.block_font_size != 0
+    assign has_font_size = true
+  endif
+  if block.settings.block_font_color != blank
+    assign has_font_color = true
+  endif
+  if block.settings.block_font_family != blank
+    assign has_font_family = true
+  endif
+  if block.settings.block_bg_color != blank
+    assign has_bg = true
+  endif
+
+  assign has_any = false
+  if has_font_size or has_font_color or has_font_family or has_bg
+    assign has_any = true
+  endif
+-%}
+
+{%- if has_any -%}
+  <style>
+    #block-{{ block.id }} {
+      {%- if has_font_size -%}
+        font-size: {{ block.settings.block_font_size }}px;
+      {%- endif -%}
+      {%- if has_font_color -%}
+        color: {{ block.settings.block_font_color }};
+      {%- endif -%}
+      {%- if has_font_family -%}
+        font-family: {{ block.settings.block_font_family.family }}, {{ block.settings.block_font_family.fallback_families }};
+        font-weight: {{ block.settings.block_font_family.weight }};
+        font-style: {{ block.settings.block_font_family.style }};
+      {%- endif -%}
+      {%- if has_bg -%}
+        background: {{ block.settings.block_bg_color }};
+      {%- endif -%}
+    }
+    {%- if has_font_color -%}
+      #block-{{ block.id }} * {
+        color: inherit;
+      }
+    {%- endif -%}
+  </style>
+{%- endif -%}

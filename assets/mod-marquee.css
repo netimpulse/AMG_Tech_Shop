@@ -1,0 +1,6 @@
+.mmq{overflow:hidden;white-space:nowrap}
+.mmq__track{display:inline-flex;animation:mmq-scroll linear infinite}
+.mmq__text{display:inline-flex;align-items:center;gap:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.mmq__sep{opacity:.3;margin:0 .5rem}
+.mmq__item{padding:0 .5rem}
+@keyframes mmq-scroll{0%{transform:translateX(0)}100%{transform:translateX(-33.33%)}}

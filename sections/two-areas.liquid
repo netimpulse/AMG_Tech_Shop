@@ -1,0 +1,544 @@
+{% comment %}
+  Section: two-areas  (Industrie & Gebäude)
+  ▸ Farben & Schriftgrößen vollständig über Theme-Editor steuerbar
+  ▸ Kachel-Hintergründe + Hover-Farben werden in diesem <style>-Block gerendert
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'section-two-areas.css' | asset_url }}">
+
+<style>
+/* ====== Bereichs-Bordüre oben ===================================== */
+#two-areas-{{ section.id }} .area--industry { border-top-color: {{ section.settings.industry_area_border_color }}; }
+#two-areas-{{ section.id }} .area--building { border-top-color: {{ section.settings.building_area_border_color }}; }
+
+/* ====== Kachelfarben (Normal + Hover) ============================== */
+#two-areas-{{ section.id }} .area--industry .sub-service-item        { background: {{ section.settings.industry_tile_bg_color }};  color: {{ section.settings.industry_tile_text_color }}; }
+#two-areas-{{ section.id }} .area--industry .sub-service-item:hover { background: {{ section.settings.industry_tile_bg_hover_color }}; }
+
+#two-areas-{{ section.id }} .area--building .sub-service-item        { background: {{ section.settings.building_tile_bg_color }};  color: {{ section.settings.building_tile_text_color }}; }
+#two-areas-{{ section.id }} .area--building .sub-service-item:hover { background: {{ section.settings.building_tile_bg_hover_color }}; }
+
+/* ====== Button-Hover-Farben ======================================= */
+#two-areas-{{ section.id }} .btn--industry:hover  {
+  background: {{ section.settings.industry_btn_bg_hover_color }};
+  color:      {{ section.settings.industry_btn_text_hover_color }};
+  border-color: {{ section.settings.industry_btn_border_hover_color }};
+}
+
+#two-areas-{{ section.id }} .btn--building:hover  {
+  background: {{ section.settings.building_btn_bg_hover_color }};
+  color:      {{ section.settings.building_btn_text_hover_color }};
+  border-color: {{ section.settings.building_btn_border_hover_color }};
+}
+</style>
+
+<section class="two-areas" id="two-areas-{{ section.id }}">
+  <div class="page-width">
+    {%- if section.settings.show_heading -%}
+      <h2 class="two-areas__heading"
+          style="font-size: {{ section.settings.heading_font_size }}px;
+                 color: {{ section.settings.heading_color }};">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.show_subheading -%}
+      <p class="two-areas__subheading"
+         style="font-size: {{ section.settings.subheading_font_size }}px;
+                color: {{ section.settings.subheading_color }};">
+        {{ section.settings.subheading }}
+      </p>
+    {%- endif -%}
+
+    <div class="two-areas__grid">
+      {%- render 'two-area', side: 'industry', section: section -%}
+      {%- render 'two-area', side: 'building', section: section -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Industrie & Gebäude",
+  "class": "two-areas-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Allgemeine Überschriften"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Hauptüberschrift anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Hauptüberschrift",
+      "default": "Industrie & Gebäudeservice"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Farbe Hauptüberschrift",
+      "default": "#343a40"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Schriftgröße Hauptüberschrift",
+      "min": 16,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 38
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subheading",
+      "label": "Unterüberschrift anzeigen",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Unterüberschrift",
+      "default": "Zwei starke Bereiche, ein Qualitätsversprechen"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Farbe Unterüberschrift",
+      "default": "#6c757d"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "label": "Schriftgröße Unterüberschrift",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Industrieservice"
+    },
+    {
+      "type": "image_picker",
+      "id": "industry_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "industry_title",
+      "label": "Titel",
+      "default": "Industrieservice"
+    },
+    {
+      "type": "color",
+      "id": "industry_title_color",
+      "label": "Titelfarbe",
+      "default": "#343a40"
+    },
+    {
+      "type": "range",
+      "id": "industry_title_font_size",
+      "label": "Schriftgröße Titel",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "richtext",
+      "id": "industry_text",
+      "label": "Beschreibung",
+      "default": "<p>Wir sorgen für reibungslose Abläufe…</p>"
+    },
+    {
+      "type": "color",
+      "id": "industry_text_color",
+      "label": "Beschreibung Farbe",
+      "default": "#6c757d"
+    },
+    {
+      "type": "range",
+      "id": "industry_text_font_size",
+      "label": "Schriftgröße Beschreibung",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "industry_area_border_color",
+      "label": "Randfarbe oben",
+      "default": "#0B3D91"
+    },
+    {
+      "type": "text",
+      "id": "industry_btn_label",
+      "label": "Button-Text",
+      "default": "Mehr erfahren"
+    },
+    {
+      "type": "url",
+      "id": "industry_btn_link",
+      "label": "Button-Link"
+    },
+    {
+      "type": "color",
+      "id": "industry_btn_bg_color",
+      "label": "Button Hintergrund",
+      "default": "#0B3D91"
+    },
+    {
+      "type": "color",
+      "id": "industry_btn_text_color",
+      "label": "Button Textfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "industry_btn_font_size",
+      "label": "Button Schriftgröße",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "industry_btn_bg_hover_color",
+      "label": "Button Hover Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "industry_btn_text_hover_color",
+      "label": "Button Hover Text",
+      "default": "#0B3D91"
+    },
+    {
+      "type": "color",
+      "id": "industry_btn_border_hover_color",
+      "label": "Button Hover Rand",
+      "default": "#0B3D91"
+    },
+    {
+      "type": "color",
+      "id": "industry_tile_bg_color",
+      "label": "Kachel Hintergrund",
+      "default": "#0B3D91"
+    },
+    {
+      "type": "color",
+      "id": "industry_tile_text_color",
+      "label": "Kachel Textfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "industry_tile_title_font_size",
+      "label": "Kachel Schriftgröße",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "industry_tile_bg_hover_color",
+      "label": "Kachel Hover Hintergrund",
+      "default": "#0056b3"
+    },
+    {
+      "type": "header",
+      "content": "Gebäudeservice"
+    },
+    {
+      "type": "image_picker",
+      "id": "building_icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "building_title",
+      "label": "Titel",
+      "default": "Gebäudeservice"
+    },
+    {
+      "type": "color",
+      "id": "building_title_color",
+      "label": "Titelfarbe",
+      "default": "#343a40"
+    },
+    {
+      "type": "range",
+      "id": "building_title_font_size",
+      "label": "Schriftgröße Titel",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "richtext",
+      "id": "building_text",
+      "label": "Beschreibung",
+      "default": "<p>Wir kümmern uns um Ihre Immobilie…</p>"
+    },
+    {
+      "type": "color",
+      "id": "building_text_color",
+      "label": "Beschreibung Farbe",
+      "default": "#6c757d"
+    },
+    {
+      "type": "range",
+      "id": "building_text_font_size",
+      "label": "Schriftgröße Beschreibung",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "building_area_border_color",
+      "label": "Randfarbe oben",
+      "default": "#57B894"
+    },
+    {
+      "type": "text",
+      "id": "building_btn_label",
+      "label": "Button-Text",
+      "default": "Mehr erfahren"
+    },
+    {
+      "type": "url",
+      "id": "building_btn_link",
+      "label": "Button-Link"
+    },
+    {
+      "type": "color",
+      "id": "building_btn_bg_color",
+      "label": "Button Hintergrund",
+      "default": "#57B894"
+    },
+    {
+      "type": "color",
+      "id": "building_btn_text_color",
+      "label": "Button Textfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "building_btn_font_size",
+      "label": "Button Schriftgröße",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "building_btn_bg_hover_color",
+      "label": "Button Hover Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "building_btn_text_hover_color",
+      "label": "Button Hover Text",
+      "default": "#57B894"
+    },
+    {
+      "type": "color",
+      "id": "building_btn_border_hover_color",
+      "label": "Button Hover Rand",
+      "default": "#57B894"
+    },
+    {
+      "type": "color",
+      "id": "building_tile_bg_color",
+      "label": "Kachel Hintergrund",
+      "default": "#57B894"
+    },
+    {
+      "type": "color",
+      "id": "building_tile_text_color",
+      "label": "Kachel Textfarbe",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "building_tile_title_font_size",
+      "label": "Kachel Schriftgröße",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "building_tile_bg_hover_color",
+      "label": "Kachel Hover Hintergrund",
+      "default": "#4AA080"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "industry_tile",
+      "name": "Industrie-Kachel",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Instandhaltung"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "building_tile",
+      "name": "Gebäude-Kachel",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Gebäudereinigung"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Industrie & Gebäude (Demo)",
+      "category": "SIS",
+      "blocks": [
+        {
+          "type": "industry_tile",
+          "settings": {
+            "title": "Instandhaltung"
+          }
+        },
+        {
+          "type": "industry_tile",
+          "settings": {
+            "title": "Technischer Support"
+          }
+        },
+        {
+          "type": "building_tile",
+          "settings": {
+            "title": "Gebäudereinigung"
+          }
+        },
+        {
+          "type": "building_tile",
+          "settings": {
+            "title": "Facility Management"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

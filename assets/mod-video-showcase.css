@@ -1,0 +1,7 @@
+.mvs__inner{text-align:center}
+.mvs__heading{font-size:1.75rem;font-weight:700;margin:0 0 .5rem}
+.mvs__sub{color:rgba(0,0,0,.55);margin:0 0 2rem}
+.mvs__ratio{position:relative;padding-bottom:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.mvs__iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mvs__video{width:100%;border-radius:12px;display:block}
+.mvs__placeholder{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:#f0f0f0;border-radius:12px;color:rgba(0,0,0,.4);font-size:1rem}

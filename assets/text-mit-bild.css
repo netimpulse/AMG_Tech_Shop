@@ -1,0 +1,79 @@
+/* Styling für die "Text mit Bild" Section */
+
+.text-mit-bild-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.text-mit-bild-container {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* Abstand zwischen Text und Bild */
+}
+
+/* Standard-Reihenfolge: Text, dann Bild */
+.text-mit-bild--image-right {
+  flex-direction: row;
+}
+
+/* Umgekehrte Reihenfolge: Bild, dann Text */
+.text-mit-bild--image-left {
+  flex-direction: row-reverse;
+}
+
+.text-mit-bild__content {
+  flex: 1; /* Nimmt den verfügbaren Platz ein */
+  min-width: 50%; /* Verhindert zu starkes Schrumpfen */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Abstand zwischen den Textelementen */
+}
+
+.text-mit-bild__heading {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.text-mit-bild__subheading {
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.text-mit-bild__text p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.text-mit-bild__image-wrapper {
+  flex: 1;
+  min-width: 50%;
+}
+
+.text-mit-bild__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px; /* Abgerundete Ecken */
+  object-fit: cover;
+}
+
+.text-mit-bild__placeholder {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  background-color: #f2f2f2;
+}
+
+/* Responsive Anpassungen für mobile Geräte */
+@media screen and (max-width: 768px) {
+  .text-mit-bild-container,
+  .text-mit-bild--image-left {
+    flex-direction: column; /* Untereinander anordnen */
+    gap: 40px;
+  }
+
+  .text-mit-bild__content {
+    text-align: center;
+  }
+}

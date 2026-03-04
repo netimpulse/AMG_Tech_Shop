@@ -1,0 +1,40 @@
+{{ 'highlight-blog-articles.css' | asset_url | stylesheet_tag }}
+
+<section id="highlight-blogs-{{ section.id }}" class="hb-wrapper">
+  <div class="hb-header">
+    <h2 class="hb-title">{{ section.settings.title }}</h2>
+    <p class="hb-subtitle">{{ section.settings.subtitle }}</p>
+    <div class="hb-buttons">
+      <a href="{{ section.settings.button_geb_link }}" class="hb-btn">{{ section.settings.button_geb_label }}</a>
+      <a href="{{ section.settings.button_ind_link }}" class="hb-btn hb-btn-outline">{{ section.settings.button_ind_label }}</a>
+    </div>
+  </div>
+
+  <div class="hb-grid">
+    {% assign blog_handle = section.settings.blog | default: 'news' %}
+    {% assign articles = blogs[blog_handle].articles | slice: 0, 3 %}
+
+    {% for article in articles %}
+      {% render 'highlight-blog-card', article: article %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Highlight Blog Artikel",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titel", "default": "Aktuelle Artikel" },
+    { "type": "textarea", "id": "subtitle", "label": "Untertitel", "default": "Bleiben Sie auf dem Laufenden mit unseren neuesten Insights und Expertenwissen aus verschiedenen Bereichen der digitalen Welt." },
+    { "type": "blog", "id": "blog", "label": "Blog auswählen" },
+
+    { "type": "text", "id": "button_geb_label", "label": "Button Gebäudeservice Text", "default": "Gebäudeservice" },
+    { "type": "url", "id": "button_geb_link", "label": "Link für Gebäudeservice" },
+    { "type": "text", "id": "button_ind_label", "label": "Button Industrieservice Text", "default": "Industrieservice" },
+    { "type": "url", "id": "button_ind_link", "label": "Link für Industrieservice" }
+  ],
+  "presets": [
+    { "name": "Highlight Blog Artikel", "category": "Blog" }
+  ]
+}
+{% endschema %}

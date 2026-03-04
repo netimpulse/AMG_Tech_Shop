@@ -1,0 +1,89 @@
+/* Container */
+.kb-section { width: 100%; }
+.kb-carousel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+.kb-viewport { overflow: hidden; width: 100%; }
+.kb-track {
+  display: flex;
+  gap: var(--kb-gap, 30px);
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+/* Karten */
+.kb-card {
+  list-style: none;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  /* Desktop: 3 Spalten (inkl. Gap) */
+  flex: 0 0 calc(33.333% - (var(--kb-gap, 30px) * 2 / 3));
+}
+.kb-card-inner { display: flex; flex-direction: column; align-items: center; gap: 10px; height: 100%; }
+
+.kb-stars { color: #ffc107; font-size: 22px; line-height: 1; }
+.kb-star { display: inline-block; }
+
+.kb-name { margin: 4px 0 6px; font-weight: 700; }
+.kb-text p { margin: 0; line-height: 1.6; }
+
+/* Quadratisches Icon/Logo – vollständig sichtbar */
+.kb-logo-wrap {
+  margin-top: 18px;
+  width: var(--kb-img, 100px);
+  height: var(--kb-img, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kb-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;         /* zeigt das gesamte Icon, ohne Beschneiden */
+  aspect-ratio: 1 / 1;         /* bleibt immer quadratisch */
+  border-radius: 12px;         /* sanfte Ecken – bei Bedarf 0 setzen */
+  background: transparent;     /* kein Beschnitt, voller Blick auf das Logo */
+}
+
+/* Pfeile – schlicht */
+.kb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  background: transparent;
+  border: none;
+  color: #555;
+  font-size: 45px;
+  font-weight: 300;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform .2s ease-in-out, color .2s ease-in-out, opacity .2s ease-in-out;
+}
+.kb-arrow:hover { color: #000; transform: translateY(-50%) scale(1.1); }
+.kb-prev { left: 10px; }
+.kb-next { right: 10px; }
+
+/* Tablet: 2 Spalten */
+@media (max-width: 1023px) {
+  .kb-carousel { padding: 0 48px; }
+  .kb-card { flex: 0 0 calc(50% - (var(--kb-gap, 30px) / 2)); }
+}
+
+/* Handy: 1 Spalte, Pfeile etwas kleiner */
+@media (max-width: 767px) {
+  .kb-carousel { padding: 0 36px; }
+  .kb-card { flex: 0 0 100%; }
+  .kb-arrow { font-size: 36px; }
+}

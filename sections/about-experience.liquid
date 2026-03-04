@@ -1,0 +1,311 @@
+{% comment %}
+  Über-Block "15+ Jahre Erfahrung"
+{% endcomment %}
+
+{{ 'about-experience.css' | asset_url | stylesheet_tag }}
+
+<section class="ae-section"
+  style="
+    --ae-bg: {{ section.settings.bg_color }};
+    --ae-card-bg: {{ section.settings.card_bg }};
+    --ae-card-br: {{ section.settings.card_radius }}px;
+    --ae-text: {{ section.settings.text_color }};
+    --ae-accent: {{ section.settings.accent_color }};
+  "
+>
+  <div class="ae-container ae-grid">
+    <!-- Textspalte -->
+    <div class="ae-left">
+      {% if section.settings.kicker != blank %}
+        <p class="ae-kicker">{{ section.settings.kicker }}</p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="ae-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.richtext != blank %}
+        <div class="ae-richtext rte">
+          {{ section.settings.richtext }}
+        </div>
+      {% endif %}
+
+      {%- assign badge_blocks = section.blocks | where: 'type', 'badge' -%}
+      {% if badge_blocks.size > 0 %}
+        <div class="ae-badges" role="list">
+          {% for block in badge_blocks %}
+            <span class="ae-badge" role="listitem" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {{ block.settings.badge_text }}
+            </span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.btn_label != blank and section.settings.btn_link != blank %}
+        <a class="ae-btn" href="{{ section.settings.btn_link }}" {% if section.settings.btn_newtab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          {{ section.settings.btn_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Kachelspalte -->
+    <div class="ae-right">
+      <div class="ae-cards">
+        {%- assign stat_blocks = section.blocks | where: 'type', 'stat' -%}
+        {% for block in stat_blocks %}
+          {% render 'stat-card',
+            emoji: block.settings.emoji,
+            title: block.settings.title,
+            subtitle: block.settings.subtitle,
+            aria_label: block.settings.aria_label,
+            block: block
+          %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Erfahrung/Stats",
+  "tag": "section",
+  "class": "section-about-experience",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker (kleiner Text über der Überschrift)",
+      "default": "Über 15 Jahre Erfahrung"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Über 15 Jahre Erfahrung"
+    },
+    {
+      "type": "richtext",
+      "id": "richtext",
+      "label": "Text",
+      "default": "<p>Als familiengeführtes Unternehmen legen wir Wert auf persönlichen Service und langfristige Kundenbeziehungen. Unser Team von über 50 qualifizierten Mitarbeitern sorgt täglich dafür, dass mehr als 200 zufriedene Kunden auf unsere Zuverlässigkeit vertrauen können.</p>"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button-Text",
+      "default": "Mehr über uns erfahren"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button-Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "btn_newtab",
+      "label": "Link in neuem Tab öffnen",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Hintergrundfarbe",
+      "default": "#F3F8F5"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Kachel-Hintergrund",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Kachel-Radius",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Akzent-/Buttonfarbe",
+      "default": "#22C55E"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge-Text",
+          "default": "200+ Kunden"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Stat-Kachel",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Icon/Emoji (optional)",
+          "default": "✅"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "ISO 9001"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Untertitel",
+          "default": "Zertifizierte Qualität"
+        },
+        {
+          "type": "text",
+          "id": "aria_label",
+          "label": "Beschriftung für Screenreader (optional)",
+          "default": "1"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Über uns – Erfahrung/Stats",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "badge_text": "200+ Kunden"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "badge_text": "50+ Mitarbeiter"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "badge_text": "15+ Jahre Erfahrung"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "ISO 9001",
+            "subtitle": "Zertifizierte Qualität"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "24/7",
+            "subtitle": "Notfallservice"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "emoji": "",
+            "title": "100%",
+            "subtitle": "Kundenzufriedenheit"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "emoji": "🌱",
+            "title": "Nachhaltig",
+            "subtitle": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

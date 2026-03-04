@@ -1,0 +1,57 @@
+{% comment %}
+  Snippet v2: Leistung Suche Card
+  - Richtext für Titel & Text
+  - Suche basiert auf plain text (HTML wird entfernt)
+  - Gleich hohe Titel/Text/Buttons über CSS-Grid
+{% endcomment %}
+
+{%- assign keywords_list = keywords | default: '' | split: ',' -%}
+{%- capture haystack -%}
+  {{ title_html | strip_html | downcase }} {% for kw in keywords_list %} {{ kw | strip | downcase }} {% endfor %}
+{%- endcapture -%}
+
+<article
+  class="service-card"
+  data-service-card
+  data-search-haystack="{{ haystack | strip | escape }}"
+  {% if block %}{{ block.shopify_attributes }}{% endif %}
+>
+  <div class="service-card__media">
+    {% if image != blank %}
+      <img
+        src="{{ image | image_url: width: 800 }}"
+        alt="{{ image.alt | escape | default: title_html | strip_html }}"
+        loading="lazy"
+        width="{{ image.width }}"
+        height="{{ image.height }}"
+      >
+    {% else %}
+      <div class="service-card__placeholder" aria-hidden="true"></div>
+    {% endif %}
+  </div>
+
+  <div class="service-card__body">
+    {% if title_html != blank %}
+      <div class="service-card__title rte">{{ title_html }}</div>
+    {% endif %}
+
+    {% if text_html != blank %}
+      <div class="service-card__text rte">{{ text_html }}</div>
+    {% endif %}
+
+    {% if keywords_list.size > 0 and keywords_list.first != blank %}
+      <ul class="service-card__tags" aria-label="Keywords">
+        {% for kw in keywords_list %}
+          {% assign tag = kw | strip %}
+          {% if tag != blank %}
+            <li class="tag tag--{{ badge_style }}">{{ tag }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if button_label != blank and button_link != blank %}
+      <a class="service-card__button btn btn--{{ button_style }}" href="{{ button_link }}">{{ button_label }}</a>
+    {% endif %}
+  </div>
+</article>

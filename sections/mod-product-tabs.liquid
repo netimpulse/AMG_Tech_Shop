@@ -1,0 +1,203 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-product-tabs.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+{%- assign p = s.product -%}
+<div class="mpt sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    {%- if p != blank -%}
+    <div class="mpt__layout">
+      <div class="mpt__media">
+        <div class="mpt__img-wrap">
+          {%- if p.featured_image != blank -%}
+            <img src="{{ p.featured_image | image_url: width: 800 }}" alt="{{ p.featured_image.alt | escape }}" class="mpt__img" width="800">
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="mpt__details">
+        {%- if s.show_vendor and p.vendor != blank -%}<span class="mpt__vendor">{{ p.vendor }}</span>{%- endif -%}
+        <h2 class="mpt__title">{{ p.title }}</h2>
+        <div class="mpt__price">
+          {%- if p.compare_at_price > p.price -%}<s class="mpt__compare">{{ p.compare_at_price | money }}</s>{%- endif -%}
+          <span class="mpt__current">{{ p.price | money }}</span>
+        </div>
+
+        {%- comment -%} Tabs {%- endcomment -%}
+        <div class="mpt__tabs">
+          <div class="mpt__tab-nav">
+            {%- for block in section.blocks -%}
+              <button class="mpt__tab-btn{%- if forloop.first %} mpt__tab-btn--active{%- endif -%}" data-tab="{{ forloop.index }}" {{ block.shopify_attributes }} type="button">{{ block.settings.tab_title }}</button>
+            {%- endfor -%}
+          </div>
+          <div class="mpt__tab-panels">
+            {%- for block in section.blocks -%}
+              <div class="mpt__tab-panel{%- if forloop.first %} mpt__tab-panel--active{%- endif -%}" data-panel="{{ forloop.index }}">
+                <div class="rte">{{ block.settings.tab_content }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        {%- comment -%} Add to cart {%- endcomment -%}
+        <form method="post" action="/cart/add" class="mpt__form">
+          <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+          <button type="submit" class="mpt__add button"{%- unless p.available %} disabled{%- endunless -%}>
+            {%- if p.available -%}{{ s.add_text | default: 'In den Warenkorb' }}{%- else -%}Ausverkauft{%- endif -%}
+          </button>
+        </form>
+      </div>
+    </div>
+    {%- else -%}
+      <p>Bitte waehle ein Produkt in den Einstellungen aus.</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.mpt__tabs').forEach(function(tabs){
+    tabs.querySelectorAll('.mpt__tab-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var idx=this.dataset.tab;
+        tabs.querySelectorAll('.mpt__tab-btn').forEach(function(b){b.classList.remove('mpt__tab-btn--active')});
+        tabs.querySelectorAll('.mpt__tab-panel').forEach(function(p){p.classList.remove('mpt__tab-panel--active')});
+        this.classList.add('mpt__tab-btn--active');
+        tabs.querySelector('[data-panel="'+idx+'"]')?.classList.add('mpt__tab-panel--active');
+      });
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Mod: Produkt mit Tabs",
+  "tag": "section",
+  "class": "section-mod-product-tabs",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Produkt"
+    },
+    {
+      "type": "text",
+      "id": "add_text",
+      "label": "Warenkorb-Button Text",
+      "default": "In den Warenkorb"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Hersteller anzeigen",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Hintergrundfarbe"
+    },
+    {
+      "type": "header",
+      "content": "Globale Schrift & Farbe"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Abschnitt-Hintergrund"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab-Titel",
+          "default": "Beschreibung"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Tab-Inhalt",
+          "default": "<p>Hier steht der Inhalt dieses Tabs.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Produkt mit Tabs",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Beschreibung",
+            "tab_content": "<p>Produktbeschreibung hier einfuegen.</p>"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Details",
+            "tab_content": "<p>Technische Details und Spezifikationen.</p>"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Versand",
+            "tab_content": "<p>Versandinformationen und Lieferzeiten.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

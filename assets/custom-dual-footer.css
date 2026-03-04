@@ -1,0 +1,55 @@
+.dual-footer-container {
+  display: flex;
+  width: 100%;
+  border: 1px solid #000; /* Rahmen um den gesamten Block, wie in der Zeichnung */
+  box-sizing: border-box;
+}
+
+.footer-column {
+  flex: 1; /* Beide Spalten nehmen den gleichen Platz ein */
+  padding: 25px 30px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-separator {
+  width: var(--separator-width, 1px);
+  background-color: var(--separator-color, #cccccc);
+  flex-shrink: 0;
+}
+
+.footer-heading {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-link {
+  text-decoration: none;
+  padding-bottom: 10px; /* Abstand zwischen den Links */
+  line-height: 1.4;
+}
+
+.footer-link:last-child {
+  padding-bottom: 0;
+}
+
+/* Responsive Verhalten für mobile Ansicht */
+@media (max-width: 768px) {
+  .dual-footer-container {
+    flex-direction: column;
+  }
+  
+  .footer-separator {
+    width: 100%;
+    /* Die Höhe der Trennlinie wird von den CSS-Variablen gesteuert */
+    height: var(--separator-width, 1px); 
+  }
+}

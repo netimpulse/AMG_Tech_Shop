@@ -1,0 +1,104 @@
+/* === Hero Overlay (vollständig) === */
+.hero-overlay {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Hintergrundbild + Overlay-Farbfläche */
+.hero-overlay__bg {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.hero-overlay__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Innenbereich */
+.hero-overlay__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: var(--hero-height, 60vh);
+  padding: var(--section-padding, 80px 0);
+}
+
+/* Inhalt links */
+.hero-overlay__content {
+  width: 100%;
+  max-width: var(--content-max-width, 900px);
+}
+.hero-overlay__heading {
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+.hero-overlay__text {
+  margin: 0;
+  line-height: 1.5;
+  max-width: 60ch;
+}
+
+/* === Buttons === */
+.hero-overlay__btn-container {
+  display: inline-flex;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start; /* für mittig -> center */
+}
+.hero-overlay__btn {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.05s ease;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-weight: 600;
+}
+.hero-overlay__btn:active { transform: translateY(1px); }
+
+/* === Logo rechts: fester, transparenter Container (absolute) === */
+.hero-overlay__logo-abs {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(calc(0% - var(--logo-offset-x, 0%)),
+                      calc(-50% - var(--logo-offset-y, 0%)));
+  z-index: 2;
+  pointer-events: none;      /* blockiert keine Klicks links */
+  background: transparent;   /* Container ist durchsichtig */
+  max-width: var(--logo-maxw, 420px);
+  padding: var(--logo-pad, 0px);
+}
+.hero-overlay__logo-abs img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* === Mobile Anpassungen === */
+@media (max-width: 768px) {
+  .hero-overlay__inner {
+    min-height: var(--hero-height-mobile, 40vh);
+    padding: var(--section-padding-mobile, 48px 0);
+  }
+  .hero-overlay__content { text-align: center; }
+  .hero-overlay__btn-container { justify-content: center; }
+  .hero-overlay__logo-abs {
+    position: static;
+    transform: none;
+    margin: 24px auto 0;
+    pointer-events: auto;
+    max-width: min(70vw, var(--logo-maxw, 420px));
+  }
+}

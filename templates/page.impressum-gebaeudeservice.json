@@ -1,0 +1,198 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sticky_header_7QhbKe": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Zurück",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS-Gebaeude_84d2e9ab-9e77-4ef4-8a40-4793e65f0593.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "geb-udeservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "about_section_v2_tDkGHx": {
+      "type": "about-section-v2",
+      "name": "Über Uns (Layout) – Neu",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Impressum zur SIS Saar Gebäudeservice GmbH</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 44,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Angaben gemäß § 5 DDG:</strong></p><p>SIS Saar Gebäudeservice GmbH</p><p>Vorderster Berg 13</p><p>66333 Völklingen</p><p> </p><p><strong>Vertreten durch:</strong></p><p>Herr Stephan Graf</p><p>Herr Abduljabbar Alokaidi</p><p> </p><p><strong>Kontakt:</strong></p><p>Telefon: +49 (0) 6898 / 16 90 900</p><p>Telefax: +49 (0) 6898 / 16 90 897</p><p>E-Mail: <a href=\"mailto:info@sissaar.de\">info@sissaar.de</a></p><p> </p><p><strong>Registereintrag:</strong></p><p>Eintragung im Handelsregister Saarbrücken</p><p>Registernummer: HRB 108136</p><p> </p><p><strong>Umsatzsteuer:</strong></p><p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:</p><p>DE 350 009 655</p><p> </p><p><strong>Angaben zur Firmenhaftpflichtversicherung</strong></p><p>Name und Sitz des Versicherers:</p><p>Allianz Versicherungs-AG</p><p>10900 Berlin</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "sis_footer_neu_Ffzck4": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_xaaKfa": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Gebäudeservice",
+            "link": "shopify://pages/gebaeudeservice-leistungen"
+          }
+        },
+        "unternehmen_link_Ca8z7b": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/gebaudeservice-kontakt"
+          }
+        },
+        "unternehmen_link_drQHm3": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-karriere"
+          }
+        },
+        "unternehmen_link_m4fYni": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_gMykqj": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_3wErEn": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-impressum"
+          }
+        },
+        "kontakt_link_VdKk8E": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": ""
+          }
+        },
+        "partner_logo_LCWdQB": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_UTyJdP": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_WFDgEd": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_xaaKfa",
+        "unternehmen_link_Ca8z7b",
+        "unternehmen_link_drQHm3",
+        "unternehmen_link_m4fYni",
+        "unternehmen_link_gMykqj",
+        "kontakt_link_3wErEn",
+        "kontakt_link_VdKk8E",
+        "partner_logo_LCWdQB",
+        "partner_logo_UTyJdP",
+        "partner_logo_WFDgEd"
+      ],
+      "name": "SIS Footer NEU-ausgefüllt",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar Gebäudeservice GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sticky_header_7QhbKe",
+    "about_section_v2_tDkGHx",
+    "sis_footer_neu_Ffzck4"
+  ]
+}

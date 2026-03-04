@@ -1,0 +1,256 @@
+{
+  "sections": {
+    "custom_header_fi69pY": {
+      "type": "custom-header",
+      "name": "Custom Header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo": "shopify://shop_images/logo_Industrieservice_exact_v2.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "logo_position_x": 0,
+        "logo_position_y": 0,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": true,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "menu_position_x": 0,
+        "menu_position_y": 0,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/industrieservice-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "jobs_board_MVQFbQ": {
+      "type": "jobs-board",
+      "blocks": {
+        "job_BfmD3W": {
+          "type": "job",
+          "settings": {
+            "title": "Reinigungskraft (m/w/d)",
+            "desc": "Für die professionelle Gebäudereinigung in Bürogebäuden und öffentlichen Einrichtungen",
+            "location": "Saarbrücken",
+            "time": "beides",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "",
+            "btn_newtab": false,
+            "card_bg": ""
+          }
+        },
+        "job_9BdEb7": {
+          "type": "job",
+          "settings": {
+            "title": "Reinigungskraft (m/w/d)",
+            "desc": "Für die professionelle Gebäudereinigung in Bürogebäuden und öffentlichen Einrichtungen",
+            "location": "Saarbrücken",
+            "time": "beides",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "",
+            "btn_newtab": false,
+            "card_bg": ""
+          }
+        },
+        "job_6wp6i4": {
+          "type": "job",
+          "settings": {
+            "title": "Reinigungskraft (m/w/d)",
+            "desc": "Für die professionelle Gebäudereinigung in Bürogebäuden und öffentlichen Einrichtungen",
+            "location": "Saarbrücken",
+            "time": "beides",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "",
+            "btn_newtab": false,
+            "card_bg": ""
+          }
+        },
+        "job_qY3Npb": {
+          "type": "job",
+          "settings": {
+            "title": "Reinigungskraft (m/w/d)",
+            "desc": "Für die professionelle Gebäudereinigung in Bürogebäuden und öffentlichen Einrichtungen",
+            "location": "Saarbrücken",
+            "time": "beides",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "",
+            "btn_newtab": false,
+            "card_bg": ""
+          }
+        }
+      },
+      "block_order": [
+        "job_BfmD3W",
+        "job_9BdEb7",
+        "job_6wp6i4",
+        "job_qY3Npb"
+      ],
+      "name": "Job-Kacheln (Karriere)",
+      "settings": {
+        "heading": "Aktuelle Stellenausschreibungen",
+        "subheading": "Finden Sie Ihre nächste berufliche Herausforderung bei uns",
+        "section_bg": "#f6f7fb",
+        "card_bg": "#ffffff",
+        "padding_y": 48,
+        "grid_gap": 24,
+        "card_radius": 16,
+        "columns": "2",
+        "title_font": "poppins_n4",
+        "title_size": 44,
+        "title_color": "#0f172a",
+        "title_weight": "700",
+        "subtitle_font": "poppins_n4",
+        "subtitle_size": 16,
+        "subtitle_color": "#475569",
+        "subtitle_weight": "400",
+        "jobtitle_font": "poppins_n4",
+        "jobtitle_size": 22,
+        "jobtitle_color": "#0f172a",
+        "jobtitle_weight": "700",
+        "text_font": "poppins_n4",
+        "text_size": 16,
+        "text_color": "#334155",
+        "text_weight": "400",
+        "location_font": "poppins_n4",
+        "location_size": 15,
+        "location_color": "#475569",
+        "location_weight": "400",
+        "button_font": "poppins_n4",
+        "button_size": 15,
+        "button_weight": "600",
+        "button_bg": "#111827",
+        "button_text": "#ffffff",
+        "button_border": "rgba(0,0,0,0)",
+        "badge_font": "poppins_n4",
+        "badge_size": 14,
+        "badge_weight": "600",
+        "badge_bg": "#d1fadf",
+        "badge_text": "#065f46"
+      }
+    },
+    "highlights_icons_trDdzm": {
+      "type": "highlights-icons",
+      "blocks": {
+        "item_A6FrLz": {
+          "type": "item",
+          "settings": {
+            "icon_bg": "#e5e7eb",
+            "title": "QUALITÄT",
+            "text": "Kurzer, prägnanter Beschreibungstext für dieses Highlight.",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_WXj8Kr": {
+          "type": "item",
+          "settings": {
+            "icon_bg": "#e5e7eb",
+            "title": "UNTERNEHMEN",
+            "text": "Kurzer, prägnanter Beschreibungstext für dieses Highlight.",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        },
+        "item_7yrCbF": {
+          "type": "item",
+          "settings": {
+            "icon_bg": "#e5e7eb",
+            "title": "PERSONAL",
+            "text": "Kurzer, prägnanter Beschreibungstext für dieses Highlight.",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "btn_bg": "#0b63c8",
+            "btn_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "item_A6FrLz",
+        "item_WXj8Kr",
+        "item_7yrCbF"
+      ],
+      "name": "Highlights – Icons",
+      "settings": {
+        "heading": "Das bieten wir dir",
+        "intro": "<p>Kurzer Einleitungstext, der die Highlights erklärt.</p>",
+        "color_scheme": "background-1",
+        "gap": 24,
+        "cols_desktop": 3,
+        "cols_tablet": 2,
+        "icon_size": 88,
+        "icon_radius": 1000
+      }
+    },
+    "text_mit_bild_button_LWeUiY": {
+      "type": "text-mit-bild-button",
+      "name": "Text mit Bild",
+      "settings": {
+        "image_position": "right",
+        "image_shadow_strength": 20,
+        "heading": "Unser Team",
+        "heading_font": "system_ui_n4",
+        "heading_font_size": 42,
+        "heading_color": "#1f1f1f",
+        "subheading": "Wer wir sind und was uns auszeichnet",
+        "subheading_font": "system_ui_n4",
+        "subheading_font_size": 18,
+        "subheading_color": "#555555",
+        "text": "<p>Beschreiben Sie hier Ihr Unternehmen, Ihre Produkte oder Dienstleistungen. Dieser Text ist vollständig anpassbar und unterstützt auch Formatierungen wie <strong>fett</strong> oder <em>kursiv</em>.</p>",
+        "text_font": "system_ui_n4",
+        "text_font_size": 16,
+        "text_color": "#333333",
+        "button_text": "erfahre mehr über uns",
+        "button_link": "shopify://pages/industrieservice-uber-uns",
+        "button_font": "system_ui_n4",
+        "button_font_size": 16,
+        "button_padding_x": 24,
+        "button_padding_y": 14,
+        "button_border_radius": 10,
+        "button_bg_color": "#8e8e8e",
+        "button_bg_hover_color": "#6f6f6f",
+        "button_text_color": "#ffffff",
+        "button_text_color_hover": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "custom_header_fi69pY",
+    "main",
+    "jobs_board_MVQFbQ",
+    "highlights_icons_trDdzm",
+    "text_mit_bild_button_LWeUiY"
+  ]
+}

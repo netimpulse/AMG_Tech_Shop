@@ -1,0 +1,31 @@
+{% comment %}
+  Rendert einen einzelnen Hotspot
+  Erwartet: block, section_id
+{% endcomment %}
+{% assign b = block.settings %}
+
+{%- capture style -%}
+  left: {{ b.pos_x }}%;
+  top: {{ b.pos_y }}%;
+  --ah-dot-color: {{ b.dot_color }};
+  --ah-panel-bg: {{ b.panel_bg }};
+  --ah-panel-text: {{ b.panel_text }};
+{%- endcapture -%}
+
+<div {{ block.shopify_attributes }}
+     class="ah-hotspot {% if b.open_by_default %}is-active{% endif %}"
+     style="{{ style | strip }}"
+     data-panel-pos="{{ b.panel_position }}"
+     data-hotspot
+>
+  <button class="ah-dot" type="button" aria-expanded="{% if b.open_by_default %}true{% else %}false{% endif %}">
+    <span class="sr-only">{{ b.title | default: 'Hotspot' }}</span>
+  </button>
+
+  <div class="ah-panel" id="hotspot-panel-{{ block.id }}" role="region" aria-label="{{ b.title | escape }}">
+    {% if b.title != blank %}<div class="ah-panel-title">{{ b.title }}</div>{% endif %}
+    {% if b.text != blank %}<div class="ah-panel-text rte">{{ b.text }}</div>{% endif %}
+  </div>
+</div>
+
+  

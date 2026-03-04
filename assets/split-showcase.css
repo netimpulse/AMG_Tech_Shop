@@ -1,0 +1,208 @@
+/*
+ * Dateiname: split-showcase.css
+ * Beschreibung: Stile für den "Split Showcase" Abschnitt.
+ */
+
+/* Grundstruktur und Container */
+.sc-container-wrapper {
+  /* Diese Klasse sorgt für die volle Breite und den vertikalen Abstand */
+  width: 100%;
+  padding: 50px 0;
+}
+
+.sc-container {
+  /* Diese Klasse sorgt für den seitlichen Abstand und zentriert den Inhalt */
+  width: 100%;
+  max-width: 1200px; /* Standardbreite, kann angepasst werden */
+  margin: 0 auto;
+  padding: 0 25px; /* Seitlicher Abstand, damit der Inhalt nicht am Rand klebt */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Header (Überschrift & Text) */
+.sc-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sc-heading {
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+.sc-subheading {
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sc-subheading p {
+  margin: 0;
+}
+
+
+/* Grid für die Boxen */
+.sc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Styling der einzelnen Boxen */
+.sc-box-link {
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--sc-border-radius, 12px);
+}
+
+.sc-box {
+  position: relative;
+  height: 480px;
+  padding: 40px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.sc-box-link:hover .sc-box {
+  transform: scale(1.03);
+}
+
+/* Bild-Container und Hover-Effekt */
+.sc-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.sc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.sc-image--hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.sc-box-link:hover .sc-image--default {
+  opacity: 0;
+}
+
+.sc-box-link:hover .sc-image--hover {
+  opacity: 1;
+}
+
+/* Overlay für bessere Lesbarkeit */
+.sc-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+/* Inhalt der Box (Icon, Text, Button) */
+.sc-content {
+  position: absolute;
+  z-index: 3;
+  width: calc(100% - 80px); /* Breite anpassen an Padding der .sc-box */
+  max-width: 450px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.sc-box-link:hover .sc-content {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.sc-icon-wrapper {
+  margin: 0 auto 20px;
+}
+
+.sc-title {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sc-description {
+  margin: 0 0 25px 0;
+  line-height: 1.5;
+}
+
+.sc-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Responsive Design für Mobilgeräte */
+@media (max-width: 900px) {
+  .sc-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .sc-box {
+    height: 400px;
+    padding: 30px;
+    /* Auf Mobilgeräten auf Flexbox umstellen für einfache, robuste Ausrichtung */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .sc-content {
+    /* Absolute Positionierung aufheben */
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  .sc-box-link:hover .sc-content {
+    transform: translateY(-10px);
+  }
+
+  .sc-icon-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sc-container-wrapper {
+    padding: 30px 0;
+  }
+  .sc-container {
+    padding: 0 15px;
+  }
+
+  .sc-box {
+    height: 350px;
+  }
+}

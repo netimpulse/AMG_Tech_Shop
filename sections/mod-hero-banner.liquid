@@ -1,0 +1,207 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-hero-banner.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mhb sec-inner" style="
+  {%- if s.bg_image != blank -%}background-image:url({{ s.bg_image | image_url: width: 1920 }});{%- endif -%}
+  {%- if s.bg_color != blank -%}background-color:{{ s.bg_color }};{%- endif -%}
+  min-height:{{ s.min_height }}vh;
+">
+  {%- if s.overlay_opacity > 0 -%}<div class="mhb__overlay" style="opacity:{{ s.overlay_opacity | divided_by: 100.0 }};background:{{ s.overlay_color }};"></div>{%- endif -%}
+  <div class="mhb__content page-width" style="text-align:{{ s.text_align }};">
+    {%- if s.badge_text != blank -%}<span class="mhb__badge">{{ s.badge_text }}</span>{%- endif -%}
+    {%- if s.heading != blank -%}<h1 class="mhb__heading {{ s.heading_size }}">{{ s.heading }}</h1>{%- endif -%}
+    {%- if s.subheading != blank -%}<p class="mhb__sub">{{ s.subheading }}</p>{%- endif -%}
+    <div class="mhb__btns">
+      {%- if s.btn1_text != blank -%}<a href="{{ s.btn1_link }}" class="mhb__btn mhb__btn--primary button">{{ s.btn1_text }}</a>{%- endif -%}
+      {%- if s.btn2_text != blank -%}<a href="{{ s.btn2_link }}" class="mhb__btn mhb__btn--secondary">{{ s.btn2_text }}</a>{%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Hero Banner",
+  "tag": "section",
+  "class": "section-mod-hero-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hintergrund"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Hintergrundbild"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Hintergrundfarbe",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Mindesthoehe (vh)",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "default": 80,
+      "unit": "vh"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay-Farbe",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay-Deckkraft (%)",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "default": 40,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Inhalt"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge-Text (klein, ueber Ueberschrift)"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Willkommen in unserem Shop"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Ueberschrift-Groesse",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Unterueberschrift"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Textausrichtung",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Mitte"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "btn1_text",
+      "label": "Button 1 Text",
+      "default": "Jetzt shoppen"
+    },
+    {
+      "type": "url",
+      "id": "btn1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "btn2_text",
+      "label": "Button 2 Text"
+    },
+    {
+      "type": "url",
+      "id": "btn2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Hero Banner"
+    }
+  ]
+}
+{% endschema %}

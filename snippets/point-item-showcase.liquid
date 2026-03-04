@@ -1,0 +1,17 @@
+{%- comment -%}
+  Einzelner Punkt mit optionalem Icon (sonst runder Bullet) + mehrzeiligem Text (richtext).
+  Übergabewerte: icon, text
+{%- endcomment -%}
+
+<div class="lsc-item" {{ block.shopify_attributes }}>
+  <div class="lsc-item-icon">
+    {%- if icon != blank -%}
+      {{ icon | image_url: width: 48 | image_tag: loading: 'lazy', class: 'lsc-icon', alt: '' }}
+    {%- else -%}
+      <span class="lsc-icon lsc-icon--dot" aria-hidden="true"></span>
+    {%- endif -%}
+  </div>
+  <div class="lsc-item-text rte">
+    {{ text }}
+  </div>
+</div>

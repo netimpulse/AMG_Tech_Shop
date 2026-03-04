@@ -1,0 +1,104 @@
+/* SIS Saar – Einzelfooter Styles */
+.sis-footer {
+  --sis-bg: #0f1621;
+  --sis-text: #cbd5e1;
+  --sis-link: #3b82f6;
+  --sis-divider: #1e293b;
+  --sis-heading: #ffffff;
+
+  background: var(--sis-bg);
+  color: var(--sis-text);
+  padding: 32px 20px 20px;
+  font-family: inherit;
+}
+
+.sis-footer__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.sis-footer__title {
+  margin: 0 0 20px;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--sis-heading);
+}
+
+.sis-footer__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.sis-footer__heading {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--sis-heading);
+}
+
+.sis-footer__text {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.sis-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.sis-footer__links-item { margin: 0; }
+
+.sis-footer__link {
+  text-decoration: none;
+  color: var(--sis-link);
+}
+
+.sis-footer__link:hover,
+.sis-footer__link:focus {
+  text-decoration: underline;
+}
+
+.sis-footer__divider {
+  border: 0;
+  border-top: 1px solid var(--sis-divider);
+  margin: 24px 0 12px;
+}
+
+.sis-footer__bottom {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px 4px;
+}
+
+.sis-footer__copyright {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* --- Desktop Tweaks --- */
+@media (min-width: 900px) {
+  .sis-footer {
+    padding: 44px 24px 22px;
+  }
+  .sis-footer__title {
+    font-size: 22px;
+  }
+  .sis-footer__content {
+    grid-template-columns: 1fr 1fr; /* Kontakt | Rechtliches nebeneinander */
+    gap: 40px 80px;
+  }
+  .sis-footer__heading {
+    font-size: 17px;
+  }
+  .sis-footer__text {
+    font-size: 15px;
+  }
+}

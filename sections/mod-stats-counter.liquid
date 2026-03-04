@@ -1,0 +1,186 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-stats-counter.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="msc sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    {%- if s.heading != blank -%}<h2 class="msc__heading">{{ s.heading }}</h2>{%- endif -%}
+    <div class="msc__grid">
+      {%- for block in section.blocks -%}
+        <div class="msc__item" {{ block.shopify_attributes }} id="block-{{ block.id }}">
+          <span class="msc__number">{{ block.settings.number }}{{ block.settings.suffix }}</span>
+          <span class="msc__label">{{ block.settings.label }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Statistiken",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Sektions-Hintergrund"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistik",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Zahl",
+          "default": "500"
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffix (+, %, etc.)",
+          "default": "+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Beschreibung",
+          "default": "Zufriedene Kunden"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Statistiken",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "number": "500",
+            "suffix": "+",
+            "label": "Zufriedene Kunden"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "24",
+            "suffix": "h",
+            "label": "Express-Lieferung"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "99",
+            "suffix": "%",
+            "label": "Weiterempfehlung"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "10",
+            "suffix": "+",
+            "label": "Jahre Erfahrung"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

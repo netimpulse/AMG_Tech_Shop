@@ -1,0 +1,350 @@
+{
+  "sections": {
+    "custom_header_2_EhxrGx": {
+      "type": "custom-header-2",
+      "name": "Custom Header 2",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "back_link": "",
+        "back_label": "Zur Hauptseite",
+        "back_font": "sans-serif",
+        "back_font_bold": false,
+        "back_text_color": "#64748b",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "back_position_x": 0,
+        "back_position_y": 0,
+        "logo": "shopify://shop_images/logo_Industrieservice_exact_v2.png",
+        "logo_text": "Mein Shop",
+        "logo_subtext": "Service & Solutions",
+        "logo_color": "#0f172a",
+        "logo_font_size": 22,
+        "logo_subtext_color": "#6b7280",
+        "logo_subtext_size": 12,
+        "logo_position_x": 0,
+        "logo_position_y": 0,
+        "menu": "industrieservice",
+        "nav_font": "sans-serif",
+        "nav_font_bold": true,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#22c55e",
+        "nav_font_size": 16,
+        "menu_position_x": 0,
+        "menu_position_y": 0,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#0f2640",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#193352"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_overlay_section_6beqpy": {
+      "type": "hero-overlay-section",
+      "name": "Hero – Service Overlay",
+      "settings": {
+        "bg_image": "shopify://shop_images/Image_29._Juli_2025_20_41_34_cleanup.png",
+        "overlay_color": "#2baaa2",
+        "overlay_opacity": 70,
+        "section_height": 60,
+        "section_height_mobile": 40,
+        "content_max_width": 760,
+        "heading": "Ihre Partner für professionelle Service-Lösungen",
+        "heading_font": "sans-serif",
+        "heading_size": 64,
+        "heading_color": "#ffffff",
+        "text": "<p>Zwei spezialisierte Unternehmen unter einem Dach. Ihr Experte und Dienstleistungspartner auf höchstem Niveau.</p>",
+        "text_font": "sans-serif",
+        "text_size": 20,
+        "text_color": "#ffffff",
+        "btn1_text": "Mehr über unsere Services",
+        "btn1_link": "shopify://pages/industrieservice-leistungen",
+        "btn1_font": "sans-serif",
+        "btn1_font_size": 16,
+        "btn1_padding_x": 28,
+        "btn1_padding_y": 14,
+        "btn1_radius": 10,
+        "btn1_bg": "#2baaa2",
+        "btn1_bg_hover": "#238b84",
+        "btn1_text_color": "#ffffff",
+        "btn1_text_hover": "#ffffff",
+        "btn2_text": "Kontakt aufnehmen",
+        "btn2_link": "shopify://pages/allgemeiner-kontakt",
+        "btn2_font": "sans-serif",
+        "btn2_font_size": 16,
+        "btn2_padding_x": 24,
+        "btn2_padding_y": 14,
+        "btn2_radius": 10,
+        "btn2_bg": "#ffffff",
+        "btn2_bg_hover": "#e6e6e6",
+        "btn2_text_color": "#2baaa2",
+        "btn2_text_hover": "#238b84"
+      }
+    },
+    "leistung_showcase_n3D9xt": {
+      "type": "leistung-showcase",
+      "blocks": {
+        "showcase_item_fyApKb": {
+          "type": "showcase_item",
+          "settings": {
+            "icon": "shopify://shop_images/ChatGPT_Image_31._Juli_2025_18_20_03.png",
+            "text": "<p>hier steht ein text</p>"
+          }
+        },
+        "showcase_item_f7nfN6": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>hier steht ein text</p>"
+          }
+        },
+        "showcase_item_EfNG96": {
+          "type": "showcase_item",
+          "settings": {
+            "text": "<p>hier steht ein text</p>"
+          }
+        }
+      },
+      "block_order": [
+        "showcase_item_fyApKb",
+        "showcase_item_f7nfN6",
+        "showcase_item_EfNG96"
+      ],
+      "name": "Leistung Showcase",
+      "settings": {
+        "heading": "AAAAAA",
+        "subtext": "<p><br/>Unsere Leistungen umfassen <strong>Maschinenreinigung</strong>, <strong>Hallenbodenreinigung</strong>, <strong>Decken- und Wandreinigung</strong> sowie die <strong>Reinigung von Lüftungskanälen</strong>. Ergänzt durch <strong>Dampfreinigung</strong> sorgen wir für hygienische Sauberkeit, Werterhalt und einen störungsfreien Betrieb Ihrer Anlagen.<br/></p><p></p>",
+        "main_image": "shopify://shop_images/ChatGPT_Image_13._Aug._2025_23_28_29_1.png",
+        "image_radius": 12,
+        "image_position": "left",
+        "bg_color": "#ffffff",
+        "section_padding": 24,
+        "points_title": "Keywords",
+        "points_as_card": true,
+        "points_bg": "#ffffff",
+        "points_border": "#121212",
+        "points_btn_label": "Jetzt anfragen",
+        "points_btn_url": "",
+        "points_btn_align": "left",
+        "fallback_bullet_color": "#2B6CB0"
+      }
+    },
+    "rich_text_AyzdX6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pd7TCc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hallenbodenreinigung",
+            "heading_size": "h1"
+          }
+        },
+        "text_RaPqmk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Teile Infos über deine Marke mit deinen Kunden. Beschreibe ein Produkt, kündige etwas an oder heiße Kunden willkommen.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pd7TCc",
+        "text_RaPqmk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "text_mit_bild_button_GU3rjc": {
+      "type": "text-mit-bild-button",
+      "name": "Text mit Bild",
+      "settings": {
+        "image_position": "right",
+        "image_shadow_strength": 20,
+        "heading": "Maschinenreinigung",
+        "heading_font": "sans-serif",
+        "heading_font_size": 42,
+        "heading_color": "#1f1f1f",
+        "subheading": "Wer wir sind und was uns auszeichnet",
+        "subheading_font": "sans-serif",
+        "subheading_font_size": 18,
+        "subheading_color": "#555555",
+        "text": "<p>Beschreiben Sie hier Ihr Unternehmen, Ihre Produkte oder Dienstleistungen. Dieser Text ist vollständig anpassbar und unterstützt auch Formatierungen wie <strong>fett</strong> oder <em>kursiv</em>.</p>",
+        "text_font": "sans-serif",
+        "text_font_size": 16,
+        "text_color": "#333333",
+        "button_text": "Schaltflächenbeschriftung",
+        "button_link": "",
+        "button_font": "sans-serif",
+        "button_font_size": 16,
+        "button_padding_x": 24,
+        "button_padding_y": 14,
+        "button_border_radius": 10,
+        "button_bg_color": "#8e8e8e",
+        "button_bg_hover_color": "#6f6f6f",
+        "button_text_color": "#ffffff",
+        "button_text_color_hover": "#ffffff"
+      }
+    },
+    "text_mit_bild_RijNFH": {
+      "type": "text-mit-bild",
+      "name": "Text mit Bild",
+      "settings": {
+        "image_position": "left",
+        "image_shadow_strength": 20,
+        "heading": "Wand und Deckenreinigung",
+        "heading_font": "sans-serif",
+        "heading_font_size": 42,
+        "heading_color": "#1f1f1f",
+        "subheading": "Wer wir sind und was uns auszeichnet",
+        "subheading_font": "sans-serif",
+        "subheading_font_size": 18,
+        "subheading_color": "#555555",
+        "text": "<p>Beschreiben Sie hier Ihr Unternehmen, Ihre Produkte oder Dienstleistungen. Dieser Text ist vollständig anpassbar und unterstützt auch Formatierungen wie <strong>fett</strong> oder <em>kursiv</em>.</p>",
+        "text_font": "sans-serif",
+        "text_font_size": 16,
+        "text_color": "#333333"
+      }
+    },
+    "custom_cta_block_Tf7gLb": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_DzM34x": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        },
+        "button_Dfzecm": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/gebaudeservice-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_DzM34x",
+        "button_Dfzecm"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Gebäudeservice?</strong></p>",
+        "heading_size": 45,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_single_footer_PEDkQY": {
+      "type": "sis-single-footer",
+      "blocks": {
+        "legal_link_MMcJ93": {
+          "type": "legal_link",
+          "settings": {
+            "label": "Impressum",
+            "url": ""
+          }
+        },
+        "legal_link_AqqGN7": {
+          "type": "legal_link",
+          "settings": {
+            "label": "Datenschutz",
+            "url": ""
+          }
+        },
+        "legal_link_L9DqQa": {
+          "type": "legal_link",
+          "settings": {
+            "label": "AGBs",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "legal_link_MMcJ93",
+        "legal_link_AqqGN7",
+        "legal_link_L9DqQa"
+      ],
+      "name": "SIS – Einzelfooter",
+      "settings": {
+        "title": "SIS Saar Industrie Service",
+        "contact_heading": "Kontakt",
+        "address_line_1": "Musterstraße 1, 12345 Musterstadt",
+        "address_line_2": "1",
+        "phone": "0123 / 456 789",
+        "email": "gebaeude@sis-saar.de",
+        "legal_heading": "Rechtliches",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten.",
+        "bg_color": "#0f1621",
+        "text_color": "#cbd5e1",
+        "heading_color": "#ffffff",
+        "link_color": "#3b82f6",
+        "divider_color": "#1e293b"
+      }
+    }
+  },
+  "order": [
+    "custom_header_2_EhxrGx",
+    "main",
+    "hero_overlay_section_6beqpy",
+    "leistung_showcase_n3D9xt",
+    "rich_text_AyzdX6",
+    "text_mit_bild_button_GU3rjc",
+    "text_mit_bild_RijNFH",
+    "custom_cta_block_Tf7gLb",
+    "sis_single_footer_PEDkQY"
+  ]
+}

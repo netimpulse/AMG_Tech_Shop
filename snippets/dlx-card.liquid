@@ -1,0 +1,59 @@
+{% comment %}
+  Einzele Karte für einen Download (DLX)
+  Übergabe-Variablen:
+  - title, date, image, file_url, tags (string, Komma)
+  - accent_color (für Hover Highlight)
+  - section_id (für eindeutige IDs)
+{% endcomment %}
+
+{% assign tag_list = tags | default: '' | split: ',' | map: 'strip' %}
+{% assign haystack = title | append: ' ' | append: date | append: ' ' | append: tags | downcase %}
+
+<article class="dl-card"
+         data-dl-card
+         data-search-haystack="{{ haystack | escape }}"
+         style="--dl-hover-color: {{ accent_color }};">
+  <a class="dl-card__imagewrap"
+     href="{{ file_url }}"
+     {% if file_url != blank %}download{% endif %}
+     aria-label="{{ title | escape }} herunterladen">
+    {% if image != blank %}
+      {{ image | image_url: width: 900 | image_tag:
+          loading: 'lazy',
+          class: 'dl-card__image',
+          alt: title }}
+    {% else %}
+      <div class="dl-card__image dl-card__image--placeholder">Keine Vorschau</div>
+    {% endif %}
+  </a>
+
+  <div class="dl-card__body">
+    <div class="dl-card__meta">
+      <h3 class="dl-card__title">{{ title }}</h3>
+      {% if date != blank %}<div class="dl-card__date">{{ date }}</div>{% endif %}
+    </div>
+
+    {% if tag_list.size > 0 %}
+      <div class="dl-card__tags" aria-label="Tags">
+        {% for t in tag_list %}
+          {% if t != blank %}
+            <button type="button" class="dl-tag" data-tag-pill="{{ t | escape }}">{{ t }}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="dl-card__actions">
+      {% if file_url != blank %}
+        <a class="dl-btn"
+           href="{{ file_url }}"
+           download
+           aria-label="{{ title | escape }} – Datei herunterladen">
+          {{ 'Download' }}
+        </a>
+      {% else %}
+        <span class="dl-btn dl-btn--disabled" aria-disabled="true">Keine Datei hinterlegt</span>
+      {% endif %}
+    </div>
+  </div>
+</article>

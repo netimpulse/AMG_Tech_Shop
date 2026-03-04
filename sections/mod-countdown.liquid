@@ -1,0 +1,127 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-countdown.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mcd sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width mcd__inner">
+    {%- if s.heading != blank -%}<h2 class="mcd__heading">{{ s.heading }}</h2>{%- endif -%}
+    {%- if s.text != blank -%}<p class="mcd__text">{{ s.text }}</p>{%- endif -%}
+    <div class="mcd__timer" data-mcd-target="{{ s.target_date }}T{{ s.target_time }}:00">
+      <div class="mcd__unit"><span class="mcd__num" data-mcd-days>00</span><span class="mcd__label">Tage</span></div>
+      <div class="mcd__sep">:</div>
+      <div class="mcd__unit"><span class="mcd__num" data-mcd-hours>00</span><span class="mcd__label">Stunden</span></div>
+      <div class="mcd__sep">:</div>
+      <div class="mcd__unit"><span class="mcd__num" data-mcd-mins>00</span><span class="mcd__label">Minuten</span></div>
+      <div class="mcd__sep">:</div>
+      <div class="mcd__unit"><span class="mcd__num" data-mcd-secs>00</span><span class="mcd__label">Sekunden</span></div>
+    </div>
+    {%- if s.btn_text != blank -%}<a href="{{ s.btn_link }}" class="mcd__btn button">{{ s.btn_text }}</a>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Countdown Timer",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Angebot endet in"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Beschreibung"
+    },
+    {
+      "type": "text",
+      "id": "target_date",
+      "label": "Zieldatum (JJJJ-MM-TT)",
+      "default": "2026-03-31"
+    },
+    {
+      "type": "text",
+      "id": "target_time",
+      "label": "Zielzeit (HH:MM)",
+      "default": "23:59"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button-Text",
+      "default": "Zum Angebot"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button-Link"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Sektions-Hintergrund"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Countdown Timer"
+    }
+  ]
+}
+{% endschema %}

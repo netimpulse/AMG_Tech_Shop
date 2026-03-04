@@ -1,0 +1,214 @@
+/* =========================================================
+   Styling für die 'Team' Section (Basis)
+   ========================================================= */
+.team-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.team-section__container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-section__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.team-section__title {
+  margin: 0;
+  font-weight: 800; /* Extra-Bold */
+  line-height: 1.2;
+}
+
+.team-section__subtitle {
+  margin: 16px auto 0;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Das alte Grid wird neutralisiert, da jetzt Karussell genutzt wird */
+.team-section__grid {
+  display: contents; /* verhindert Doppellayouts, falls Section noch das Grid rendert */
+}
+
+/* =========================================================
+   Snippet: Team Member Card
+   ========================================================= */
+.team-member-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-member-card__image-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.team-member-card__image {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Schatten über CSS-Variable aus den Section-Settings */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, var(--image-shadow-opacity, 0.1)),
+              0 8px 10px -6px rgba(0, 0, 0, var(--image-shadow-opacity, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.team-member-card:hover .team-member-card__image {
+  transform: scale(1.05);
+}
+
+.team-member-card__name {
+  font-weight: 700; /* Bold */
+  margin: 0;
+}
+
+.team-member-card__position {
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   Carousel Layout
+   ========================================================= */
+.team-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.team-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+  /* verhindert Text-Selection beim Draggen */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.team-carousel__track {
+  display: flex;
+  align-items: stretch;
+  gap: var(--carousel-gap, 24px);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: transform 400ms ease;
+  /* Standard-Anzahl der sichtbaren Karten (Desktop) */
+  --per-view: 3;
+}
+
+.team-carousel__item {
+  flex: 0 0 calc((100% - (var(--carousel-gap, 24px) * (var(--per-view, 3) - 1))) / var(--per-view, 3));
+  /* Stabilität & Performance bei vielen Slides */
+  contain: content;
+}
+
+/* =========================================================
+   Carousel Controls (Buttons)
+   ========================================================= */
+.team-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: opacity 160ms ease, background-color 160ms ease;
+}
+
+.team-carousel__btn--prev { left: -12px; }
+.team-carousel__btn--next { right: -12px; }
+
+.team-carousel__btn:hover,
+.team-carousel__btn:focus-visible {
+  background: rgba(0, 0, 0, 0.7);
+  outline: none;
+}
+
+.team-carousel__btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Wenn die Section sehr schmal ist, Buttons nach innen rücken */
+@media (max-width: 480px) {
+  .team-carousel__btn--prev { left: 6px; }
+  .team-carousel__btn--next { right: 6px; }
+}
+
+/* =========================================================
+   Dots / Pagination
+   ========================================================= */
+.team-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.team-carousel__dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: #cbd5e1; /* slate-300 */
+  cursor: pointer;
+  padding: 0;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.team-carousel__dots button:hover,
+.team-carousel__dots button:focus-visible {
+  transform: scale(1.2);
+  outline: none;
+}
+
+.team-carousel__dots button[aria-current="true"] {
+  background: #0f172a; /* slate-900 */
+}
+
+/* =========================================================
+   Responsive: Anzahl sichtbarer Karten
+   ========================================================= */
+@media (max-width: 639px) {
+  .team-carousel__track { --per-view: 1; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .team-carousel__track { --per-view: 2; }
+}
+
+@media (min-width: 1024px) {
+  .team-carousel__track { --per-view: 3; }
+}
+
+/* =========================================================
+   Motion Preferences
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .team-carousel__track {
+    transition: none;
+  }
+  .team-carousel__btn {
+    transition: none;
+  }
+  .team-carousel__dots button {
+    transition: none;
+  }
+}

@@ -1,0 +1,349 @@
+{% comment %}
+  Custom CTA Block (Section)
+  - Überschrift & Untertitel als RICHTTEXT
+  - Typografie (Größe, Farbe, Font, Fett) editierbar
+  - 1–2 Buttons als Blöcke, Farben & Prozent-Offsets pro Button
+  - Styles: assets/custom-cta-block.css
+{% endcomment %}
+
+{{ 'custom-cta-block.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="section-{{ section.id }}"
+  class="cta-banner"
+  style="{% if section.settings.use_gradient_bg %}background: {{ section.settings.bg_gradient }};{% endif %}"
+>
+  <div
+    class="cta-banner__inner"
+    style="
+      max-width: {{ section.settings.content_max }}px;
+      padding-top: {{ section.settings.pad_top }}px;
+      padding-bottom: {{ section.settings.pad_bottom }}px;
+      text-align: {{ section.settings.align }};
+    "
+  >
+    {% if section.settings.heading != blank %}
+      <div
+        class="cta-banner__heading"
+        style="
+          font-size: {{ section.settings.heading_size }}px;
+          color: {{ section.settings.heading_color }};
+          font-family: {{ section.settings.font_heading.family }}, {{ section.settings.font_heading.fallback_families }};
+          font-weight: {% if section.settings.heading_bold %}700{% else %}400{% endif %};
+        "
+      >
+        {{ section.settings.heading }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <div
+        class="cta-banner__subheading"
+        style="
+          font-size: {{ section.settings.sub_size }}px;
+          color: {{ section.settings.sub_color }};
+          font-family: {{ section.settings.font_body.family }}, {{ section.settings.font_body.fallback_families }};
+          font-weight: {% if section.settings.sub_bold %}600{% else %}400{% endif %};
+        "
+      >
+        {{ section.settings.subheading }}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div
+        class="cta-banner__buttons"
+        style="
+          gap: {{ section.settings.buttons_gap }}px;
+          justify-content: {% case section.settings.align %}{% when 'left' %}flex-start{% when 'right' %}flex-end{% else %}center{% endcase %};
+        "
+      >
+        {% for block in section.blocks %}
+          {% render 'cta-button', block: block %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% schema %}
+{
+  "name": "🔷 Custom CTA Block",
+  "tag": "section",
+  "class": "section--custom-cta",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Überschrift (Rich Text)",
+      "default": "<p><strong>Bereit für professionellen Gebäudeservice?</strong></p>"
+    },
+    {
+      "type": "number",
+      "id": "heading_size",
+      "label": "Überschrift – Schriftgröße (px)",
+      "default": 56
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_bold",
+      "default": true,
+      "label": "Überschrift fett"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#0f172a",
+      "label": "Überschrift – Farbe"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Untertitel (Rich Text)",
+      "default": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>"
+    },
+    {
+      "type": "number",
+      "id": "sub_size",
+      "default": 20,
+      "label": "Untertitel – Schriftgröße (px)"
+    },
+    {
+      "type": "checkbox",
+      "id": "sub_bold",
+      "default": false,
+      "label": "Untertitel fett"
+    },
+    {
+      "type": "color",
+      "id": "sub_color",
+      "default": "#475569",
+      "label": "Untertitel – Farbe"
+    },
+    {
+      "type": "header",
+      "content": "Schriftarten"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_heading",
+      "label": "Schriftfamilie – Überschriften",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_body",
+      "label": "Schriftfamilie – Fließtext",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Ausrichtung",
+      "default": "center",
+      "options": [
+        {
+          "label": "Links",
+          "value": "left"
+        },
+        {
+          "label": "Zentriert",
+          "value": "center"
+        },
+        {
+          "label": "Rechts",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "content_max",
+      "label": "Max. Breite Inhalt (px)",
+      "default": 1000
+    },
+    {
+      "type": "number",
+      "id": "pad_top",
+      "label": "Oberer Innenabstand (px)",
+      "default": 64
+    },
+    {
+      "type": "number",
+      "id": "pad_bottom",
+      "label": "Unterer Innenabstand (px)",
+      "default": 64
+    },
+    {
+      "type": "checkbox",
+      "id": "use_gradient_bg",
+      "label": "Hintergrund-Verlauf aktivieren",
+      "default": true
+    },
+    {
+      "type": "color_background",
+      "id": "bg_gradient",
+      "label": "Hintergrund (Farbe/Verlauf)",
+      "default": "linear-gradient(180deg, rgba(241,245,249,0.6) 0%, rgba(241,245,249,0) 100%)"
+    },
+    {
+      "type": "number",
+      "id": "buttons_gap",
+      "label": "Abstand zwischen Buttons (px)",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "label",
+          "label": "Button-Text (Rich Text)",
+          "default": "<p>Kostenlose Beratung</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "variant",
+          "label": "Stil",
+          "default": "solid",
+          "options": [
+            {
+              "label": "Gefüllt",
+              "value": "solid"
+            },
+            {
+              "label": "Kontur",
+              "value": "outline"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Textfarbe",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Hintergrundfarbe",
+          "default": "#0b132a"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Randfarbe",
+          "default": "#0b132a"
+        },
+        {
+          "type": "color",
+          "id": "hover_bg",
+          "label": "Hover – Hintergrund",
+          "default": "#111827"
+        },
+        {
+          "type": "color",
+          "id": "hover_text",
+          "label": "Hover – Text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "number",
+          "id": "radius",
+          "label": "Eckenradius (px)",
+          "default": 12
+        },
+        {
+          "type": "number",
+          "id": "padding_x",
+          "label": "Horizontales Padding (px)",
+          "default": 24
+        },
+        {
+          "type": "number",
+          "id": "padding_y",
+          "label": "Vertikales Padding (px)",
+          "default": 14
+        },
+        {
+          "type": "checkbox",
+          "id": "bold",
+          "label": "Text fett",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "offset_x",
+          "label": "X-Verschiebung (%)",
+          "min": -50,
+          "max": 50,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "offset_y",
+          "label": "Y-Verschiebung (%)",
+          "min": -50,
+          "max": 50,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom CTA Block",
+      "blocks": [
+        {
+          "type": "button"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+</section>

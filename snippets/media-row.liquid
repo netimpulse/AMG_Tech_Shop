@@ -1,0 +1,35 @@
+{%- comment -%}
+  Snippet: einzelne Medienreihe
+  Übergaben: block, section_id
+{%- endcomment -%}
+
+{%- assign image_on_right = false -%}
+{%- if block.settings.image_side == 'right' -%}
+  {%- assign image_on_right = true -%}
+{%- endif -%}
+
+<div class="cmr__row {% if image_on_right %}cmr__row--reverse{% endif %}" {{ block.shopify_attributes }}>
+  <div class="cmr__media">
+    {%- if block.settings.image != blank -%}
+      {{ block.settings.image
+        | image_url: width: 1600
+        | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 50vw, 100vw', alt: block.settings.alt | escape
+      }}
+    {%- else -%}
+      <div class="cmr__placeholder"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="cmr__content">
+    {%- if block.settings.title != blank -%}
+      <div class="cmr__title rte">{{ block.settings.title }}</div>
+    {%- endif -%}
+    {%- if block.settings.text != blank -%}
+      <div class="cmr__text rte">{{ block.settings.text }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if block.settings.show_divider -%}
+  <hr class="cmr__divider" />
+{%- endif -%}

@@ -1,0 +1,134 @@
+.kundenbewertung-karussell {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px; /* großzügig für Desktop-Pfeile */
+}
+
+.karussell-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.kundenbewertung-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 30px; /* Desktop-Lücke zwischen Karten */
+}
+
+.review-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  text-align: center;
+  /* 3 Karten auf Desktop */
+  flex: 0 0 calc(33.333% - 20px);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.review-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.star-rating {
+  color: #ffc107;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.person-name {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.review-text {
+  width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.review-text p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Bild/Logo */
+.person-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.person-box .person-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Pfeile */
+.karussell-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  background-color: transparent;
+  border: none;
+  color: #555;
+  font-size: 45px;
+  font-weight: 300;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease-in-out;
+}
+
+.karussell-button:hover {
+  color: #000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-button { left: 10px; }
+.next-button { right: 10px; }
+
+/* -------------------- Responsiv -------------------- */
+/* <= 1024px: 2 Karten, kleinere Abstände/Pfeile */
+@media (max-width: 1024px) {
+  .kundenbewertung-karussell { padding: 0 46px; }
+  .kundenbewertung-container { gap: 20px; }
+  .review-card { flex: 0 0 calc(50% - 10px); padding: 22px; }
+  .karussell-button { font-size: 38px; }
+}
+
+/* <= 700px: 1 Karte, kompakter */
+@media (max-width: 700px) {
+  .kundenbewertung-karussell { padding: 0 36px; }
+  .kundenbewertung-container { gap: 14px; }
+  .review-card { flex: 0 0 100%; padding: 18px; }
+  .star-rating { font-size: 20px; margin-bottom: 8px; }
+  .person-name { margin-bottom: 8px; }
+  .review-text p { line-height: 1.55; }
+  .karussell-button { font-size: 32px; }
+}
+
+/* Sehr kleine Screens: Pfeile näher an den Rand */
+@media (max-width: 380px) {
+  .prev-button { left: 4px; }
+  .next-button { right: 4px; }
+}
+
+

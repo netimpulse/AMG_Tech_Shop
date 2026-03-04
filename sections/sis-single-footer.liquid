@@ -1,0 +1,243 @@
+{% comment %}
+  SIS Saar – Einzelfooter (Gebäudeservice)
+  Dateien: sections/sis-single-footer.liquid, snippets/sis-legal-link.liquid, assets/sis-single-footer.css
+{% endcomment %}
+
+{{ 'sis-single-footer.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="sis-footer"
+  style="
+    --sis-bg: {{ section.settings.bg_color }};
+    --sis-text: {{ section.settings.text_color }};
+    --sis-link: {{ section.settings.link_color }};
+    --sis-divider: {{ section.settings.divider_color }};
+    --sis-heading: {{ section.settings.heading_color }};
+  "
+>
+  <div class="sis-footer__inner">
+    <div class="sis-footer__col">
+      <h3 class="sis-footer__title">{{ section.settings.title }}</h3>
+
+      <div class="sis-footer__content">
+
+        <div class="sis-footer__group">
+          <h4 class="sis-footer__heading">{{ section.settings.contact_heading }}</h4>
+          {% if section.settings.address_line_1 != blank %}
+            <p class="sis-footer__text">{{ section.settings.address_line_1 }}</p>
+          {% endif %}
+          {% if section.settings.address_line_2 != blank %}
+            <p class="sis-footer__text">{{ section.settings.address_line_2 }}</p>
+          {% endif %}
+          {% if section.settings.phone != blank %}
+            <p class="sis-footer__text">
+              Tel: <a class="sis-footer__link" href="tel:{{ section.settings.phone | replace: ' ', '' }}">{{ section.settings.phone }}</a>
+            </p>
+          {% endif %}
+          {% if section.settings.email != blank %}
+            <p class="sis-footer__text">
+              E-Mail: <a class="sis-footer__link" href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+            </p>
+          {% endif %}
+        </div>
+
+        <div class="sis-footer__group">
+          <h4 class="sis-footer__heading">{{ section.settings.legal_heading }}</h4>
+          <ul class="sis-footer__links">
+            {% for block in section.blocks %}
+              {% render 'sis-legal-link', block: block %}
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="sis-footer__divider">
+
+  <div class="sis-footer__bottom">
+    <p class="sis-footer__copyright">
+      {{ section.settings.copyright_text }}
+    </p>
+  </div>
+
+  {% schema %}
+{
+  "name": "SIS–Einzelfooter",
+  "class": "section-sis-single-footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Haupttitel",
+      "default": "SIS Saar Gebäude Service"
+    },
+    {
+      "type": "header",
+      "content": "Kontakt"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Kontakt-Überschrift",
+      "default": "Kontakt"
+    },
+    {
+      "type": "text",
+      "id": "address_line_1",
+      "label": "Adresse Zeile 1",
+      "default": "Musterstraße 1, 12345 Musterstadt"
+    },
+    {
+      "type": "text",
+      "id": "address_line_2",
+      "label": "Adresse Zeile 2",
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Telefon",
+      "default": "0123 / 456 789"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "E-Mail",
+      "default": "gebaeude@sis-saar.de"
+    },
+    {
+      "type": "header",
+      "content": "Rechtliches"
+    },
+    {
+      "type": "text",
+      "id": "legal_heading",
+      "label": "Rechtliches-Überschrift",
+      "default": "Rechtliches"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright-Zeile",
+      "default": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+    },
+    {
+      "type": "header",
+      "content": "Farben"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Hintergrundfarbe",
+      "default": "#0f1621"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#cbd5e1"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Überschriftenfarbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Linkfarbe",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Trennlinie",
+      "default": "#1e293b"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "legal_link",
+      "name": "Rechtlicher Link",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link-Text",
+          "default": "Impressum"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link-URL"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SIS – Einzelfooter",
+      "blocks": [
+        {
+          "type": "legal_link",
+          "settings": {
+            "label": "Impressum"
+          }
+        },
+        {
+          "type": "legal_link",
+          "settings": {
+            "label": "Datenschutz"
+          }
+        },
+        {
+          "type": "legal_link",
+          "settings": {
+            "label": "AGBs"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+</section>

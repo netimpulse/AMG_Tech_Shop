@@ -1,0 +1,21 @@
+
+{%- comment -%}
+  Erwartet:
+  - article (Artikel-Objekt)
+{%- endcomment -%}
+
+{%- assign a = article -%}
+<a class="bh-card" href="{{ a.url }}">
+  {%- if a.image -%}
+    <img class="bh-thumb" src="{{ a.image | img_url: '360x' }}" alt="{{ a.title | escape }}">
+  {%- endif -%}
+  <div class="bh-card-body">
+    <h3 class="bh-card-title">{{ a.title | escape }}</h3>
+    <div class="bh-date">{{ a.published_at | date: format: 'short' }}</div>
+    {%- if a.tags and a.tags.size > 0 -%}
+      <div class="bh-tags">
+        {%- for t in a.tags limit:3 -%}<span>{{ t }}</span>{%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</a>

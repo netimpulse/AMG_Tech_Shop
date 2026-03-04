@@ -1,0 +1,9 @@
+.mbs__inner{max-width:700px;margin:0 auto}
+.mbs__heading{text-align:center;font-size:1.75rem;font-weight:700;margin:0 0 2.5rem}
+.mbs__timeline{position:relative;padding-left:2rem;border-left:2px solid rgba(0,0,0,.1)}
+.mbs__step{position:relative;padding:0 0 2rem 1.5rem}
+.mbs__step:last-child{padding-bottom:0}
+.mbs__dot{position:absolute;left:-2.45rem;top:.2rem;width:12px;height:12px;border-radius:50%;background:#000;border:2px solid #fff;box-shadow:0 0 0 2px rgba(0,0,0,.1)}
+.mbs__year{display:inline-block;font-size:.8rem;font-weight:700;color:rgba(0,0,0,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem}
+.mbs__title{font-size:1.1rem;font-weight:600;margin:0 0 .3rem}
+.mbs__text{font-size:.9rem;color:rgba(0,0,0,.6);margin:0;line-height:1.6}

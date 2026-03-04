@@ -1,0 +1,123 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-shipping-bar.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="msb sec-inner" style="{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}{%- if s.text_color != blank -%}color:{{ s.text_color }};{%- endif -%}">
+  <div class="page-width msb__inner">
+    {%- for block in section.blocks -%}
+      <div class="msb__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.icon_image != blank -%}
+          <img src="{{ block.settings.icon_image | image_url: width: 48 }}" alt="" class="msb__icon" width="24" height="24" loading="lazy">
+        {%- endif -%}
+        <span class="msb__text">{{ block.settings.text }}</span>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Versand-Infoleiste",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Hintergrund"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Info-Element",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Kostenloser Versand ab 50 EUR"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Versand-Infoleiste",
+      "blocks": [
+        {
+          "type": "info",
+          "settings": {
+            "text": "Kostenloser Versand ab 50 EUR"
+          }
+        },
+        {
+          "type": "info",
+          "settings": {
+            "text": "30 Tage Rueckgaberecht"
+          }
+        },
+        {
+          "type": "info",
+          "settings": {
+            "text": "Sichere Zahlung"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

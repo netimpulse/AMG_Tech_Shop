@@ -1,0 +1,422 @@
+{{ 'custom-dual-footer.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .dual-footer-container {
+    --separator-color: {{ section.settings.separator_color }};
+    --separator-width: {{ section.settings.separator_width }}px;
+  }
+
+  /* Linke Spalte Stile */
+  #shopify-section-{{ section.id }} .footer-column.left-column {
+    {% if section.settings.background_image_left != blank %}
+      background-image: url('{{ section.settings.background_image_left | image_url: width: 1000 }}');
+    {% else %}
+      background-color: {{ section.settings.background_color_left }};
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .left-column .footer-heading {
+    color: {{ section.settings.heading_color_left }};
+    font-size: {{ section.settings.heading_size_left }}px;
+    font-family: {{ section.settings.heading_font_left.family }}, {{ section.settings.heading_font_left.fallback_families }};
+    font-weight: {% if section.settings.heading_bold_left %}bold{% else %}normal{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} .left-column .footer-link {
+    color: {{ section.settings.link_color_left }};
+    font-size: {{ section.settings.link_size_left }}px;
+    font-family: {{ section.settings.link_font_left.family }}, {{ section.settings.link_font_left.fallback_families }};
+    font-weight: {% if section.settings.link_bold_left %}bold{% else %}normal{% endif %};
+  }
+
+  /* Rechte Spalte Stile */
+  #shopify-section-{{ section.id }} .footer-column.right-column {
+    {% if section.settings.background_image_right != blank %}
+      background-image: url('{{ section.settings.background_image_right | image_url: width: 1000 }}');
+    {% else %}
+      background-color: {{ section.settings.background_color_right }};
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .right-column .footer-heading {
+    color: {{ section.settings.heading_color_right }};
+    font-size: {{ section.settings.heading_size_right }}px;
+    font-family: {{ section.settings.heading_font_right.family }}, {{ section.settings.heading_font_right.fallback_families }};
+    font-weight: {% if section.settings.heading_bold_right %}bold{% else %}normal{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} .right-column .footer-link {
+    color: {{ section.settings.link_color_right }};
+    font-size: {{ section.settings.link_size_right }}px;
+    font-family: {{ section.settings.link_font_right.family }}, {{ section.settings.link_font_right.fallback_families }};
+    font-weight: {% if section.settings.link_bold_right %}bold{% else %}normal{% endif %};
+  }
+</style>
+
+<div class="dual-footer-container">
+  <div class="footer-column left-column">
+    {% if section.settings.heading_left != blank %}
+      <h3 class="footer-heading">{{ section.settings.heading_left }}</h3>
+    {% endif %}
+    <div class="footer-links">
+      {% for block in section.blocks %}
+        {% if block.type == 'link_item' and block.settings.column == 'left' %}
+          <a href="{{ block.settings.link_url }}" class="footer-link" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+            {% render 'block-custom-styles', block: block %}
+            {{ block.settings.link_text }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="footer-separator"></div>
+
+  <div class="footer-column right-column">
+    {% if section.settings.heading_right != blank %}
+      <h3 class="footer-heading">{{ section.settings.heading_right }}</h3>
+    {% endif %}
+    <div class="footer-links">
+      {% for block in section.blocks %}
+        {% if block.type == 'link_item' and block.settings.column == 'right' %}
+          <a href="{{ block.settings.link_url }}" class="footer-link" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+            {% render 'block-custom-styles', block: block %}
+            {{ block.settings.link_text }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Zwei-Spalten-Fußzeile",
+  "tag": "section",
+  "class": "custom-dual-footer-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Linke Spalte"
+    },
+    {
+      "type": "text",
+      "id": "heading_left",
+      "label": "Überschrift",
+      "default": "Unternehmen Eins"
+    },
+    {
+      "type": "select",
+      "id": "bg_type_left",
+      "label": "Hintergrund-Typ",
+      "options": [
+        {
+          "value": "color",
+          "label": "Farbe"
+        },
+        {
+          "value": "image",
+          "label": "Bild"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color_left",
+      "label": "Hintergrundfarbe",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_left",
+      "label": "Hintergrundbild"
+    },
+    {
+      "type": "header",
+      "content": "Schriftart: Überschrift Links"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font_left",
+      "label": "Schriftart",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_left",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "heading_color_left",
+      "label": "Farbe",
+      "default": "#333333"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_bold_left",
+      "label": "Fettgedruckt",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Schriftart: Links (Punkte)"
+    },
+    {
+      "type": "font_picker",
+      "id": "link_font_left",
+      "label": "Schriftart",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "link_size_left",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "link_color_left",
+      "label": "Farbe",
+      "default": "#555555"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_bold_left",
+      "label": "Fettgedruckt",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Rechte Spalte"
+    },
+    {
+      "type": "text",
+      "id": "heading_right",
+      "label": "Überschrift",
+      "default": "Unternehmen Zwei"
+    },
+    {
+      "type": "select",
+      "id": "bg_type_right",
+      "label": "Hintergrund-Typ",
+      "options": [
+        {
+          "value": "color",
+          "label": "Farbe"
+        },
+        {
+          "value": "image",
+          "label": "Bild"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color_right",
+      "label": "Hintergrundfarbe",
+      "default": "#eeeeee"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_right",
+      "label": "Hintergrundbild"
+    },
+    {
+      "type": "header",
+      "content": "Schriftart: Überschrift Rechts"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font_right",
+      "label": "Schriftart",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_right",
+      "min": 12,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "heading_color_right",
+      "label": "Farbe",
+      "default": "#333333"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_bold_right",
+      "label": "Fettgedruckt",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Schriftart: Links (Punkte)"
+    },
+    {
+      "type": "font_picker",
+      "id": "link_font_right",
+      "label": "Schriftart",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "link_size_right",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "link_color_right",
+      "label": "Farbe",
+      "default": "#555555"
+    },
+    {
+      "type": "checkbox",
+      "id": "link_bold_right",
+      "label": "Fettgedruckt",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Trennlinie"
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Farbe der Trennlinie",
+      "default": "#cccccc"
+    },
+    {
+      "type": "range",
+      "id": "separator_width",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Dicke der Trennlinie",
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_item",
+      "name": "Link-Punkt",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link-Text",
+          "default": "Menüpunkt"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link-URL"
+        },
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Zuordnung zur Spalte",
+          "options": [
+            {
+              "value": "left",
+              "label": "Links"
+            },
+            {
+              "value": "right",
+              "label": "Rechts"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zwei-Spalten-Fußzeile",
+      "blocks": [
+        {
+          "type": "link_item"
+        },
+        {
+          "type": "link_item"
+        },
+        {
+          "type": "link_item"
+        },
+        {
+          "type": "link_item",
+          "settings": {
+            "column": "right"
+          }
+        },
+        {
+          "type": "link_item",
+          "settings": {
+            "column": "right"
+          }
+        },
+        {
+          "type": "link_item",
+          "settings": {
+            "column": "right"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

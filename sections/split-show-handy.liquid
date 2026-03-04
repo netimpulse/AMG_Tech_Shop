@@ -1,0 +1,222 @@
+{% comment %}
+  Dateiname: split-show-handy.liquid
+  Beschreibung: Responsiver Abschnitt mit 2 Service-Kacheln, mobile-first optimiert.
+{% endcomment %}
+
+{{ 'split-show-handy.css' | asset_url | stylesheet_tag }}
+
+<div class="sc-container-wrapper">
+  <div class="sc-container" id="split-showcase-{{ section.id }}">
+
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="sc-header">
+        {% if section.settings.heading != blank %}
+          <h2 class="sc-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <div class="sc-subheading">{{ section.settings.subheading }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="sc-grid">
+      {%- comment -%} Linke Box {%- endcomment -%}
+      <a href="{{ section.settings.left_button_link | default: '#' }}" class="sc-box-link" aria-label="{{ section.settings.left_title }}">
+        <div class="sc-box sc-box--left">
+          <div class="sc-image-wrapper">
+            <img
+              src="{{ section.settings.left_image | img_url: '1200x' }}"
+              alt="{{ section.settings.left_image.alt | default: section.settings.left_title }}"
+              class="sc-image sc-image--default"
+              loading="lazy"
+              width="1200"
+              height="{{ 1200 | divided_by: section.settings.left_image.aspect_ratio | round }}"
+            >
+            {% if section.settings.left_hover_image %}
+              <img
+                src="{{ section.settings.left_hover_image | img_url: '1200x' }}"
+                alt="{{ section.settings.left_hover_image.alt | default: section.settings.left_title }}"
+                class="sc-image sc-image--hover"
+                loading="lazy"
+                width="1200"
+                height="{{ 1200 | divided_by: section.settings.left_hover_image.aspect_ratio | round }}"
+              >
+            {% endif %}
+          </div>
+
+          {%- comment -%}
+            Position nur für Desktop über CSS-Variablen steuern.
+            Auf Mobile greift das relative Layout.
+          {%- endcomment -%}
+          <div
+            class="sc-content"
+            style="--pos-x: {{ section.settings.left_content_x }}%; --pos-y: {{ section.settings.left_content_y }}%;"
+          >
+            {% if section.settings.left_icon != blank %}
+              <div class="sc-icon-wrapper">{{ section.settings.left_icon }}</div>
+            {% endif %}
+            <h3 class="sc-title">{{ section.settings.left_title }}</h3>
+            <p class="sc-description">{{ section.settings.left_description }}</p>
+            {% if section.settings.left_button_text != blank %}
+              <span class="sc-button">{{ section.settings.left_button_text }} &rightarrow;</span>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+
+      {%- comment -%} Rechte Box {%- endcomment -%}
+      <a href="{{ section.settings.right_button_link | default: '#' }}" class="sc-box-link" aria-label="{{ section.settings.right_title }}">
+        <div class="sc-box sc-box--right">
+          <div class="sc-image-wrapper">
+            <img
+              src="{{ section.settings.right_image | img_url: '1200x' }}"
+              alt="{{ section.settings.right_image.alt | default: section.settings.right_title }}"
+              class="sc-image sc-image--default"
+              loading="lazy"
+              width="1200"
+              height="{{ 1200 | divided_by: section.settings.right_image.aspect_ratio | round }}"
+            >
+            {% if section.settings.right_hover_image %}
+              <img
+                src="{{ section.settings.right_hover_image | img_url: '1200x' }}"
+                alt="{{ section.settings.right_hover_image.alt | default: section.settings.right_title }}"
+                class="sc-image sc-image--hover"
+                loading="lazy"
+                width="1200"
+                height="{{ 1200 | divided_by: section.settings.right_hover_image.aspect_ratio | round }}"
+              >
+            {% endif %}
+          </div>
+
+          <div
+            class="sc-content"
+            style="--pos-x: {{ section.settings.right_content_x }}%; --pos-y: {{ section.settings.right_content_y }}%;"
+          >
+            {% if section.settings.right_icon != blank %}
+              <div class="sc-icon-wrapper">{{ section.settings.right_icon }}</div>
+            {% endif %}
+            <h3 class="sc-title">{{ section.settings.right_title }}</h3>
+            <p class="sc-description">{{ section.settings.right_description }}</p>
+            {% if section.settings.right_button_text != blank %}
+              <span class="sc-button">{{ section.settings.right_button_text }} &rightarrow;</span>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Theme-gesteuerte Farben/Typo */
+  #split-showcase-{{ section.id }} .sc-heading{
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_font_size }}px;
+  }
+  #split-showcase-{{ section.id }} .sc-subheading{
+    color: {{ section.settings.subheading_color }};
+    font-size: {{ section.settings.subheading_font_size }}px;
+  }
+  #split-showcase-{{ section.id }} .sc-box{
+    background-color: {{ section.settings.box_bg_color }};
+    border-radius: {{ section.settings.box_corner_radius }}px;
+    --sc-border-radius: {{ section.settings.box_corner_radius }}px;
+  }
+  #split-showcase-{{ section.id }} .sc-box::before{
+    background: {{ section.settings.overlay_color }};
+  }
+  #split-showcase-{{ section.id }} .sc-box-link:hover .sc-box::before{
+    background: {{ section.settings.overlay_hover_color }};
+  }
+  #split-showcase-{{ section.id }} .sc-icon-wrapper svg{
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    fill: {{ section.settings.text_color }};
+  }
+  #split-showcase-{{ section.id }} .sc-title{
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.title_size }}px;
+  }
+  #split-showcase-{{ section.id }} .sc-description{
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.description_size }}px;
+    opacity:.9;
+  }
+  #split-showcase-{{ section.id }} .sc-button{
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.button_bg_color }};
+    border:1px solid {{ section.settings.button_border_color }};
+  }
+  #split-showcase-{{ section.id }} .sc-box-link:hover .sc-button{
+    background-color: {{ section.settings.button_hover_bg_color }};
+    border-color: {{ section.settings.button_hover_border_color }};
+  }
+
+  /* Headline/Copy responsiv skalieren */
+  @media (max-width: 768px){
+    #split-showcase-{{ section.id }} .sc-heading{
+      font-size: {{ section.settings.heading_font_size | times: 0.82 | round }}px;
+    }
+    #split-showcase-{{ section.id }} .sc-subheading{
+      font-size: {{ section.settings.subheading_font_size | times: 0.92 | round }}px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Split Showcase",
+  "settings": [
+    { "type": "header", "content": "Allgemeine Einstellungen" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Ihr Partner für professionelle Service-Lösungen" },
+    { "type": "color", "id": "heading_color", "label": "Farbe der Überschrift", "default": "#121212" },
+    { "type": "range", "id": "heading_font_size", "label": "Schriftgröße der Überschrift", "min": 20, "max": 72, "step": 1, "unit": "px", "default": 36 },
+    { "type": "richtext", "id": "subheading", "label": "Unterüberschrift / Text", "default": "<p>Zwei spezialisierte Unternehmen unter einem Dach - für Gebäude- und Industrieservice auf höchstem Niveau.</p>" },
+    { "type": "color", "id": "subheading_color", "label": "Farbe der Unterüberschrift", "default": "#454545" },
+    { "type": "range", "id": "subheading_font_size", "label": "Schriftgröße der Unterüberschrift", "min": 12, "max": 32, "step": 1, "unit": "px", "default": 18 },
+
+    { "type": "header", "content": "Box-Einstellungen" },
+    { "type": "color", "id": "box_bg_color", "label": "Hintergrundfarbe der Boxen", "default": "#f5f5f5" },
+    { "type": "range", "id": "box_corner_radius", "label": "Eckenradius der Boxen", "min": 0, "max": 30, "step": 1, "unit": "px", "default": 12 },
+    { "type": "color_background", "id": "overlay_color", "label": "Bild-Overlay (Standard)", "default": "linear-gradient(#0000004D, #00000080)" },
+    { "type": "color_background", "id": "overlay_hover_color", "label": "Bild-Overlay (Hover)", "default": "linear-gradient(#0000001A, #00000066)" },
+
+    { "type": "header", "content": "Inhalts-Einstellungen (in den Boxen)" },
+    { "type": "color", "id": "text_color", "label": "Textfarbe (Titel, Beschreibung, Icon)", "default": "#FFFFFF" },
+    { "type": "range", "id": "icon_size", "label": "Icon-Größe", "min": 20, "max": 80, "step": 2, "unit": "px", "default": 48 },
+    { "type": "range", "id": "title_size", "label": "Schriftgröße Titel", "min": 16, "max": 48, "step": 1, "unit": "px", "default": 24 },
+    { "type": "range", "id": "description_size", "label": "Schriftgröße Beschreibung", "min": 12, "max": 24, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Button-Einstellungen (in den Boxen)" },
+    { "type": "color", "id": "button_bg_color", "label": "Button Hintergrund", "default": "rgba(255, 255, 255, 0.1)" },
+    { "type": "color", "id": "button_border_color", "label": "Button Rahmen", "default": "rgba(255, 255, 255, 0.3)" },
+    { "type": "color", "id": "button_hover_bg_color", "label": "Button Hintergrund (Hover)", "default": "rgba(255, 255, 255, 0.2)" },
+    { "type": "color", "id": "button_hover_border_color", "label": "Button Rahmen (Hover)", "default": "rgba(255, 255, 255, 0.5)" },
+
+    { "type": "header", "content": "Positionierung (Desktop)" },
+    { "type": "range", "id": "left_content_x", "label": "Horizontale Position (Links)", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 50 },
+    { "type": "range", "id": "left_content_y", "label": "Vertikale Position (Links)", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 50 },
+    { "type": "range", "id": "right_content_x", "label": "Horizontale Position (Rechts)", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 50 },
+    { "type": "range", "id": "right_content_y", "label": "Vertikale Position (Rechts)", "min": 0, "max": 100, "step": 1, "unit": "%", "default": 50 },
+
+    { "type": "header", "content": "Linke Box" },
+    { "type": "image_picker", "id": "left_image", "label": "Bild (Links)" },
+    { "type": "image_picker", "id": "left_hover_image", "label": "Hover-Bild (Links)", "info": "Optional. Wird auf Desktop beim Hover angezeigt." },
+    { "type": "html", "id": "left_icon", "label": "Icon (Links)", "info": "SVG-Code z.B. von remixicon.com" },
+    { "type": "text", "id": "left_title", "label": "Titel (Links)", "default": "GEBÄUDE SERVICE" },
+    { "type": "text", "id": "left_description", "label": "Beschreibung (Links)", "default": "Facility Management, Reinigung und Hausmeisterservice" },
+    { "type": "text", "id": "left_button_text", "label": "Button Text (Links)", "default": "Mehr erfahren" },
+    { "type": "url", "id": "left_button_link", "label": "Button Link (Links)" },
+
+    { "type": "header", "content": "Rechte Box" },
+    { "type": "image_picker", "id": "right_image", "label": "Bild (Rechts)" },
+    { "type": "image_picker", "id": "right_hover_image", "label": "Hover-Bild (Rechts)", "info": "Optional. Wird auf Desktop beim Hover angezeigt." },
+    { "type": "html", "id": "right_icon", "label": "Icon (Rechts)", "info": "SVG-Code z.B. von remixicon.com" },
+    { "type": "text", "id": "right_title", "label": "Titel (Rechts)", "default": "INDUSTRIE SERVICE" },
+    { "type": "text", "id": "right_description", "label": "Beschreibung (Rechts)", "default": "Anlagenwartung, Reparatur und Industriedienstleistungen" },
+    { "type": "text", "id": "right_button_text", "label": "Button Text (Rechts)", "default": "Mehr erfahren" },
+    { "type": "url", "id": "right_button_link", "label": "Button Link (Rechts)" }
+  ],
+  "presets": [{ "name": "Split Showcase" }]
+}
+{% endschema %}

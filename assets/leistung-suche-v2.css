@@ -1,0 +1,169 @@
+/* Leistung Suche v2 — responsives Grid mit sauberen Karten */
+.services-grid-section {
+  --badge-bg: #e6f0ff;
+  --badge-color: #0f1c3f;
+  --card-bg: #fff;
+  --card-radius: 18px;
+  --gap: 20px;
+
+  --title-fs: 20px;
+  --title-lh: 1.25;
+  --text-fs: 16px;
+  --text-lh: 1.55;
+}
+
+.services-grid__inner { padding: 24px 0; }
+
+/* Textausrichtung */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Header */
+.services-grid__header { margin-bottom: 20px; }
+.services-grid__title { font-size: clamp(22px, 2.2vw, 36px); font-weight: 700; }
+.services-grid__title p { margin: 0; }
+.services-grid__subtitle { opacity: .85; }
+.services-grid__subtitle p { margin: 0; }
+
+/* Suche */
+.services-grid__search {
+  position: relative;
+  max-width: 720px;
+  margin: 18px auto 26px;
+}
+.services-grid__search-input {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 999px;
+  padding: 12px 44px 12px 16px;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+}
+input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; display: none; }
+.services-grid__search-input:focus { box-shadow: 0 0 0 3px rgba(38,132,255,.18); }
+.services-grid__clear {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  border: 0; background: transparent; font-size: 22px; line-height: 1; cursor: pointer; padding: 2px 8px; opacity: .6;
+}
+.services-grid__clear:hover { opacity: 1; }
+
+/* Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+}
+.services-grid[data-columns="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 990px) {
+  .services-grid,
+  .services-grid[data-columns="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .services-grid,
+  .services-grid[data-columns="2"] { grid-template-columns: 1fr; }
+}
+
+/* Karte – flex column: Titel → Text → Badges → Button unten */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow, 0 8px 24px rgba(0,0,0,.08));
+  height: 100%;
+}
+
+/* Bild oben */
+.service-card__media {
+  aspect-ratio: 4 / 3;
+  background: #f4f6f8;
+  overflow: hidden;
+}
+.service-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-card__placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #f1f1f1, #e7e7e7); }
+
+/* Body: Inhalt normal gestapelt */
+.service-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  flex: 1; /* füllt den verfügbaren Platz zwischen Bild und Button */
+}
+
+/* Überschrift & Text – volle Anzeige, kein Clamp */
+.service-card__title {
+  font-size: var(--title-fs);
+  font-weight: 700;
+  line-height: var(--title-lh);
+}
+.service-card__title p { margin: 0; }
+
+.service-card__text {
+  font-size: var(--text-fs);
+  line-height: var(--text-lh);
+  opacity: .9;
+}
+.service-card__text p { margin: 0; }
+.service-card__text ul,
+.service-card__text ol { margin: .25em 0 .5em 1.2em; }
+
+/* Badges direkt unter dem Text */
+.service-card__tags {
+  list-style: none;
+  margin: 2px 0 6px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag { font-size: 13px; padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+.tag--solid   { background: var(--badge-bg); color: var(--badge-color); border: 1px solid transparent; }
+.tag--outline { background: transparent;    color: var(--badge-color); border: 1px solid var(--badge-bg); }
+
+/* Button: immer gleiche Höhe & unten bündig */
+.service-card__button,
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;          /* feste, einheitliche Höhe */
+  width: 100%;
+  padding: 0 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  line-height: 1.1;
+  transition: transform .05s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+  box-sizing: border-box;
+  margin-top: auto;      /* schiebt den Button ans Ende des Bodys */
+}
+
+.btn--primary,
+.service-card__button.btn--primary { background: #111; color: #fff; }
+.btn--primary:hover,
+.service-card__button.btn--primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.15); }
+
+.btn--secondary,
+.service-card__button.btn--secondary { background: #f0f1f3; color: #111; }
+.btn--secondary:hover,
+.service-card__button.btn--secondary:hover { background: #e7e8eb; }
+
+.btn--link,
+.service-card__button.btn--link {
+  background: transparent;
+  color: inherit;
+  text-decoration: underline;
+  padding: 0;
+  height: auto; /* Link-Style ohne feste Höhe */
+}
+
+/* Mobile Typo */
+@media (max-width: 640px){
+  .services-grid-section{
+    --title-fs: 18px;
+    --text-fs: 15px;
+  }
+}

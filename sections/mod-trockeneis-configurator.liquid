@@ -1,0 +1,448 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-trockeneis-configurator.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+{%- assign p = s.product -%}
+<div class="mtc sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    {%- if s.heading != blank -%}<h2 class="mtc__heading">{{ s.heading }}</h2>{%- endif -%}
+    {%- if s.subheading != blank -%}<p class="mtc__sub">{{ s.subheading }}</p>{%- endif -%}
+
+    <div class="mtc__layout">
+      {%- comment -%} LEFT: Product Image {%- endcomment -%}
+      <div class="mtc__media">
+        {%- if p != blank and p.featured_image != blank -%}
+          <img src="{{ p.featured_image | image_url: width: 800 }}" alt="{{ p.featured_image.alt | escape }}" class="mtc__img" id="mtc-img-{{ section.id }}" width="800" height="{{ 800 | divided_by: p.featured_image.aspect_ratio | round }}">
+        {%- else -%}
+          <div class="mtc__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+        {%- endif -%}
+        {%- if s.trust_text != blank -%}
+          <div class="mtc__trust">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'trust_badge' -%}
+                <div class="mtc__trust-item" {{ block.shopify_attributes }}>
+                  <span class="mtc__trust-icon">{{ block.settings.icon }}</span>
+                  <span>{{ block.settings.text }}</span>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} RIGHT: Configurator Steps {%- endcomment -%}
+      <div class="mtc__config" id="mtc-config-{{ section.id }}">
+        {%- if p != blank -%}
+          <div class="mtc__product-name">{{ p.title }}</div>
+
+          {%- comment -%} STEP 1: Variant Selection (Pellet Size + Weight) {%- endcomment -%}
+          <div class="mtc__step mtc__step--active" data-step="1">
+            <div class="mtc__step-header">
+              <span class="mtc__step-num">1</span>
+              <span class="mtc__step-title">{{ s.step1_title | default: 'Produkt konfigurieren' }}</span>
+            </div>
+            <div class="mtc__step-body">
+              {%- for option in p.options_with_values -%}
+                <div class="mtc__field">
+                  <label class="mtc__label">{{ option.name }}</label>
+                  <div class="mtc__chips" data-option-index="{{ forloop.index0 }}">
+                    {%- for value in option.values -%}
+                      <button type="button" class="mtc__chip{%- if option.selected_value == value %} mtc__chip--active{%- endif -%}" data-value="{{ value }}">{{ value }}</button>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+              <div class="mtc__price-display">
+                <span class="mtc__price-label">Preis:</span>
+                <span class="mtc__price-value" id="mtc-price-{{ section.id }}">{{ p.price | money }}</span>
+                {%- if p.selected_or_first_available_variant.unit_price -%}
+                  <span class="mtc__unit-price" id="mtc-unit-{{ section.id }}">({{ p.selected_or_first_available_variant.unit_price | money }}/{{ p.selected_or_first_available_variant.unit_price_measurement.reference_unit }})</span>
+                {%- endif -%}
+              </div>
+              <button type="button" class="mtc__next-btn" data-next="2">{{ s.step1_btn | default: 'Weiter zur Lieferung' }} &rarr;</button>
+            </div>
+          </div>
+
+          {%- comment -%} STEP 2: Delivery Method {%- endcomment -%}
+          <div class="mtc__step" data-step="2">
+            <div class="mtc__step-header">
+              <span class="mtc__step-num">2</span>
+              <span class="mtc__step-title">{{ s.step2_title | default: 'Lieferart waehlen' }}</span>
+            </div>
+            <div class="mtc__step-body">
+              <div class="mtc__delivery-options">
+                {%- comment -%} Self Pickup {%- endcomment -%}
+                <label class="mtc__delivery-card">
+                  <input type="radio" name="delivery_method_{{ section.id }}" value="self_pickup" class="mtc__radio" checked>
+                  <div class="mtc__delivery-inner">
+                    <span class="mtc__delivery-icon">🏪</span>
+                    <div>
+                      <strong>{{ s.pickup_title | default: 'Selbstabholung' }}</strong>
+                      <span class="mtc__delivery-price">{{ s.pickup_price_text | default: 'Kostenlos' }}</span>
+                      {%- if s.pickup_note != blank -%}<small class="mtc__delivery-note">{{ s.pickup_note }}</small>{%- endif -%}
+                    </div>
+                  </div>
+                </label>
+                {%- comment -%} Express Delivery {%- endcomment -%}
+                <label class="mtc__delivery-card">
+                  <input type="radio" name="delivery_method_{{ section.id }}" value="express" class="mtc__radio">
+                  <div class="mtc__delivery-inner">
+                    <span class="mtc__delivery-icon">🚚</span>
+                    <div>
+                      <strong>{{ s.express_title | default: 'Express-Lieferung' }}</strong>
+                      <span class="mtc__delivery-price">{{ s.express_price_text | default: 'Ab 9,90 EUR' }}</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+
+              {%- comment -%} Carrier Details (shown when Express selected) {%- endcomment -%}
+              <div class="mtc__carriers" id="mtc-carriers-{{ section.id }}" style="display:none;">
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'carrier' -%}
+                    <details class="mtc__carrier" {{ block.shopify_attributes }}>
+                      <summary class="mtc__carrier-header">
+                        <span class="mtc__carrier-name">{{ block.settings.name }}</span>
+                        <span class="mtc__carrier-price">{{ block.settings.price_text }}</span>
+                        <svg class="mtc__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                      </summary>
+                      <div class="mtc__carrier-body rte">{{ block.settings.conditions }}</div>
+                    </details>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+              <div class="mtc__step-actions">
+                <button type="button" class="mtc__back-btn" data-back="1">&larr; Zurueck</button>
+                <button type="button" class="mtc__next-btn" data-next="3">{{ s.step2_btn | default: 'Weiter zur Bestellung' }} &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          {%- comment -%} STEP 3: Summary + Add to Cart {%- endcomment -%}
+          <div class="mtc__step" data-step="3">
+            <div class="mtc__step-header">
+              <span class="mtc__step-num">3</span>
+              <span class="mtc__step-title">{{ s.step3_title | default: 'Zusammenfassung & Bestellen' }}</span>
+            </div>
+            <div class="mtc__step-body">
+              <div class="mtc__summary">
+                <div class="mtc__summary-row"><span>Produkt:</span><strong id="mtc-sum-product-{{ section.id }}">{{ p.title }}</strong></div>
+                <div class="mtc__summary-row"><span>Variante:</span><strong id="mtc-sum-variant-{{ section.id }}">{{ p.selected_or_first_available_variant.title }}</strong></div>
+                <div class="mtc__summary-row"><span>Lieferart:</span><strong id="mtc-sum-delivery-{{ section.id }}">Selbstabholung</strong></div>
+                <div class="mtc__summary-row mtc__summary-row--total"><span>Preis:</span><strong id="mtc-sum-price-{{ section.id }}">{{ p.price | money }}</strong></div>
+              </div>
+
+              {%- comment -%} Quantity {%- endcomment -%}
+              <div class="mtc__qty-wrap">
+                <label class="mtc__label">Menge</label>
+                <div class="mtc__qty">
+                  <button type="button" class="mtc__qty-btn mtc__qty-minus">-</button>
+                  <input type="number" value="1" min="1" class="mtc__qty-input" id="mtc-qty-{{ section.id }}">
+                  <button type="button" class="mtc__qty-btn mtc__qty-plus">+</button>
+                </div>
+              </div>
+
+              <form method="post" action="/cart/add" id="mtc-form-{{ section.id }}" class="mtc__form">
+                <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}" id="mtc-variant-{{ section.id }}">
+                <input type="hidden" name="quantity" value="1" id="mtc-qty-hidden-{{ section.id }}">
+                <input type="hidden" name="properties[Lieferart]" value="Selbstabholung" id="mtc-delivery-prop-{{ section.id }}">
+
+                <div class="mtc__step-actions">
+                  <button type="button" class="mtc__back-btn" data-back="2">&larr; Zurueck</button>
+                  <button type="submit" class="mtc__order-btn" id="mtc-add-{{ section.id }}" style="{%- if s.btn_bg != blank -%}background:{{ s.btn_bg }};{%- endif -%}{%- if s.btn_color != blank -%}color:{{ s.btn_color }};{%- endif -%}"
+                    {%- unless p.available %} disabled{%- endunless -%}>
+                    {%- if p.available -%}{{ s.order_btn_text | default: 'Jetzt bestellen' }}{%- else -%}Ausverkauft{%- endif -%}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        {%- else -%}
+          <p>Bitte waehle ein Produkt in den Section-Einstellungen aus.</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- if p != blank -%}
+<script src="{{ 'mod-trockeneis-configurator.js' | asset_url }}" defer></script>
+<script type="application/json" id="mtc-variants-{{ section.id }}">{{ p.variants | json }}</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Mod: Trockeneis Config",
+  "tag": "section",
+  "class": "section-mod-trockeneis",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Produkt"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Trockeneis bestellen"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Unterueberschrift",
+      "default": "Konfiguriere deine Bestellung in 3 einfachen Schritten"
+    },
+    {
+      "type": "header",
+      "content": "Schritt 1 - Konfiguration"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Schritt 1 Titel",
+      "default": "Produkt konfigurieren"
+    },
+    {
+      "type": "text",
+      "id": "step1_btn",
+      "label": "Schritt 1 Button",
+      "default": "Weiter zur Lieferung"
+    },
+    {
+      "type": "header",
+      "content": "Schritt 2 - Lieferung"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Schritt 2 Titel",
+      "default": "Lieferart waehlen"
+    },
+    {
+      "type": "text",
+      "id": "step2_btn",
+      "label": "Schritt 2 Button",
+      "default": "Weiter zur Bestellung"
+    },
+    {
+      "type": "text",
+      "id": "pickup_title",
+      "label": "Selbstabholung Titel",
+      "default": "Selbstabholung"
+    },
+    {
+      "type": "text",
+      "id": "pickup_price_text",
+      "label": "Selbstabholung Preis",
+      "default": "Kostenlos"
+    },
+    {
+      "type": "text",
+      "id": "pickup_note",
+      "label": "Selbstabholung Hinweis",
+      "default": "Abholung nach Terminvereinbarung"
+    },
+    {
+      "type": "text",
+      "id": "express_title",
+      "label": "Express Titel",
+      "default": "Express-Lieferung"
+    },
+    {
+      "type": "text",
+      "id": "express_price_text",
+      "label": "Express Preis Text",
+      "default": "Ab 9,90 EUR"
+    },
+    {
+      "type": "header",
+      "content": "Schritt 3 - Bestellung"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Schritt 3 Titel",
+      "default": "Zusammenfassung & Bestellen"
+    },
+    {
+      "type": "text",
+      "id": "order_btn_text",
+      "label": "Bestell-Button Text",
+      "default": "Jetzt bestellen"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button Hintergrund",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button Textfarbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "Trust-Bereich aktivieren",
+      "default": "ja"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 56,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Hintergrundfarbe"
+    },
+    {
+      "type": "header",
+      "content": "Globale Schrift & Farbe"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Abschnitt-Hintergrund"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "carrier",
+      "name": "Versanddienstleister",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "DHL Express"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Preis-Text",
+          "default": "ab 14,90 EUR"
+        },
+        {
+          "type": "richtext",
+          "id": "conditions",
+          "label": "Bedingungen & Details",
+          "default": "<p>Lieferung innerhalb von 24h. Trockeneis-sichere Verpackung inklusive. Mindestbestellmenge 10kg.</p>"
+        }
+      ]
+    },
+    {
+      "type": "trust_badge",
+      "name": "Trust-Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon/Emoji",
+          "default": "✓"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Sichere Bezahlung"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Trockeneis Config",
+      "blocks": [
+        {
+          "type": "carrier",
+          "settings": {
+            "name": "DHL Express",
+            "price_text": "ab 14,90 EUR",
+            "conditions": "<p>Lieferung innerhalb von 24h. Trockeneis-sichere Styropor-Verpackung inklusive. Mindestbestellmenge 10kg.</p>"
+          }
+        },
+        {
+          "type": "carrier",
+          "settings": {
+            "name": "DPD Express",
+            "price_text": "ab 12,90 EUR",
+            "conditions": "<p>Lieferung innerhalb von 24-48h. Trockeneis geeignete Verpackung. Ab 15kg kostenloser Versand.</p>"
+          }
+        },
+        {
+          "type": "carrier",
+          "settings": {
+            "name": "GO! Express",
+            "price_text": "ab 19,90 EUR",
+            "conditions": "<p>Same-Day Lieferung moeglich. Premium Isolierverpackung. Echtzeit-Tracking. Fuer zeitkritische Lieferungen.</p>"
+          }
+        },
+        {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🔒",
+            "text": "Sichere Bezahlung"
+          }
+        },
+        {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "📦",
+            "text": "Trockeneis-Verpackung"
+          }
+        },
+        {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "⚡",
+            "text": "Express-Versand"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

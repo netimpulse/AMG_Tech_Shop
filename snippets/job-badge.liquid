@@ -1,0 +1,28 @@
+{%- comment -%}
+  Renders a pill/badge for employment type.
+  Usage:
+  {% render 'job-badge',
+     label: 'Vollzeit / Teilzeit',
+     bg_color: '#D1FADF',
+     text_color: '#065F46',
+     font: section.settings.badge_font,
+     font_size: section.settings.badge_size,
+     font_weight: section.settings.badge_weight
+  %}
+{%- endcomment -%}
+
+{%- assign _label = label | default: 'Vollzeit' -%}
+{%- assign _bg = bg_color | default: '#E6F8EA' -%}
+{%- assign _txt = text_color | default: '#064E3B' -%}
+
+<span class="job-badge"
+  style="
+    background: {{ _bg }};
+    color: {{ _txt }};
+    font-family: {{ font.family }}, {{ font.fallback_families }};
+    font-size: {{ font_size | default: 14 }}px;
+    font-weight: {{ font_weight | default: 600 }};
+  "
+>
+  {{ _label }}
+</span>

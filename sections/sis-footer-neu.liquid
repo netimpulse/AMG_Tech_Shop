@@ -1,0 +1,584 @@
+{% comment %}
+  SIS Footer NEU – 4 Spalten (Leistungen, Unternehmen, Kontakt, Partner)
+  Farben/Typografie bleiben über die gleichen CSS-Variablen steuerbar.
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --sis-background-color: {{ section.settings.background_color }};
+    --sis-section-padding: {{ section.settings.section_padding }}px;
+    --sis-separator-color: {{ section.settings.separator_color }};
+    --sis-title-color: {{ section.settings.title_color }};
+    --sis-title-font-size: {{ section.settings.title_font_size }}px;
+    --sis-title-font-family: {{ section.settings.font_heading.family }}, {{ section.settings.font_heading.fallback_families }};
+    --sis-subtitle-color: {{ section.settings.subtitle_color }};
+    --sis-subtitle-font-size: {{ section.settings.subtitle_font_size }}px;
+    --sis-text-color: {{ section.settings.text_color }};
+    --sis-text-font-size: {{ section.settings.text_font_size }}px;
+    --sis-text-font-family: {{ section.settings.font_body.family }}, {{ section.settings.font_body.fallback_families }};
+    --sis-link-color: {{ section.settings.link_color }};
+    --sis-copyright-margin-top: {{ section.settings.section_padding | divided_by: 2 }}px;
+    --sis-copyright-padding-top: {{ section.settings.section_padding | divided_by: 4 }}px;
+    --sis-copyright-font-size: {{ section.settings.text_font_size | minus: 2 }}px;
+  }
+  #shopify-section-{{ section.id }} .sis-footer-neu__title { font-family: var(--sis-title-font-family); }
+  #shopify-section-{{ section.id }} .sis-footer-neu__text,
+  #shopify-section-{{ section.id }} .sis-footer-neu__link,
+  #shopify-section-{{ section.id }} .sis-footer-neu__copyright-text { font-family: var(--sis-text-font-family); }
+</style>
+
+{{ 'sis-footer-neu.css' | asset_url | stylesheet_tag }}
+
+<footer class="sis-footer-neu">
+  <div class="sis-footer-neu__container">
+    <div class="sis-footer-neu__grid">
+
+      {%- comment -%} Spalte 1: Leistungen {%- endcomment -%}
+      <div>
+        <h3 class="sis-footer-neu__title">
+          {{ section.settings.col1_title | default: "Leistungen" }}
+        </h3>
+        <ul class="sis-footer-neu__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'leistungen_link' -%}
+              <li class="sis-footer-neu__item">
+                <a class="sis-footer-neu__link" href="{{ block.settings.link | default: '#' }}">
+                  {{ block.settings.text | escape }}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} Spalte 2: Unternehmen {%- endcomment -%}
+      <div>
+        <h3 class="sis-footer-neu__title">
+          {{ section.settings.col2_title | default: "Unternehmen" }}
+        </h3>
+        <ul class="sis-footer-neu__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'unternehmen_link' -%}
+              <li class="sis-footer-neu__item">
+                <a class="sis-footer-neu__link" href="{{ block.settings.link | default: '#' }}">
+                  {{ block.settings.text | escape }}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- comment -%} Spalte 3: Kontakt {%- endcomment -%}
+      <div>
+        <h3 class="sis-footer-neu__title">
+          {{ section.settings.col3_title | default: "Kontakt" }}
+        </h3>
+
+        <div class="sis-footer-neu__contact-stack">
+          {%- if section.settings.contact_company != blank -%}
+            <p class="sis-footer-neu__text"><strong>{{ section.settings.contact_company }}</strong></p>
+          {%- endif -%}
+          {%- if section.settings.contact_address != blank -%}
+            <p class="sis-footer-neu__text">{{ section.settings.contact_address }}</p>
+          {%- endif -%}
+          {%- if section.settings.contact_phone != blank -%}
+            <p class="sis-footer-neu__text">Tel: <a class="sis-footer-neu__link" href="tel:{{ section.settings.contact_phone | replace: ' ', '' }}">{{ section.settings.contact_phone }}</a></p>
+          {%- endif -%}
+          {%- if section.settings.contact_email != blank -%}
+            <p class="sis-footer-neu__text">E-Mail: <a class="sis-footer-neu__link" href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a></p>
+          {%- endif -%}
+          {%- if section.settings.contact_hours != blank -%}
+            <p class="sis-footer-neu__text">{{ section.settings.contact_hours }}</p>
+          {%- endif -%}
+
+          {%- comment -%} zusätzliche frei konfigurierbare Kontaktlinks {%- endcomment -%}
+          <ul class="sis-footer-neu__list" style="margin-top:.5rem">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'kontakt_link' -%}
+                <li class="sis-footer-neu__item">
+                  <a class="sis-footer-neu__link" href="{{ block.settings.link | default: '#' }}">
+                    {{ block.settings.text | escape }}
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+
+      {%- comment -%} Spalte 4: Partner (Logos + Links) {%- endcomment -%}
+      <div>
+        <h3 class="sis-footer-neu__title">
+          {{ section.settings.col4_title | default: "Partner" }}
+        </h3>
+        <div class="sis-footer-neu__partners">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'partner_logo' -%}
+              <a class="sis-footer-neu__partner-link" href="{{ block.settings.link | default: '#' }}" {% if block.settings.new_tab %}target="_blank" rel="noopener noreferrer"{% endif %} aria-label="{{ block.settings.alt | escape }}">
+                {%- if block.settings.logo != blank -%}
+                  <img class="sis-footer-neu__partner-img"
+                       src="{{ block.settings.logo | image_url: width: 280 }}"
+                       srcset="{{ block.settings.logo | image_url: width: 200 }} 200w, {{ block.settings.logo | image_url: width: 280 }} 280w, {{ block.settings.logo | image_url: width: 360 }} 360w"
+                       sizes="(max-width:640px) 45vw, 160px"
+                       loading="lazy"
+                       alt="{{ block.settings.alt | escape }}">
+                {%- else -%}
+                  <span class="sis-footer-neu__link">{{ block.settings.alt | default: 'Partner' }}</span>
+                {%- endif -%}
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {%- if section.settings.copyright_text != blank -%}
+    <div class="sis-footer-neu__copyright">
+      <div class="sis-footer-neu__container">
+        <p class="sis-footer-neu__copyright-text">
+          {{ section.settings.copyright_text }}
+        </p>
+      </div>
+    </div>
+  {%- endif -%}
+</footer>
+
+{% schema %}
+{
+  "name": "SIS Footer NEU",
+  "tag": "footer",
+  "class": "sis-footer-neu-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Farben & Abstände"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#111827"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section Abstand (oben/unten)",
+      "min": 30,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Trennlinie / Akzent",
+      "default": "#374151"
+    },
+    {
+      "type": "header",
+      "content": "Typografie"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Titel Farbe",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Titel Schriftgröße",
+      "min": 18,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Untertitel Farbe",
+      "default": "#d1d5db"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size",
+      "label": "Untertitel Schriftgröße",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Farbe",
+      "default": "#9ca3af"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Text Schriftgröße",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Farbe",
+      "default": "#60a5fa"
+    },
+    {
+      "type": "header",
+      "content": "Schriftarten"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_heading",
+      "label": "Schriftfamilie – Titel",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_body",
+      "label": "Schriftfamilie – Text/Links",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "header",
+      "content": "Spaltentitel"
+    },
+    {
+      "type": "text",
+      "id": "col1_title",
+      "label": "Titel Spalte 1",
+      "default": "Leistungen"
+    },
+    {
+      "type": "text",
+      "id": "col2_title",
+      "label": "Titel Spalte 2",
+      "default": "Unternehmen"
+    },
+    {
+      "type": "text",
+      "id": "col3_title",
+      "label": "Titel Spalte 3",
+      "default": "Kontakt"
+    },
+    {
+      "type": "text",
+      "id": "col4_title",
+      "label": "Titel Spalte 4",
+      "default": "Partner"
+    },
+    {
+      "type": "header",
+      "content": "Kontakt (Spalte 3)"
+    },
+    {
+      "type": "text",
+      "id": "contact_company",
+      "label": "Firmenname",
+      "default": "SIS Saar"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_address",
+      "label": "Adresse",
+      "default": "Musterstraße 1, 12345 Musterstadt"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Telefon",
+      "default": "0123 / 456 789"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "E-Mail",
+      "default": "info@sis-saar.de"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_hours",
+      "label": "Öffnungszeiten",
+      "default": "Mo–Fr 8–17 Uhr"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "leistungen_link",
+      "name": "Leistung – Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link Text",
+          "default": "Badsanierung"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "unternehmen_link",
+      "name": "Unternehmen – Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link Text",
+          "default": "Team"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "kontakt_link",
+      "name": "Kontakt link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link Text",
+          "default": "Wegbeschreibung"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "partner_logo",
+      "name": "Partner – Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt-Text",
+          "default": "Partner"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "new_tab",
+          "label": "In neuem Tab öffnen",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SIS Footer NEU",
+      "blocks": [
+        {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Badsanierung"
+          }
+        },
+        {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Heizungsbau"
+          }
+        },
+        {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Team"
+          }
+        },
+        {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Jobs"
+          }
+        },
+        {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum"
+          }
+        },
+        {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz"
+          }
+        },
+        {
+          "type": "partner_logo"
+        },
+        {
+          "type": "partner_logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

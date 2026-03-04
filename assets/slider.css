@@ -1,0 +1,113 @@
+.custom-slider {
+  position: relative;
+  overflow: hidden;
+}
+.custom-slider .slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.slide.active {
+  opacity: 1;
+}
+
+.slide-logo {
+  position: absolute;
+  top: 20px; left: 20px;
+  color: var(--logo-color);
+  font-family: var(--logo-font);
+  font-size: var(--logo-size);
+  border-radius: var(--logo-radius);
+  background: rgba(255,255,255,0.4);
+  padding: 8px 12px;
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+}
+
+/* Headline, Text, Button initial state */
+.slide-heading,
+.slide-text,
+.slider-button {
+  opacity: 0;
+  transform: translate3d(0,20px,0);
+}
+
+/* Animation on active */
+.slide.active .slide-heading {
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 0.3s;
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-size: var(--heading-size);
+}
+.slide.active .slide-text {
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 0.6s;
+  color: var(--text-color);
+  font-family: var(--text-font);
+  font-size: var(--text-size);
+}
+.slide.active .slider-button {
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: 0.9s;
+}
+
+/* Button Styles */
+.slider-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 24px;
+  color: var(--button-color);
+  background-color: var(--button-bg);
+  border-radius: var(--button-radius);
+  font-family: var(--button-font);
+  font-size: var(--button-size);
+  transition: background-color 0.3s, color 0.3s;
+}
+.slider-button:hover {
+  color: var(--button-hover-color);
+  background-color: var(--button-hover-bg);
+}
+
+/* Pfeile */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 3;
+}
+.slider-arrow svg {
+  width: 32px;
+  height: 32px;
+  fill: rgba(255,255,255,0.8);
+  transition: fill 0.3s, transform 0.3s;
+}
+.slider-arrow:hover svg {
+  fill: rgba(255,255,255,1);
+  transform: scale(1.1);
+}
+.slider-arrow.prev { left: 10px; }
+.slider-arrow.next { right: 10px; }
+
+/* Fade-Up-Keyframe */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate3d(0,20px,0); }
+  to   { opacity: 1; transform: translate3d(0,0,0); }
+}

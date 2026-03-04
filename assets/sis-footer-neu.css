@@ -1,0 +1,115 @@
+/* ===== SIS Footer NEU (4-Spalten Navigations-Footer) ===== */
+.sis-footer-neu {
+  position: relative;
+  background-color: var(--sis-background-color);
+  padding: var(--sis-section-padding) 0;
+  color: var(--sis-text-color);
+  font-size: var(--sis-text-font-size);
+}
+
+.sis-footer-neu__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sis-footer-neu__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+/* Spaltenüberschriften */
+.sis-footer-neu__title {
+  color: var(--sis-title-color);
+  font-size: var(--sis-title-font-size);
+  font-weight: 700;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.3;
+  display: inline-block;
+}
+
+/* optional: kleine Akzentlinie unter der Überschrift – nutzt die Trennlinien-Farbe */
+.sis-footer-neu__title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin-top: 0.6rem;
+  background-color: var(--sis-separator-color);
+  opacity: 0.9;
+}
+
+/* Linklisten (Leistungen, Unternehmen) */
+.sis-footer-neu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sis-footer-neu__item + .sis-footer-neu__item {
+  margin-top: 0.35rem;
+}
+.sis-footer-neu__link {
+  color: var(--sis-link-color);
+  text-decoration: none;
+  line-height: 1.6;
+  transition: opacity .25s ease;
+  display: inline-block;
+}
+.sis-footer-neu__link:hover { opacity: .7; }
+
+/* Kontakt */
+.sis-footer-neu__text {
+  color: var(--sis-text-color);
+  margin: 0 0 .45rem 0;
+  line-height: 1.6;
+}
+.sis-footer-neu__contact-stack { margin-top: .5rem; }
+
+/* Partner-Logos als flexibles Grid */
+.sis-footer-neu__partners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+.sis-footer-neu__partner-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.sis-footer-neu__partner-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  filter: none; /* Logos unverändert anzeigen */
+  /* du kannst hier optional max-height setzen, wenn du ein fixes Band willst */
+}
+
+/* Trennlinie + Copyright */
+.sis-footer-neu__copyright {
+  border-top: 1px solid var(--sis-separator-color);
+  margin-top: var(--sis-copyright-margin-top);
+  padding-top: var(--sis-copyright-padding-top);
+  text-align: center;
+}
+.sis-footer-neu__copyright-text {
+  color: var(--sis-text-color);
+  font-size: var(--sis-copyright-font-size);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1120px) {
+  .sis-footer-neu__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+@media (max-width: 640px) {
+  .sis-footer-neu__container { padding: 0 1rem; }
+  .sis-footer-neu__grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .sis-footer-neu__partners { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

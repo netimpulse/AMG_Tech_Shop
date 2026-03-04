@@ -1,0 +1,108 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sticky_header_JjCMyY": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Zurück",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "geb-udeservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "contact_info_form_kqm4z8": {
+      "type": "contact-info-form",
+      "blocks": {
+        "info_card_FqXzUL": {
+          "type": "info_card",
+          "settings": {
+            "title": "Adresse",
+            "text": "<p>SIS Saar Gebäudeservice GmbH<br/>Vorderster Berg 13<br/>D-66333 Völklinen</p>",
+            "icon": "map",
+            "icon_image": "shopify://shop_images/office-location-icon-design-in-black-color-vector-removebg-preview.png"
+          }
+        },
+        "info_card_iFtBFr": {
+          "type": "info_card",
+          "settings": {
+            "title": "E-Mail",
+            "text": "<p>gebaudeservice@sissaar.de</p>",
+            "icon": "mail"
+          }
+        },
+        "info_card_bVjqiN": {
+          "type": "info_card",
+          "settings": {
+            "title": "Telefon",
+            "text": "<p><a href=\"tel:%20+49%206898%2016%2090%20900\" title=\"tel:%20+49%206898%2016%2090%20900\">(+49) (0) 6898 16 90 900</a></p>",
+            "icon": "phone"
+          }
+        }
+      },
+      "block_order": [
+        "info_card_FqXzUL",
+        "info_card_iFtBFr",
+        "info_card_bVjqiN"
+      ],
+      "name": "Kontaktbereich mit Formular- GS Bewerbung",
+      "settings": {
+        "left_title": "Kontaktinformationen",
+        "right_title": "Nachricht senden",
+        "label_firstname": "Vorname *",
+        "ph_firstname": "Ihr Vorname",
+        "label_lastname": "Nachname *",
+        "ph_lastname": "Ihr Nachname",
+        "label_email": "E-Mail *",
+        "ph_email": "ihre.email@beispiel.de",
+        "label_phone": "Telefon",
+        "ph_phone": "Ihre Telefonnummer",
+        "label_company": "Unternehmen",
+        "ph_company": "Ihr Unternehmen",
+        "label_subject": "Stelle",
+        "ph_subject": "Auf welche Stelle wollen Sie sich bewerben?",
+        "label_message": "Nachricht *",
+        "ph_message": "Beschreiben Sie Ihr Anliegen...",
+        "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
+        "consent_label": "Datenschutz zugestimmt",
+        "button_label": "Nachricht senden",
+        "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sticky_header_JjCMyY",
+    "contact_info_form_kqm4z8"
+  ]
+}

@@ -1,0 +1,12 @@
+.mit__grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.mit__grid--reverse .mit__media{order:2}
+.mit__image{width:100%;border-radius:12px;object-fit:cover}
+.mit__placeholder{aspect-ratio:4/3;background:#f0f0f0;border-radius:12px}
+.mit__badge{display:inline-block;padding:.3rem .8rem;border-radius:50px;background:rgba(0,0,0,.06);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem;font-weight:600}
+.mit__heading{font-weight:700;line-height:1.2;margin:0 0 1rem;letter-spacing:-.01em}
+.mit__heading.h1{font-size:2rem}
+.mit__heading.h2{font-size:1.5rem}
+.mit__heading.h3{font-size:1.25rem}
+.mit__text{line-height:1.7;color:rgba(0,0,0,.65);margin-bottom:1.5rem}
+.mit__btn{display:inline-block;padding:.75rem 2rem;border-radius:8px;text-decoration:none;font-weight:600}
+@media(max-width:749px){.mit__grid,.mit__grid--reverse{grid-template-columns:1fr}.mit__grid--reverse .mit__media{order:0}}

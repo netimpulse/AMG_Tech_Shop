@@ -1,0 +1,285 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-product-grid.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mpg sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    {%- if s.heading != blank -%}
+      <div class="mpg__header">
+        <h2 class="mpg__heading" style="{%- if s.heading_color != blank -%}color:{{ s.heading_color }};{%- endif -%}{%- if s.heading_size > 0 -%}font-size:{{ s.heading_size }}px;{%- endif -%}">{{ s.heading }}</h2>
+        {%- if s.subheading != blank -%}<p class="mpg__sub">{{ s.subheading }}</p>{%- endif -%}
+        {%- if s.view_all_link != blank -%}<a href="{{ s.view_all_link }}" class="mpg__view-all">{{ s.view_all_text | default: 'Alle anzeigen' }} &rarr;</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="mpg__grid mpg__grid--{{ s.columns }}">
+      {%- if s.collection != blank -%}
+        {%- for product in s.collection.products limit: s.product_limit -%}
+          <div class="mpg__card">
+            <a href="{{ product.url }}" class="mpg__card-link">
+              <div class="mpg__img-wrap">
+                {%- if product.featured_image != blank -%}
+                  <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" class="mpg__img mpg__img--primary" width="600" height="{{ 600 | divided_by: product.featured_image.aspect_ratio | round }}">
+                {%- endif -%}
+                {%- if product.images.size > 1 and s.show_second_image -%}
+                  <img src="{{ product.images[1] | image_url: width: 600 }}" alt="{{ product.images[1].alt | escape }}" loading="lazy" class="mpg__img mpg__img--hover" width="600" height="{{ 600 | divided_by: product.images[1].aspect_ratio | round }}">
+                {%- endif -%}
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="mpg__badge mpg__badge--sale">{{ s.sale_badge_text | default: 'Sale' }}</span>
+                {%- endif -%}
+                {%- if s.show_quick_view -%}
+                  <button class="mpg__quick-view" data-product-url="{{ product.url }}">{{ s.quick_view_text | default: 'Schnellansicht' }}</button>
+                {%- endif -%}
+              </div>
+            </a>
+            <div class="mpg__info">
+              {%- if s.show_vendor -%}<span class="mpg__vendor">{{ product.vendor }}</span>{%- endif -%}
+              <a href="{{ product.url }}" class="mpg__title">{{ product.title }}</a>
+              {%- if s.show_color_swatches -%}
+                <div class="mpg__swatches">
+                  {%- for option in product.options_with_values -%}
+                    {%- assign opt_name = option.name | downcase -%}
+                    {%- if opt_name == 'color' or opt_name == 'colour' or opt_name == 'farbe' -%}
+                      {%- for value in option.values -%}
+                        <span class="mpg__swatch" style="background-color:{{ value | handleize }};" title="{{ value }}"></span>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+              <div class="mpg__price">
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="mpg__price--compare">{{ product.compare_at_price | money }}</span>
+                {%- endif -%}
+                <span class="mpg__price--current {%- if product.compare_at_price > product.price %} mpg__price--sale{%- endif -%}">{{ product.price | money }}</span>
+              </div>
+              {%- if s.show_quick_add -%}
+                {%- if product.variants.size == 1 -%}
+                  <form method="post" action="/cart/add" class="mpg__add-form">
+                    <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+                    <button type="submit" class="mpg__add-btn button">{{ s.add_to_cart_text | default: 'In den Warenkorb' }}</button>
+                  </form>
+                {%- else -%}
+                  <a href="{{ product.url }}" class="mpg__add-btn mpg__add-btn--options button button--secondary">{{ s.options_text | default: 'Optionen waehlen' }}</a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <div class="mpg__card mpg__card--placeholder">
+            <div class="mpg__img-wrap"><div class="mpg__placeholder">{{ 'product-' | append: i | placeholder_svg_tag }}</div></div>
+            <div class="mpg__info"><span class="mpg__title">Beispielprodukt {{ i }}</span><span class="mpg__price--current">{{ 1999 | money }}</span></div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Produkt-Raster",
+  "tag": "section",
+  "class": "section-mod-product-grid",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Kollektion"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Unsere Produkte"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Unterueberschrift"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Max. Produkte",
+      "min": 2,
+      "max": 24,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Spalten (Desktop)",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 Spalten"
+        },
+        {
+          "value": "3",
+          "label": "3 Spalten"
+        },
+        {
+          "value": "4",
+          "label": "4 Spalten"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Hintergrundfarbe"
+    },
+    {
+      "type": "header",
+      "content": "Produktkarten"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_second_image",
+      "label": "Zweites Bild bei Hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Hersteller anzeigen",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatches",
+      "label": "Farbvarianten anzeigen",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_add",
+      "label": "Schnell-Hinzufuegen anzeigen",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_view",
+      "label": "Schnellansicht-Button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Warenkorb-Button Text",
+      "default": "In den Warenkorb"
+    },
+    {
+      "type": "text",
+      "id": "options_text",
+      "label": "Optionen-Button Text",
+      "default": "Optionen waehlen"
+    },
+    {
+      "type": "text",
+      "id": "sale_badge_text",
+      "label": "Sale-Badge Text",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "quick_view_text",
+      "label": "Schnellansicht Text",
+      "default": "Schnellansicht"
+    },
+    {
+      "type": "header",
+      "content": "Ueberschrift-Stil"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Ueberschrift-Groesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Ueberschrift-Farbe"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "'Alle anzeigen' Link"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "'Alle anzeigen' Text",
+      "default": "Alle anzeigen"
+    },
+    {
+      "type": "header",
+      "content": "Globale Schrift & Farbe"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Abschnitt-Hintergrund"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Produkt-Raster"
+    }
+  ]
+}
+{% endschema %}

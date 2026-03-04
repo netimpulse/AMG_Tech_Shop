@@ -1,0 +1,93 @@
+/* Custom CTA Block – Styles */
+
+.cta-banner {
+  position: relative;
+}
+
+.cta-banner__inner {
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.cta-banner__heading {
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.6rem 0;
+}
+
+/* Richtext <p> Abstände reduzieren */
+.cta-banner__heading p,
+.cta-banner__subheading p {
+  margin: 0;
+}
+
+.cta-banner__subheading {
+  opacity: 0.95;
+  line-height: 1.6;
+  max-width: 70ch;
+  margin: 0 auto 1.25rem auto;
+}
+
+.cta-banner__buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Button Base */
+.cta-btn {
+  position: relative; /* für X/Y-Offset */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--btn-border, currentColor);
+  border-radius: var(--btn-radius, 12px);
+  padding: var(--btn-py, 14px) var(--btn-px, 24px);
+  font-weight: var(--btn-weight, 600);
+
+  /* Prozent-Verschiebung */
+  transform: translate(var(--btn-x, 0%), var(--btn-y, 0%));
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  will-change: transform;
+}
+
+/* Varianten */
+.cta-btn--solid {
+  background: var(--btn-bg, #0b132a);
+  color: var(--btn-text, #ffffff);
+}
+
+.cta-btn--outline {
+  background: transparent;
+  color: var(--btn-text, #0b132a);
+  border-color: var(--btn-border, currentColor);
+}
+
+/* Hover */
+.cta-btn:hover {
+  background: var(--btn-hover-bg, var(--btn-bg, inherit));
+  color: var(--btn-hover-text, var(--btn-text, inherit));
+  border-color: var(--btn-hover-bg, var(--btn-border, currentColor));
+}
+
+/* Mobile Tweaks */
+@media (max-width: 640px) {
+  .cta-banner__subheading {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .cta-btn {
+    padding: calc(var(--btn-py, 14px) + 2px) calc(var(--btn-px, 24px) + 2px);
+  }
+}

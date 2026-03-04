@@ -1,0 +1,64 @@
+/* Interaktive Karte – Layout & Responsive Styles */
+
+.imap { margin: 40px auto; padding: 0 16px; }
+.imap__head { text-align: center; margin-bottom: 18px; }
+
+.imap__title {
+  margin: 0 0 8px;
+  color: var(--imap-title-color, #0B2545);
+  font-size: var(--imap-title-size, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.imap__subtitle {
+  margin: 0;
+  color: var(--imap-subtitle-color, #54627A);
+  font-size: var(--imap-subtitle-size, 16px);
+  line-height: 1.5;
+}
+
+.imap__card {
+  background: var(--imap-card-bg, #F5F7FA);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.imap__canvas {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Placeholder (sichtbar bis JS lädt) */
+.imap__ph {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 8px;
+  color: #22c55e;
+  pointer-events: none;
+}
+.imap__ph-title {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 18px;
+}
+.imap__ph-text {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 640px) {
+  .imap { margin: 28px auto; }
+  .imap__card { padding: 14px; border-radius: 10px; }
+  .imap__title { font-size: clamp(20px, 6vw, var(--imap-title-size, 32px)); }
+  .imap__subtitle { font-size: clamp(13px, 3.8vw, var(--imap-subtitle-size, 16px)); }
+}

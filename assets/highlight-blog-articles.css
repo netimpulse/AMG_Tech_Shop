@@ -1,0 +1,128 @@
+.hb-wrapper {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hb-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hb-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hb-subtitle {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.hb-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hb-btn {
+  padding: 10px 18px;
+  border-radius: 6px;
+  background: #2b6cff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hb-btn-outline {
+  background: transparent;
+  border: 2px solid #2b6cff;
+  color: #2b6cff;
+}
+
+.hb-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .hb-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+  .hb-grid > :first-child {
+    grid-row: span 2;
+  }
+}
+
+.hb-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.hb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.hb-image-link {
+  position: relative;
+  display: block;
+}
+
+.hb-image-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hb-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #2b6cff;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.hb-content {
+  padding: 16px;
+}
+
+.hb-meta {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.hb-article-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.hb-article-title a {
+  text-decoration: none;
+  color: #222;
+}
+
+.hb-excerpt {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.hb-readmore {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b6cff;
+  text-decoration: none;
+}

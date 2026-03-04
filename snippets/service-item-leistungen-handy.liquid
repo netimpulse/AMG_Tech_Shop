@@ -1,0 +1,40 @@
+{%- comment -%}
+  Snippet: Service Item für "Leistungen Handy"
+  Einzelnes Leistungs-Element (Slide im Carousel)
+{%- endcomment -%}
+
+<div class="carousel-slide" {{ block.shopify_attributes }}>
+  <div class="service-item service-item-{{ block.id }}">
+    <div class="service-item__timeline">
+      <div class="service-item__image-wrapper">
+        {%- if block.settings.main_image != blank -%}
+          <img class="service-item__main-image"
+               src="{{ block.settings.main_image | image_url: width: 300 }}"
+               alt="{{ block.settings.main_image.alt | escape }}"
+               loading="lazy">
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'service-item__main-image placeholder' }}
+        {%- endif -%}
+
+        {%- if block.settings.number_icon != blank -%}
+          <img class="service-item__number-icon"
+               src="{{ block.settings.number_icon | image_url: width: 80 }}"
+               alt="{{ block.settings.number_icon.alt | escape }}"
+               loading="lazy">
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="service-item__content">
+      {%- if block.settings.title != blank -%}
+        <h3 class="service-item__title">{{ block.settings.title }}</h3>
+      {%- endif -%}
+      {%- if block.settings.subtitle != blank -%}
+        <h4 class="service-item__subtitle">{{ block.settings.subtitle }}</h4>
+      {%- endif -%}
+      {%- if block.settings.text != blank -%}
+        <div class="service-item__text">{{ block.settings.text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

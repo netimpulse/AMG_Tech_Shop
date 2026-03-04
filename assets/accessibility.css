@@ -1,0 +1,147 @@
+/* ================================================================
+   Barrierefreiheit – Fokus-Stile & Keyboard-Accessibility
+   ================================================================
+   Ergänzung zu base.css – stellt sicher, dass alle
+   interaktiven SIS-Custom-Sections sichtbare Focus-Outlines
+   und korrekte Keyboard-Navigation haben.
+   ================================================================ */
+
+/* ── Globale Focus-Visible Stile ─────────────────── */
+*:focus-visible {
+    outline: 2px solid var(--te-focus-color, #2563eb);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Suppress outline for mouse/touch users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ── Skip-to-Content (schon vorhanden, hier verstärkt) ── */
+.skip-to-content-link:focus {
+    clip: auto !important;
+    clip-path: none !important;
+    height: auto !important;
+    width: auto !important;
+    position: fixed !important;
+    top: 12px;
+    left: 12px;
+    z-index: 99999;
+    padding: 12px 24px;
+    background: #1e293b;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+/* ── Karussell-Pfeile ────────────────────────────── */
+.lf-arrow:focus-visible,
+.kl-arrow:focus-visible,
+.qh-dot:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* ── Karussell-Dots ──────────────────────────────── */
+.lf-dot:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+    transform: scale(1.3);
+}
+
+/* ── Custom CTA Buttons ──────────────────────────── */
+.lf-btn:focus-visible,
+.cta-button:focus-visible,
+.sc-button:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+}
+
+/* ── Links in Cards ──────────────────────────────── */
+.lf-card-link:focus-visible,
+.sc-card a:focus-visible,
+.ls-card a:focus-visible,
+.partner-logo:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ── Qualitäten Hotspot ──────────────────────────── */
+.qh-hotspot-btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px #2563eb;
+}
+
+/* ── Footer Links ────────────────────────────────── */
+.sis-footer a:focus-visible,
+.sis-fn a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* ── Trockeneis-Produkt Focus ────────────────────── */
+.te-option-label:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.te-ship-method__header:focus-visible,
+.te-carrier__header:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: -2px;
+    border-radius: 8px;
+}
+
+.te-add-to-cart__btn:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+}
+
+/* ── Reduced Motion ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .lf-track {
+        transition: none !important;
+    }
+}
+
+/* ── High Contrast Mode ──────────────────────────── */
+@media (forced-colors: active) {
+    .lf-dot.active {
+        forced-color-adjust: none;
+        background: Highlight;
+    }
+
+    .te-option:checked+.te-option-label {
+        forced-color-adjust: none;
+        border-color: Highlight;
+    }
+}
+
+/* ── Screen Reader Only ──────────────────────────── */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

@@ -1,0 +1,32 @@
+{%- liquid
+  assign icon = block.settings.icon
+  assign title = block.settings.title | default: 'Titel'
+  assign text = block.settings.text
+-%}
+
+<article class="hi-card" {{ block.shopify_attributes }}>
+  <div class="hi-icon" style="background-color: {{ block.settings.icon_bg }};">
+    {% if icon %}
+      {{ icon | image_url: width: 160 | image_tag: loading: 'lazy', class: 'hi-icon__img', widths: '80,120,160' }}
+    {% else %}
+      <span class="hi-icon__placeholder" aria-hidden="true">★</span>
+    {% endif %}
+  </div>
+
+  <h3 class="hi-card__title">{{ title }}</h3>
+
+  {% if text != blank %}
+    <p class="hi-card__text">{{ text }}</p>
+  {% endif %}
+
+  {% if block.settings.show_btn and block.settings.btn_label != blank %}
+    {% if block.settings.btn_link != blank %}
+      <a class="hi-btn"
+         style="--hi-btn-bg: {{ block.settings.btn_bg }}; --hi-btn-tx: {{ block.settings.btn_text }};"
+         href="{{ block.settings.btn_link }}">{{ block.settings.btn_label }}</a>
+    {% else %}
+      <span class="hi-btn is-disabled"
+        style="--hi-btn-bg: {{ block.settings.btn_bg }}; --hi-btn-tx: {{ block.settings.btn_text }};">{{ block.settings.btn_label }}</span>
+    {% endif %}
+  {% endif %}
+</article>

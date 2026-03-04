@@ -1,0 +1,10 @@
+.mcd__inner{text-align:center}
+.mcd__heading{font-size:1.75rem;font-weight:700;margin:0 0 .5rem}
+.mcd__text{color:rgba(0,0,0,.6);margin:0 0 2rem}
+.mcd__timer{display:flex;justify-content:center;align-items:center;gap:1rem;margin-bottom:2rem}
+.mcd__unit{display:flex;flex-direction:column;align-items:center}
+.mcd__num{font-size:2.5rem;font-weight:800;line-height:1;background:rgba(0,0,0,.04);border-radius:10px;padding:.75rem 1rem;min-width:70px;font-variant-numeric:tabular-nums}
+.mcd__label{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:rgba(0,0,0,.5);margin-top:.4rem}
+.mcd__sep{font-size:2rem;font-weight:700;color:rgba(0,0,0,.2);align-self:flex-start;margin-top:.75rem}
+.mcd__btn{display:inline-block;padding:.85rem 2.5rem;border-radius:8px;font-weight:600;text-decoration:none}
+@media(max-width:480px){.mcd__num{font-size:1.5rem;min-width:50px;padding:.5rem .6rem}.mcd__timer{gap:.5rem}}

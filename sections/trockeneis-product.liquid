@@ -1,0 +1,646 @@
+{% comment %}
+  Section: Trockeneis-Produkt – Komplett (v2)
+  =============================================
+  Custom Product-Sektion für Trockeneispellets mit:
+  - Pelletgröße-Auswahl (dynamisch aus Produktoptionen)
+  - Mengenauswahl (dynamisch aus Produktoptionen)
+  - Variantenbasierte Preisberechnung (Shopify-nativ)
+  - Lieferoptions-Auswahl (Selbstabholung / Expresslieferung)
+  - Aufklappbare Versanddienstleister (DHL / DPD / Go!)
+  - Dynamische Blöcke (Beschreibung, FAQ, Trust, Specs, etc.)
+  - Line Item Properties für Versandpräferenz
+
+  Benötigt:
+    - assets/trockeneis-product.css
+    - assets/trockeneis-product.js
+    - snippets/shipping-option-card.liquid
+    - snippets/block-custom-styles.liquid
+{% endcomment %}
+
+{{ 'trockeneis-product.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+
+{%- comment -%} Build full variant data as JSON for JS {%- endcomment -%}
+{%- capture variant_data_json -%}
+[
+  {%- for variant in product.variants -%}
+    {
+      "id": {{ variant.id }},
+      "title": {{ variant.title | json }},
+      "option1": {{ variant.option1 | downcase | strip | json }},
+      "option2": {% if variant.option2 %}{{ variant.option2 | downcase | strip | json }}{% else %}null{% endif %},
+      "price": {{ variant.price }},
+      "compare_at_price": {{ variant.compare_at_price | default: 0 }},
+      "available": {{ variant.available }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+]
+{%- endcapture -%}
+
+<div class="te-product"
+     data-trockeneis-section
+     data-variant-data='{{ variant_data_json | strip_newlines }}'
+     data-money-format="{{ shop.money_format | escape }}">
+
+  <div class="te-product__grid">
+
+    {%- comment -%} ── Linke Spalte: Produktbild + Blöcke ──────────── {%- endcomment -%}
+    <div class="te-product__media">
+      <div class="te-product__image-wrapper">
+        {%- if product.featured_image != blank -%}
+          <img
+            src="{{ product.featured_image | image_url: width: 1200 }}"
+            alt="{{ product.featured_image.alt | default: product.title | escape }}"
+            width="{{ product.featured_image.width }}"
+            height="{{ product.featured_image.height }}"
+            loading="eager">
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'te-product__placeholder' }}
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} USP-Leiste unter dem Bild {%- endcomment -%}
+      <div class="te-features">
+        {% if section.settings.feature_1 != blank %}
+          <div class="te-feature">
+            <svg class="te-feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="te-feature__text">{{ section.settings.feature_1 }}</span>
+          </div>
+        {% endif %}
+        {% if section.settings.feature_2 != blank %}
+          <div class="te-feature">
+            <svg class="te-feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="te-feature__text">{{ section.settings.feature_2 }}</span>
+          </div>
+        {% endif %}
+        {% if section.settings.feature_3 != blank %}
+          <div class="te-feature">
+            <svg class="te-feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="te-feature__text">{{ section.settings.feature_3 }}</span>
+          </div>
+        {% endif %}
+      </div>
+
+      {%- comment -%} ── Blöcke unter dem Bild (linke Spalte) ── {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when 'product_description' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--description" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {% if block.settings.heading != blank %}
+                <h3 class="te-block__heading">{{ block.settings.heading }}</h3>
+              {% endif %}
+              <div class="te-block__richtext">{{ block.settings.text }}</div>
+            </div>
+
+          {%- when 'product_specs' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--specs" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {% if block.settings.heading != blank %}
+                <h3 class="te-block__heading">{{ block.settings.heading }}</h3>
+              {% endif %}
+              <table class="te-specs-table">
+                {%- if block.settings.spec_1_label != blank -%}
+                  <tr><td class="te-specs-table__label">{{ block.settings.spec_1_label }}</td><td>{{ block.settings.spec_1_value }}</td></tr>
+                {%- endif -%}
+                {%- if block.settings.spec_2_label != blank -%}
+                  <tr><td class="te-specs-table__label">{{ block.settings.spec_2_label }}</td><td>{{ block.settings.spec_2_value }}</td></tr>
+                {%- endif -%}
+                {%- if block.settings.spec_3_label != blank -%}
+                  <tr><td class="te-specs-table__label">{{ block.settings.spec_3_label }}</td><td>{{ block.settings.spec_3_value }}</td></tr>
+                {%- endif -%}
+                {%- if block.settings.spec_4_label != blank -%}
+                  <tr><td class="te-specs-table__label">{{ block.settings.spec_4_label }}</td><td>{{ block.settings.spec_4_value }}</td></tr>
+                {%- endif -%}
+                {%- if block.settings.spec_5_label != blank -%}
+                  <tr><td class="te-specs-table__label">{{ block.settings.spec_5_label }}</td><td>{{ block.settings.spec_5_value }}</td></tr>
+                {%- endif -%}
+                {%- if block.settings.spec_6_label != blank -%}
+                  <tr><td class="te-specs-table__label">{{ block.settings.spec_6_label }}</td><td>{{ block.settings.spec_6_value }}</td></tr>
+                {%- endif -%}
+              </table>
+            </div>
+
+          {%- when 'safety_info' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--safety" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              <div class="te-safety">
+                <div class="te-safety__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.834-1.964-.834-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="te-safety__content">
+                  {% if block.settings.heading != blank %}
+                    <h4 class="te-safety__heading">{{ block.settings.heading }}</h4>
+                  {% endif %}
+                  <div class="te-safety__text">{{ block.settings.text }}</div>
+                </div>
+              </div>
+            </div>
+
+          {%- when 'faq_item' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--faq" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              <details class="te-faq-item">
+                <summary class="te-faq-item__question">
+                  {{ block.settings.question }}
+                  <svg class="te-faq-item__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+                <div class="te-faq-item__answer">{{ block.settings.answer }}</div>
+              </details>
+            </div>
+
+          {%- when 'trust_badges' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--trust" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {% if block.settings.heading != blank %}
+                <h3 class="te-block__heading">{{ block.settings.heading }}</h3>
+              {% endif %}
+              <div class="te-trust-grid">
+                {%- if block.settings.badge_1_icon != blank -%}
+                  <div class="te-trust-item">
+                    <img src="{{ block.settings.badge_1_icon | image_url: width: 80 }}" alt="{{ block.settings.badge_1_text | escape }}" width="40" height="40" loading="lazy">
+                    <span>{{ block.settings.badge_1_text }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.badge_2_icon != blank -%}
+                  <div class="te-trust-item">
+                    <img src="{{ block.settings.badge_2_icon | image_url: width: 80 }}" alt="{{ block.settings.badge_2_text | escape }}" width="40" height="40" loading="lazy">
+                    <span>{{ block.settings.badge_2_text }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.badge_3_icon != blank -%}
+                  <div class="te-trust-item">
+                    <img src="{{ block.settings.badge_3_icon | image_url: width: 80 }}" alt="{{ block.settings.badge_3_text | escape }}" width="40" height="40" loading="lazy">
+                    <span>{{ block.settings.badge_3_text }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.badge_4_icon != blank -%}
+                  <div class="te-trust-item">
+                    <img src="{{ block.settings.badge_4_icon | image_url: width: 80 }}" alt="{{ block.settings.badge_4_text | escape }}" width="40" height="40" loading="lazy">
+                    <span>{{ block.settings.badge_4_text }}</span>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+
+          {%- when 'contact_cta' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--cta" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              <div class="te-cta">
+                {% if block.settings.heading != blank %}
+                  <h3 class="te-cta__heading">{{ block.settings.heading }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="te-cta__text">{{ block.settings.text }}</p>
+                {% endif %}
+                {% if block.settings.button_label != blank %}
+                  <a href="{{ block.settings.button_link }}" class="te-cta__btn">{{ block.settings.button_label }}</a>
+                {% endif %}
+                {% if block.settings.phone != blank %}
+                  <a href="tel:{{ block.settings.phone | remove: ' ' }}" class="te-cta__phone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
+                      <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {{ block.settings.phone }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+
+          {%- when 'delivery_info' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--delivery" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              <div class="te-delivery-info">
+                <svg class="te-delivery-info__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="te-delivery-info__content">
+                  {% if block.settings.heading != blank %}
+                    <h4 class="te-delivery-info__heading">{{ block.settings.heading }}</h4>
+                  {% endif %}
+                  <div class="te-delivery-info__text">{{ block.settings.text }}</div>
+                </div>
+              </div>
+            </div>
+
+          {%- when 'custom_richtext' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--richtext" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {% if block.settings.heading != blank %}
+                <h3 class="te-block__heading">{{ block.settings.heading }}</h3>
+              {% endif %}
+              <div class="te-block__richtext">{{ block.settings.content }}</div>
+            </div>
+
+          {%- when 'image_block' -%}
+            <div id="block-{{ block.id }}" class="te-block te-block--image" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1200 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.caption | escape }}"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  class="te-block__image"
+                  loading="lazy">
+              {% endif %}
+              {% if block.settings.caption != blank %}
+                <p class="te-block__caption">{{ block.settings.caption }}</p>
+              {% endif %}
+            </div>
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    {%- comment -%} ── Rechte Spalte: Produktinfos & Konfiguration ── {%- endcomment -%}
+    <div class="te-product__info">
+
+      {%- comment -%} Titel {%- endcomment -%}
+      <div>
+        <h1 class="te-product__title">{{ product.title | escape }}</h1>
+        {% if section.settings.subtitle != blank %}
+          <p class="te-product__subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </div>
+
+      {%- comment -%} Preis-Anzeige {%- endcomment -%}
+      <div class="te-price-display">
+        <span class="te-price-display__amount" data-te-price>
+          {{ current_variant.price | money }}
+        </span>
+        <span class="te-price-display__unit" data-te-unit-price></span>
+        <span class="te-price-display__info">
+          {{ section.settings.price_note | default: 'Preis inkl. MwSt., zzgl. Versandkosten' }}
+        </span>
+      </div>
+
+      {%- comment -%} ── 1. Pelletgröße ───────────────────── {%- endcomment -%}
+      <div class="te-selection" role="radiogroup" aria-label="Pelletgröße auswählen">
+        <span class="te-selection__label">Pelletgröße</span>
+        <div class="te-selection__options" data-te-option="size">
+          {%- if product.options_by_name['Pelletgröße'] != blank -%}
+            {%- for option_value in product.options_by_name['Pelletgröße'].values -%}
+              <input class="te-option" type="radio" name="te-size" id="te-size-{{ forloop.index }}" value="{{ option_value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
+              <label class="te-option-label" for="te-size-{{ forloop.index }}">{{ option_value }}</label>
+            {%- endfor -%}
+          {%- else -%}
+            {%- comment -%} Fallback: statische Optionen {%- endcomment -%}
+            <input class="te-option" type="radio" name="te-size" id="te-size-15" value="1.5mm" {% if section.settings.default_size == '1.5mm' %}checked{% endif %}>
+            <label class="te-option-label" for="te-size-15">1,5 mm</label>
+            <input class="te-option" type="radio" name="te-size" id="te-size-3" value="3mm" {% if section.settings.default_size == '3mm' or section.settings.default_size == blank %}checked{% endif %}>
+            <label class="te-option-label" for="te-size-3">3 mm</label>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%} ── 2. Menge in kg ─────────────────── {%- endcomment -%}
+      <div class="te-selection" role="radiogroup" aria-label="Menge auswählen">
+        <span class="te-selection__label">Menge (kg)</span>
+        <div class="te-selection__options" data-te-option="qty">
+          {%- if product.options_by_name['Menge'] != blank -%}
+            {%- for option_value in product.options_by_name['Menge'].values -%}
+              <input class="te-option" type="radio" name="te-qty" id="te-qty-{{ forloop.index }}" value="{{ option_value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
+              <label class="te-option-label" for="te-qty-{{ forloop.index }}">{{ option_value }}</label>
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign quantities = '5,10,15,20,25,30' | split: ',' -%}
+            {%- for qty in quantities -%}
+              <input class="te-option" type="radio" name="te-qty" id="te-qty-{{ qty }}" value="{{ qty }} kg" {% if forloop.first %}checked{% endif %}>
+              <label class="te-option-label" for="te-qty-{{ qty }}">{{ qty }} kg</label>
+            {%- endfor -%}
+          {%- endif -%}
+
+          <input class="te-option" type="radio" name="te-qty" id="te-qty-anfrage" value="anfrage">
+          <label class="te-option-label te-option-label--anfrage" for="te-qty-anfrage">
+            Mehr auf Anfrage
+          </label>
+        </div>
+      </div>
+
+      {%- comment -%} Hinweis bei „Mehr auf Anfrage" {%- endcomment -%}
+      <div class="te-anfrage-hint" data-te-anfrage-hint>
+        <strong>Größere Mengen?</strong> Kein Problem!
+        <a href="{{ section.settings.contact_page | default: '/pages/kontakt' }}">
+          Kontaktieren Sie uns
+        </a>
+        für ein individuelles Angebot.
+      </div>
+
+      {%- comment -%} ── 3. Lieferoptionen ─────────────── {%- endcomment -%}
+      <div class="te-shipping">
+        <span class="te-shipping__title">Lieferoption</span>
+
+        {%- comment -%} Selbstabholung {%- endcomment -%}
+        <div class="te-ship-method" data-ship-method="pickup">
+          <div class="te-ship-method__header" role="button" tabindex="0" aria-label="Selbstabholung – Kostenlos">
+            <span class="te-ship-method__radio" aria-hidden="true"></span>
+            <div class="te-ship-method__info">
+              <div class="te-ship-method__name">🏭 Selbstabholung</div>
+              <div class="te-ship-method__desc">{{ section.settings.pickup_address | default: 'Abholung an unserem Standort' }}</div>
+            </div>
+            <span class="te-ship-method__price">Kostenlos</span>
+          </div>
+        </div>
+
+        {%- comment -%} Expresslieferung {%- endcomment -%}
+        <div class="te-ship-method" data-ship-method="express">
+          <div class="te-ship-method__header" role="button" tabindex="0" aria-label="Expresslieferung – Lieferant auswählen">
+            <span class="te-ship-method__radio" aria-hidden="true"></span>
+            <div class="te-ship-method__info">
+              <div class="te-ship-method__name">🚚 Expresslieferung</div>
+              <div class="te-ship-method__desc">Lieferung direkt zu Ihnen – Dienstleister wählen</div>
+            </div>
+            <span class="te-ship-method__price" style="color: var(--te-text-muted); font-weight: 500;">auswählen →</span>
+          </div>
+
+          {%- comment -%} Carrier-Accordion {%- endcomment -%}
+          <div class="te-carriers" data-te-carriers>
+            <div class="te-carriers__title">Versanddienstleister wählen</div>
+
+            {% render 'shipping-option-card',
+              carrier_id: 'dhl',
+              carrier_name: 'DHL Express',
+              carrier_price: section.settings.dhl_price | default: 'auf Anfrage',
+              carrier_price_raw: section.settings.dhl_price_raw | default: '0',
+              carrier_details_html: section.settings.dhl_conditions | default: '<ul><li>Express-Lieferung in 1–2 Werktagen</li><li>Sendungsverfolgung inklusive</li><li>Versicherter Versand</li></ul>'
+            %}
+
+            {% render 'shipping-option-card',
+              carrier_id: 'dpd',
+              carrier_name: 'DPD',
+              carrier_price: section.settings.dpd_price | default: 'auf Anfrage',
+              carrier_price_raw: section.settings.dpd_price_raw | default: '0',
+              carrier_details_html: section.settings.dpd_conditions | default: '<ul><li>Lieferung in 1–3 Werktagen</li><li>Predict-Service: Lieferzeitfenster per SMS</li><li>Sendungsverfolgung inklusive</li></ul>'
+            %}
+
+            {% render 'shipping-option-card',
+              carrier_id: 'go',
+              carrier_name: 'GO! Express',
+              carrier_price: section.settings.go_price | default: 'auf Anfrage',
+              carrier_price_raw: section.settings.go_price_raw | default: '0',
+              carrier_details_html: section.settings.go_conditions | default: '<ul><li>Same-Day oder Overnight-Lieferung</li><li>Temperaturgeführter Transport möglich</li><li>Direkte Zustellung</li></ul>'
+            %}
+          </div>
+        </div>
+      </div>
+
+      {%- comment -%} ── Zusammenfassung ────────────────── {%- endcomment -%}
+      <div class="te-summary" data-te-summary>
+        <div class="te-summary__line" data-summary-product>
+          <span class="te-summary__label">–</span>
+          <span class="te-summary__value">–</span>
+        </div>
+        <div class="te-summary__line" data-summary-shipping>
+          <span class="te-summary__label">Versand</span>
+          <span class="te-summary__value">–</span>
+        </div>
+        <div class="te-summary__line te-summary__line--total" data-summary-total>
+          <span class="te-summary__label">Gesamt</span>
+          <span class="te-summary__value">–</span>
+        </div>
+      </div>
+
+      {%- comment -%} ── Warenkorb-Button ──────────────── {%- endcomment -%}
+      {%- form 'product', product, id: 'trockeneis-form', novalidate: 'novalidate' -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}" data-te-variant-id>
+        <input type="hidden" name="quantity" value="1">
+        {%- comment -%} Line Item Properties für Versandpräferenz {%- endcomment -%}
+        <input type="hidden" name="properties[Lieferoption]" value="" data-te-shipping-prop>
+        <input type="hidden" name="properties[Versanddienstleister]" value="" data-te-carrier-prop>
+
+        <div class="te-add-to-cart">
+          <button type="submit"
+                  class="te-add-to-cart__btn"
+                  data-te-add-btn
+                  {% unless current_variant.available %}disabled{% endunless %}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {%- if current_variant.available -%}
+              In den Warenkorb
+            {%- else -%}
+              Ausverkauft
+            {%- endif -%}
+          </button>
+          <span class="te-add-to-cart__note">
+            {{ section.settings.cart_note | default: 'Sichere Zahlung über Shopify Payments' }}
+          </span>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'trockeneis-product.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Trockeneis-Produkt",
+  "tag": "section",
+  "class": "section--trockeneis",
+  "settings": [
+    { "type": "header", "content": "Allgemein" },
+    { "type": "text", "id": "subtitle", "label": "Untertitel", "default": "Hochwertige Trockeneispellets für Industrie und Gewerbe" },
+    { "type": "text", "id": "price_note", "label": "Preishinweis", "default": "Preis inkl. MwSt., zzgl. Versandkosten" },
+    { "type": "text", "id": "cart_note", "label": "Warenkorb-Hinweis", "default": "Sichere Zahlung über Shopify Payments" },
+
+    { "type": "header", "content": "Standardauswahl (Fallback)" },
+    { "type": "select", "id": "default_size", "label": "Vorauswahl Pelletgroesse", "default": "3mm",
+      "options": [
+        { "value": "1.5mm", "label": "1,5 mm" },
+        { "value": "3mm", "label": "3 mm" }
+      ]
+    },
+
+    { "type": "header", "content": "Selbstabholung" },
+    { "type": "text", "id": "pickup_address", "label": "Abholadresse / Standortinfo", "default": "Abholung an unserem Standort im Saarland" },
+    { "type": "url", "id": "contact_page", "label": "Kontaktseite (fuer Anfrage)" },
+
+    { "type": "header", "content": "DHL" },
+    { "type": "text", "id": "dhl_price", "label": "DHL Preis (Anzeige)", "default": "auf Anfrage" },
+    { "type": "text", "id": "dhl_price_raw", "label": "DHL Preis numerisch (z.B. 29.90)", "default": "0" },
+    { "type": "html", "id": "dhl_conditions", "label": "DHL Lieferkonditionen (HTML)" },
+
+    { "type": "header", "content": "DPD" },
+    { "type": "text", "id": "dpd_price", "label": "DPD Preis (Anzeige)", "default": "auf Anfrage" },
+    { "type": "text", "id": "dpd_price_raw", "label": "DPD Preis numerisch (z.B. 24.90)", "default": "0" },
+    { "type": "html", "id": "dpd_conditions", "label": "DPD Lieferkonditionen (HTML)" },
+
+    { "type": "header", "content": "GO! Express" },
+    { "type": "text", "id": "go_price", "label": "GO! Preis (Anzeige)", "default": "auf Anfrage" },
+    { "type": "text", "id": "go_price_raw", "label": "GO! Preis numerisch (z.B. 39.90)", "default": "0" },
+    { "type": "html", "id": "go_conditions", "label": "GO! Lieferkonditionen (HTML)" },
+
+    { "type": "header", "content": "USP-Leiste" },
+    { "type": "text", "id": "feature_1", "label": "Feature 1", "default": "Premium-Qualitaet" },
+    { "type": "text", "id": "feature_2", "label": "Feature 2", "default": "Sofort verfuegbar" },
+    { "type": "text", "id": "feature_3", "label": "Feature 3", "default": "Flexible Mengen" }
+  ],
+  "blocks": [
+    {
+      "type": "product_description",
+      "name": "Produktbeschreibung",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Produktbeschreibung" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Beschreiben Sie hier Ihr Produkt.</p>" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "product_specs",
+      "name": "Technische Daten",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Technische Daten" },
+        { "type": "text", "id": "spec_1_label", "label": "Zeile 1 Bezeichnung", "default": "Material" },
+        { "type": "text", "id": "spec_1_value", "label": "Zeile 1 Wert", "default": "CO2 (Kohlendioxid)" },
+        { "type": "text", "id": "spec_2_label", "label": "Zeile 2 Bezeichnung", "default": "Temperatur" },
+        { "type": "text", "id": "spec_2_value", "label": "Zeile 2 Wert", "default": "-78,5 Grad C" },
+        { "type": "text", "id": "spec_3_label", "label": "Zeile 3 Bezeichnung", "default": "Pelletgroesse" },
+        { "type": "text", "id": "spec_3_value", "label": "Zeile 3 Wert", "default": "1,5 mm / 3 mm" },
+        { "type": "text", "id": "spec_4_label", "label": "Zeile 4 Bezeichnung" },
+        { "type": "text", "id": "spec_4_value", "label": "Zeile 4 Wert" },
+        { "type": "text", "id": "spec_5_label", "label": "Zeile 5 Bezeichnung" },
+        { "type": "text", "id": "spec_5_value", "label": "Zeile 5 Wert" },
+        { "type": "text", "id": "spec_6_label", "label": "Zeile 6 Bezeichnung" },
+        { "type": "text", "id": "spec_6_value", "label": "Zeile 6 Wert" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "safety_info",
+      "name": "Sicherheitshinweis",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Sicherheitshinweis" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Trockeneis nur in gut beluefteten Raeumen verwenden.</p>" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "faq_item",
+      "name": "FAQ-Eintrag",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Frage", "default": "Wie wird Trockeneis geliefert?" },
+        { "type": "richtext", "id": "answer", "label": "Antwort", "default": "<p>In speziell isolierten Thermoboxen.</p>" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "trust_badges",
+      "name": "Vertrauens-Badges",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Ueberschrift" },
+        { "type": "image_picker", "id": "badge_1_icon", "label": "Badge 1 Icon" },
+        { "type": "text", "id": "badge_1_text", "label": "Badge 1 Text", "default": "Sichere Zahlung" },
+        { "type": "image_picker", "id": "badge_2_icon", "label": "Badge 2 Icon" },
+        { "type": "text", "id": "badge_2_text", "label": "Badge 2 Text", "default": "Schneller Versand" },
+        { "type": "image_picker", "id": "badge_3_icon", "label": "Badge 3 Icon" },
+        { "type": "text", "id": "badge_3_text", "label": "Badge 3 Text", "default": "Gepruefte Qualitaet" },
+        { "type": "image_picker", "id": "badge_4_icon", "label": "Badge 4 Icon" },
+        { "type": "text", "id": "badge_4_text", "label": "Badge 4 Text" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "contact_cta",
+      "name": "Kontakt-CTA",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Fragen? Wir helfen gerne!" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Kontaktieren Sie uns fuer ein individuelles Angebot." },
+        { "type": "text", "id": "button_label", "label": "Button-Text", "default": "Kontakt aufnehmen" },
+        { "type": "url", "id": "button_link", "label": "Button-Link" },
+        { "type": "text", "id": "phone", "label": "Telefonnummer" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "delivery_info",
+      "name": "Lieferinformationen",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Lieferinformationen" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Versand in isolierten Thermoboxen.</p>" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "custom_richtext",
+      "name": "Freier Text-Block",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Ueberschrift" },
+        { "type": "richtext", "id": "content", "label": "Inhalt" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    },
+    {
+      "type": "image_block",
+      "name": "Bild-Block",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Bild" },
+        { "type": "text", "id": "caption", "label": "Bildunterschrift" },
+        { "type": "header", "content": "Block-Styling" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
+        { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
+        { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trockeneis-Produkt",
+      "blocks": [
+        { "type": "product_description" },
+        { "type": "product_specs" },
+        { "type": "safety_info" }
+      ]
+    }
+  ],
+  "templates": ["product"]
+}
+{% endschema %}

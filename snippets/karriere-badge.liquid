@@ -1,0 +1,28 @@
+{% comment %}
+  Badge (Pill) — mit Inline-Styles erzwungen: oben links über dem Titel.
+{% endcomment %}
+
+{%- assign _label = label | default: '' -%}
+{%- assign _bg = bg_color | default: '#D1FADF' -%}
+{%- assign _txt = text_color | default: '#065F46' -%}
+
+{% if _label != blank %}
+  <span
+    class="job-badge"
+    style="
+      background: {{ _bg }};
+      color: {{ _txt }};
+      display: inline-block !important;
+      float: none !important;
+      clear: both !important;
+      margin: 0 0 8px 0 !important;
+      border-radius: 999px;
+      padding: 6px 12px;
+      line-height: 1;
+      white-space: nowrap;
+      font-weight: 600;
+    "
+  >
+    {{ _label }}
+  </span>
+{% endif %}

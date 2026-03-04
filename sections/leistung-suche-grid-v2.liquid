@@ -1,0 +1,363 @@
+{% comment %}
+  Section v2: Leistung Suche Grid (ohne Karussell)
+  - Überschrift & Untertitel als Richtext
+  - Karten mit Richtext und harmonisierter Höhe (Titel/Text/Button)
+  - Suche über Titel + Keywords (HTML wird ignoriert)
+  - 3 Spalten, außer genau 4 sichtbare Karten → 2 Spalten (2×2)
+{% endcomment %}
+
+{{ 'leistung-suche-v2.css' | asset_url | stylesheet_tag }}
+
+<section id="services-{{ section.id }}" class="services-grid-section"
+  style="
+    --badge-bg: {{ section.settings.keyword_badge_bg }};
+    --badge-color: {{ section.settings.keyword_badge_color }};
+    --card-bg: {{ section.settings.card_bg }};
+    --card-radius: {{ section.settings.card_radius }}px;
+    --card-shadow: {% if section.settings.card_shadow %}0 8px 24px rgba(0,0,0,.08){% else %}none{% endif %};
+    --gap: {{ section.settings.grid_gap }}px;
+    --sg-font-heading: {{ section.settings.font_heading.family }}, {{ section.settings.font_heading.fallback_families }};
+    --sg-font-body: {{ section.settings.font_body.family }}, {{ section.settings.font_body.fallback_families }};
+  ">
+
+  <div class="services-grid__inner page-width">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="services-grid__header text-{{ section.settings.text_align }}">
+        {% if section.settings.heading != blank %}<div class="services-grid__title" style="font-family: var(--sg-font-heading);">{{ section.settings.heading }}</div>{% endif %}
+        {% if section.settings.subheading != blank %}<div class="services-grid__subtitle" style="font-family: var(--sg-font-body);">{{ section.settings.subheading }}</div>{% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_search %}
+      <div class="services-grid__search">
+        <input
+          id="services-search-{{ section.id }}"
+          type="search"
+          class="services-grid__search-input"
+          placeholder="{{ section.settings.search_placeholder | default: 'Suchen…' | escape }}"
+          aria-label="{{ section.settings.search_placeholder | default: 'Suchen…' | escape }}"
+        >
+        <button type="button" class="services-grid__clear" aria-label="Suche löschen" hidden>×</button>
+      </div>
+    {% endif %}
+
+    {%- assign total_items = section.blocks.size -%}
+    <div class="services-grid" data-columns="{% if total_items == 4 %}2{% else %}3{% endif %}" id="services-grid-{{ section.id }}">
+      {% for block in section.blocks %}
+        {% render 'leistung-suche-card-v2',
+          id: block.id,
+          image: block.settings.image,
+          title_html: block.settings.title_html,
+          text_html: block.settings.text_html,
+          keywords: block.settings.keywords,
+          button_label: block.settings.button_label,
+          button_link: block.settings.button_link,
+          badge_style: section.settings.badge_style,
+          button_style: section.settings.button_style,
+          block: block
+        %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_cta and section.settings.cta_label != blank and section.settings.cta_link != blank %}
+      <div class="services-grid__footer">
+        <a class="services-grid__cta btn btn--{{ section.settings.button_style }}" href="{{ section.settings.cta_link }}">
+          {{ section.settings.cta_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    (function() {
+      const root = document.getElementById('services-{{ section.id }}');
+      if (!root) return;
+
+      const grid = root.querySelector('.services-grid');
+      const input = root.querySelector('.services-grid__search-input');
+      const clearBtn = root.querySelector('.services-grid__clear');
+
+      const normalize = s => (s || '').toString().toLowerCase().trim();
+
+      function applyFilter(q) {
+        const query = normalize(q);
+        const cards = grid.querySelectorAll('[data-service-card]');
+        let visible = 0;
+        cards.forEach(card => {
+          const hay = card.getAttribute('data-search-haystack') || '';
+          const match = !query || hay.includes(query);
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        grid.setAttribute('data-columns', visible === 4 ? '2' : '3');
+      }
+
+      if (input) {
+        input.addEventListener('input', e => {
+          const val = e.target.value;
+          if (clearBtn) clearBtn.toggleAttribute('hidden', !val.length);
+          applyFilter(val);
+        });
+      }
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          input.value = '';
+          clearBtn.setAttribute('hidden','');
+          applyFilter('');
+          input.focus();
+        });
+      }
+      applyFilter(input ? input.value : '');
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Leistung Suche Grid v2",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Überschrift (Richtext)",
+      "default": "<p><strong>Unsere Leistungen</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Untertitel (Richtext)",
+      "default": "<p>Mit <em>Leidenschaft</em> für Ihren Erfolg.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Textausrichtung (Überschrift/Untertitel)",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Zentriert"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Suchfeld anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Suchfeld Placeholder",
+      "default": "Leistungen oder Keywords suchen…"
+    },
+    {
+      "type": "select",
+      "id": "badge_style",
+      "label": "Badge-Stil",
+      "default": "solid",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Voll"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "keyword_badge_bg",
+      "label": "Badge Hintergrund",
+      "default": "#E6F0FF"
+    },
+    {
+      "type": "color",
+      "id": "keyword_badge_color",
+      "label": "Badge Text",
+      "default": "#0F1C3F"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Kachel Hintergrund",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "label": "Kachel-Radius",
+      "default": 18
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Kachel-Schatten",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Abstand Kacheln",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "CTA (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "CTA anzeigen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA-Text",
+      "default": "Mehr erfahren"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA-Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button-Stil",
+      "default": "primary",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primär"
+        },
+        {
+          "value": "secondary",
+          "label": "Sekundär"
+        },
+        {
+          "value": "link",
+          "label": "Link-Style"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Schriftarten"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_heading",
+      "label": "Schriftfamilie – Überschriften",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_body",
+      "label": "Schriftfamilie – Fließtext",
+      "default": "helvetica_n4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Leistung Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild"
+        },
+        {
+          "type": "richtext",
+          "id": "title_html",
+          "label": "Titel (Richtext)",
+          "default": "<p><strong>Unterhaltsreinigung</strong></p>"
+        },
+        {
+          "type": "richtext",
+          "id": "text_html",
+          "label": "Kurzbeschreibung (Richtext)",
+          "default": "<p>Kurze Beschreibung hier.</p>"
+        },
+        {
+          "type": "text",
+          "id": "keywords",
+          "label": "Keywords (Kommagetrennt)",
+          "default": "Büro, täglich, flexibel"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button-Text",
+          "default": "Mehr erfahren"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button-Link"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    {
+      "name": "Leistung Suche Grid v2"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+<li class="kb-card" role="listitem">
+  <div class="kb-card-inner">
+    <div class="kb-stars" aria-label="{{ block.settings.star_rating }} von 5 Sternen">
+      {% for i in (1..block.settings.star_rating) %}
+        <span class="kb-star">★</span>
+      {% endfor %}
+    </div>
+
+    <h3 class="kb-name"
+        style="font-family: {{ block.settings.name_font.family }}, {{ block.settings.name_font.fallback_families }}; font-size: {{ block.settings.name_font_size }}px;">
+      {{ block.settings.person_name }}
+    </h3>
+
+    <div class="kb-text"
+         style="font-family: {{ block.settings.text_font.family }}, {{ block.settings.text_font.fallback_families }}; font-size: {{ block.settings.text_font_size }}px;">
+      {{ block.settings.review_text }}
+    </div>
+
+    {% if block.settings.person_image != blank %}
+      <div class="kb-logo-wrap" style="--kb-img: {{ block.settings.image_size }}px;">
+        <img
+          class="kb-logo"
+          src="{{ block.settings.person_image | image_url: width: block.settings.image_size | escape }}"
+          alt="{{ block.settings.person_name | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image_size }}"
+          height="{{ block.settings.image_size }}"
+        >
+      </div>
+    {% endif %}
+  </div>
+</li>

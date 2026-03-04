@@ -1,0 +1,224 @@
+{% comment %}
+  ** Text mit Bild - Section **
+  - Ermöglicht die Darstellung eines Bildes neben einem Textblock.
+  - Vollständig anpassbar im Theme-Editor.
+{% endcomment %}
+
+{{ 'text-mit-bild.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_id = 'text-mit-bild--' | append: section.id
+  assign heading = section.settings.heading
+  assign subheading = section.settings.subheading
+  assign text = section.settings.text
+  assign image = section.settings.image
+  assign image_position = section.settings.image_position
+  assign shadow_strength = section.settings.image_shadow_strength
+-%}
+
+<style>
+  #{{ section_id }} .text-mit-bild__heading {
+    font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    font-weight: {{ section.settings.heading_font.weight }};
+    font-style: {{ section.settings.heading_font.style }};
+    font-size: {{ section.settings.heading_font_size }}px;
+    color: {{ section.settings.heading_color }};
+  }
+  #{{ section_id }} .text-mit-bild__subheading {
+    font-family: {{ section.settings.subheading_font.family }}, {{ section.settings.subheading_font.fallback_families }};
+    font-weight: {{ section.settings.subheading_font.weight }};
+    font-style: {{ section.settings.subheading_font.style }};
+    font-size: {{ section.settings.subheading_font_size }}px;
+    color: {{ section.settings.subheading_color }};
+  }
+  #{{ section_id }} .text-mit-bild__text {
+    font-family: {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }};
+    font-weight: {{ section.settings.text_font.weight }};
+    font-style: {{ section.settings.text_font.style }};
+    font-size: {{ section.settings.text_font_size }}px;
+    color: {{ section.settings.text_color }};
+  }
+  #{{ section_id }} .text-mit-bild__image {
+    box-shadow: 0px {{ shadow_strength | divided_by: 2 }}px {{ shadow_strength }}px rgba(0, 0, 0, {{ shadow_strength | times: 0.01 }});
+  }
+</style>
+
+<div id="{{ section_id }}" class="text-mit-bild-wrapper page-width">
+  <div class="text-mit-bild-container text-mit-bild--image-{{ image_position }}">
+    
+    <div class="text-mit-bild__content">
+      {% if heading != blank %}
+        <h2 class="text-mit-bild__heading">{{ heading | escape }}</h2>
+      {% endif %}
+      {% if subheading != blank %}
+        <p class="text-mit-bild__subheading">{{ subheading | escape }}</p>
+      {% endif %}
+      {% if text != blank %}
+        <div class="text-mit-bild__text rte">{{ text }}</div>
+      {% endif %}
+    </div>
+
+    <div class="text-mit-bild__image-wrapper">
+      {% if image != blank %}
+        <img 
+          src="{{ image | image_url: width: 1200 }}" 
+          alt="{{ image.alt | default: 'Bild für Text-mit-Bild Sektion' | escape }}" 
+          class="text-mit-bild__image"
+          width="{{ image.width }}"
+          height="{{ image.height }}"
+          loading="lazy">
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg text-mit-bild__placeholder' }}
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Text mit Bild",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout & Bild"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bild"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Bildposition",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links vom Text"
+        },
+        {
+          "value": "right",
+          "label": "Rechts vom Text"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "image_shadow_strength",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Schattenstärke des Bildes",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Überschrift"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titel",
+      "default": "Über uns"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Schriftart",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 16,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße",
+      "default": 42
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Farbe",
+      "default": "#1f1f1f"
+    },
+    {
+      "type": "header",
+      "content": "Unterüberschrift"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Unterüberschrift",
+      "default": "Wer wir sind und was uns auszeichnet"
+    },
+    {
+      "type": "font_picker",
+      "id": "subheading_font",
+      "label": "Schriftart",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Farbe",
+      "default": "#555555"
+    },
+    {
+      "type": "header",
+      "content": "Textblock"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Beschreiben Sie hier Ihr Unternehmen, Ihre Produkte oder Dienstleistungen. Dieser Text ist vollständig anpassbar und unterstützt auch Formatierungen wie <strong>fett</strong> oder <em>kursiv</em>.</p>"
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Schriftart",
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Schriftgröße",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Farbe",
+      "default": "#333333"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text mit Bild",
+      "category": "Bild"
+    }
+  ]
+}
+{% endschema %}

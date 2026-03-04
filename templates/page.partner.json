@@ -1,0 +1,181 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_building_section_ztyrhy": {
+      "type": "hero-building-section",
+      "disabled": true,
+      "name": "Hero Building",
+      "settings": {
+        "background_image": "shopify://shop_images/shutterstock_370492946.jpg",
+        "enable_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.5,
+        "heading": "Unsere Partner",
+        "subheading": "",
+        "button_label": "Jetzt Angebot anfordern",
+        "button_link": "",
+        "button_color": "#007acc",
+        "button_text_color": "#ffffff",
+        "button_radius": 4,
+        "heading_color": "#ffffff",
+        "text_color": "#f5f5f5",
+        "heading_size": 48,
+        "text_size": 18,
+        "font_family": "Arial, sans-serif",
+        "font_bold": true,
+        "font_italic": false,
+        "text_alignment": "left"
+      }
+    },
+    "sticky_header_xzWEyL": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Zurück",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/SIS_Gruppe_logo.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "hauptmen",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "partner_logos_e7Eb7J": {
+      "type": "partner-logos",
+      "blocks": {
+        "logo_q3ni9V": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        },
+        "logo_ALFJVp": {
+          "type": "logo",
+          "settings": {
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        },
+        "logo_CaFVen": {
+          "type": "logo",
+          "settings": {
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        },
+        "logo_qXGeCt": {
+          "type": "logo",
+          "settings": {
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        },
+        "logo_HUnt7h": {
+          "type": "logo",
+          "settings": {
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        },
+        "logo_DQjzVD": {
+          "type": "logo",
+          "settings": {
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        },
+        "logo_paUrC7": {
+          "type": "logo",
+          "settings": {
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        },
+        "logo_yeVr8i": {
+          "type": "logo",
+          "settings": {
+            "alt": "Partner-Logo",
+            "link": "",
+            "custom_size": false,
+            "logo_height": 72
+          }
+        }
+      },
+      "block_order": [
+        "logo_q3ni9V",
+        "logo_ALFJVp",
+        "logo_CaFVen",
+        "logo_qXGeCt",
+        "logo_HUnt7h",
+        "logo_DQjzVD",
+        "logo_paUrC7",
+        "logo_yeVr8i"
+      ],
+      "name": "Partner-Logos (Grid)",
+      "settings": {
+        "eyebrow": "MIT WEM ARBEITEN WIR ZUSAMMEN?",
+        "eyebrow_marker": true,
+        "heading": "<p>Lernen Sie <strong>unsere Partner</strong> kennen</p>",
+        "subtext": "<p>Entdecken Sie die Unternehmen, deren erstklassige Produkte und Dienstleistungen wir nutzen.</p>",
+        "color_scheme": "background-1",
+        "gap": 24,
+        "cols_desktop": 4,
+        "cols_tablet": 3,
+        "show_dividers": true,
+        "logo_max_height": 72,
+        "gray_on": false,
+        "hover_opacity": 100,
+        "open_new": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_building_section_ztyrhy",
+    "sticky_header_xzWEyL",
+    "partner_logos_e7Eb7J"
+  ]
+}

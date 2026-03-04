@@ -1,0 +1,163 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-image-text.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+<div class="mit sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    <div class="mit__grid{% if s.image_position == 'right' %} mit__grid--reverse{% endif %}">
+      <div class="mit__media">
+        {%- if s.image != blank -%}
+          <img src="{{ s.image | image_url: width: 900 }}" alt="{{ s.image.alt | escape }}" class="mit__image" loading="lazy">
+        {%- else -%}
+          <div class="mit__placeholder"></div>
+        {%- endif -%}
+      </div>
+      <div class="mit__content">
+        {%- if s.badge != blank -%}<span class="mit__badge">{{ s.badge }}</span>{%- endif -%}
+        {%- if s.heading != blank -%}<h2 class="mit__heading {{ s.heading_size }}">{{ s.heading }}</h2>{%- endif -%}
+        {%- if s.text != blank -%}<div class="mit__text rte">{{ s.text }}</div>{%- endif -%}
+        {%- if s.btn_text != blank -%}<a href="{{ s.btn_link }}" class="mit__btn button">{{ s.btn_text }}</a>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mod: Bild + Text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bild"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Bild-Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge-Text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Ueberschrift",
+      "default": "Unsere Geschichte"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Groesse",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button-Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button-Link"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Sektions-Hintergrund"
+    },
+    {
+      "type": "header",
+      "content": "━━ Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Block-Hintergrundfarbe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Bild + Text"
+    }
+  ]
+}
+{% endschema %}

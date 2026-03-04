@@ -1,0 +1,80 @@
+{%- comment -%}
+  Hero-Bereich für Gebäudeservice-Landingpage.
+{%- endcomment -%}
+
+{{ 'hero-building-style.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.enable_overlay %}
+  <style>
+    .hero-building .hero-overlay {
+      background-color: {{ section.settings.overlay_color }};
+      opacity: {{ section.settings.overlay_opacity }};
+    }
+  </style>
+{% endif %}
+
+<section class="hero-building" style="{% if section.settings.background_image != blank %}background-image:url('{{ section.settings.background_image | img_url: '2048x' }}');{% endif %} background-position:center; background-size:cover; background-repeat:no-repeat;">
+  <div class="hero-overlay"></div>
+  <div class="hero-content" style="text-align:{{ section.settings.text_alignment }};">
+    {% if section.settings.heading != blank %}
+      <h1 class="hero-heading" style="color:{{ section.settings.heading_color }}; font-size:{{ section.settings.heading_size }}px; font-family:{{ section.settings.font_family }}; font-weight:{% if section.settings.font_bold %}700{% else %}400{% endif %}; font-style:{% if section.settings.font_italic %}italic{% else %}normal{% endif %};">
+        {{ section.settings.heading }}
+      </h1>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <p class="hero-subheading" style="color:{{ section.settings.text_color }}; font-size:{{ section.settings.text_size }}px; font-family:{{ section.settings.font_family }};">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="hero-btn" style="background-color:{{ section.settings.button_color }}; color:{{ section.settings.button_text_color }}; border-radius:{{ section.settings.button_radius }}px;">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{%- schema -%}
+{
+  "name": "Hero Building",
+  "settings": [
+    { "type": "image_picker", "id": "background_image", "label": "Hintergrundbild" },
+    { "type": "checkbox", "id": "enable_overlay", "label": "Overlay aktivieren", "default": true },
+    { "type": "color", "id": "overlay_color", "label": "Overlay-Farbe", "default": "#000000" },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay-Deckkraft", "min": 0, "max": 1, "step": 0.1, "default": 0.5 },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Gebäudeservice – Moderne Lösungen für Ihre Immobilie" },
+    { "type": "text", "id": "subheading", "label": "Unterüberschrift", "default": "Wir bieten erstklassige Reinigungs- und Facility Services für Unternehmen und Privatkunden." },
+    { "type": "text", "id": "button_label", "label": "Button-Text", "default": "Jetzt Angebot anfordern" },
+    { "type": "url", "id": "button_link", "label": "Button-Link" },
+    { "type": "color", "id": "button_color", "label": "Button-Farbe", "default": "#007ACC" },
+    { "type": "color", "id": "button_text_color", "label": "Button-Textfarbe", "default": "#FFFFFF" },
+    { "type": "range", "id": "button_radius", "label": "Button-Radius", "min": 0, "max": 50, "step": 1, "default": 4, "unit": "px" },
+    { "type": "color", "id": "heading_color", "label": "Überschriftfarbe", "default": "#FFFFFF" },
+    { "type": "color", "id": "text_color", "label": "Textfarbe", "default": "#F5F5F5" },
+    { "type": "range", "id": "heading_size", "label": "Überschriftgröße", "min": 24, "max": 72, "step": 1, "default": 48, "unit": "px" },
+    { "type": "range", "id": "text_size", "label": "Textgröße", "min": 14, "max": 40, "step": 1, "default": 18, "unit": "px" },
+    { "type": "select", "id": "font_family", "label": "Schriftart", "options": [
+        { "value": "Arial, sans-serif", "label": "Arial" },
+        { "value": "Helvetica, sans-serif", "label": "Helvetica" },
+        { "value": "Georgia, serif", "label": "Georgia" },
+        { "value": "Times New Roman, serif", "label": "Times New Roman" },
+        { "value": "Montserrat, sans-serif", "label": "Montserrat" }
+      ], "default": "Arial, sans-serif"
+    },
+    { "type": "checkbox", "id": "font_bold", "label": "Überschrift fett", "default": true },
+    { "type": "checkbox", "id": "font_italic", "label": "Überschrift kursiv", "default": false },
+    { "type": "select", "id": "text_alignment", "label": "Textausrichtung", "options": [
+        { "value": "left", "label": "Links" },
+        { "value": "center", "label": "Zentriert" },
+        { "value": "right", "label": "Rechts" }
+      ], "default": "left"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Hero Building"
+    }
+  ]
+}
+{%- endschema -%}

@@ -1,0 +1,29 @@
+{%- comment -%}
+  Snippet: einzelne Service-Kachel (eindeutiger Name)
+  Übergabewerte (via render):
+  - image, title, text, link_url, link_label, id
+{%- endcomment -%}
+
+<article class="leh-card" {{ block.shopify_attributes }}>
+  <div class="leh-card-media">
+    {%- if image != blank -%}
+      {{ image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'leh-img', alt: title }}
+    {%- else -%}
+      <div class="leh-img leh-img--placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="leh-card-body">
+    {%- if title != blank -%}
+      <h3 class="leh-card-title">{{ title }}</h3>
+    {%- endif -%}
+
+    {%- if text != blank -%}
+      <p class="leh-card-text">{{ text }}</p>
+    {%- endif -%}
+
+    {%- if link_label != blank -%}
+      <a class="leh-card-link" href="{{ link_url | default: '#' }}">{{ link_label }}</a>
+    {%- endif -%}
+  </div>
+</article>

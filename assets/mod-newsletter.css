@@ -1,0 +1,9 @@
+.mnl__inner{max-width:600px;margin:0 auto;text-align:center}
+.mnl__heading{font-size:1.75rem;font-weight:700;margin:0 0 .5rem}
+.mnl__text{color:rgba(0,0,0,.6);margin:0 0 1.5rem;font-size:1rem}
+.mnl__row{display:flex;gap:.5rem;max-width:480px;margin:0 auto}
+.mnl__input{flex:1;padding:.85rem 1.25rem;border:1.5px solid rgba(0,0,0,.15);border-radius:8px;font-size:1rem;transition:border-color .2s}
+.mnl__input:focus{outline:none;border-color:#000;box-shadow:0 0 0 1px #000}
+.mnl__btn{padding:.85rem 2rem;border-radius:8px;font-weight:600;white-space:nowrap}
+.mnl__disclaimer{font-size:.75rem;color:rgba(0,0,0,.4);margin-top:.75rem}
+@media(max-width:480px){.mnl__row{flex-direction:column}}

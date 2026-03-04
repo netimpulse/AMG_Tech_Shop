@@ -1,0 +1,379 @@
+{%- assign _fs = section.settings.block_font_size -%}
+{%- assign _fc = section.settings.block_font_color -%}
+{%- assign _ff = section.settings.block_font_family -%}
+{%- assign _bg = section.settings.block_bg_color -%}
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+<style>
+  #shopify-section-{{ section.id }} .sec-inner {
+    {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
+    {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
+    {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
+    {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
+  }
+</style>
+{%- endif -%}
+
+{{ 'mod-product-featured.css' | asset_url | stylesheet_tag }}
+{%- assign s = section.settings -%}
+{%- assign p = s.product -%}
+<div class="mpf sec-inner" style="padding:{{ s.padding_y }}px 0;{%- if s.section_bg != blank -%}background:{{ s.section_bg }};{%- endif -%}">
+  <div class="page-width">
+    {%- if s.badge_text != blank -%}<span class="mpf__badge">{{ s.badge_text }}</span>{%- endif -%}
+    {%- if s.heading != blank -%}<h2 class="mpf__section-heading">{{ s.heading }}</h2>{%- endif -%}
+    <div class="mpf__layout mpf__layout--{{ s.image_position }}">
+      <div class="mpf__media">
+        {%- if p != blank and p.featured_image != blank -%}
+          <div class="mpf__gallery">
+            <div class="mpf__main-img-wrap">
+              <img src="{{ p.featured_image | image_url: width: 900 }}" alt="{{ p.featured_image.alt | escape }}" class="mpf__main-img" id="mpf-main-{{ section.id }}" width="900" height="{{ 900 | divided_by: p.featured_image.aspect_ratio | round }}">
+            </div>
+            {%- if p.images.size > 1 and s.show_thumbnails -%}
+              <div class="mpf__thumbs">
+                {%- for img in p.images limit: 6 -%}
+                  <button class="mpf__thumb{%- if forloop.first %} mpf__thumb--active{%- endif -%}" data-img="{{ img | image_url: width: 900 }}" type="button">
+                    <img src="{{ img | image_url: width: 120 }}" alt="{{ img.alt | escape }}" loading="lazy" width="80" height="80">
+                  </button>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          <div class="mpf__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+        {%- endif -%}
+      </div>
+      <div class="mpf__details">
+        {%- if p != blank -%}
+          {%- if s.show_vendor and p.vendor != blank -%}<span class="mpf__vendor">{{ p.vendor }}</span>{%- endif -%}
+          <h2 class="mpf__title" style="{%- if s.title_size > 0 -%}font-size:{{ s.title_size }}px;{%- endif -%}">{{ p.title }}</h2>
+          <div class="mpf__price-wrap">
+            {%- if p.compare_at_price > p.price -%}
+              <span class="mpf__compare">{{ p.compare_at_price | money }}</span>
+              <span class="mpf__save-badge">{{ p.compare_at_price | minus: p.price | money }} sparen</span>
+            {%- endif -%}
+            <span class="mpf__price" id="mpf-price-{{ section.id }}">{{ p.price | money }}</span>
+            {%- if p.selected_or_first_available_variant.unit_price -%}
+              <span class="mpf__unit-price">({{ p.selected_or_first_available_variant.unit_price | money }} / {{ p.selected_or_first_available_variant.unit_price_measurement.reference_value }}{{ p.selected_or_first_available_variant.unit_price_measurement.reference_unit }})</span>
+            {%- endif -%}
+          </div>
+          {%- if s.show_description -%}
+            <div class="mpf__desc rte">{{ p.description | truncate: 300 }}</div>
+          {%- endif -%}
+
+          {%- comment -%} Variant Selection {%- endcomment -%}
+          <form method="post" action="/cart/add" class="mpf__form" id="mpf-form-{{ section.id }}">
+            {%- if p.has_only_default_variant == false -%}
+              <div class="mpf__variants">
+                {%- for option in p.options_with_values -%}
+                  <div class="mpf__option">
+                    <label class="mpf__option-label">{{ option.name }}</label>
+                    <div class="mpf__option-values">
+                      {%- for value in option.values -%}
+                        <button type="button"
+                          class="mpf__option-btn{%- if option.selected_value == value %} mpf__option-btn--active{%- endif -%}"
+                          data-option-index="{{ forloop.parentloop.index0 }}"
+                          data-value="{{ value }}">{{ value }}</button>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}" id="mpf-variant-{{ section.id }}">
+
+            {%- if s.show_quantity -%}
+            <div class="mpf__qty-wrap">
+              <label class="mpf__option-label">Menge</label>
+              <div class="mpf__qty">
+                <button type="button" class="mpf__qty-btn mpf__qty-minus" aria-label="Weniger">-</button>
+                <input type="number" name="quantity" value="1" min="1" class="mpf__qty-input">
+                <button type="button" class="mpf__qty-btn mpf__qty-plus" aria-label="Mehr">+</button>
+              </div>
+            </div>
+            {%- endif -%}
+
+            <button type="submit" class="mpf__add-btn button" id="mpf-add-{{ section.id }}" style="{%- if s.btn_bg != blank -%}background:{{ s.btn_bg }};{%- endif -%}{%- if s.btn_color != blank -%}color:{{ s.btn_color }};{%- endif -%}"
+              {%- unless p.available %} disabled{%- endunless -%}>
+              {%- if p.available -%}{{ s.add_text | default: 'In den Warenkorb' }}{%- else -%}Ausverkauft{%- endif -%}
+            </button>
+          </form>
+
+          {%- comment -%} Feature List {%- endcomment -%}
+          {%- if s.show_features -%}
+            <div class="mpf__features">
+              {%- for block in section.blocks -%}
+                <div class="mpf__feature" {{ block.shopify_attributes }}>
+                  {%- if block.settings.icon != blank -%}<span class="mpf__feature-icon">{{ block.settings.icon }}</span>{%- endif -%}
+                  <span>{{ block.settings.text }}</span>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          <h2 class="mpf__title">Produkt auswaehlen</h2>
+          <p class="mpf__desc">Waehle ein Produkt in den Einstellungen aus.</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- if p != blank -%}
+<script>
+(function(){
+  var variants={{ p.variants | json }};
+  var section=document.getElementById('mpf-form-{{ section.id }}');
+  if(!section)return;
+  var optBtns=section.querySelectorAll('.mpf__option-btn');
+  var hiddenId=document.getElementById('mpf-variant-{{ section.id }}');
+  var priceEl=document.getElementById('mpf-price-{{ section.id }}');
+  var addBtn=document.getElementById('mpf-add-{{ section.id }}');
+  var mainImg=document.getElementById('mpf-main-{{ section.id }}');
+  function getSelected(){
+    var opts=[];
+    section.querySelectorAll('.mpf__option').forEach(function(g){
+      var a=g.querySelector('.mpf__option-btn--active');
+      opts.push(a?a.dataset.value:'');
+    });
+    return opts;
+  }
+  function update(){
+    var sel=getSelected();
+    var v=variants.find(function(v){return v.options.every(function(o,i){return o===sel[i]})});
+    if(v){
+      hiddenId.value=v.id;
+      priceEl.textContent=(v.price/100).toFixed(2).replace('.',',')+' EUR';
+      if(v.available){addBtn.disabled=false;addBtn.textContent='{{ s.add_text | default: "In den Warenkorb" }}';}
+      else{addBtn.disabled=true;addBtn.textContent='Ausverkauft';}
+      if(v.featured_image&&mainImg){mainImg.src=v.featured_image.src.replace(/\.([^.]+)$/,'_900x.$1');}
+    }
+  }
+  optBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      this.closest('.mpf__option-values').querySelectorAll('.mpf__option-btn').forEach(function(b){b.classList.remove('mpf__option-btn--active')});
+      this.classList.add('mpf__option-btn--active');
+      update();
+    });
+  });
+  /* Thumbnails */
+  document.querySelectorAll('#shopify-section-{{ section.id }} .mpf__thumb').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('#shopify-section-{{ section.id }} .mpf__thumb').forEach(function(x){x.classList.remove('mpf__thumb--active')});
+      this.classList.add('mpf__thumb--active');
+      if(mainImg)mainImg.src=this.dataset.img;
+    });
+  });
+  /* Qty */
+  var qtyInput=section.querySelector('.mpf__qty-input');
+  if(qtyInput){
+    section.querySelector('.mpf__qty-minus')?.addEventListener('click',function(){qtyInput.value=Math.max(1,parseInt(qtyInput.value)-1)});
+    section.querySelector('.mpf__qty-plus')?.addEventListener('click',function(){qtyInput.value=parseInt(qtyInput.value)+1});
+  }
+  /* AJAX Cart */
+  section.addEventListener('submit',function(e){
+    e.preventDefault();
+    addBtn.disabled=true;addBtn.textContent='...';
+    fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:parseInt(hiddenId.value),quantity:parseInt(qtyInput?.value||1)})})
+    .then(function(r){return r.json()})
+    .then(function(){
+      addBtn.textContent='\u2713 Hinzugefuegt!';
+      setTimeout(function(){addBtn.disabled=false;addBtn.textContent='{{ s.add_text | default: "In den Warenkorb" }}'},2000);
+      fetch('/cart.js').then(function(r){return r.json()}).then(function(c){
+        document.querySelectorAll('.cart-count-bubble span, [data-cart-count]').forEach(function(el){el.textContent=c.item_count});
+      });
+    })
+    .catch(function(){addBtn.disabled=false;addBtn.textContent='Fehler - erneut versuchen'});
+  });
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Mod: Produkt Highlight",
+  "tag": "section",
+  "class": "section-mod-product-featured",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Produkt"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Abschnitt-Ueberschrift"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge-Text"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Bild-Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_thumbnails",
+      "label": "Thumbnails anzeigen",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Hersteller anzeigen",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Beschreibung anzeigen",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quantity",
+      "label": "Mengen-Auswahl anzeigen",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_features",
+      "label": "Feature-Liste anzeigen",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Titel-Groesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "add_text",
+      "label": "Warenkorb-Button Text",
+      "default": "In den Warenkorb"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button Hintergrund"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button Textfarbe"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 56,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Hintergrundfarbe"
+    },
+    {
+      "type": "header",
+      "content": "Globale Schrift & Farbe"
+    },
+    {
+      "type": "range",
+      "id": "block_font_size",
+      "label": "Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "block_font_color",
+      "label": "Schriftfarbe"
+    },
+    {
+      "type": "font_picker",
+      "id": "block_font_family",
+      "label": "Schriftart",
+      "default": "assistant_n4"
+    },
+    {
+      "type": "color_background",
+      "id": "block_bg_color",
+      "label": "Abschnitt-Hintergrund"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon/Emoji",
+          "default": "✓"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Kostenloser Versand"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mod: Produkt Highlight",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🚚",
+            "text": "Kostenloser Versand"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🔄",
+            "text": "30 Tage Rueckgabe"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🔒",
+            "text": "Sichere Bezahlung"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

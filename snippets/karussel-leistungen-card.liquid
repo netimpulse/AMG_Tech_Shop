@@ -1,0 +1,48 @@
+{%- liquid
+  assign img = block.settings.image
+  assign bullets = block.settings.bullets | newline_to_br | split: '<br />'
+-%}
+
+<article class="svc-card" {{ block.shopify_attributes }}
+  style="--svc-card-bg: {{ block.settings.card_bg }}; --svc-card-text: {{ block.settings.card_text }}; --svc-bullet: {{ block.settings.bullet_color }};">
+  <div class="svc-card__media">
+    {% if img != blank %}
+      {{ img | image_url: width: 720 | image_tag: loading: 'lazy', class: 'svc-card__img', widths: '360,540,720' }}
+    {% else %}
+      <div class="svc-card__placeholder" aria-hidden="true"></div>
+    {% endif %}
+    {% if block.settings.badge != blank %}
+      <span class="svc-card__badge" style="--svc-badge-bg: {{ block.settings.badge_color_bg }}; --svc-badge-tx: {{ block.settings.badge_color_text }};">{{ block.settings.badge }}</span>
+    {% endif %}
+  </div>
+
+  <div class="svc-card__body">
+    {% if block.settings.title != blank %}
+      <h3 class="svc-card__title">{{ block.settings.title | escape }}</h3>
+    {% endif %}
+    {% if block.settings.text != blank %}
+      <p class="svc-card__text">{{ block.settings.text }}</p>
+    {% endif %}
+
+    {% if bullets.size > 0 and bullets.first != blank %}
+      <ul class="svc-card__list">
+        {% for item in bullets %}
+          {% assign t = item | strip %}
+          {% if t != blank %}
+            <li class="svc-card__li">{{ t }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+  {% if block.settings.show_btn and block.settings.btn_label != blank %}
+    <div class="svc-card__footer">
+      {% if block.settings.btn_link != blank %}
+        <a class="svc-btn" href="{{ block.settings.btn_link }}">{{ block.settings.btn_label }}</a>
+      {% else %}
+        <span class="svc-btn is-disabled" role="button" aria-disabled="true">{{ block.settings.btn_label }}</span>
+      {% endif %}
+    </div>
+  {% endif %}
+</article>

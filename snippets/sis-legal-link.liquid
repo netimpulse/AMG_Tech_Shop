@@ -1,0 +1,10 @@
+{%- comment -%} Einzelnes Listenelement für einen rechtlichen Link {%- endcomment -%}
+<li class="sis-footer__links-item" {{ block.shopify_attributes }}>
+  {% if block.settings.url != blank %}
+    <a class="sis-footer__link" href="{{ block.settings.url }}" rel="noopener" >
+      {{ block.settings.label | default: 'Link' }}
+    </a>
+  {% else %}
+    <span class="sis-footer__text">{{ block.settings.label | default: 'Link' }}</span>
+  {% endif %}
+</li>

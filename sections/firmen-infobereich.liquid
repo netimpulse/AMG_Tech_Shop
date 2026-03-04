@@ -1,0 +1,347 @@
+{% comment %}
+  Version 5 - Komplett Unabhängig.
+  Diese Sektion lädt KEINE CSS-Dateien von der Standard-Fußzeile.
+  Alle Stile sind eigenständig.
+{% endcomment %}
+
+{%- style -%}
+  /* Globale Abstände für die Sektion */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background-color: rgba(var(--color-{{ section.settings.color_scheme }}-background));
+    color: rgba(var(--color-{{ section.settings.color_scheme }}-text));
+  }
+
+  /* Container für die beiden Spalten */
+  .firmen-infobereich-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem; /* Abstand zwischen den Spalten */
+    align-items: flex-start;
+  }
+
+  /* Stil für eine einzelne Spalte */
+  .firmen-column {
+    flex: 1; /* Beide Spalten nehmen gleich viel Platz ein */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Abstand zwischen den Blöcken innerhalb einer Spalte */
+  }
+
+  /* Vertikaler Trennstrich */
+  .firmen-divider {
+    width: 1px;
+    background-color: rgba(var(--color-{{ section.settings.color_scheme }}-text), 0.1);
+    align-self: stretch; /* Dehnt den Strich über die ganze Höhe */
+  }
+  
+  /* Stile für die Blöcke */
+  .firmen-block__heading {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: calc(var(--font-heading-scale) * 1.6rem);
+  }
+
+  /* Stile für die Linkliste im Block (vertikal) */
+  .firmen-block--link-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .firmen-block--link-list li {
+    margin-bottom: 0.8rem; /* Abstand zwischen den einzelnen Links */
+  }
+
+  .firmen-block--link-list a {
+    text-decoration: none;
+    color: rgba(var(--color-{{ section.settings.color_scheme }}-text), 0.75);
+    transition: color 0.3s ease;
+  }
+
+  .firmen-block--link-list a:hover {
+    color: rgb(var(--color-{{ section.settings.color_scheme }}-text));
+    text-decoration: underline;
+  }
+
+  /* Responsive Anpassung für mobile Geräte */
+  @media screen and (max-width: 749px) {
+    .firmen-infobereich-container {
+      flex-direction: column; /* Spalten untereinander anordnen */
+      gap: 0;
+    }
+    .firmen-divider {
+      width: 100%;
+      height: 1px;
+      margin: 3rem 0; /* Horizontaler Trennstrich */
+      align-self: auto;
+    }
+    .firmen-column {
+      width: 100%;
+    }
+  }
+
+  /* Anpassungen für Desktop-Größen */
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="firmen-infobereich-container">
+      
+      <div class="firmen-column firmen-column--left">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.column == 'left' -%}
+            <div class="firmen-block firmen-block--{{ block.type | handle }}" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {%- if block.settings.heading != blank -%}
+                <h3 class="firmen-block__heading inline-richtext">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+              {%- case block.type -%}
+                {%- when 'link_list' -%}
+                  {%- if block.settings.menu != blank and block.settings.menu.links.size > 0 -%}
+                    <ul>
+                      {%- for link in block.settings.menu.links -%}
+                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                {%- when 'text' -%}
+                  <div class="rte">{{ block.settings.subtext }}</div>
+              {%- endcase -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="firmen-divider"></div>
+
+      <div class="firmen-column firmen-column--right">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.column == 'right' -%}
+            <div class="firmen-block firmen-block--{{ block.type | handle }}" id="block-{{ block.id }}" {{ block.shopify_attributes }}>
+              {% render 'block-custom-styles', block: block %}
+              {%- if block.settings.heading != blank -%}
+                <h3 class="firmen-block__heading inline-richtext">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+              {%- case block.type -%}
+                {%- when 'link_list' -%}
+                  {%- if block.settings.menu != blank and block.settings.menu.links.size > 0 -%}
+                    <ul>
+                      {%- for link in block.settings.menu.links -%}
+                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                {%- when 'text' -%}
+                  <div class="rte">{{ block.settings.subtext }}</div>
+              {%- endcase -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Firmen-Infobereich",
+  "class": "shopify-section--firmen-infobereich",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Farbschema",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Abstände"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Innerer Abstand oben",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Innerer Abstand unten",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "Linkliste",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Spalte zuweisen",
+          "options": [
+            {
+              "value": "left",
+              "label": "Links"
+            },
+            {
+              "value": "right",
+              "label": "Rechts"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Überschrift",
+          "default": "Rechtliches"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menü auswählen",
+          "info": "Wähle das Menü mit den Links aus, die du hier anzeigen möchtest (z.B. 'Rechtliches - Firma A'). Die Links werden vertikal angezeigt."
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Textblock",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Spalte zuweisen",
+          "options": [
+            {
+              "value": "left",
+              "label": "Links"
+            },
+            {
+              "value": "right",
+              "label": "Rechts"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Überschrift",
+          "default": "Über uns"
+        },
+        {
+          "type": "richtext",
+          "id": "subtext",
+          "label": "Text",
+          "default": "<p>Ein kurzer Text über diese Firma.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Firmen-Infobereich",
+      "blocks": [
+        {
+          "type": "link_list",
+          "settings": {
+            "column": "left",
+            "heading": "Firma A"
+          }
+        },
+        {
+          "type": "link_list",
+          "settings": {
+            "column": "right",
+            "heading": "Firma B"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

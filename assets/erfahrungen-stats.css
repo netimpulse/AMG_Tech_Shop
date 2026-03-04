@@ -1,0 +1,145 @@
+/* Erfahrungen • Stats — ruhiges, luftiges Layout  */
+/* ------------------------------------------------ */
+
+.es-section{
+  --es-gap: clamp(22px, 3.2vw, 32px);
+  --es-pad: clamp(28px, 4vw, 64px);
+  --es-card-pad: clamp(18px, 2.4vw, 26px);
+  --es-radius: var(--es-card-br, 18px);
+  --es-text: var(--es-text-color, #0b1b13);
+  --es-accent: var(--es-accent-color, #16a34a);
+  --es-bg: var(--es-bg-color, #f5f7f6);
+  --es-card-bg: var(--es-card-bg-color, #fff);
+  background:
+    radial-gradient(1200px 400px at 15% -10%, rgba(22,163,74,.06), transparent 60%),
+    var(--es-bg);
+  color: var(--es-text);
+}
+
+.es-container{
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: var(--es-pad) clamp(16px, 4vw, 36px);
+}
+
+/* Zwei Spalten – linke Spalte flexibel, rechte angenehm fixiert */
+.es-grid{
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(560px, 680px);
+  gap: clamp(28px, 5vw, 48px);
+  align-items: start;
+}
+
+/* Typo links */
+.es-kicker{
+  font-size: clamp(12px, 1.4vw, 14px);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity:.7;
+  margin: 0 0 12px;
+}
+.es-heading{
+  font-size: clamp(32px, 4.6vw, 48px);
+  line-height: 1.1;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+.es-richtext{
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.7;
+  opacity:.95;
+  max-width: 58ch;
+}
+
+/* Badges */
+.es-badges{ display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 22px; }
+.es-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:999px;
+  background: rgba(22,163,74,.12);
+  color:#16a34a;
+  font-weight:700; font-size:13px;
+}
+
+/* Button */
+.es-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 18px; border-radius:999px;
+  background:var(--es-accent); color:#fff; text-decoration:none;
+  font-weight:700; box-shadow:0 10px 22px rgba(0,0,0,.06);
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+.es-btn:hover{ transform: translateY(-1px); box-shadow:0 14px 26px rgba(0,0,0,.08); }
+
+/* Karten-Grid — Desktop bewusst 2 Spalten für mehr Luft (wie im Screenshot) */
+.es-cards{
+  display:grid;
+  gap: clamp(18px, 2.6vw, 26px);
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+
+/* Karten */
+.es-card{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items:start;
+  background: var(--es-card-bg);
+  border-radius: var(--es-radius);
+  padding: var(--es-card-pad);
+  border: 1px solid rgba(16,24,18,.06);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,.03),
+    0 10px 28px rgba(0,0,0,.05);
+  min-height: 170px;                 /* einheitliche Höhe */
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+.es-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.07);
+  border-color: rgba(16,24,18,.10);
+}
+
+/* Optional hervorgehobene Karte */
+.es-card--featured{
+  border-color: rgba(22,163,74,.35);
+  box-shadow: 0 12px 34px rgba(22,163,74,.12), 0 1px 0 rgba(0,0,0,.03);
+}
+
+/* Icon-Badge */
+.es-card-icon{
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display:grid; place-items:center;
+  background: rgba(22,163,74,.14);
+  color:#16a34a;
+  font-size: 16px; line-height:1;
+}
+
+/* Inhalte */
+.es-card-title{
+  color:#0d7d3d;
+  font-weight: 800;
+  font-size: clamp(18px, 2.6vw, 22px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 2px 0 6px;
+}
+.es-card-subtitle{
+  font-size: clamp(13px, 1.6vw, 14px);
+  color: rgba(11,27,19,.72);
+  line-height: 1.55;
+  max-width: 40ch;
+}
+
+/* Breakpoints */
+@media (max-width: 1080px){
+  .es-grid{ grid-template-columns: 1fr; }
+  .es-cards{ grid-template-columns: 1fr; }
+  .es-card{ min-height: 0; }
+}
+
+/* Bewegung reduzieren */
+@media (prefers-reduced-motion: reduce){
+  .es-btn, .es-card{ transition:none; }
+}

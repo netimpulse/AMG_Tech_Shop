@@ -1,0 +1,179 @@
+/* ===========================
+   Leistung final – Komplett CSS
+   =========================== */
+
+/* Base */
+.lf-container{
+  background: var(--lf-bg);
+  color: var(--lf-text);
+  padding: var(--lf-pad);
+  font-family: var(--lf-font-body);
+}
+.lf-inner{ max-width:1200px; margin:0 auto; }
+
+/* ---------- Grid Fallback (ohne JS) ---------- */
+.lf-viewport{ overflow:hidden; }
+.lf-track{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:var(--lf-gap);
+}
+@media (max-width:990px){ .lf-track{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+@media (max-width:640px){ .lf-track{ grid-template-columns:1fr; } }
+
+/* ---------- Aktiviertes Karussell (mit JS) ---------- */
+.lf-carousel{ position:relative; overflow:visible; }  /* overflow sichtbar -> Pfeile nicht abgeschnitten */
+.lf-carousel.lf-carousel--active .lf-track{
+  display:flex;
+  gap:0;
+  transition:transform .35s ease;
+  will-change:transform;
+}
+.lf-carousel.lf-carousel--active .lf-slide{
+  flex:0 0 calc(100% / var(--lf-per-view, 3));
+  padding:0 10px;
+  box-sizing:border-box;
+}
+
+/* ---------- Pfeile ---------- */
+.lf-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px; height:44px;
+  border-radius:999px;
+  border:0;
+  background:#f3f4f6;
+  box-shadow:0 2px 10px rgba(0,0,0,.12);
+  display:grid; place-items:center;
+  cursor:pointer;
+  transition:transform .15s, background .2s, opacity .2s;
+  z-index:10;                   /* über Karten-Schatten */
+}
+.lf-arrow:hover{ transform:translateY(-50%) scale(1.05); background:#e5e7eb; }
+.lf-arrow:disabled{ opacity:.45; cursor:default; transform:translateY(-50%); }
+
+/* etwas nach innen, damit nichts abgeschnitten wird */
+.lf-prev{ left:8px; }
+.lf-next{ right:8px; }
+
+@media (max-width:640px){
+  .lf-prev{ left:8px; }
+  .lf-next{ right:8px; }
+}
+
+/* ---------- Punkte ---------- */
+.lf-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:16px;
+}
+.lf-dot{
+  width:8px; height:8px;
+  border-radius:50%;
+  background:#cbd5e1;
+  border:0; padding:0;
+  cursor:pointer;
+  transition:transform .15s, background .2s;
+}
+.lf-dot:hover{ transform:scale(1.1); }
+.lf-dot.active{ background:#111827; }
+
+/* =========================================
+   Karten – Look wie im Screenshot (Default)
+   ========================================= */
+
+/* Bildhöhe */
+.lf-img{
+  width:100%;
+  height:210px;                  /* höher wie im Screenshot */
+  object-fit:cover;
+  display:block;
+}
+
+/* Card: runder + weicher Schatten */
+.lf-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.06),
+    0 8px 20px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+/* Innenabstand / Rand */
+.lf-card-body{ padding:22px 24px; }
+
+/* Titel */
+.lf-card-title{
+  font-family:var(--lf-font-head);
+  font-size:20px;
+  font-weight:700;
+  margin:0 0 12px;
+  color:#111827;
+}
+
+/* Text */
+.lf-card-text{
+  font-family:var(--lf-font-body);
+  font-size:16px;
+  line-height:1.75;
+  margin:0 0 16px;
+  color:rgba(17,24,39,.90);
+}
+
+/* Link */
+.lf-card-link{
+  font-family:var(--lf-font-body);
+  font-size:15px;
+  font-weight:700;
+  color:var(--lf-accent, #22c55e); /* Standard grün, kann über Section-Farbe überschrieben werden */
+  text-decoration:none;
+}
+.lf-card-link:hover{ text-decoration:underline; }
+
+/* Hover-Lift – zuverlässig (auch wenn Hover auf .lf-slide liegt) */
+@media (hover:hover){
+  .lf-card:hover,
+  .lf-slide:hover .lf-card{
+    transform:translate3d(0,-8px,0);
+    box-shadow:
+      0 6px 16px rgba(0,0,0,.10),
+      0 16px 36px rgba(0,0,0,.18);
+  }
+}
+
+/* =========================================
+   CTA-Button & Container
+   ========================================= */
+.lf-cta-wrap{ margin-top: var(--lf-btn-mt,28px); margin-bottom: var(--lf-btn-mb,0px); }
+.lf-cta-inner{ max-width: var(--lf-btn-maxw,420px); margin: 0 auto; }
+.lf-btn{
+  display:inline-block; width:auto;
+  padding: var(--lf-btn-py,10px) var(--lf-btn-px,20px);
+  border-radius: var(--lf-btn-radius,20px);
+  background: var(--lf-btn-bg,#8B8E93);
+  color: var(--lf-btn-text,#fff);
+  text-decoration:none; line-height:1;
+  font-family: var(--lf-font-body);
+  font-weight: var(--lf-btn-fw,600);
+  font-style: var(--lf-btn-style,normal);
+  font-size: var(--lf-btn-size,16px);
+  transition: transform .2s, background .2s, color .2s;
+}
+/* Hover */
+.lf-btn:hover{
+  background: var(--lf-btn-hover-bg,#6f7276);
+  color: var(--lf-btn-hover-text,#fff);
+  transform: translateY(-1px);
+}
+/* Volle Breite (optional per Klasse) */
+.lf-btn--block{ display:block; width:100%; }
+
+/* Immer pill-rund (Variante B) */
+.lf-btn{ border-radius:9999px !important; }

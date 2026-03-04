@@ -1,0 +1,74 @@
+{%- liquid
+  assign icon = block.settings.icon
+  assign title = block.settings.title | default: 'Qualitäten Hotspot'
+  assign text = block.settings.text
+  assign subpoints_raw = block.settings.subpoints | to_string
+
+  comment
+    Icon-Logik:
+    - global: show_icons_global (Section)
+    - per Block: block.settings.show_icon
+    -> Nur anzeigen, wenn beide true
+  endcomment
+
+  assign show_icons_global = show_icons_global | default: true
+  assign show_icon_block = block.settings.show_icon | default: true
+  assign show_icon_final = false
+  if show_icons_global and show_icon_block
+    assign show_icon_final = true
+  endif
+
+  assign card_classes = 'hi-card'
+  unless show_icon_final
+    assign card_classes = card_classes | append: ' no-icon'
+  endunless
+-%}
+
+<article class="{{ card_classes }}" {{ block.shopify_attributes }}>
+  {% if show_icon_final %}
+    {% if icon %}
+      <div class="hi-icon" style="background-color: {{ block.settings.icon_bg }};">
+        {{ icon | image_url: width: 160 | image_tag: loading: 'lazy', class: 'hi-icon__img', widths: '80,120,160' }}
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <h3 class="hi-card__title">{{ title }}</h3>
+
+  {% if text != blank %}
+    <p class="hi-card__text">{{ text }}</p>
+  {% endif %}
+
+  {%- if subpoints_raw != blank -%}
+    {%- assign lines = subpoints_raw | newline_to_br | split: '<br />' -%}
+    {%- assign clean_lines = '' -%}
+    {%- for l in lines -%}
+      {%- assign trimmed = l | strip -%}
+      {%- if trimmed != '' -%}
+        {%- assign clean_lines = clean_lines | append: trimmed | append: '[[li]]' -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign items = clean_lines | split: '[[li]]' -%}
+    {%- if items.size > 0 -%}
+      <ul class="hi-subpoints" aria-label="Unterpunkte">
+        {%- for it in items -%}
+          {%- assign t = it | strip -%}
+          {%- if t != '' -%}
+            <li>{{ t }}</li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  {%- endif -%}
+
+  {% if block.settings.show_btn and block.settings.btn_label != blank %}
+    {% if block.settings.btn_link != blank %}
+      <a class="hi-btn"
+         style="--hi-btn-bg: {{ block.settings.btn_bg }}; --hi-btn-tx: {{ block.settings.btn_text }};"
+         href="{{ block.settings.btn_link }}">{{ block.settings.btn_label }}</a>
+    {% else %}
+      <span class="hi-btn is-disabled"
+        style="--hi-btn-bg: {{ block.settings.btn_bg }}; --hi-btn-tx: {{ block.settings.btn_text }};">{{ block.settings.btn_label }}</span>
+    {% endif %}
+  {% endif %}
+</article>

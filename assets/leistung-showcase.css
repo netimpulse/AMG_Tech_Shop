@@ -1,0 +1,83 @@
+/* ===== Section Layout ===== */
+.lsc-section{ background: var(--lsc-bg); padding: var(--lsc-pad); }
+.lsc-inner{ max-width: 1200px; margin: 0 auto; }
+
+.lsc-grid{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Bildposition Desktop */
+.lsc-pos-right .lsc-media{ order: 2; }
+.lsc-pos-right .lsc-rightcol{ order: 1; }
+
+/* Bild */
+.lsc-img{ width:100%; height:auto; border-radius:var(--lsc-radius); object-fit:cover; display:block; }
+.lsc-img--placeholder{ height:320px; background:#e9edf2; border-radius:var(--lsc-radius); }
+
+/* Linker Ersatz-Textblock (wenn Bild ausgeblendet) */
+.lsc-leftblock{ display:grid; gap:10px; }
+.lsc-left-heading{ margin:0; font-size:clamp(20px,2vw,26px); font-weight:700; }
+.lsc-left-text{ color:#0f172a; line-height:1.6; }
+.lsc-left-text p{ margin:0 0 .6em; }
+.lsc-left-text p:last-child{ margin-bottom:0; }
+
+/* Rechte Spalte */
+.lsc-rightcol{ display: grid; gap: 16px; }
+.lsc-heading{ margin:0 0 8px; font-size:clamp(22px,2.2vw,28px); font-weight:700; }
+.lsc-text{ color:#333; line-height:1.6; max-width:70ch; }
+
+/* ===== Punkte-Container ===== */
+.lsc-points{ padding: 0; }
+.lsc-points.is-card{
+  background: var(--lsc-card-bg);
+  border: 1px solid var(--lsc-card-bd);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.35) inset;
+}
+.lsc-points-title{ margin:0 0 10px; font-weight:700; font-size:16px; color:#2b2b2b; }
+
+/* Liste der Punkte */
+.lsc-points-list{ display: grid; gap: 10px; }
+
+/* Einzelner Punkt */
+.lsc-item{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.lsc-item-icon{ line-height:0; }
+.lsc-icon{ width:22px; height:22px; object-fit:contain; display:block; }
+
+/* Fallback: runder Bullet, wenn kein Icon */
+.lsc-icon--dot{ width:8px; height:8px; border-radius:50%; background:var(--lsc-bullet); margin:7px 7px 0 7px; }
+
+/* Mehrzeiliger Text */
+.lsc-item-text{ color:#0f172a; font-size:14px; line-height:1.55; }
+.lsc-item-text p{ margin:0 0 6px; }
+.lsc-item-text p:last-child{ margin-bottom:0; }
+
+/* Button im Punkte-Container */
+.lsc-points-cta{ margin-top: 10px; }
+.lsc-btn{
+  display:inline-block; padding:10px 18px; border-radius:999px;
+  background:#8B8E93; color:#fff; text-decoration:none; font-weight:600; line-height:1;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12) inset, 0 1px 0 rgba(255,255,255,.2);
+  transition: transform .2s ease, opacity .2s ease;
+}
+.lsc-btn:hover{ transform: translateY(-1px); opacity:.95; }
+
+/* ===== Responsive ===== */
+@media (max-width: 990px){
+  .lsc-grid{ grid-template-columns: 1fr; }
+  /* Reihenfolge Mobil: Bild/Linkstext -> Inhalt -> Punkte */
+  .lsc-media, .lsc-leftblock{ order: 1; }
+  .lsc-rightcol{ order: 2; }
+}
+
+/* Kleinere Sicherheitsregeln */
+.lsc-rightcol .rte, .lsc-leftblock .rte { overflow-wrap: anywhere; }

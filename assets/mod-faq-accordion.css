@@ -1,0 +1,12 @@
+.mfa__inner{max-width:800px;margin:0 auto}
+.mfa__heading{text-align:center;font-size:1.75rem;font-weight:700;margin:0 0 .5rem}
+.mfa__sub{text-align:center;color:rgba(0,0,0,.55);margin:0 0 2rem}
+.mfa__list{display:flex;flex-direction:column;gap:.5rem}
+.mfa__item{border:1px solid rgba(0,0,0,.08);border-radius:10px;overflow:hidden;background:#fff;transition:box-shadow .2s}
+.mfa__item:hover{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.mfa__item[open]{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.mfa__question{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;cursor:pointer;font-weight:600;font-size:1rem;list-style:none;gap:1rem}
+.mfa__question::-webkit-details-marker{display:none}
+.mfa__chevron{flex-shrink:0;transition:transform .25s}
+.mfa__item[open] .mfa__chevron{transform:rotate(180deg)}
+.mfa__answer{padding:0 1.5rem 1.25rem;line-height:1.7;color:rgba(0,0,0,.65)}

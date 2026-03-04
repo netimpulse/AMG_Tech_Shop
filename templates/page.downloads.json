@@ -1,0 +1,297 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "sticky_header_aecVGd": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Zurück",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/SIS_Gruppe_logo.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "hauptmen",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/allgemeiner-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "hero_building_section_ztyrhy": {
+      "type": "hero-building-section",
+      "disabled": true,
+      "name": "Hero Building",
+      "settings": {
+        "background_image": "shopify://shop_images/shutterstock_370492946.jpg",
+        "enable_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.5,
+        "heading": "Unsere Partner",
+        "subheading": "",
+        "button_label": "Jetzt Angebot anfordern",
+        "button_link": "",
+        "button_color": "#007acc",
+        "button_text_color": "#ffffff",
+        "button_radius": 4,
+        "heading_color": "#ffffff",
+        "text_color": "#f5f5f5",
+        "heading_size": 48,
+        "text_size": 18,
+        "font_family": "Arial, sans-serif",
+        "font_bold": true,
+        "font_italic": false,
+        "text_alignment": "left"
+      }
+    },
+    "dlx_downloads_wKpMwN": {
+      "type": "dlx-downloads",
+      "blocks": {
+        "download_KDLUmC": {
+          "type": "download",
+          "settings": {
+            "title": "Datenschutzerklärung",
+            "date": "11.09.2023",
+            "image": "shopify://shop_images/Datenschutzerklaerung_SISGS_Bild.png",
+            "file_url": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489",
+            "tags": "Zertifikat, ISO, 9001"
+          }
+        },
+        "download_cVTVn7": {
+          "type": "download",
+          "settings": {
+            "title": "ISO 9001: 2015",
+            "date": "11.09.2023",
+            "image": "shopify://shop_images/QM_Zertifikat_Bild_7204708b-5fac-4e4d-8236-c18547690392.png",
+            "file_url": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/2024_DESTU_bis_09.01.2028.pdf?v=1762348806",
+            "tags": "Zertifikat, ISO, 9001"
+          }
+        },
+        "download_7Uq3dW": {
+          "type": "download",
+          "settings": {
+            "title": "WHG - Zertifikat",
+            "date": "11.09.2023",
+            "image": "shopify://shop_images/WHG_ZErtifikat_Bild.png",
+            "file_url": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/2024_WHG_Zertifikat_gueltig_bis_11.2026.pdf?v=1762348850",
+            "tags": "Zertifikat, ISO, 9001"
+          }
+        },
+        "download_KXFVMF": {
+          "type": "download",
+          "settings": {
+            "title": "AMS der BG Bau",
+            "date": "11.09.2023",
+            "image": "shopify://shop_images/AMS_Zertifikat_Bild.png",
+            "file_url": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/2024_AMS_BAU_Bescheinigung_bis_28.05.27.pdf?v=1762348994",
+            "tags": "Zertifikat, ISO, 9001"
+          }
+        },
+        "download_VyWhPQ": {
+          "type": "download",
+          "settings": {
+            "title": "AGB",
+            "date": "11.09.2023",
+            "image": "shopify://shop_images/AGB_Bild.png",
+            "file_url": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Allgemeine-Geschaeftsbedingungen-SIS_-Stand-01.10.2013_-03.12.2018.pdf?v=1762348806",
+            "tags": "AGB, Allgemeine Geschäftsbedingungen"
+          }
+        }
+      },
+      "block_order": [
+        "download_KDLUmC",
+        "download_cVTVn7",
+        "download_7Uq3dW",
+        "download_KXFVMF",
+        "download_VyWhPQ"
+      ],
+      "name": "Downloads / Zertifikate (DLX)",
+      "settings": {
+        "heading": "Downloads",
+        "subtext": "<p>Hier finden Sie unsere Zertifikate, Broschüren und weitere Unterlagen. Klicken Sie auf eine Kachel oder den Button, um die Datei herunterzuladen.</p>",
+        "text_color": "#111111",
+        "font_size": 34,
+        "subtext_size": 16,
+        "font_family": "theme",
+        "heading_align": "center",
+        "heading_weight": 700,
+        "heading_style": "normal",
+        "show_search": false,
+        "search_placeholder": "Suchen… (Titel oder Tags, z. B. ISO, VDI, Brandschutz)",
+        "search_hint": "Tipp: Mehrere Tags mit Komma trennen – z. B. “ISO, 9001”",
+        "hover_color": "#e6f4ff"
+      }
+    },
+    "sis_footer_neu_rEdajt": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_PHrnyQ": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "leistungen_link_WFDg87": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Gebäudeservice",
+            "link": "shopify://pages/gebaeudeservice-leistungen"
+          }
+        },
+        "unternehmen_link_NaeeBE": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_KxGcrw": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere Indistrieservice",
+            "link": "shopify://pages/industrieservice-karriere"
+          }
+        },
+        "unternehmen_link_DAUDGM": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-karriere"
+          }
+        },
+        "unternehmen_link_NkQywr": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_ctTJ7P": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_p6bwtk": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": "shopify://pages/industrieservice-impressum"
+          }
+        },
+        "kontakt_link_CEbYJH": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Gebäudeservice",
+            "link": "shopify://pages/gebaudeservice-impressum"
+          }
+        },
+        "kontakt_link_Q37H7T": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_HC3K9w": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_GeKiLy": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_YTrCGz": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_PHrnyQ",
+        "leistungen_link_WFDg87",
+        "unternehmen_link_NaeeBE",
+        "unternehmen_link_KxGcrw",
+        "unternehmen_link_DAUDGM",
+        "unternehmen_link_NkQywr",
+        "unternehmen_link_ctTJ7P",
+        "kontakt_link_p6bwtk",
+        "kontakt_link_CEbYJH",
+        "kontakt_link_Q37H7T",
+        "partner_logo_HC3K9w",
+        "partner_logo_GeKiLy",
+        "partner_logo_YTrCGz"
+      ],
+      "name": "SIS Footer NEU",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar- Industrie- Service GmbH und SIS Saar Gebäudeservice GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sticky_header_aecVGd",
+    "hero_building_section_ztyrhy",
+    "dlx_downloads_wKpMwN",
+    "sis_footer_neu_rEdajt"
+  ]
+}

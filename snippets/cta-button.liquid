@@ -1,0 +1,32 @@
+{% comment %}
+  Button-Snippet für den Custom CTA Block
+  Erwartet: block (Block-Objekt)
+{% endcomment %}
+
+{%- liquid
+  assign href = block.settings.link | default: '#'
+  # Rich-Text vom Button: <p> entfernen, Inline-Formatierungen wie <strong> beibehalten
+  assign label_html = block.settings.label
+  assign label_html = label_html | replace: '<p>', '' | replace: '</p>', ''
+-%}
+
+<a
+  {{ block.shopify_attributes }}
+  class="cta-btn cta-btn--{{ block.settings.variant }}"
+  href="{{ href }}"
+  style="
+    --btn-px: {{ block.settings.padding_x }}px;
+    --btn-py: {{ block.settings.padding_y }}px;
+    --btn-radius: {{ block.settings.radius }}px;
+    --btn-text: {{ block.settings.text_color }};
+    --btn-bg: {{ block.settings.bg_color }};
+    --btn-border: {{ block.settings.border_color }};
+    --btn-hover-bg: {{ block.settings.hover_bg }};
+    --btn-hover-text: {{ block.settings.hover_text }};
+    --btn-x: {{ block.settings.offset_x }}%;
+    --btn-y: {{ block.settings.offset_y }}%;
+    --btn-weight: {% if block.settings.bold %}700{% else %}500{% endif %};
+  "
+>
+  <span>{{ label_html }}</span>
+</a>

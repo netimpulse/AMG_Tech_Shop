@@ -1,0 +1,162 @@
+{% comment %}
+  Interaktive Karte – OpenStreetMap + Leaflet (kein API-Key nötig)
+{% endcomment %}
+
+{{ 'interactive-map.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+
+<section id="OSMMap-{{ section.id }}" class="imap">
+  <div class="imap__head" style="
+    --imap-title-color: {{ section.settings.title_color }};
+    --imap-subtitle-color: {{ section.settings.subtitle_color }};
+    --imap-title-size: {{ section.settings.title_size }}px;
+    --imap-subtitle-size: {{ section.settings.subtitle_size }}px;
+    --imap-title-font: {{ section.settings.title_font | default: 'inherit' }};
+    --imap-subtitle-font: {{ section.settings.subtitle_font | default: 'inherit' }};
+  ">
+    {% if section.settings.title != blank %}
+      <h2 class="imap__title" style="font-family: var(--imap-title-font)">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <p class="imap__subtitle" style="font-family: var(--imap-subtitle-font)">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <div class="imap__card" style="--imap-card-bg: {{ section.settings.card_bg }};">
+    <div
+      class="imap__canvas"
+      id="imap-osm-canvas-{{ section.id }}"
+      style="height: {{ section.settings.height_desktop }}px"
+      data-lat="{{ section.settings.lat }}"
+      data-lng="{{ section.settings.lng }}"
+      data-zoom="{{ section.settings.zoom }}"
+      data-title="{{ section.settings.marker_title | escape }}"
+      data-radius-enabled="{{ section.settings.radius_enabled }}"
+      data-radius-km="{{ section.settings.radius_km }}"
+      data-stroke-color="{{ section.settings.radius_stroke_color }}"
+      data-stroke-weight="{{ section.settings.radius_stroke_weight }}"
+      data-fill-color="{{ section.settings.radius_fill_color }}"
+      data-fill-opacity="{{ section.settings.radius_fill_opacity }}"
+      data-pin-url="{% if section.settings.pin_image != blank %}{{ section.settings.pin_image | image_url: width: 256 }}{% endif %}"
+      data-pin-width="{{ section.settings.pin_w }}"
+      data-pin-height="{{ section.settings.pin_h }}"
+      data-pin-anchor-x="{{ section.settings.pin_anchor_x }}"
+      data-pin-anchor-y="{{ section.settings.pin_anchor_y }}"
+    >
+      {% render 'map-pin-placeholder' title: section.settings.placeholder_title, text: section.settings.placeholder_text %}
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var id = 'imap-osm-canvas-{{ section.id }}';
+
+  function ready(cb){ if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', cb); else cb(); }
+
+  function init(){
+    var el = document.getElementById(id);
+    if (!el || !window.L) return;
+
+    var ph = el.querySelector('.imap__ph'); if (ph) ph.remove();
+
+    var lat = parseFloat(el.dataset.lat || '0');
+    var lng = parseFloat(el.dataset.lng || '0');
+    var zoom = parseInt(el.dataset.zoom || '14');
+
+    var map = L.map(el, { scrollWheelZoom: true, dragging: true }).setView([lat, lng], zoom);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> Mitwirkende'
+    }).addTo(map);
+
+    var pinUrl = el.dataset.pinUrl;
+    var marker;
+    if (pinUrl) {
+      var w = parseInt(el.dataset.pinWidth || '40');
+      var h = parseInt(el.dataset.pinHeight || '40');
+      var ax = parseInt(el.dataset.pinAnchorX || Math.round(w/2));
+      var ay = parseInt(el.dataset.pinAnchorY || h);
+      var icon = L.icon({ iconUrl: pinUrl, iconSize: [w, h], iconAnchor: [ax, ay] });
+      marker = L.marker([lat, lng], { icon: icon, title: el.dataset.title || '' }).addTo(map);
+    } else {
+      marker = L.marker([lat, lng], { title: el.dataset.title || '' }).addTo(map);
+    }
+    if (el.dataset.title) marker.bindPopup(el.dataset.title);
+
+    if (el.dataset.radiusEnabled === 'true') {
+      var meters = (parseFloat(el.dataset.radiusKm || '0') || 0) * 1000;
+      if (meters > 0) {
+        L.circle([lat, lng], {
+          color: el.dataset.strokeColor || '#16a34a',
+          weight: parseInt(el.dataset.strokeWeight || '2'),
+          fillColor: el.dataset.fillColor || '#16a34a',
+          fillOpacity: parseFloat(el.dataset.fillOpacity || '0.15'),
+          radius: meters
+        }).addTo(map);
+      }
+    }
+
+    function updateHeight(){
+      var mobile = {{ section.settings.height_mobile | json }};
+      var desktop = {{ section.settings.height_desktop | json }};
+      el.style.height = (window.matchMedia('(max-width: 640px)').matches ? mobile : desktop) + 'px';
+      map.invalidateSize();
+      map.setView([lat, lng], zoom);
+    }
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+  }
+
+  ready(function(){ if (window.L) init(); else window.addEventListener('load', init); });
+  document.addEventListener('shopify:section:load', function(e){ if (e.detail && e.detail.sectionId === '{{ section.id }}') init(); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Interaktive Karte (OSM)",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titel", "default": "So finden Sie uns" },
+    { "type": "text", "id": "subtitle", "label": "Untertitel", "default": "Besuchen Sie uns in unseren Geschäftsräumen" },
+
+    { "type": "color", "id": "title_color", "label": "Titel – Farbe", "default": "#0B2545" },
+    { "type": "number", "id": "title_size", "label": "Titel – Größe (px)", "default": 36 },
+    { "type": "text", "id": "title_font", "label": "Titel – Font-Family", "default": "inherit" },
+
+    { "type": "color", "id": "subtitle_color", "label": "Untertitel – Farbe", "default": "#54627A" },
+    { "type": "number", "id": "subtitle_size", "label": "Untertitel – Größe (px)", "default": 16 },
+    { "type": "text", "id": "subtitle_font", "label": "Untertitel – Font-Family", "default": "inherit" },
+
+    { "type": "color", "id": "card_bg", "label": "Kartenfläche – Hintergrund", "default": "#F5F7FA" },
+
+    { "type": "number", "id": "lat", "label": "Latitude", "default": 49.2402 },
+    { "type": "number", "id": "lng", "label": "Longitude", "default": 6.9969 },
+    { "type": "number", "id": "zoom", "label": "Zoom-Level", "default": 14 },
+
+    { "type": "number", "id": "height_desktop", "label": "Höhe Desktop (px)", "default": 420 },
+    { "type": "number", "id": "height_mobile", "label": "Höhe Mobil (px)", "default": 360 },
+
+    { "type": "text", "id": "marker_title", "label": "Marker Titel", "default": "Unser Standort" },
+    { "type": "image_picker", "id": "pin_image", "label": "Eigenes Marker-Bild (PNG/SVG empfohlen)" },
+    { "type": "number", "id": "pin_w", "label": "Pin Breite (px)", "default": 40 },
+    { "type": "number", "id": "pin_h", "label": "Pin Höhe (px)", "default": 40 },
+    { "type": "number", "id": "pin_anchor_x", "label": "Pin Anker X (px)", "default": 20 },
+    { "type": "number", "id": "pin_anchor_y", "label": "Pin Anker Y (px)", "default": 40 },
+
+    { "type": "checkbox", "id": "radius_enabled", "label": "Service-Umkreis anzeigen", "default": true },
+    { "type": "number", "id": "radius_km", "label": "Radius (km)", "default": 25 },
+    { "type": "color", "id": "radius_stroke_color", "label": "Umkreis – Randfarbe", "default": "#16a34a" },
+    { "type": "number", "id": "radius_stroke_weight", "label": "Umkreis – Randstärke", "default": 2 },
+    { "type": "color", "id": "radius_fill_color", "label": "Umkreis – Füllfarbe", "default": "#16a34a" },
+    { "type": "number", "id": "radius_fill_opacity", "label": "Umkreis – Füllopazität (0–1)", "default": 0.15 },
+
+    { "type": "text", "id": "placeholder_title", "label": "Platzhalter Titel", "default": "Interaktive Karte" },
+    { "type": "text", "id": "placeholder_text", "label": "Platzhalter Text", "default": "Hier würde eine interaktive Karte eingebettet werden" }
+  ],
+  "presets": [{ "name": "Interaktive Karte (OSM)" }]
+}
+{% endschema %}

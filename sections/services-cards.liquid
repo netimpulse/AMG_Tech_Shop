@@ -1,0 +1,333 @@
+{% comment %}
+  Services Cards – horizontally scrolling, editor-friendly section
+  Files required:
+    - snippets/service-card.liquid
+    - assets/services-cards.css
+{% endcomment %}
+<link rel="stylesheet" href="{{ 'services-cards.css' | asset_url }}" media="all">
+
+<section
+  class="svc-wrap color-{{ section.settings.color_scheme }}"
+  style="--svc-gap:{{ section.settings.card_gap }}px; --svc-radius:{{ section.settings.card_radius }}px;"
+>
+  <div class="svc-inner page-width">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="svc-head">
+        {% if section.settings.heading != blank %}
+          <h2 class="svc-title">{{ section.settings.heading | escape }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="svc-subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="svc-scroller{% if section.settings.show_scrollbar %} svc-scroller--scrollbar{% endif %}" data-snap="{{ section.settings.snap_scroll | json }}">
+      <div class="svc-row"
+        style="
+          --svc-cols-desktop: {{ section.settings.cols_desktop }};
+          --svc-cols-tablet:  {{ section.settings.cols_tablet }};
+          --svc-cols-mobile:  2;
+        ">
+        {%- for block in section.blocks -%}
+          {% render 'service-card', block: block %}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {% if section.settings.show_arrows and section.blocks.size > 0 %}
+      <div class="svc-arrows" aria-hidden="true">
+        <button class="svc-arrow svc-arrow--prev" type="button" data-dir="-1" aria-label="{{ 'general.previous' | t }}">&larr;</button>
+        <button class="svc-arrow svc-arrow--next" type="button" data-dir="1" aria-label="{{ 'general.next' | t }}">&rarr;</button>
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    (function() {
+      const root = document.currentScript.closest('section');
+      const scroller = root.querySelector('.svc-scroller');
+      const row = root.querySelector('.svc-row');
+      const arrows = root.querySelectorAll('.svc-arrow');
+
+      // drag to scroll (desktop) + momentum feel
+      let isDown=false, startX=0, scrollLeft=0;
+      scroller.addEventListener('mousedown', (e)=>{ isDown=true; scroller.classList.add('is-drag'); startX=e.pageX - scroller.offsetLeft; scrollLeft=scroller.scrollLeft; });
+      window.addEventListener('mouseup', ()=>{ isDown=false; scroller.classList.remove('is-drag'); });
+      scroller.addEventListener('mouseleave', ()=> isDown=false);
+      scroller.addEventListener('mousemove', (e)=>{ if(!isDown) return; e.preventDefault(); const x=e.pageX - scroller.offsetLeft; const walk=(x - startX)*1.2; scroller.scrollLeft = scrollLeft - walk; });
+
+      // arrow scroll
+      arrows.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const dir = parseInt(btn.dataset.dir, 10);
+          const card = row.querySelector('.svc-card');
+          const cardWidth = card ? card.getBoundingClientRect().width : 300;
+          scroller.scrollBy({ left: dir * (cardWidth + parseInt(getComputedStyle(row).gap) ) * 2, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Leistungen 2",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titel",
+      "default": "Unsere Leistungen"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Untertitel",
+      "default": "<p>Entdecken Sie unser Portfolio an professionellen Dienstleistungen.</p>"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Farbschema",
+      "default": "background-1",
+      "options": [
+        {
+          "value": "background-1",
+          "label": "Standard"
+        },
+        {
+          "value": "background-2",
+          "label": "Alternative"
+        },
+        {
+          "value": "inverse",
+          "label": "Invertiert"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Kachelabstand",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 4,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Kachel-Eckenradius",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Layout & Scroll"
+    },
+    {
+      "type": "range",
+      "id": "cols_desktop",
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "label": "Spalten Desktop",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "cols_tablet",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Spalten Tablet",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Pfeile anzeigen",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scrollbar",
+      "label": "Scrollleiste sichtbar",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "snap_scroll",
+      "label": "Snap-Scroll aktivieren",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Kachel",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge / Label",
+          "default": "texti"
+        },
+        {
+          "type": "color",
+          "id": "badge_color_bg",
+          "label": "Badge Hintergrund",
+          "default": "#E8F2FF"
+        },
+        {
+          "type": "color",
+          "id": "badge_color_text",
+          "label": "Badge Text",
+          "default": "#0A66C2"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Gebäudeservice"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Beschreibung",
+          "default": "Kurze Einleitung zur Leistung."
+        },
+        {
+          "type": "header",
+          "content": "Unterpunkte"
+        },
+        {
+          "type": "textarea",
+          "id": "bullets",
+          "label": "Unterpunkte (eine Zeile = ein Punkt)",
+          "default": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung"
+        },
+        {
+          "type": "color",
+          "id": "bullet_color",
+          "label": "Farbe der Bullet-Punkte",
+          "default": "#10b981"
+        },
+        {
+          "type": "header",
+          "content": "Mehr erfahren"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_btn",
+          "label": "„Mehr erfahren“ anzeigen",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button-Text",
+          "default": "Mehr erfahren"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button-Link"
+        },
+        {
+          "type": "header",
+          "content": "Design"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Kachel-Hintergrund",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "card_text",
+          "label": "Textfarbe",
+          "default": "#0f172a"
+        },
+        {
+          "type": "header",
+          "content": "Block-Styling"
+        },
+        {
+          "type": "range",
+          "id": "block_font_size",
+          "label": "Schriftgroesse (px)",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "default": 0,
+          "unit": "px",
+          "info": "0 = Standard"
+        },
+        {
+          "type": "color",
+          "id": "block_font_color",
+          "label": "Schriftfarbe"
+        },
+        {
+          "type": "font_picker",
+          "id": "block_font_family",
+          "label": "Schriftart",
+          "default": "assistant_n4"
+        },
+        {
+          "type": "color_background",
+          "id": "block_bg_color",
+          "label": "Hintergrundfarbe"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Leistungen – Kachel-Slider",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Gebäudeservice"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Industrieservice"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Facility Management"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Spezialreinigung",
+            "badge": "Spezialreinigung"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

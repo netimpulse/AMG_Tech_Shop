@@ -1,0 +1,30 @@
+{%- comment -%}
+  Wiederverwendbare Wert/Stat-Karte
+  Übergaben: emoji, title, subtitle, featured, aria_label, block
+{%- endcomment -%}
+
+{%- assign featured_class = '' -%}
+{%- if featured -%}
+  {%- assign featured_class = ' es-card--featured' -%}
+{%- endif -%}
+
+<div class="es-card{{ featured_class }}" aria-label="{{ aria_label | default: title }}" {{ block.shopify_attributes }}>
+  <div class="es-card-icon" aria-hidden="true">
+    {% if emoji != blank %}
+      {{ emoji }}
+    {% else %}
+      <!-- Fallback: Häkchen-Icon -->
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M6.4 11.2 3.6 8.4l-1.2 1.2 4 4 8-8-1.2-1.2-6.8 6.8z"/>
+      </svg>
+    {% endif %}
+  </div>
+  <div>
+    {% if title != blank %}
+      <div class="es-card-title">{{ title }}</div>
+    {% endif %}
+    {% if subtitle != blank %}
+      <div class="es-card-subtitle">{{ subtitle }}</div>
+    {% endif %}
+  </div>
+</div>

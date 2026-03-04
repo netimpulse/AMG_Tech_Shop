@@ -1,0 +1,10 @@
+.mcb__inner{max-width:700px;margin:0 auto}
+.mcb__heading{font-weight:700;margin:0 0 .75rem;line-height:1.2}
+.mcb__heading.h1{font-size:2rem}
+.mcb__heading.h2{font-size:1.5rem}
+.mcb__heading.h3{font-size:1.25rem}
+.mcb__text{color:rgba(0,0,0,.6);margin:0 0 1.5rem;font-size:1.05rem;line-height:1.6}
+.mcb__btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:inherit}
+.mcb__btn{padding:.85rem 2rem;border-radius:8px;font-weight:600;text-decoration:none;transition:all .2s}
+.mcb__btn--outline{background:transparent;border:2px solid rgba(0,0,0,.2);color:inherit}
+.mcb__btn--outline:hover{border-color:rgba(0,0,0,.5)}

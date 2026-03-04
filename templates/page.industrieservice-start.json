@@ -1,0 +1,578 @@
+{
+  "sections": {
+    "sticky_header_KGw3Wt": {
+      "type": "sticky-header",
+      "name": "Sticky header",
+      "settings": {
+        "background_color": "#ffffff",
+        "padding_vertical": 16,
+        "padding_horizontal": 24,
+        "logo_height": 40,
+        "back_link": "",
+        "back_label": "Startseite",
+        "back_font": "system_ui_n4",
+        "back_font_bold": false,
+        "back_text_color": "#374151",
+        "back_hover_color": "#4ade80",
+        "back_font_size": 16,
+        "logo": "shopify://shop_images/2025-SIS.png",
+        "logo_text": "Mein Shop",
+        "logo_color": "#1e40af",
+        "logo_font_size": 24,
+        "menu": "industrieservice",
+        "nav_font": "system_ui_n4",
+        "nav_font_bold": false,
+        "nav_text_color": "#374151",
+        "nav_hover_color": "#4ade80",
+        "nav_font_size": 16,
+        "button_text": "Kontakt",
+        "button_link": "shopify://pages/industrieservice-kontakt",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#4ade80",
+        "button_hover_text_color": "#ffffff",
+        "button_hover_bg_color": "#22c55e"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_overlay_section_hdypDf": {
+      "type": "hero-overlay-section",
+      "name": "Hero – Service Overlay",
+      "settings": {
+        "bg_image": "shopify://shop_images/sis2025-09-24_11_01_34-shutterstock_536582824_jpg_338456ba-db1b-4684-9cbb-f661455d34f3.png",
+        "overlay_color": "#2baaa2",
+        "overlay_opacity": 70,
+        "section_height": 60,
+        "section_height_mobile": 40,
+        "content_max_width": 760,
+        "heading": "Ihr Partner für die Industrie",
+        "heading_font": "system_ui_n4",
+        "heading_size": 64,
+        "heading_color": "#ffffff",
+        "text": "<p>Wir sind Ihre Experten und Dienstleistungspartner auf höchstem Niveau.</p>",
+        "text_font": "system_ui_n4",
+        "text_size": 20,
+        "text_color": "#ffffff",
+        "btn1_text": "Mehr über unsere Services",
+        "btn1_link": "shopify://pages/industrieservice-leistungen",
+        "btn1_font": "system_ui_n4",
+        "btn1_font_size": 16,
+        "btn1_padding_x": 28,
+        "btn1_padding_y": 14,
+        "btn1_radius": 10,
+        "btn1_bg": "#2baaa2",
+        "btn1_bg_hover": "#238b84",
+        "btn1_text_color": "#ffffff",
+        "btn1_text_hover": "#ffffff",
+        "btn2_text": "JETZT ANRUFEN",
+        "btn2_link": "shopify://pages/allgemeiner-kontakt",
+        "btn2_font": "system_ui_n4",
+        "btn2_font_size": 16,
+        "btn2_padding_x": 24,
+        "btn2_padding_y": 14,
+        "btn2_radius": 10,
+        "btn2_bg": "#ffffff",
+        "btn2_bg_hover": "#e6e6e6",
+        "btn2_text_color": "#2baaa2",
+        "btn2_text_hover": "#238b84"
+      }
+    },
+    "leistung_final_qMPzBK": {
+      "type": "leistung-final",
+      "blocks": {
+        "service_card_lf_qpwgEk": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_344049572.jpg",
+            "title": "Industrie- und Maschinenreinigung",
+            "text": "Wir reinigen Ihre Industrieanlagen, Bearbeitungsmaschinen, Produktionsstätten, Lagerhallen und andere industrielle Einrichtungen professionell und sicher. Durch modernste Reinigungsverfahren entfernen wir Öl, Schmierstoffe, Metallabrieb und andere Rückstände, um Maschinenlaufzeiten zu verlängern und Produktionsausfälle zu minimieren.",
+            "link_url": "shopify://pages/maschinenreinigung",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_d9TixX": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_93443800.jpg",
+            "title": "Wartung und Instandhaltung",
+            "text": "Wir sorgen dafür, dass Ihre Maschinen und Anlagen kontinuierlich betriebsbereit bleiben. Unser Service umfasst Inspektionen, Reparaturen, präventive Wartungsmaßnahmen und Dokumentation.",
+            "link_url": "shopify://pages/wartung-instandhaltung",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_mKWnNR": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_65689291.jpg",
+            "title": "Strahlservice",
+            "text": "Durch unterschiedliche Strahlverfahren entfernen wir Rost, Lack oder Verschmutzungen von unterschiedlichen Flächen, z.B. Kunststoff, Metall oder auch Holz. Die Wahl des Strahlmediums beeinflusst dabei Oberflächenrauigkeit und Materialschonung. Wir strahlen unter anderem mit Trockeneis, Sand, Soda, Glas und crushed glass.",
+            "link_url": "shopify://pages/strahlarbeiten",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_JYah6a": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+            "title": "Reinigung von Zu-und Abluft in gew. Küchen",
+            "text": "Wir reinigen Ihre Zu- und Abluftkanäle in gewerblichen Küchen gem. VDI 2052 und dokumentieren die Ergebnisse.",
+            "link_url": "shopify://pages/kuechen-rlt-reinigung",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_W6C8d4": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/Trockeneis_AA_3.jpg",
+            "title": "Trockeneisreinigung",
+            "text": "Viele Anlagen dürfen nicht mit Wasser und chemischen Reinigungsmitteln in Berührung kommen und stellen bei der Reinigung somit eine besondere Herausforderung dar. Trockeneisstrahlen bietet dabei eine besonders schonende Reinigungsmöglichkeit.",
+            "link_url": "shopify://pages/trockeneisstrahlen",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_zGECah": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_328419737.jpg",
+            "title": "Montage, Demontage, Maschinenumzüge und Maschinenverschrottung",
+            "text": "Sie planen einen Umbau Ihrer Anlagen? Neue Geräte wurden angeschafft und dafür müssen die alten weichen? Wir unterstützen Sie bei größeren und kleineren Aktionen.",
+            "link_url": "shopify://pages/montage-demontage",
+            "link_label": "Mehr erfahren →"
+          }
+        },
+        "service_card_lf_A8qgDj": {
+          "type": "service_card_lf",
+          "settings": {
+            "image": "shopify://shop_images/staplerfahrer-mit-schutzausr-stung-von-hinten-auf-stapler-der-einen-m-llcontainer-auf-einem-industriegel-nde-transportiert.png",
+            "title": "Abfallmanagement und innerbetriebliche Logistik",
+            "text": "Wir übernehmen für Sie die anfallenden Transporte innerhalb der Produktionslinien, egal ob mit Gabelstapler, Schlepper oder sonstigen Flurförderzeugen. Die Sortierung der Abfälle sowie optimierte Transportwege und Recyclingprozesse schützen Ressourcen, reduzieren Schäden und steigern die Effizienz von Lagerhaltung und Produktion.",
+            "link_url": "shopify://pages/abfallmanagement-innerbetriebliche-logistik",
+            "link_label": "Mehr erfahren →"
+          }
+        }
+      },
+      "block_order": [
+        "service_card_lf_qpwgEk",
+        "service_card_lf_d9TixX",
+        "service_card_lf_mKWnNR",
+        "service_card_lf_JYah6a",
+        "service_card_lf_W6C8d4",
+        "service_card_lf_zGECah",
+        "service_card_lf_A8qgDj"
+      ],
+      "name": "Leistung final",
+      "settings": {
+        "heading": "Unsere Leistungen",
+        "subtext": "Mit Leidenschaft für gemeinsamen Erfolg.",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "heading_size": 32,
+        "heading_bold": true,
+        "heading_italic": false,
+        "subtext_size": 16,
+        "subtext_bold": false,
+        "subtext_italic": false,
+        "card_title_size": 18,
+        "card_title_bold": true,
+        "card_title_italic": false,
+        "card_text_size": 14,
+        "card_text_bold": false,
+        "card_text_italic": false,
+        "card_link_size": 14,
+        "card_link_bold": true,
+        "card_link_italic": false,
+        "bg_color": "#f3f6f9",
+        "text_color": "#222222",
+        "accent_color": "#ff6a00",
+        "card_bg": "#ffffff",
+        "card_hover_bg": "#ffffff",
+        "card_radius": 12,
+        "card_hover_lift": 6,
+        "grid_gap": 20,
+        "section_padding": 24,
+        "show_button": true,
+        "button_label": "Alle Leistungen im Überblick",
+        "button_url": "shopify://pages/industrieservice-leistungen",
+        "button_align": "center",
+        "button_full_width": false,
+        "button_max_width": 420,
+        "button_font_size": 16,
+        "button_bold": true,
+        "button_italic": false,
+        "button_padding_x": 20,
+        "button_padding_y": 10,
+        "button_margin_top": 28,
+        "button_margin_bottom": 0,
+        "button_bg": "#121212",
+        "button_text": "#ffffff",
+        "button_hover_bg": "#1e40af",
+        "button_hover_text": "#ffffff"
+      }
+    },
+    "video_3tBQDe": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "<em>Wir stellen uns vor: Werfen Sie einen Blick auf unseren Imagefilm.</em>",
+        "heading_size": "h2",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/7fZoX-T5hrA",
+        "cover_image": "shopify://shop_images/Titelbild_Video.png",
+        "description": "Imagefilm der Firma",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "amenities_hotspots_4fU76A": {
+      "type": "amenities-hotspots",
+      "blocks": {
+        "hotspot_V3Ca3z": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Smart Home Features",
+            "text": "<p>Kurze Beschreibung zu diesem Punkt.</p>",
+            "pos_x": 35,
+            "pos_y": 28,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        },
+        "hotspot_DwzydK": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Smart Home Features",
+            "text": "<p>Kurze Beschreibung zu diesem Punkt.</p>",
+            "pos_x": 35,
+            "pos_y": 28,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        },
+        "hotspot_FcjBaQ": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Küchenabluft",
+            "text": "<p>Kurze Beschreibung zu diesem Punkt.</p>",
+            "pos_x": 11,
+            "pos_y": 8,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "bottom-right",
+            "open_by_default": false
+          }
+        },
+        "hotspot_ihd4Dm": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Smart Home Features",
+            "text": "<p>Kurze Beschreibung zu diesem Punkt.</p>",
+            "pos_x": 35,
+            "pos_y": 28,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "top-left",
+            "open_by_default": false
+          }
+        },
+        "hotspot_9x4KGX": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Smart Home Features",
+            "text": "<p>Kurze Beschreibung zu diesem Punkt.</p>",
+            "pos_x": 35,
+            "pos_y": 28,
+            "dot_color": "#3ac47d",
+            "panel_bg": "#4caf78",
+            "panel_text": "#ffffff",
+            "panel_position": "bottom-right",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_V3Ca3z",
+        "hotspot_DwzydK",
+        "hotspot_FcjBaQ",
+        "hotspot_ihd4Dm",
+        "hotspot_9x4KGX"
+      ],
+      "disabled": true,
+      "name": "Amenities Hotspots",
+      "settings": {
+        "image": "shopify://shop_images/GastroKueche_iStock-1128232946.jpg",
+        "content_side": "right",
+        "kicker": "Wir reinigen auch Ihre Küche",
+        "heading": "Special Amenities!",
+        "body": "<p>Enter description text here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+        "heading_font": "poppins_n4",
+        "heading_size": 44,
+        "heading_weight": "700",
+        "heading_italic": false,
+        "heading_color": "#111111",
+        "body_font": "poppins_n4",
+        "body_size": 16,
+        "body_weight": "400",
+        "body_italic": false,
+        "body_color": "#444444",
+        "btn_label": "Call now",
+        "btn_link": "",
+        "button_bg": "#4caf78",
+        "button_color": "#ffffff",
+        "btn_newtab": false,
+        "section_bg": "#ffffff",
+        "content_gap": 40,
+        "pad_y": 40,
+        "pad_x": 24,
+        "dot_size": 18,
+        "pulse_size": 12,
+        "close_others": true,
+        "panel_maxw": 360
+      }
+    },
+    "text_mit_bild_button_PxGyff": {
+      "type": "text-mit-bild-button",
+      "disabled": true,
+      "name": "Text mit Bild",
+      "settings": {
+        "image": "shopify://shop_images/Image_29._Juli_2025_20_41_34_cleanup.png",
+        "image_position": "right",
+        "image_shadow_strength": 20,
+        "heading": "Über uns",
+        "heading_font": "system_ui_n4",
+        "heading_font_size": 36,
+        "heading_color": "#1f1f1f",
+        "subheading": "Wer wir sind und was uns auszeichnet",
+        "subheading_font": "system_ui_n4",
+        "subheading_font_size": 16,
+        "subheading_color": "#555555",
+        "text": "<p>Beschreiben Sie hier Ihr Unternehmen, Ihre Produkte oder Dienstleistungen. Dieser Text ist vollständig anpassbar und unterstützt auch Formatierungen wie <strong>fett</strong> oder <em>kursiv</em>.</p>",
+        "text_font": "system_ui_n4",
+        "text_font_size": 18,
+        "text_color": "#333333",
+        "button_text": "erfahren sie mehr",
+        "button_link": "shopify://pages/industrieservice-uber-uns",
+        "button_font": "system_ui_n4",
+        "button_font_size": 16,
+        "button_padding_x": 24,
+        "button_padding_y": 14,
+        "button_border_radius": 10,
+        "button_bg_color": "#8e8e8e",
+        "button_bg_hover_color": "#6f6f6f",
+        "button_text_color": "#ffffff",
+        "button_text_color_hover": "#ffffff"
+      }
+    },
+    "custom_cta_block_e7jJM9": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_jt6jdw": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        },
+        "button_yPX8Ax": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Kostenlose Beratung</p>",
+            "link": "shopify://pages/allgemeiner-kontakt",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0
+          }
+        }
+      },
+      "block_order": [
+        "button_jt6jdw",
+        "button_yPX8Ax"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p><strong>Bereit für professionellen Service?</strong></p>",
+        "heading_size": 36,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "heading_font": "inherit",
+        "subheading": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "sub_font": "inherit",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
+    },
+    "sis_footer_neu_N8fXwT": {
+      "type": "sis-footer-neu",
+      "blocks": {
+        "leistungen_link_hjqjGe": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Industrieservice",
+            "link": "shopify://pages/industrieservice-leistungen"
+          }
+        },
+        "unternehmen_link_EMxJAf": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
+            "link": "shopify://pages/allgemeiner-kontakt"
+          }
+        },
+        "unternehmen_link_D9kanJ": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Karriere",
+            "link": "shopify://pages/industrieservice-karriere"
+          }
+        },
+        "unternehmen_link_ce9ptC": {
+          "type": "unternehmen_link",
+          "disabled": true,
+          "settings": {
+            "text": "Unsere Partner",
+            "link": "shopify://pages/partner"
+          }
+        },
+        "unternehmen_link_wwEGeJ": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
+            "link": "shopify://pages/downloads"
+          }
+        },
+        "kontakt_link_zVEkDq": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Impressum Industrieservice",
+            "link": "shopify://pages/industrieservice-impressum"
+          }
+        },
+        "kontakt_link_J3BtWA": {
+          "type": "kontakt_link",
+          "settings": {
+            "text": "Datenschutz",
+            "link": "https://cdn.shopify.com/s/files/1/0976/1210/4029/files/Datenschutzerklaerung_SISGS.pdf?v=1764156489"
+          }
+        },
+        "partner_logo_nR6P4P": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "Partner Industrieservice GmbH",
+            "link": "shopify://pages/industrieservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_PwXGBF": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "Partner Gebäudeservice GmbH",
+            "link": "shopify://pages/sis-saar-gebaeudeservice",
+            "new_tab": true
+          }
+        },
+        "partner_logo_wWErDi": {
+          "type": "partner_logo",
+          "settings": {
+            "logo": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "alt": "Partner AMG Tech GmbH",
+            "link": "https://www.trockeneis.saarland/",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "leistungen_link_hjqjGe",
+        "unternehmen_link_EMxJAf",
+        "unternehmen_link_D9kanJ",
+        "unternehmen_link_ce9ptC",
+        "unternehmen_link_wwEGeJ",
+        "kontakt_link_zVEkDq",
+        "kontakt_link_J3BtWA",
+        "partner_logo_nR6P4P",
+        "partner_logo_PwXGBF",
+        "partner_logo_wWErDi"
+      ],
+      "name": "SIS Footer NEU- Industrieservice",
+      "settings": {
+        "background_color": "#111827",
+        "section_padding": 60,
+        "separator_color": "#374151",
+        "title_color": "#ffffff",
+        "title_font_size": 24,
+        "subtitle_color": "#d1d5db",
+        "subtitle_font_size": 18,
+        "text_color": "#9ca3af",
+        "text_font_size": 14,
+        "link_color": "#60a5fa",
+        "col1_title": "Leistungen",
+        "col2_title": "Unternehmen",
+        "col3_title": "Kontakt",
+        "col4_title": "Partner",
+        "contact_company": "SIS Saar - Industrie - Service GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "(+49) (0) 6898 16 90 900",
+        "contact_email": "info@sissaar.de",
+        "contact_hours": "",
+        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+      }
+    }
+  },
+  "order": [
+    "sticky_header_KGw3Wt",
+    "main",
+    "hero_overlay_section_hdypDf",
+    "leistung_final_qMPzBK",
+    "video_3tBQDe",
+    "amenities_hotspots_4fU76A",
+    "text_mit_bild_button_PxGyff",
+    "custom_cta_block_e7jJM9",
+    "sis_footer_neu_N8fXwT"
+  ]
+}

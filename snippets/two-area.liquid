@@ -1,0 +1,102 @@
+{%- comment -%}
+  Snippet: two-area
+  Parameter:
+    side    = 'industry' oder 'building'
+    section = Section-Objekt (two-areas)
+  Stellt sicher, dass tile_specific_class korrekt im HTML als Klasse landet.
+{%- endcomment -%}
+
+{%- liquid
+  assign current_prefix = 'industry'
+  if side == 'building'
+    assign current_prefix = 'building'
+  endif
+
+  assign area_icon_id = current_prefix | append: '_icon'
+  assign area_title_id = current_prefix | append: '_title'
+  assign area_title_color_id = current_prefix | append: '_title_color'
+  assign area_title_font_size_id = current_prefix | append: '_title_font_size'
+
+  assign area_text_id = current_prefix | append: '_text'
+  assign area_text_color_id = current_prefix | append: '_text_color'
+  assign area_text_font_size_id = current_prefix | append: '_text_font_size'
+
+  assign area_btn_label_id = current_prefix | append: '_btn_label'
+  assign area_btn_link_id = current_prefix | append: '_btn_link'
+  assign area_btn_bg_color_id = current_prefix | append: '_btn_bg_color'
+  assign area_btn_text_color_id = current_prefix | append: '_btn_text_color'
+  assign area_btn_font_size_id = current_prefix | append: '_btn_font_size'
+
+  assign tile_block_type = current_prefix | append: '_tile'
+  assign tile_title_font_size_id = current_prefix | append: '_tile_title_font_size'
+
+  # Kachel-Hintergrund und Textfarbe werden jetzt im <style>-Block der Section gesetzt
+
+  assign area_icon = section.settings[area_icon_id]
+  assign area_title = section.settings[area_title_id]
+  assign area_title_color = section.settings[area_title_color_id]
+  assign area_title_font_size = section.settings[area_title_font_size_id]
+
+  assign area_text = section.settings[area_text_id]
+  assign area_text_color = section.settings[area_text_color_id]
+  assign area_text_font_size = section.settings[area_text_font_size_id]
+
+  assign area_btn_label = section.settings[area_btn_label_id]
+  assign area_btn_link = section.settings[area_btn_link_id]
+  assign area_btn_bg_color = section.settings[area_btn_bg_color_id]
+  assign area_btn_text_color = section.settings[area_btn_text_color_id]
+  assign area_btn_font_size = section.settings[area_btn_font_size_id]
+
+  assign tile_title_font_size = section.settings[tile_title_font_size_id]
+
+  assign tiles_for_area = section.blocks | where: "type", tile_block_type
+
+  # Klasse für die Kachel basierend auf dem Bereich (industry oder building)
+  assign tile_specific_class = 'area--' | append: current_prefix | append: '-tile'
+-%}
+
+<div class="area area--{{ current_prefix }}">
+  {%- if area_icon != blank -%}
+    <div class="area__icon">
+      <img src="{{ area_icon | image_url: width: 100, height: 100 }}" alt="{{ area_title | escape }}" loading="lazy" width="50" height="50">
+    </div>
+  {%- endif -%}
+
+  <h3 class="area__title" style="font-size: {{ area_title_font_size }}px; color: {{ area_title_color }};">
+    {{ area_title }}
+  </h3>
+
+  <div class="area__text rte" style="font-size: {{ area_text_font_size }}px; color: {{ area_text_color }};">
+    {{ area_text }}
+  </div>
+
+  {%- if tiles_for_area.size > 0 -%}
+    <div class="sub-services-grid">
+      {%- for block in tiles_for_area -%}
+        <div class="sub-service-item {{ tile_specific_class }}" {{ block.shopify_attributes }}>
+          <div class="sub-service-item__inner">
+            {%- if block.settings.icon != blank -%}
+              <div class="sub-service-item__icon">
+                <img src="{{ block.settings.icon | image_url: width: 100, height: 100 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="24" height="24">
+              </div>
+            {%- endif -%}
+            <div class="sub-service-item__title" style="font-size: {{ tile_title_font_size }}px;">
+              {{- block.settings.title -}}
+            </div>
+          </div>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="sub-service-item__overlay" aria-label="{{ block.settings.title | escape }}"></a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- if area_btn_label != blank -%}
+    <a href="{{ area_btn_link }}"
+       class="btn btn--{{ current_prefix }}"
+       style="background-color: {{ area_btn_bg_color }}; color: {{ area_btn_text_color }}; border-color: {{ area_btn_bg_color }}; font-size: {{ area_btn_font_size }}px;">
+      {{ area_btn_label }}
+    </a>
+  {%- endif -%}
+</div>
