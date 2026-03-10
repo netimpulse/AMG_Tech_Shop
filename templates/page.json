@@ -15,9 +15,170 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "mod_faq_accordion_wnmJhA": {
+      "type": "mod-faq-accordion",
+      "blocks": {
+        "faq_apjqTg": {
+          "type": "faq",
+          "name": "FAQ-Eintrag- Was ist TE",
+          "settings": {
+            "question": "Was ist Trockeneis?",
+            "answer": "<p>Trockeneis ist festes CO₂, das bei −78,5 °C sublimiert (direkt von fest zu gasförmig)</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_NffiQe": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-Wofür",
+          "settings": {
+            "question": "Wofür verwendet man Trockeneis?",
+            "answer": "<p>zur Kühlung, Reinigung (Dry Ice Blasting), Nebeleffekte, Lebensmitteltransport, medizinische Anwendungen und Transport<br/><br/></p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_gAijQT": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-wie lange hält TE",
+          "settings": {
+            "question": "Wie lange hält Trockeneis?",
+            "answer": "<p>Abhängig von Lagerung und Menge: ca. 1–3 Tage in einer gut isolierten Box.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_Nfzitd": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-gefährlich",
+          "settings": {
+            "question": "Ist Trockeneis gefährlich?",
+            "answer": "<p>Trockeneis kann bei unsachgemäßer Handhabung zu Erfrierungen, und Erstickungsgefahr in geschlossenen Räumen führen. Beachte bitte unbedingt unsere Schutzhinweise, die du auch hier(LINK) findest. Nicht Essen und Schlucken, für gute belüftung sorgen und Sicherheitshandschuhe tragen.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_qEqPQi": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-Bestellen",
+          "settings": {
+            "question": "Wie bestelle ich Trockeneis?",
+            "answer": "<p>online über unseren Shop, per E-Mail oder per Anruf</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_yP3n7J": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-Lieferung",
+          "settings": {
+            "question": "Wie wird Trockeneis geliefert?",
+            "answer": "<p>In speziellen Isolierboxen und per Expressversand</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_tFF4Yd": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-Abholung",
+          "settings": {
+            "question": "Kann ich das Trockeneis abholen?",
+            "answer": "<p>Ja, nach Absprache mit unserem Lagerstandort.<br/><br/></p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_6kMdpV": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-VersandDauer",
+          "settings": {
+            "question": "Wie lange dauert der Versand?",
+            "answer": "<p>Der Versand dauert in der Regel 1-3 Werktage. Wir versenden Deutschlandweit, individuelle Angebote für Regionale Lieferung im Raum Saarland, Völklingen, Saarbrücken, Saarlouis.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_VnHyTW": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-Versandkosten",
+          "settings": {
+            "question": "Was kostet der Versand?",
+            "answer": "<p>Abhängig von Menge und Lieferort. Abholung kostenlos. Details siehe Versandkostenrechner.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_tc3Ajj": {
+          "type": "faq",
+          "name": "FAQ-Eintrag-Zahlungsarten",
+          "settings": {
+            "question": "Welche Zahlungsarten werden akzeptiert?",
+            "answer": "<p>Kreditkarte, PayPal, Klarna, Sofortueberweisung.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_Ub4hMH": {
+          "type": "faq",
+          "settings": {
+            "question": "Wie reinige ich mit Trockeneis (Dry Ice Blasting)?",
+            "answer": "<p>Spezielle Geräte erforderlich, wir beraten gerne und vermitteln bei Bedarf an unsere Partner.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_apjqTg",
+        "faq_NffiQe",
+        "faq_gAijQT",
+        "faq_Nfzitd",
+        "faq_qEqPQi",
+        "faq_yP3n7J",
+        "faq_tFF4Yd",
+        "faq_6kMdpV",
+        "faq_VnHyTW",
+        "faq_tc3Ajj",
+        "faq_Ub4hMH"
+      ],
+      "name": "Mod: FAQ Akkordeon",
+      "settings": {
+        "heading": "Haeufig gestellte Fragen",
+        "subheading": "",
+        "padding_y": 48,
+        "section_bg": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "mod_faq_accordion_wnmJhA"
   ]
 }

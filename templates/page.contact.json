@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -18,6 +19,7 @@
     },
     "form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
@@ -25,10 +27,93 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "contact_info_form_ab9Kzg": {
+      "type": "contact-info-form",
+      "blocks": {
+        "info_card_jWizLU": {
+          "type": "info_card",
+          "settings": {
+            "title": "Adresse",
+            "text": "<p>Vorderster Berg 13<br/>66333 Völklingen</p>",
+            "icon": "map",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "info_card_xQLXBp": {
+          "type": "info_card",
+          "settings": {
+            "title": "Adresse",
+            "text": "<p>06898 16 90 896</p>",
+            "icon": "phone",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "info_card_xDUkQQ": {
+          "type": "info_card",
+          "settings": {
+            "title": "Adresse",
+            "text": "<p>info@trockneis.saarland</p>",
+            "icon": "mail",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "info_card_yjJ3HP": {
+          "type": "info_card",
+          "settings": {
+            "title": "Öffnungszeiten",
+            "text": "<p>Mo - Fr 07.00 -14.00 Uhr</p>",
+            "icon": "clock",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "info_card_jWizLU",
+        "info_card_xQLXBp",
+        "info_card_xDUkQQ",
+        "info_card_yjJ3HP"
+      ],
+      "name": "Kontaktbereich mit Formular",
+      "settings": {
+        "left_title": "Kontakt",
+        "right_title": "Nachricht senden",
+        "label_firstname": "Vorname *",
+        "ph_firstname": "Ihr Vorname",
+        "label_lastname": "Nachname *",
+        "ph_lastname": "Ihr Nachname",
+        "label_email": "E-Mail *",
+        "ph_email": "ihre.email@beispiel.de",
+        "label_phone": "Telefon",
+        "ph_phone": "Ihre Telefonnummer",
+        "label_company": "Unternehmen",
+        "ph_company": "Ihr Unternehmen",
+        "label_subject": "Betreff *",
+        "ph_subject": "Worum geht es?",
+        "label_message": "Nachricht *",
+        "ph_message": "Beschreiben Sie Ihr Anliegen...",
+        "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
+        "consent_label": "Datenschutz zugestimmt",
+        "button_label": "Nachricht senden",
+        "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "form",
+    "contact_info_form_ab9Kzg"
   ]
 }

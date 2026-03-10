@@ -36,6 +36,7 @@
         "card_DykqWU": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
             "title": "Schnelle Lieferung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -117,6 +118,62 @@
         "show_button": true,
         "button_label": "Mehr erfahren",
         "button_link": ""
+      }
+    },
+    "about_section_v2_GNfXYU": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_4HQEti": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "image",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/team-production.jpg",
+            "feature_title": "Eis",
+            "feature_description": "Kurze Beschreibung des Features."
+          }
+        },
+        "feature_FUhxGL": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung des Features."
+          }
+        }
+      },
+      "block_order": [
+        "feature_4HQEti",
+        "feature_FUhxGL"
+      ],
+      "name": "Über Uns (Layout) – Neu",
+      "settings": {
+        "layout_direction": "image_left",
+        "show_image": true,
+        "background_color": "#FFFFFF",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "Was ist Trockeneis?",
+        "title_richtext": "<p><strong>Was ist Trockneis?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Diese Eigenschaft macht Trockeneis zum perfekten Kühlmittel für Transport, Lagerung und Reinigung in zahlreichen Branchen. Es kühlt intensiver als herkömmliches Eis und hinterlässt keine Feuchtigkeit.</p><p>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</p>",
+        "text_color": "#6B7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/dry-ice-blocks.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34D399",
+        "feature_title_color": "#111827"
       }
     },
     "application_areas_AMijia": {
@@ -231,13 +288,296 @@
       "settings": {
         "background_color": "#062a46",
         "text_color": "#ffffff",
-        "heading": "<p><strong>Bereit für professionellen Service?</strong></p>",
+        "heading": "<p><strong>Jetzt Trockneies bestellen</strong></p>",
         "subtext": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
         "show_button": true,
         "button_label": "Kostenlose Beratung",
         "button_link": "",
         "button_color": "#16c1d8",
         "button_hover_color": "#13a5bb"
+      }
+    },
+    "leistung_suche_grid_v2_THnFcy": {
+      "type": "leistung-suche-grid-v2",
+      "blocks": {
+        "service_JV8LaY": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>transport</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_TaiWHV": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Gastronomie und Catering</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "service_JV8LaY",
+        "service_TaiWHV"
+      ],
+      "disabled": true,
+      "name": "Leistung Suche Grid v2",
+      "settings": {
+        "heading": "<p><strong>Anwendungsbereiche</strong></p>",
+        "subheading": "",
+        "text_align": "center",
+        "show_search": true,
+        "search_placeholder": "Leistungen oder Keywords suchen…",
+        "badge_style": "solid",
+        "keyword_badge_bg": "#E6F0FF",
+        "keyword_badge_color": "#0F1C3F",
+        "card_bg": "#ffffff",
+        "card_radius": 18,
+        "card_shadow": true,
+        "grid_gap": 20,
+        "show_cta": false,
+        "cta_label": "Mehr erfahren",
+        "cta_link": "",
+        "button_style": "primary",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "leistung_final_LphmjQ": {
+      "type": "leistung-final",
+      "blocks": {
+        "service_card_lf_Dw9HMP": {
+          "type": "service_card_lf",
+          "settings": {
+            "title": "Kühlung",
+            "text": "Kurze Beschreibung hier.",
+            "link_url": "",
+            "link_label": "Mehr erfahren →",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_card_lf_bWgKFj": {
+          "type": "service_card_lf",
+          "settings": {
+            "title": "Transport",
+            "text": "Kurze Beschreibung hier.",
+            "link_url": "",
+            "link_label": "Mehr erfahren →",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_card_lf_MLxEci": {
+          "type": "service_card_lf",
+          "settings": {
+            "title": "Reinigung",
+            "text": "Kurze Beschreibung hier.",
+            "link_url": "",
+            "link_label": "Mehr erfahren →",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_card_lf_iBRDHR": {
+          "type": "service_card_lf",
+          "settings": {
+            "title": "Pharma",
+            "text": "Kurze Beschreibung hier.",
+            "link_url": "",
+            "link_label": "Mehr erfahren →",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "service_card_lf_Dw9HMP",
+        "service_card_lf_bWgKFj",
+        "service_card_lf_MLxEci",
+        "service_card_lf_iBRDHR"
+      ],
+      "disabled": true,
+      "name": "Leistung final",
+      "settings": {
+        "heading": "Anwendungsbereiche",
+        "subtext": "",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "heading_size": 32,
+        "heading_bold": true,
+        "heading_italic": false,
+        "subtext_size": 16,
+        "subtext_bold": false,
+        "subtext_italic": false,
+        "card_title_size": 18,
+        "card_title_bold": true,
+        "card_title_italic": false,
+        "card_text_size": 14,
+        "card_text_bold": false,
+        "card_text_italic": false,
+        "card_link_size": 14,
+        "card_link_bold": true,
+        "card_link_italic": false,
+        "bg_color": "#F3F6F9",
+        "text_color": "#222222",
+        "accent_color": "#ff6a00",
+        "card_bg": "#ffffff",
+        "card_hover_bg": "#ffffff",
+        "card_radius": 12,
+        "card_hover_lift": 6,
+        "grid_gap": 20,
+        "section_padding": 24,
+        "show_button": true,
+        "button_label": "Mehr erfahren",
+        "button_url": "",
+        "button_align": "center",
+        "button_full_width": false,
+        "button_max_width": 420,
+        "button_font_size": 16,
+        "button_bold": true,
+        "button_italic": false,
+        "button_padding_x": 20,
+        "button_padding_y": 10,
+        "button_margin_top": 28,
+        "button_margin_bottom": 0,
+        "button_bg": "#8B8E93",
+        "button_text": "#ffffff",
+        "button_hover_bg": "#6f7276",
+        "button_hover_text": "#ffffff"
+      }
+    },
+    "karussel_leistungen_WjfhNa": {
+      "type": "karussel-leistungen",
+      "blocks": {
+        "card_tXJbE7": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/team-production.jpg",
+            "badge": "Kühlung",
+            "badge_color_bg": "#E8F2FF",
+            "badge_color_text": "#0A66C2",
+            "title": "Kühluung von",
+            "text": "Kurze Einleitung zur Leistung.",
+            "bullets": "Saarbrücken\nTrier\nSaarlouis",
+            "bullet_color": "#10b981",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "card_bg": "#ffffff",
+            "card_text": "#0f172a",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "card_3kt66Y": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/dry-ice-pellets.jpg",
+            "badge": "Pharma",
+            "badge_color_bg": "#E8F2FF",
+            "badge_color_text": "#0A66C2",
+            "title": "Transport von medizinischen Produkten",
+            "text": "",
+            "bullets": "Gewebeproben\nBlutproben\nOrgane",
+            "bullet_color": "#10b981",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "card_bg": "#ffffff",
+            "card_text": "#0f172a",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "card_aaRLN3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/TrockeneisAA_3.jpg",
+            "badge": "texti",
+            "badge_color_bg": "#E8F2FF",
+            "badge_color_text": "#0A66C2",
+            "title": "Facility Management",
+            "text": "Kurze Einleitung zur Leistung.",
+            "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
+            "bullet_color": "#10b981",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "card_bg": "#ffffff",
+            "card_text": "#0f172a",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "card_xFm3L6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/dry-ice-blocks.jpg",
+            "badge": "Spezialreinigung",
+            "badge_color_bg": "#E8F2FF",
+            "badge_color_text": "#0A66C2",
+            "title": "Spezialreinigung",
+            "text": "Kurze Einleitung zur Leistung.",
+            "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
+            "bullet_color": "#10b981",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "card_bg": "#ffffff",
+            "card_text": "#0f172a",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_tXJbE7",
+        "card_3kt66Y",
+        "card_aaRLN3",
+        "card_xFm3L6"
+      ],
+      "name": "Leistungen – Karussell",
+      "settings": {
+        "heading": "Anwendungsbereiche",
+        "subheading": "<p>Entdecken Sie die vielfältigen Möglichkeiten Trockneis einzusetzen...</p>",
+        "color_scheme": "background-1",
+        "card_gap": 16,
+        "card_radius": 14,
+        "cols_desktop": 4,
+        "cols_tablet": 3,
+        "show_arrows": true,
+        "show_scrollbar": false,
+        "snap_scroll": true
       }
     }
   },
@@ -246,9 +586,13 @@
     "feature_cards_cPwPBG",
     "featured_collection",
     "text_image_block_qwRJdM",
+    "about_section_v2_GNfXYU",
     "application_areas_AMijia",
     "safety_info_AGwTpr",
     "text_image_block_m7dCwa",
-    "cta_block_LPidqf"
+    "cta_block_LPidqf",
+    "leistung_suche_grid_v2_THnFcy",
+    "leistung_final_LphmjQ",
+    "karussel_leistungen_WjfhNa"
   ]
 }
