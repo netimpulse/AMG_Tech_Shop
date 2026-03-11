@@ -63,7 +63,6 @@
         "card_DykqWU": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon-lkw-f-r-expresslieferung-schwarz-wei.png",
             "title": "🚚 Schnelle Lieferung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -105,35 +104,6 @@
         "background_color": "#ffffff",
         "card_border_color": "#e5eef2",
         "card_hover_border_color": "#5ed7f2"
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
       }
     },
     "text_image_block_qwRJdM": {
@@ -199,6 +169,81 @@
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/dry-ice-blocks.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v2_DLkFwA": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_n7P9U3": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "image",
+            "icon_svg": "",
+            "feature_title": "individuellen Staffelpreise",
+            "feature_description": ""
+          }
+        },
+        "feature_hqkBT8": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "regelmäßigen Lieferintervalle",
+            "feature_description": ""
+          }
+        },
+        "feature_b7HwCt": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Rahmenverträge",
+            "feature_description": ""
+          }
+        },
+        "feature_hYLy6m": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Expresslieferung im Saarland",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_n7P9U3",
+        "feature_hqkBT8",
+        "feature_b7HwCt",
+        "feature_hYLy6m"
+      ],
+      "name": "Über Uns (Layout) – Neu",
+      "settings": {
+        "layout_direction": "text_left",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "Was ist Trockeneis?",
+        "title_richtext": "<p><strong>Vorteile für unsere Geschäftskunden</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Als regionaler Hersteller beliefern wir Industrieunternehmen, Lebensmittelproduzenten, Logistikbetriebe und Labore zuverlässig mit frischem Trockeneis.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_591817634.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -325,6 +370,7 @@
         "service_JV8LaY": {
           "type": "service",
           "settings": {
+            "image": "shopify://shop_images/shutterstock_529683889_590bf61f-9a4d-45ad-aade-10761b5c40eb.jpg",
             "title_html": "<p><strong>transport</strong></p>",
             "text_html": "<p>Kurze Beschreibung hier.</p>",
             "keywords": "Büro, täglich, flexibel",
@@ -339,6 +385,7 @@
         "service_TaiWHV": {
           "type": "service",
           "settings": {
+            "image": "shopify://shop_images/shutterstock_444918133.jpg",
             "title_html": "<p><strong>Gastronomie und Catering</strong></p>",
             "text_html": "<p>Kurze Beschreibung hier.</p>",
             "keywords": "Büro, täglich, flexibel",
@@ -355,7 +402,6 @@
         "service_JV8LaY",
         "service_TaiWHV"
       ],
-      "disabled": true,
       "name": "Leistung Suche Grid v2",
       "settings": {
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
@@ -378,55 +424,55 @@
         "font_body": "sans_serif_n4"
       }
     },
-    "leistung_final_LphmjQ": {
-      "type": "leistung-final",
+    "mod_category_showcase_wkX48P": {
+      "type": "mod-category-showcase",
       "blocks": {
-        "service_card_lf_Dw9HMP": {
-          "type": "service_card_lf",
+        "category_iFBT6G": {
+          "type": "category",
           "settings": {
-            "title": "Kühlung",
-            "text": "Kurze Beschreibung hier.",
-            "link_url": "",
-            "link_label": "Mehr erfahren →",
+            "image": "shopify://shop_images/shutterstock_745757185.jpg",
+            "title": "Essen",
+            "subtitle": "gastronolmie und transport",
+            "link": "shopify://pages/contact",
+            "block_font_size": 43,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_CJ6MDf": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_529683889.jpg",
+            "title": "Bestseller",
+            "subtitle": "",
+            "link": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
         },
-        "service_card_lf_bWgKFj": {
-          "type": "service_card_lf",
+        "category_mKnXXK": {
+          "type": "category",
           "settings": {
-            "title": "Transport",
-            "text": "Kurze Beschreibung hier.",
-            "link_url": "",
-            "link_label": "Mehr erfahren →",
+            "image": "shopify://shop_images/shutterstock_131122721.jpg",
+            "title": "Neuheiten",
+            "subtitle": "",
+            "link": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
         },
-        "service_card_lf_MLxEci": {
-          "type": "service_card_lf",
+        "category_WdymB3": {
+          "type": "category",
           "settings": {
-            "title": "Reinigung",
-            "text": "Kurze Beschreibung hier.",
-            "link_url": "",
-            "link_label": "Mehr erfahren →",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_card_lf_iBRDHR": {
-          "type": "service_card_lf",
-          "settings": {
-            "title": "Pharma",
-            "text": "Kurze Beschreibung hier.",
-            "link_url": "",
-            "link_label": "Mehr erfahren →",
+            "image": "shopify://shop_images/shutterstock_254519980.jpg",
+            "title": "Angebote",
+            "subtitle": "",
+            "link": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -435,59 +481,20 @@
         }
       },
       "block_order": [
-        "service_card_lf_Dw9HMP",
-        "service_card_lf_bWgKFj",
-        "service_card_lf_MLxEci",
-        "service_card_lf_iBRDHR"
+        "category_iFBT6G",
+        "category_CJ6MDf",
+        "category_mKnXXK",
+        "category_WdymB3"
       ],
-      "disabled": true,
-      "name": "Leistung final",
+      "name": "Mod: Kategorie-Kacheln",
       "settings": {
         "heading": "Anwendungsbereiche",
-        "subtext": "",
-        "font_heading": "sans_serif_n4",
-        "font_body": "sans_serif_n4",
-        "heading_size": 32,
-        "heading_bold": true,
-        "heading_italic": false,
-        "subtext_size": 16,
-        "subtext_bold": false,
-        "subtext_italic": false,
-        "card_title_size": 18,
-        "card_title_bold": true,
-        "card_title_italic": false,
-        "card_text_size": 14,
-        "card_text_bold": false,
-        "card_text_italic": false,
-        "card_link_size": 14,
-        "card_link_bold": true,
-        "card_link_italic": false,
-        "bg_color": "#f3f6f9",
-        "text_color": "#222222",
-        "accent_color": "#ff6a00",
-        "card_bg": "#ffffff",
-        "card_hover_bg": "#ffffff",
-        "card_radius": 12,
-        "card_hover_lift": 6,
-        "grid_gap": 20,
-        "section_padding": 24,
-        "show_button": true,
-        "button_label": "Mehr erfahren",
-        "button_url": "",
-        "button_align": "center",
-        "button_full_width": false,
-        "button_max_width": 420,
-        "button_font_size": 16,
-        "button_bold": true,
-        "button_italic": false,
-        "button_padding_x": 20,
-        "button_padding_y": 10,
-        "button_margin_top": 28,
-        "button_margin_bottom": 0,
-        "button_bg": "#8b8e93",
-        "button_text": "#ffffff",
-        "button_hover_bg": "#6f7276",
-        "button_hover_text": "#ffffff"
+        "padding_y": 48,
+        "section_bg": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
       }
     },
     "karussel_leistungen_WjfhNa": {
@@ -616,95 +623,21 @@
         "button_color": "#16c1d8",
         "button_hover_color": "#13a5bb"
       }
-    },
-    "mod_category_showcase_wkX48P": {
-      "type": "mod-category-showcase",
-      "blocks": {
-        "category_iFBT6G": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_745757185.jpg",
-            "title": "Essen",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_CJ6MDf": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_529683889.jpg",
-            "title": "Bestseller",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_mKnXXK": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_131122721.jpg",
-            "title": "Neuheiten",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_WdymB3": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_254519980.jpg",
-            "title": "Angebote",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "category_iFBT6G",
-        "category_CJ6MDf",
-        "category_mKnXXK",
-        "category_WdymB3"
-      ],
-      "name": "Mod: Kategorie-Kacheln",
-      "settings": {
-        "heading": "Anwendungsbereiche",
-        "padding_y": 48,
-        "section_bg": "",
-        "block_font_size": 0,
-        "block_font_color": "",
-        "block_font_family": "assistant_n4",
-        "block_bg_color": ""
-      }
     }
   },
   "order": [
     "hero_dryice_kCAUAg",
     "hero_building_section_JNiQNT",
     "feature_cards_cPwPBG",
-    "featured_collection",
     "text_image_block_qwRJdM",
     "about_section_v2_GNfXYU",
+    "about_section_v2_DLkFwA",
     "application_areas_AMijia",
     "safety_info_AGwTpr",
     "text_image_block_m7dCwa",
     "leistung_suche_grid_v2_THnFcy",
-    "leistung_final_LphmjQ",
+    "mod_category_showcase_wkX48P",
     "karussel_leistungen_WjfhNa",
-    "cta_block_LPidqf",
-    "mod_category_showcase_wkX48P"
+    "cta_block_LPidqf"
   ]
 }
