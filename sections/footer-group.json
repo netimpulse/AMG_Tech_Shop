@@ -113,17 +113,6 @@
             "block_bg_color": ""
           }
         },
-        "kontakt_link_9GUK8c": {
-          "type": "kontakt_link",
-          "settings": {
-            "text": "Datenschutz",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
         "partner_logo_PB4pKN": {
           "type": "partner_logo",
           "settings": {
@@ -161,7 +150,6 @@
         "unternehmen_link_wJDiXi",
         "unternehmen_link_q7HYeY",
         "kontakt_link_GGaFyX",
-        "kontakt_link_9GUK8c",
         "partner_logo_PB4pKN",
         "partner_logo_jxAyRW"
       ],

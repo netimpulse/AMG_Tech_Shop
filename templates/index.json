@@ -36,19 +36,19 @@
       "type": "hero-building-section",
       "name": "Hero Building",
       "settings": {
-        "background_image": "shopify://shop_images/shutterstock_199757459.jpg",
+        "background_image": "shopify://shop_images/shutterstock_166579913.jpg",
         "enable_overlay": true,
         "overlay_color": "#000000",
         "overlay_opacity": 0.5,
-        "heading": "Frisches Trockneis - dierekt vom Produzenten Made im Saarland",
-        "subheading": "Höchste Kühlleistung, schnelle Lieferung in der Region Saarland und Deutschlandweit",
+        "heading": "Frisches Trockneis -  Direkt vom Hersteller kaufen",
+        "subheading": "Eigene Produktion, höchste Qualität, maximale Frische und flexible Mengen. Wir liefern zuverlässig im gesamten Saarland und versenden deutschlandweit.",
         "button_label": "Jetzt Angebot anfordern",
-        "button_link": "",
-        "button_color": "#007ACC",
-        "button_text_color": "#FFFFFF",
+        "button_link": "shopify://pages/contact",
+        "button_color": "#007acc",
+        "button_text_color": "#ffffff",
         "button_radius": 4,
-        "heading_color": "#FFFFFF",
-        "text_color": "#F5F5F5",
+        "heading_color": "#ffffff",
+        "text_color": "#f5f5f5",
         "heading_size": 48,
         "text_size": 18,
         "font_family": "Arial, sans-serif",
@@ -63,7 +63,7 @@
         "card_DykqWU": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/shutterstock_529683889.jpg",
+            "icon": "shopify://shop_images/icon-lkw-f-r-expresslieferung-schwarz-wei.png",
             "title": "Schnelle Lieferung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -71,7 +71,7 @@
         "card_JMQmDR": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/icon-lkw-f-r-expresslieferung-schwarz-wei.png",
+            "icon": "shopify://shop_images/shutterstock_199757459.jpg",
             "title": "Frische Produktion",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -79,6 +79,7 @@
         "card_Xixy8C": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/shutterstock_736578535.jpg",
             "title": "Hohe Kühlleistung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -86,6 +87,7 @@
         "card_636nLF": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/shutterstock_291272705.jpg",
             "title": "Nachhaltig produziert",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
