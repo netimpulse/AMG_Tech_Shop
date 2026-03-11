@@ -537,7 +537,7 @@
       "name": "Leistung Suche Grid v2",
       "settings": {
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
-        "subheading": "<p>Wir beliefern das gesamte Saarland, unter<br/>anderem:</p><ul><li>Saarbrücken</li><li>Neunkirchen</li><li>Homburg</li><li>Saarlouis</li><li>Völklingen</li></ul>",
+        "subheading": "<p>Wir beliefern das gesamte Saarland, unter<br/>anderem: Saarbrücken</p><ul><li>Neunkirchen</li><li>Homburg</li><li>Saarlouis</li><li>Völklingen</li></ul>",
         "text_align": "center",
         "show_search": true,
         "search_placeholder": "Leistungen oder Keywords suchen…",
@@ -830,6 +830,57 @@
         "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
         "buttons_gap": 16
       }
+    },
+    "custom_cta_block_pKhTqD": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_tNkQHa": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Angebot anfragen</p>",
+            "link": "shopify://pages/contact",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#007acc",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_tNkQHa"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p>Sie benötigen regelmäßige Lieferungen oder größere Mengen?</p>",
+        "heading_size": 32,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "subheading": "<p>Profitieren Sie von individuellen Konditionen & regionaler Direktbelieferung</p>",
+        "sub_size": 14,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
     }
   },
   "order": [
@@ -846,6 +897,7 @@
     "mod_category_showcase_wkX48P",
     "karussel_leistungen_WjfhNa",
     "cta_block_LPidqf",
-    "custom_cta_block_tcN6yG"
+    "custom_cta_block_tcN6yG",
+    "custom_cta_block_pKhTqD"
   ]
 }
