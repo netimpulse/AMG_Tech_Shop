@@ -60,7 +60,7 @@
           "name": "FAQ-Eintrag-gefährlich",
           "settings": {
             "question": "Ist Trockeneis gefährlich?",
-            "answer": "<p>Trockeneis kann bei unsachgemäßer Handhabung zu Erfrierungen, und Erstickungsgefahr in geschlossenen Räumen führen. Beachte bitte unbedingt unsere Schutzhinweise, die du auch hier(LINK) findest. Nicht Essen und Schlucken, für gute belüftung sorgen und Sicherheitshandschuhe tragen.</p>",
+            "answer": "<p>Trockeneis kann bei unsachgemäßer Handhabung zu Erfrierungen, und Erstickungsgefahr in geschlossenen Räumen führen. Beachte bitte unbedingt unsere Schutzhinweise, die du auch hier(LINK) findest. Nicht Essen und Schlucken, für gute Belüftung sorgen und Sicherheitshandschuhe tragen.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -96,19 +96,7 @@
           "name": "FAQ-Eintrag-Abholung",
           "settings": {
             "question": "Kann ich das Trockeneis abholen?",
-            "answer": "<p>Ja, nach Absprache mit unserem Lagerstandort.<br/><br/></p>",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "faq_6kMdpV": {
-          "type": "faq",
-          "name": "FAQ-Eintrag-VersandDauer",
-          "settings": {
-            "question": "Wie lange dauert der Versand?",
-            "answer": "<p>Der Versand dauert in der Regel 1-3 Werktage. Wir versenden Deutschlandweit, individuelle Angebote für Regionale Lieferung im Raum Saarland, Völklingen, Saarbrücken, Saarlouis.</p>",
+            "answer": "<p>Ja, das Trockeneis kann nach Rücksprache mit unserem Büro direkt in Völklingen abgeholt werden. Bitte die Sicherheitshinweise für den Transport beachten.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -132,7 +120,7 @@
           "name": "FAQ-Eintrag-Zahlungsarten",
           "settings": {
             "question": "Welche Zahlungsarten werden akzeptiert?",
-            "answer": "<p>Kreditkarte, PayPal, Klarna, Sofortueberweisung.</p>",
+            "answer": "<p>Kreditkarte, PayPal, Klarna, Sofortueberweisung. Bei Abholung auch Barzahlung</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -159,7 +147,6 @@
         "faq_qEqPQi",
         "faq_yP3n7J",
         "faq_tFF4Yd",
-        "faq_6kMdpV",
         "faq_VnHyTW",
         "faq_tc3Ajj",
         "faq_Ub4hMH"
@@ -170,7 +157,7 @@
         "subheading": "",
         "padding_y": 48,
         "section_bg": "",
-        "block_font_size": 0,
+        "block_font_size": 15,
         "block_font_color": "",
         "block_font_family": "assistant_n4",
         "block_bg_color": ""
