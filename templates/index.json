@@ -486,10 +486,10 @@
           "settings": {
             "image": "shopify://shop_images/shutterstock_314359133.jpg",
             "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
+            "text_html": "<p>Trockeneis hält Lebensmittel, pharmazeutische<br/>Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril,<br/>lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für<br/>Speditionen und Kliniken</p>",
+            "keywords": "Kühlkettenerhaltung, Weinlese, Fleisch, Fisch, Geflügel",
             "button_label": "Mehr erfahren",
-            "button_link": "",
+            "button_link": "shopify://pages/anwendungsbereiche",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -631,7 +631,7 @@
       "name": "Leistung Suche Grid v2",
       "settings": {
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
-        "subheading": "<p>Wir beliefern das gesamte Saarland, unter<br/>anderem: Saarbrücken</p><ul><li>Neunkirchen</li><li>Homburg</li><li>Saarlouis</li><li>Völklingen</li></ul>",
+        "subheading": "<p>Wir beliefern das gesamte Saarland, unter<br/>anderem: Saarbrücken, Neunkirchen,Homburg,Saarlouis,Völklingen</p>",
         "text_align": "center",
         "show_search": true,
         "search_placeholder": "Leistungen oder Keywords suchen…",
