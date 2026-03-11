@@ -66,6 +66,7 @@
         "description",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -80,6 +81,81 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "trockeneis_product_xWxEGq": {
+      "type": "trockeneis-product",
+      "blocks": {
+        "product_description_VCqwCB": {
+          "type": "product_description",
+          "settings": {
+            "heading": "Produktbeschreibung",
+            "text": "<p>Beschreiben Sie hier Ihr Produkt.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "product_specs_MnKNgR": {
+          "type": "product_specs",
+          "settings": {
+            "heading": "Technische Daten",
+            "spec_1_label": "Material",
+            "spec_1_value": "CO2 (Kohlendioxid)",
+            "spec_2_label": "Temperatur",
+            "spec_2_value": "-78,5 Grad C",
+            "spec_3_label": "Pelletgroesse",
+            "spec_3_value": "1,5 mm / 3 mm",
+            "spec_4_label": "",
+            "spec_4_value": "",
+            "spec_5_label": "",
+            "spec_5_value": "",
+            "spec_6_label": "",
+            "spec_6_value": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "safety_info_iQpKMB": {
+          "type": "safety_info",
+          "settings": {
+            "heading": "Sicherheitshinweis",
+            "text": "<p>Sicherheitshandschuhe tragen. Trockeneis nur in gut beluefteten Raeumen verwenden.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_description_VCqwCB",
+        "product_specs_MnKNgR",
+        "safety_info_iQpKMB"
+      ],
+      "name": "Trockeneis-Produkt",
+      "settings": {
+        "subtitle": "Hochwertige Trockeneispellets für Industrie und Gewerbe",
+        "price_note": "Preis inkl. MwSt., zzgl. Versandkosten",
+        "cart_note": "Sichere Zahlung über Shopify Payments",
+        "default_size": "3mm",
+        "pickup_address": "Abholung an unserem Standort in Völklingen",
+        "contact_page": "shopify://pages/contact",
+        "dhl_price": "auf Anfrage",
+        "dhl_price_raw": "0",
+        "dhl_conditions": "",
+        "dpd_price": "auf Anfrage",
+        "dpd_price_raw": "0",
+        "dpd_conditions": "",
+        "go_price": "auf Anfrage",
+        "go_price_raw": "0",
+        "go_conditions": "",
+        "feature_1": "Premium-Qualitaet",
+        "feature_2": "Sofort verfuegbar",
+        "feature_3": "Flexible Mengen"
       }
     },
     "related-products": {
@@ -99,10 +175,367 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "mod_marquee_Xh3mnm": {
+      "type": "mod-marquee",
+      "blocks": {
+        "text_item_HHMNWT": {
+          "type": "text_item",
+          "settings": {
+            "text": "Kostenloser Versand"
+          }
+        },
+        "text_item_yXhGwp": {
+          "type": "text_item",
+          "settings": {
+            "text": "30 Tage Rueckgabe"
+          }
+        },
+        "text_item_mBJf79": {
+          "type": "text_item",
+          "settings": {
+            "text": "Sichere Zahlung"
+          }
+        }
+      },
+      "block_order": [
+        "text_item_HHMNWT",
+        "text_item_yXhGwp",
+        "text_item_mBJf79"
+      ],
+      "disabled": true,
+      "name": "Mod: Lauftext",
+      "settings": {
+        "separator": "✦",
+        "font_size": 24,
+        "speed": 20,
+        "padding_y": 16,
+        "section_bg": "",
+        "text_color": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
+    },
+    "mod_product_tabs_py8hE7": {
+      "type": "mod-product-tabs",
+      "blocks": {
+        "tab_9wWPUP": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Beschreibung",
+            "tab_content": "<p>Produktbeschreibung hier einfuegen.</p>"
+          }
+        },
+        "tab_8n9Xyi": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Details",
+            "tab_content": "<p>Unsere <strong>Trockeneispellets 1,5 mm</strong> wurden<br/>speziell für den Einsatz in Trockeneisstrahlanlagen entwickelt. Sie ermöglichen eine besonders präzise und materialschonende Reinigung von Maschinen, Werkzeugen und empfindlichen Oberflächen.</p><p>Typische Einsatzbereiche:</p><ul><li>Maschinen- und Anlagenreinigung</li><li>Formen- und Werkzeugreinigung</li><li>Kunststoff- und Metallverarbeitung</li><li>Lebensmittelindustrie</li><li>Automotive-Bereich</li></ul><p>Durch die rückstandsfreie Sublimation entsteht kein sekundärer Abfall – ideal für sensible Produktionsumgebungen.</p>"
+          }
+        },
+        "tab_ixa8hk": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Beschreibung",
+            "tab_content": "<p>Hier steht der Inhalt dieses Tabs.</p>"
+          }
+        },
+        "tab_ztyxa4": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Versand",
+            "tab_content": "<p>Versandinformationen und Lieferzeiten.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_9wWPUP",
+        "tab_8n9Xyi",
+        "tab_ixa8hk",
+        "tab_ztyxa4"
+      ],
+      "disabled": true,
+      "name": "Mod: Produkt mit Tabs",
+      "settings": {
+        "product": "trockeneispellets-1-5-mm",
+        "add_text": "In den Warenkorb",
+        "show_vendor": false,
+        "padding_y": 48,
+        "section_bg": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
+    },
+    "mod_stats_counter_a9DHcb": {
+      "type": "mod-stats-counter",
+      "blocks": {
+        "stat_dhKGM9": {
+          "type": "stat",
+          "settings": {
+            "number": "500",
+            "suffix": "+",
+            "label": "Zufriedene Kunden",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "stat_QrmqxF": {
+          "type": "stat",
+          "settings": {
+            "number": "24",
+            "suffix": "h",
+            "label": "Express-Lieferung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "stat_gY9gKq": {
+          "type": "stat",
+          "settings": {
+            "number": "99",
+            "suffix": "%",
+            "label": "Weiterempfehlung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "stat_dceNqJ": {
+          "type": "stat",
+          "settings": {
+            "number": "10",
+            "suffix": "+",
+            "label": "Jahre Erfahrung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_dhKGM9",
+        "stat_QrmqxF",
+        "stat_gY9gKq",
+        "stat_dceNqJ"
+      ],
+      "disabled": true,
+      "name": "Mod: Statistiken",
+      "settings": {
+        "heading": "",
+        "padding_y": 48,
+        "section_bg": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
+    },
+    "mod_shipping_bar_9rPJBn": {
+      "type": "mod-shipping-bar",
+      "blocks": {
+        "info_kd6Pzz": {
+          "type": "info",
+          "settings": {
+            "text": "Kostenloser Versand ab 50 EUR"
+          }
+        },
+        "info_zF4ymY": {
+          "type": "info",
+          "settings": {
+            "text": "30 Tage Rueckgaberecht"
+          }
+        },
+        "info_tY3NLw": {
+          "type": "info",
+          "settings": {
+            "text": "Sichere Zahlung"
+          }
+        }
+      },
+      "block_order": [
+        "info_kd6Pzz",
+        "info_zF4ymY",
+        "info_tY3NLw"
+      ],
+      "disabled": true,
+      "name": "Mod: Versand-Infoleiste",
+      "settings": {
+        "section_bg": "",
+        "text_color": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
+    },
+    "mod_trockeneis_configurator_Bxa8wJ": {
+      "type": "mod-trockeneis-configurator",
+      "blocks": {
+        "carrier_YdhAVF": {
+          "type": "carrier",
+          "settings": {
+            "name": "DHL Express",
+            "price_text": "ab 14,90 EUR",
+            "conditions": "<p>Lieferung innerhalb von 24h. Trockeneis-sichere Styropor-Verpackung inklusive. Mindestbestellmenge 10kg.</p>"
+          }
+        },
+        "carrier_j4wMNg": {
+          "type": "carrier",
+          "settings": {
+            "name": "DPD Express",
+            "price_text": "ab 12,90 EUR",
+            "conditions": "<p>Lieferung innerhalb von 24-48h. Trockeneis geeignete Verpackung. Ab 15kg kostenloser Versand.</p>"
+          }
+        },
+        "carrier_gLMAxF": {
+          "type": "carrier",
+          "settings": {
+            "name": "GO! Express",
+            "price_text": "ab 19,90 EUR",
+            "conditions": "<p>Same-Day Lieferung moeglich. Premium Isolierverpackung. Echtzeit-Tracking. Fuer zeitkritische Lieferungen.</p>"
+          }
+        },
+        "trust_badge_MQUWiU": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "🔒",
+            "text": "Sichere Bezahlung"
+          }
+        },
+        "trust_badge_FUrtEL": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "📦",
+            "text": "Trockeneis-Verpackung"
+          }
+        },
+        "trust_badge_dgwPmi": {
+          "type": "trust_badge",
+          "settings": {
+            "icon": "⚡",
+            "text": "Express-Versand"
+          }
+        }
+      },
+      "block_order": [
+        "carrier_YdhAVF",
+        "carrier_j4wMNg",
+        "carrier_gLMAxF",
+        "trust_badge_MQUWiU",
+        "trust_badge_FUrtEL",
+        "trust_badge_dgwPmi"
+      ],
+      "disabled": true,
+      "name": "Mod: Trockeneis Config",
+      "settings": {
+        "product": "trockeneispellets-1-5-mm",
+        "heading": "Trockeneis bestellen",
+        "subheading": "Konfiguriere deine Bestellung in 3 einfachen Schritten",
+        "step1_title": "Produkt konfigurieren",
+        "step1_btn": "Weiter zur Lieferung",
+        "step2_title": "Lieferart waehlen",
+        "step2_btn": "Weiter zur Bestellung",
+        "pickup_title": "Selbstabholung",
+        "pickup_price_text": "Kostenlos",
+        "pickup_note": "Abholung nach Terminvereinbarung",
+        "express_title": "Express-Lieferung",
+        "express_price_text": "Ab 9,90 EUR",
+        "step3_title": "Zusammenfassung & Bestellen",
+        "order_btn_text": "Jetzt bestellen",
+        "btn_bg": "#111111",
+        "btn_color": "#ffffff",
+        "trust_text": "ja",
+        "padding_y": 56,
+        "section_bg": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
+    },
+    "product_info_block_gNAUTF": {
+      "type": "product-info-block",
+      "disabled": true,
+      "name": "Produkt-Info Block",
+      "settings": {
+        "product": "trockeneispellets-1-5-mm",
+        "section_heading": "",
+        "heading_size": "h2",
+        "section_bg_color": "",
+        "section_padding_top": 36,
+        "section_padding_bottom": 36,
+        "show_vendor": true,
+        "show_tax_info": true,
+        "tax_text": "",
+        "show_quantity": true,
+        "add_to_cart_text": "In den Warenkorb",
+        "show_dynamic_checkout": false,
+        "enable_description": true,
+        "description_heading": "Beschreibung",
+        "description_source": "product",
+        "description_text": "",
+        "enable_specs": false,
+        "specs_heading": "Technische Daten",
+        "spec_label_1": "",
+        "spec_value_1": "",
+        "spec_label_2": "",
+        "spec_value_2": "",
+        "spec_label_3": "",
+        "spec_value_3": "",
+        "spec_label_4": "",
+        "spec_value_4": "",
+        "spec_label_5": "",
+        "spec_value_5": "",
+        "spec_label_6": "",
+        "spec_value_6": "",
+        "enable_safety": false,
+        "safety_heading": "Sicherheitshinweis",
+        "safety_text": "",
+        "enable_trust": false,
+        "trust_heading": "",
+        "trust_text_1": "Schneller Versand",
+        "trust_text_2": "Sichere Zahlung",
+        "trust_text_3": "Top Qualitaet",
+        "enable_cta": false,
+        "cta_heading": "Fragen? Kontaktieren Sie uns!",
+        "cta_text": "",
+        "cta_button_text": "Kontakt aufnehmen",
+        "cta_button_link": "",
+        "enable_delivery": false,
+        "delivery_heading": "Lieferinformationen",
+        "delivery_text": "",
+        "enable_richtext": false,
+        "richtext_heading": "",
+        "richtext_content": "",
+        "enable_image": false,
+        "image_max_width": 800,
+        "image_caption": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "trockeneis_product_xWxEGq",
+    "related-products",
+    "mod_marquee_Xh3mnm",
+    "mod_product_tabs_py8hE7",
+    "mod_stats_counter_a9DHcb",
+    "mod_shipping_bar_9rPJBn",
+    "mod_trockeneis_configurator_Bxa8wJ",
+    "product_info_block_gNAUTF"
   ]
 }

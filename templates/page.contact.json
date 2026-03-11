@@ -59,7 +59,7 @@
           "type": "info_card",
           "settings": {
             "title": "Adresse",
-            "text": "<p>info@trockneis.saarland</p>",
+            "text": "<p>info@trockeneis.saarland</p>",
             "icon": "mail",
             "block_font_size": 0,
             "block_font_color": "",

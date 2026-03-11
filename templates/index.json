@@ -64,7 +64,7 @@
           "type": "card",
           "settings": {
             "icon": "shopify://shop_images/icon-lkw-f-r-expresslieferung-schwarz-wei.png",
-            "title": "Schnelle Lieferung",
+            "title": "🚚 Schnelle Lieferung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
         },
@@ -633,66 +633,6 @@
             "block_bg_color": ""
           }
         },
-        "category_rbWR8c": {
-          "type": "category",
-          "settings": {
-            "title": "Kategorie",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_hATT3P": {
-          "type": "category",
-          "settings": {
-            "title": "Kategorie",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_MALgHB": {
-          "type": "category",
-          "settings": {
-            "title": "Kategorie",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_8yeaqm": {
-          "type": "category",
-          "settings": {
-            "title": "Kategorie",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_Rd3kgg": {
-          "type": "category",
-          "settings": {
-            "title": "Kategorie",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
         "category_CJ6MDf": {
           "type": "category",
           "settings": {
@@ -735,11 +675,6 @@
       },
       "block_order": [
         "category_iFBT6G",
-        "category_rbWR8c",
-        "category_hATT3P",
-        "category_MALgHB",
-        "category_8yeaqm",
-        "category_Rd3kgg",
         "category_CJ6MDf",
         "category_mKnXXK",
         "category_WdymB3"
