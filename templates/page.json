@@ -48,7 +48,7 @@
           "name": "FAQ-Eintrag-wie lange hält TE",
           "settings": {
             "question": "Wie lange hält Trockeneis?",
-            "answer": "<p>Abhängig von Lagerung und Menge: ca. 1–3 Tage in einer gut isolierten Box.</p>",
+            "answer": "<p>Trockeneis sublimiert kontinuierlich und geht<br/>direkt vom festen in den gasförmigen Zustand über. Daher kann man nur schwer beurteilen, wie lange sich das Trockneis hält. Je nach Lagerung und Menge verliert es etwa 2–10 % pro Stunde. In einer gut isolierten Box, kann sich ??kg Trockneispellets erfahrungsgemäß ca 1-3 Tage halten, wenn die Box nicht zu oft geöffnet wird und die Umgebungstemperatur nicht zu heiß ist.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",

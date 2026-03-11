@@ -187,7 +187,7 @@
           "settings": {
             "icon_type": "image",
             "icon_svg": "",
-            "feature_title": "individuellen Staffelpreise",
+            "feature_title": "individuelle Staffelpreise",
             "feature_description": ""
           }
         },
@@ -196,7 +196,7 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "regelmäßigen Lieferintervalle",
+            "feature_title": "regelmäßige Lieferintervalle",
             "feature_description": ""
           }
         },
