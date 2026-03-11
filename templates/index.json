@@ -11,8 +11,10 @@
   "sections": {
     "hero_dryice_kCAUAg": {
       "type": "hero-dryice",
+      "disabled": true,
       "name": "Hero Banner (Trockeneis)",
       "settings": {
+        "background_image": "shopify://shop_images/shutterstock_736578535.jpg",
         "content_alignment": "left",
         "heading": "<p><strong>Trockeneis –</strong><em><strong> Made im Saarland</strong></em></p>",
         "subheading": "<p>Höchste Kühlleistung, rückstandsfrei und nachhaltig produziert. Schnelle Lieferung deutschlandweit für alle Ihre Anforderungen.</p>",
@@ -30,13 +32,38 @@
         "secondary_button_border": "#ffffff"
       }
     },
+    "hero_building_section_JNiQNT": {
+      "type": "hero-building-section",
+      "name": "Hero Building",
+      "settings": {
+        "background_image": "shopify://shop_images/shutterstock_199757459.jpg",
+        "enable_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.5,
+        "heading": "Frisches Trockneis - dierekt vom Produzenten Made im Saarland",
+        "subheading": "Höchste Kühlleistung, schnelle Lieferung in der Region Saarland und Deutschlandweit",
+        "button_label": "Jetzt Angebot anfordern",
+        "button_link": "",
+        "button_color": "#007ACC",
+        "button_text_color": "#FFFFFF",
+        "button_radius": 4,
+        "heading_color": "#FFFFFF",
+        "text_color": "#F5F5F5",
+        "heading_size": 48,
+        "text_size": 18,
+        "font_family": "Arial, sans-serif",
+        "font_bold": true,
+        "font_italic": false,
+        "text_alignment": "left"
+      }
+    },
     "feature_cards_cPwPBG": {
       "type": "feature-cards",
       "blocks": {
         "card_DykqWU": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "icon": "shopify://shop_images/shutterstock_529683889.jpg",
             "title": "Schnelle Lieferung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -44,6 +71,7 @@
         "card_JMQmDR": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/icon-lkw-f-r-expresslieferung-schwarz-wei.png",
             "title": "Frische Produktion",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -108,6 +136,7 @@
     },
     "text_image_block_qwRJdM": {
       "type": "text-image-block",
+      "disabled": true,
       "name": "Text + Bild Block",
       "settings": {
         "background_color": "#f2f3f5",
@@ -125,6 +154,7 @@
       "blocks": {
         "feature_4HQEti": {
           "type": "feature",
+          "disabled": true,
           "settings": {
             "icon_type": "image",
             "icon_svg": "",
@@ -135,6 +165,7 @@
         },
         "feature_FUhxGL": {
           "type": "feature",
+          "disabled": true,
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
@@ -151,7 +182,7 @@
       "settings": {
         "layout_direction": "image_left",
         "show_image": true,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "section_padding_top": 80,
         "section_padding_bottom": 80,
         "title": "Was ist Trockeneis?",
@@ -163,7 +194,7 @@
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
         "description": "<p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Diese Eigenschaft macht Trockeneis zum perfekten Kühlmittel für Transport, Lagerung und Reinigung in zahlreichen Branchen. Es kühlt intensiver als herkömmliches Eis und hinterlässt keine Feuchtigkeit.</p><p>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</p>",
-        "text_color": "#6B7280",
+        "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/dry-ice-blocks.jpg",
         "image_border_radius": 12,
@@ -172,7 +203,7 @@
         "image_aspect_ratio": "4/3",
         "features_per_row": "2",
         "icon_size": 32,
-        "icon_color": "#34D399",
+        "icon_color": "#34d399",
         "feature_title_color": "#111827"
       }
     },
@@ -182,6 +213,7 @@
         "area_6h8Hbp": {
           "type": "area",
           "settings": {
+            "icon": "shopify://shop_images/shutterstock_591817634.jpg",
             "title": "<p><strong>Gastronomie & Catering</strong></p>",
             "text": "<p>Spektakuläre Effekte und zuverlässige Kühlung für Events</p>"
           }
@@ -189,6 +221,7 @@
         "area_78HzNW": {
           "type": "area",
           "settings": {
+            "icon": "shopify://shop_images/shutterstock_254519980.jpg",
             "title": "<p><strong>Lebensmitteltransport</strong></p>",
             "text": "<p>Spektakuläre Effekte und zuverlässige Kühlung für Events</p>"
           }
@@ -230,6 +263,7 @@
         "area_DMD6WU",
         "area_XdQKtH"
       ],
+      "disabled": true,
       "name": "Anwendungsbereiche",
       "settings": {
         "background_color": "#062a46",
@@ -270,6 +304,7 @@
     },
     "text_image_block_m7dCwa": {
       "type": "text-image-block",
+      "disabled": true,
       "name": "Text + Bild Block",
       "settings": {
         "background_color": "#ffffff",
@@ -280,21 +315,6 @@
         "show_button": true,
         "button_label": "Mehr erfahren",
         "button_link": ""
-      }
-    },
-    "cta_block_LPidqf": {
-      "type": "cta-block",
-      "name": "Call-to-Action Block",
-      "settings": {
-        "background_color": "#062a46",
-        "text_color": "#ffffff",
-        "heading": "<p><strong>Jetzt Trockneies bestellen</strong></p>",
-        "subtext": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
-        "show_button": true,
-        "button_label": "Kostenlose Beratung",
-        "button_link": "",
-        "button_color": "#16c1d8",
-        "button_hover_color": "#13a5bb"
       }
     },
     "leistung_suche_grid_v2_THnFcy": {
@@ -342,8 +362,8 @@
         "show_search": true,
         "search_placeholder": "Leistungen oder Keywords suchen…",
         "badge_style": "solid",
-        "keyword_badge_bg": "#E6F0FF",
-        "keyword_badge_color": "#0F1C3F",
+        "keyword_badge_bg": "#e6f0ff",
+        "keyword_badge_color": "#0f1c3f",
         "card_bg": "#ffffff",
         "card_radius": 18,
         "card_shadow": true,
@@ -440,7 +460,7 @@
         "card_link_size": 14,
         "card_link_bold": true,
         "card_link_italic": false,
-        "bg_color": "#F3F6F9",
+        "bg_color": "#f3f6f9",
         "text_color": "#222222",
         "accent_color": "#ff6a00",
         "card_bg": "#ffffff",
@@ -462,7 +482,7 @@
         "button_padding_y": 10,
         "button_margin_top": 28,
         "button_margin_bottom": 0,
-        "button_bg": "#8B8E93",
+        "button_bg": "#8b8e93",
         "button_text": "#ffffff",
         "button_hover_bg": "#6f7276",
         "button_hover_text": "#ffffff"
@@ -476,8 +496,8 @@
           "settings": {
             "image": "shopify://shop_images/team-production.jpg",
             "badge": "Kühlung",
-            "badge_color_bg": "#E8F2FF",
-            "badge_color_text": "#0A66C2",
+            "badge_color_bg": "#e8f2ff",
+            "badge_color_text": "#0a66c2",
             "title": "Kühluung von",
             "text": "Kurze Einleitung zur Leistung.",
             "bullets": "Saarbrücken\nTrier\nSaarlouis",
@@ -498,8 +518,8 @@
           "settings": {
             "image": "shopify://shop_images/dry-ice-pellets.jpg",
             "badge": "Pharma",
-            "badge_color_bg": "#E8F2FF",
-            "badge_color_text": "#0A66C2",
+            "badge_color_bg": "#e8f2ff",
+            "badge_color_text": "#0a66c2",
             "title": "Transport von medizinischen Produkten",
             "text": "",
             "bullets": "Gewebeproben\nBlutproben\nOrgane",
@@ -520,8 +540,8 @@
           "settings": {
             "image": "shopify://shop_images/TrockeneisAA_3.jpg",
             "badge": "texti",
-            "badge_color_bg": "#E8F2FF",
-            "badge_color_text": "#0A66C2",
+            "badge_color_bg": "#e8f2ff",
+            "badge_color_text": "#0a66c2",
             "title": "Facility Management",
             "text": "Kurze Einleitung zur Leistung.",
             "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
@@ -542,8 +562,8 @@
           "settings": {
             "image": "shopify://shop_images/dry-ice-blocks.jpg",
             "badge": "Spezialreinigung",
-            "badge_color_bg": "#E8F2FF",
-            "badge_color_text": "#0A66C2",
+            "badge_color_bg": "#e8f2ff",
+            "badge_color_text": "#0a66c2",
             "title": "Spezialreinigung",
             "text": "Kurze Einleitung zur Leistung.",
             "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
@@ -579,10 +599,164 @@
         "show_scrollbar": false,
         "snap_scroll": true
       }
+    },
+    "cta_block_LPidqf": {
+      "type": "cta-block",
+      "name": "Call-to-Action Block",
+      "settings": {
+        "background_color": "#062a46",
+        "text_color": "#ffffff",
+        "heading": "<p><strong>Jetzt Trockneies bestellen</strong></p>",
+        "subtext": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
+        "show_button": true,
+        "button_label": "Kostenlose Beratung",
+        "button_link": "",
+        "button_color": "#16c1d8",
+        "button_hover_color": "#13a5bb"
+      }
+    },
+    "mod_category_showcase_wkX48P": {
+      "type": "mod-category-showcase",
+      "blocks": {
+        "category_iFBT6G": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_745757185.jpg",
+            "title": "Essen",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_rbWR8c": {
+          "type": "category",
+          "settings": {
+            "title": "Kategorie",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_hATT3P": {
+          "type": "category",
+          "settings": {
+            "title": "Kategorie",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_MALgHB": {
+          "type": "category",
+          "settings": {
+            "title": "Kategorie",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_8yeaqm": {
+          "type": "category",
+          "settings": {
+            "title": "Kategorie",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_Rd3kgg": {
+          "type": "category",
+          "settings": {
+            "title": "Kategorie",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_CJ6MDf": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_529683889.jpg",
+            "title": "Bestseller",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_mKnXXK": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_131122721.jpg",
+            "title": "Neuheiten",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "category_WdymB3": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_254519980.jpg",
+            "title": "Angebote",
+            "subtitle": "",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_iFBT6G",
+        "category_rbWR8c",
+        "category_hATT3P",
+        "category_MALgHB",
+        "category_8yeaqm",
+        "category_Rd3kgg",
+        "category_CJ6MDf",
+        "category_mKnXXK",
+        "category_WdymB3"
+      ],
+      "name": "Mod: Kategorie-Kacheln",
+      "settings": {
+        "heading": "Anwendungsbereiche",
+        "padding_y": 48,
+        "section_bg": "",
+        "block_font_size": 0,
+        "block_font_color": "",
+        "block_font_family": "assistant_n4",
+        "block_bg_color": ""
+      }
     }
   },
   "order": [
     "hero_dryice_kCAUAg",
+    "hero_building_section_JNiQNT",
     "feature_cards_cPwPBG",
     "featured_collection",
     "text_image_block_qwRJdM",
@@ -590,9 +764,10 @@
     "application_areas_AMijia",
     "safety_info_AGwTpr",
     "text_image_block_m7dCwa",
-    "cta_block_LPidqf",
     "leistung_suche_grid_v2_THnFcy",
     "leistung_final_LphmjQ",
-    "karussel_leistungen_WjfhNa"
+    "karussel_leistungen_WjfhNa",
+    "cta_block_LPidqf",
+    "mod_category_showcase_wkX48P"
   ]
 }
