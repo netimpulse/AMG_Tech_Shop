@@ -109,11 +109,104 @@
         "button_label": "Nachricht senden",
         "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
       }
+    },
+    "contact_info_form_bb4R9C": {
+      "type": "contact-info-form",
+      "blocks": {
+        "info_card_t7VMex": {
+          "type": "info_card",
+          "settings": {
+            "title": "Sprechen Sie uns an, wir beraten Sie gerne.",
+            "text": "<p>Schreiben Sie uns Ihre Nachricht, wir melden uns schnellstmöglich bei Ihnen mit einem individuellen angbeot oder beantworten Ihre Fragen rund um das Thema Trockneis, so gut wir können.</p><p>Text balablablablabloabla</p>",
+            "icon": "mail",
+            "icon_image": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "extra_field_4hBde7": {
+          "type": "extra_field",
+          "settings": {
+            "field_label": "Lieferturnus*",
+            "field_type": "text",
+            "options": "Option 1,Option 2",
+            "placeholder": "täglich, wöchentlich, monatlich,...",
+            "required": true,
+            "full_width": false,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "extra_field_Bd4YiA": {
+          "type": "extra_field",
+          "settings": {
+            "field_label": "Menge*",
+            "field_type": "text",
+            "options": "Option 1,Option 2",
+            "placeholder": "100kg, 500kg,...",
+            "required": true,
+            "full_width": false,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "extra_field_CgRK7p": {
+          "type": "extra_field",
+          "settings": {
+            "field_label": "Lieferort*",
+            "field_type": "text",
+            "options": "Option 1,Option 2",
+            "placeholder": "Wohin soll geliefert werden?",
+            "required": true,
+            "full_width": false,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "info_card_t7VMex",
+        "extra_field_4hBde7",
+        "extra_field_Bd4YiA",
+        "extra_field_CgRK7p"
+      ],
+      "name": "Kontaktbereich mit Formular",
+      "settings": {
+        "left_title": "Kostenlose Erstberatung anfordern",
+        "right_title": "Anfrage Angebot Geschäftskunden",
+        "label_firstname": "Vorname *",
+        "ph_firstname": "Ihr Vorname",
+        "label_lastname": "Nachname *",
+        "ph_lastname": "Ihr Nachname",
+        "label_email": "E-Mail *",
+        "ph_email": "ihre.email@beispiel.de",
+        "label_phone": "Telefon",
+        "ph_phone": "Ihre Telefonnummer",
+        "label_company": "Unternehmen*",
+        "ph_company": "Ihr Unternehmen",
+        "label_subject": "Betreff",
+        "ph_subject": "Worum geht es?",
+        "label_message": "Nachricht *",
+        "ph_message": "Beschreiben Sie Ihr Anliegen...",
+        "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
+        "consent_label": "Datenschutz zugestimmt",
+        "button_label": "Nachricht senden",
+        "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
+      }
     }
   },
   "order": [
     "main",
     "form",
-    "contact_info_form_ab9Kzg"
+    "contact_info_form_ab9Kzg",
+    "contact_info_form_bb4R9C"
   ]
 }
