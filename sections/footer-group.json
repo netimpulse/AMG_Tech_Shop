@@ -17,7 +17,7 @@
         "leistungen_link_nLmUpn": {
           "type": "leistungen_link",
           "settings": {
-            "text": "Badsanierung",
+            "text": "AGB",
             "link": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -28,7 +28,29 @@
         "leistungen_link_JeXAiP": {
           "type": "leistungen_link",
           "settings": {
-            "text": "Heizungsbau",
+            "text": "Datenschutz",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "leistungen_link_dTYqVM": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "Sicherheitsdaten",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "leistungen_link_7EkiTK": {
+          "type": "leistungen_link",
+          "settings": {
+            "text": "FAQ",
             "link": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -39,7 +61,18 @@
         "unternehmen_link_TAWtYi": {
           "type": "unternehmen_link",
           "settings": {
-            "text": "Team",
+            "text": "Shop",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "unternehmen_link_dUXHk4": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Kontakt",
             "link": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -50,7 +83,18 @@
         "unternehmen_link_wJDiXi": {
           "type": "unternehmen_link",
           "settings": {
-            "text": "Jobs",
+            "text": "Karriere",
+            "link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "unternehmen_link_q7HYeY": {
+          "type": "unternehmen_link",
+          "settings": {
+            "text": "Downloads",
             "link": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -83,7 +127,8 @@
         "partner_logo_PB4pKN": {
           "type": "partner_logo",
           "settings": {
-            "alt": "Partner",
+            "logo": "shopify://shop_images/2025-SIS.png",
+            "alt": "SIS Saar- Industrie-Service GmbH",
             "link": "",
             "new_tab": true,
             "block_font_size": 0,
@@ -95,7 +140,8 @@
         "partner_logo_jxAyRW": {
           "type": "partner_logo",
           "settings": {
-            "alt": "Partner",
+            "logo": "shopify://shop_images/2025-SIS-Gebaeude.png",
+            "alt": "SIS Saar Gebäudeservice GmbH",
             "link": "",
             "new_tab": true,
             "block_font_size": 0,
@@ -108,8 +154,12 @@
       "block_order": [
         "leistungen_link_nLmUpn",
         "leistungen_link_JeXAiP",
+        "leistungen_link_dTYqVM",
+        "leistungen_link_7EkiTK",
         "unternehmen_link_TAWtYi",
+        "unternehmen_link_dUXHk4",
         "unternehmen_link_wJDiXi",
+        "unternehmen_link_q7HYeY",
         "kontakt_link_GGaFyX",
         "kontakt_link_9GUK8c",
         "partner_logo_PB4pKN",
@@ -129,16 +179,16 @@
         "link_color": "#60a5fa",
         "font_heading": "sans_serif_n4",
         "font_body": "sans_serif_n4",
-        "col1_title": "Leistungen",
+        "col1_title": "Links",
         "col2_title": "Unternehmen",
         "col3_title": "Kontakt",
         "col4_title": "Partner",
-        "contact_company": "SIS Saar",
-        "contact_address": "Musterstraße 1, 12345 Musterstadt",
-        "contact_phone": "0123 / 456 789",
-        "contact_email": "info@sis-saar.de",
-        "contact_hours": "Mo–Fr 8–17 Uhr",
-        "copyright_text": "© 2024 SIS Saar. Alle Rechte vorbehalten."
+        "contact_company": "AMG Tech GmbH",
+        "contact_address": "Vorderster Berg 13,\n66333 Völklingen",
+        "contact_phone": "+49 (0) 6898 16 90 896",
+        "contact_email": "infto@trockneis.saarland",
+        "contact_hours": "",
+        "copyright_text": "© 2024 AMG Tech GmbH. Alle Rechte vorbehalten."
       }
     },
     "footer": {
