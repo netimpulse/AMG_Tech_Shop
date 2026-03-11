@@ -18,7 +18,7 @@
           "type": "leistungen_link",
           "settings": {
             "text": "AGB",
-            "link": "",
+            "link": "shopify://pages/agb",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -29,7 +29,7 @@
           "type": "leistungen_link",
           "settings": {
             "text": "Datenschutz",
-            "link": "",
+            "link": "shopify://pages/datenschutz",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -40,7 +40,7 @@
           "type": "leistungen_link",
           "settings": {
             "text": "Sicherheitsdaten",
-            "link": "",
+            "link": "shopify://pages/sicherheitsdaten",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -51,7 +51,7 @@
           "type": "leistungen_link",
           "settings": {
             "text": "FAQ",
-            "link": "",
+            "link": "shopify://pages/faq",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -73,7 +73,7 @@
           "type": "unternehmen_link",
           "settings": {
             "text": "Kontakt",
-            "link": "",
+            "link": "shopify://pages/contact",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -84,7 +84,7 @@
           "type": "unternehmen_link",
           "settings": {
             "text": "Karriere",
-            "link": "",
+            "link": "shopify://pages/karriere",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -95,7 +95,7 @@
           "type": "unternehmen_link",
           "settings": {
             "text": "Downloads",
-            "link": "",
+            "link": "shopify://pages/downloads",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -106,7 +106,7 @@
           "type": "kontakt_link",
           "settings": {
             "text": "Impressum",
-            "link": "",
+            "link": "shopify://pages/impressum-amg",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
