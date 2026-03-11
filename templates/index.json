@@ -330,7 +330,6 @@
         "area_DMD6WU",
         "area_XdQKtH"
       ],
-      "disabled": true,
       "name": "Anwendungsbereiche",
       "settings": {
         "background_color": "#062a46",
@@ -341,6 +340,101 @@
         "card_border_color": "#ffffff14",
         "card_hover_border_color": "#3ed0df",
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
+        "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
+      }
+    },
+    "application_areas_KKR3Ha": {
+      "type": "application-areas",
+      "blocks": {
+        "area_NhTYqm": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/shutterstock_291272705.jpg",
+            "title": "<p><strong>Nachhaltigkeit</strong></p>",
+            "text": "<p>Kein Wasser, keine Chemie, keine Rückstände – nur reines CO₂, das rückstandslos sublimiert </p>"
+          }
+        },
+        "area_LbUCVk": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/shutterstock_1035937483.jpg",
+            "title": "<p><strong>Wirtschaftlichkeit</strong></p>",
+            "text": "<p>Keine Trocknungszeiten, keine Entsorgungskosten, reduzierte Stillstandzeiten</p>"
+          }
+        },
+        "area_RNKhDx": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/iStock-118540539.jpg",
+            "title": "<p><strong>Vielseitigkeit</strong></p>",
+            "text": "<p>Von -78,5°C Kühlung bis zur Reinigung – ein Produkt, unzählige Lösungen</p>"
+          }
+        },
+        "area_TNVE6P": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/shutterstock_254519980.jpg",
+            "title": "<p><strong>Sicherheit</strong></p>",
+            "text": "<p>Lebensmittelecht, ungiftig und nicht brennbar bei sachgemäßer Anwendung</p>"
+          }
+        },
+        "area_beM79D": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Rückstandsfrei</p>",
+            "text": "<p>Sublimiert vollständig, hinterlässt keine Feuchtigkeit oder Reste</p>"
+          }
+        },
+        "area_TTXWzX": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Lebensmittelecht & steril</p>",
+            "text": "<p>Geeignet für Lebensmittel, Medizin und Pharmazie<br/><br/><br/><br/></p>"
+          }
+        },
+        "area_igKHKy": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Umweltfreundlich</p>",
+            "text": "<p>Kein zusätzliches CO₂, keine Chemikalien</p>"
+          }
+        },
+        "area_z9Bpaj": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Effizient</p>",
+            "text": "<p>Kühlt bis –78 °C, verlängert Haltbarkeit und<br/>Produktionszeiten</p>"
+          }
+        },
+        "area_VUeEwG": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Vielseitig</p>",
+            "text": "<p>Einsatz in Industrie, Logistik, Medizin,<br/>Gastronomie und Privatbereich</p>"
+          }
+        }
+      },
+      "block_order": [
+        "area_NhTYqm",
+        "area_LbUCVk",
+        "area_RNKhDx",
+        "area_TNVE6P",
+        "area_beM79D",
+        "area_TTXWzX",
+        "area_igKHKy",
+        "area_z9Bpaj",
+        "area_VUeEwG"
+      ],
+      "name": "Anwendungsbereiche",
+      "settings": {
+        "background_color": "#062a46",
+        "heading_color": "#ffffff",
+        "subheading_color": "#ffffffb3",
+        "card_title_color": "#ffffff",
+        "card_background_color": "#0d3247",
+        "card_border_color": "#ffffff14",
+        "card_hover_border_color": "#3ed0df",
+        "heading": "<p><strong>Vorteile</strong></p>",
         "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
       }
     },
@@ -565,9 +659,9 @@
             "image": "shopify://shop_images/shutterstock_745757185.jpg",
             "title": "Essen",
             "subtitle": "gastronolmie und transport",
-            "link": "shopify://pages/contact",
+            "link": "",
             "block_font_size": 43,
-            "block_font_color": "",
+            "block_font_color": "#000000",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
@@ -683,7 +777,7 @@
             "badge": "texti",
             "badge_color_bg": "#e8f2ff",
             "badge_color_text": "#0a66c2",
-            "title": "Facility Management",
+            "title": "Lebensmittelindustrie & Gastronomie",
             "text": "Kurze Einleitung zur Leistung.",
             "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
             "bullet_color": "#10b981",
@@ -705,8 +799,30 @@
             "badge": "Spezialreinigung",
             "badge_color_bg": "#e8f2ff",
             "badge_color_text": "#0a66c2",
-            "title": "Spezialreinigung",
-            "text": "Kurze Einleitung zur Leistung.",
+            "title": "Transport & Logistik",
+            "text": "Trockeneis hält Lebensmittel, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken",
+            "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
+            "bullet_color": "#10b981",
+            "show_btn": true,
+            "btn_label": "Mehr erfahren",
+            "btn_link": "",
+            "card_bg": "#ffffff",
+            "card_text": "#0f172a",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "card_37gQN3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/dry-ice-blocks.jpg",
+            "badge": "Spezialreinigung",
+            "badge_color_bg": "#e8f2ff",
+            "badge_color_text": "#0a66c2",
+            "title": "Transport & Logistik",
+            "text": "Trockeneis hält Lebensmittel, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken",
             "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
             "bullet_color": "#10b981",
             "show_btn": true,
@@ -725,7 +841,8 @@
         "card_tXJbE7",
         "card_3kt66Y",
         "card_aaRLN3",
-        "card_xFm3L6"
+        "card_xFm3L6",
+        "card_37gQN3"
       ],
       "name": "Leistungen – Karussell",
       "settings": {
@@ -891,6 +1008,7 @@
     "about_section_v2_GNfXYU",
     "about_section_v2_DLkFwA",
     "application_areas_AMijia",
+    "application_areas_KKR3Ha",
     "safety_info_AGwTpr",
     "text_image_block_m7dCwa",
     "leistung_suche_grid_v2_THnFcy",
