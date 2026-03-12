@@ -165,7 +165,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Trockeneis ist der feste Aggregatzustand von Kohlendioxid (CO₂) und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78,5°C. Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p>",
+        "description": "<p>Trockeneis ist Kohlendioxid (CO2) im festen Aggregatzustand und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78°C. Statt neues CO₂ freizusetzen, nutzt man recyceltes Kohlendioxid für die Herstellung von Trockeneis – obwohl das Gas natürlich in unserer Atmosphäre vorkommt.<br/><br/>Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/dry-ice-blocks.jpg",
@@ -223,7 +223,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges<br/>Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Aufgrund der extrem niedrigen Temperatur von -78,5°C erfordert die Handhabung von Trockeneis spezielle Schutzmaßnahmen, wie isolierte Handschuhe und eine gute Belüftung, um Erstickungsgefahr durch verdrängten Sauerstoff zu vermeiden.</p>",
+        "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Für die Produktion sind flüssiges CO₂, spezielle Anlagen und eine kontrollierte Abkühlung auf -78,5 °C nötig.</p><p><strong>Wichtig:</strong> Aufgrund der extrem niedrigen Temperatur und der Gefahr von Sauerstoffverdrängung sind bei der Handhabung isolierte Handschuhe und eine gute Belüftung unverzichtbar.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/team-production.jpg",
@@ -310,6 +310,101 @@
         "icon_size": 32,
         "icon_color": "#34d399",
         "feature_title_color": "#111827"
+      }
+    },
+    "application_areas_KKR3Ha": {
+      "type": "application-areas",
+      "blocks": {
+        "area_NhTYqm": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/shutterstock_291272705.jpg",
+            "title": "<p><strong>Nachhaltigkeit</strong></p>",
+            "text": "<p>Kein Wasser, keine Chemie, keine Rückstände – nur reines CO₂, das rückstandslos sublimiert </p>"
+          }
+        },
+        "area_LbUCVk": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/shutterstock_1035937483.jpg",
+            "title": "<p><strong>Wirtschaftlichkeit</strong></p>",
+            "text": "<p>Keine Trocknungszeiten, keine Entsorgungskosten, reduzierte Stillstandzeiten</p>"
+          }
+        },
+        "area_RNKhDx": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/iStock-118540539.jpg",
+            "title": "<p><strong>Vielseitigkeit</strong></p>",
+            "text": "<p>Von -78,5°C Kühlung bis zur Reinigung – ein Produkt, unzählige Lösungen</p>"
+          }
+        },
+        "area_TNVE6P": {
+          "type": "area",
+          "settings": {
+            "icon": "shopify://shop_images/shutterstock_254519980.jpg",
+            "title": "<p><strong>Sicherheit</strong></p>",
+            "text": "<p>Lebensmittelecht, ungiftig und nicht brennbar bei sachgemäßer Anwendung</p>"
+          }
+        },
+        "area_beM79D": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Rückstandsfrei</p>",
+            "text": "<p>Sublimiert vollständig, hinterlässt keine Feuchtigkeit oder Reste</p>"
+          }
+        },
+        "area_TTXWzX": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Lebensmittelecht & steril</p>",
+            "text": "<p>Geeignet für Lebensmittel, Medizin und Pharmazie<br/><br/><br/><br/></p>"
+          }
+        },
+        "area_igKHKy": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Umweltfreundlich</p>",
+            "text": "<p>Kein zusätzliches CO₂, keine Chemikalien</p>"
+          }
+        },
+        "area_z9Bpaj": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Effizient</p>",
+            "text": "<p>Kühlt bis –78 °C, verlängert Haltbarkeit und<br/>Produktionszeiten</p>"
+          }
+        },
+        "area_VUeEwG": {
+          "type": "area",
+          "settings": {
+            "title": "<p>Vielseitig</p>",
+            "text": "<p>Einsatz in Industrie, Logistik, Medizin,<br/>Gastronomie und Privatbereich</p>"
+          }
+        }
+      },
+      "block_order": [
+        "area_NhTYqm",
+        "area_LbUCVk",
+        "area_RNKhDx",
+        "area_TNVE6P",
+        "area_beM79D",
+        "area_TTXWzX",
+        "area_igKHKy",
+        "area_z9Bpaj",
+        "area_VUeEwG"
+      ],
+      "name": "Anwendungsbereiche",
+      "settings": {
+        "background_color": "#062a46",
+        "heading_color": "#ffffff",
+        "subheading_color": "#ffffffb3",
+        "card_title_color": "#ffffff",
+        "card_background_color": "#0d3247",
+        "card_border_color": "#ffffff14",
+        "card_hover_border_color": "#3ed0df",
+        "heading": "<p><strong>Vorteile</strong></p>",
+        "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
       }
     },
     "about_section_v2_DLkFwA": {
@@ -472,101 +567,6 @@
         "card_border_color": "#ffffff14",
         "card_hover_border_color": "#3ed0df",
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
-        "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
-      }
-    },
-    "application_areas_KKR3Ha": {
-      "type": "application-areas",
-      "blocks": {
-        "area_NhTYqm": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/shutterstock_291272705.jpg",
-            "title": "<p><strong>Nachhaltigkeit</strong></p>",
-            "text": "<p>Kein Wasser, keine Chemie, keine Rückstände – nur reines CO₂, das rückstandslos sublimiert </p>"
-          }
-        },
-        "area_LbUCVk": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/shutterstock_1035937483.jpg",
-            "title": "<p><strong>Wirtschaftlichkeit</strong></p>",
-            "text": "<p>Keine Trocknungszeiten, keine Entsorgungskosten, reduzierte Stillstandzeiten</p>"
-          }
-        },
-        "area_RNKhDx": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/iStock-118540539.jpg",
-            "title": "<p><strong>Vielseitigkeit</strong></p>",
-            "text": "<p>Von -78,5°C Kühlung bis zur Reinigung – ein Produkt, unzählige Lösungen</p>"
-          }
-        },
-        "area_TNVE6P": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/shutterstock_254519980.jpg",
-            "title": "<p><strong>Sicherheit</strong></p>",
-            "text": "<p>Lebensmittelecht, ungiftig und nicht brennbar bei sachgemäßer Anwendung</p>"
-          }
-        },
-        "area_beM79D": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Rückstandsfrei</p>",
-            "text": "<p>Sublimiert vollständig, hinterlässt keine Feuchtigkeit oder Reste</p>"
-          }
-        },
-        "area_TTXWzX": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Lebensmittelecht & steril</p>",
-            "text": "<p>Geeignet für Lebensmittel, Medizin und Pharmazie<br/><br/><br/><br/></p>"
-          }
-        },
-        "area_igKHKy": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Umweltfreundlich</p>",
-            "text": "<p>Kein zusätzliches CO₂, keine Chemikalien</p>"
-          }
-        },
-        "area_z9Bpaj": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Effizient</p>",
-            "text": "<p>Kühlt bis –78 °C, verlängert Haltbarkeit und<br/>Produktionszeiten</p>"
-          }
-        },
-        "area_VUeEwG": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Vielseitig</p>",
-            "text": "<p>Einsatz in Industrie, Logistik, Medizin,<br/>Gastronomie und Privatbereich</p>"
-          }
-        }
-      },
-      "block_order": [
-        "area_NhTYqm",
-        "area_LbUCVk",
-        "area_RNKhDx",
-        "area_TNVE6P",
-        "area_beM79D",
-        "area_TTXWzX",
-        "area_igKHKy",
-        "area_z9Bpaj",
-        "area_VUeEwG"
-      ],
-      "name": "Anwendungsbereiche",
-      "settings": {
-        "background_color": "#062a46",
-        "heading_color": "#ffffff",
-        "subheading_color": "#ffffffb3",
-        "card_title_color": "#ffffff",
-        "card_background_color": "#0d3247",
-        "card_border_color": "#ffffff14",
-        "card_hover_border_color": "#3ed0df",
-        "heading": "<p><strong>Vorteile</strong></p>",
         "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
       }
     },
