@@ -312,6 +312,31 @@
         "feature_title_color": "#111827"
       }
     },
+    "safety_info_AGwTpr": {
+      "type": "safety-info",
+      "blocks": {
+        "info_iy6cXz": {
+          "type": "info",
+          "settings": {
+            "title": "<p><strong>Sicherer Umgang mit Trockeneis</strong></p>",
+            "text": "<p>Trockeneis ist ein sicheres Kühlmittel, erfordert aber sachgerechte Handhabung. Wichtig: <strong>immer gut belüften</strong> und <strong>Schutzhandschuhe tragen</strong>, um Hautverbrennungen zu vermeiden. Niemals in geschlossenen Räumen ohne Belüftung lagern.</p>",
+            "show_button": true,
+            "button_label": "Zu den Sicherheitsinformationen",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "info_iy6cXz"
+      ],
+      "name": "Sicherheits-Hinweis Box",
+      "settings": {
+        "background_color": "#ffffffb3",
+        "card_background_color": "#f2f3f5",
+        "card_border_color": "#b3e6f1",
+        "card_border_hover_color": "#5ed7f2"
+      }
+    },
     "application_areas_KKR3Ha": {
       "type": "application-areas",
       "blocks": {
@@ -394,6 +419,7 @@
         "area_z9Bpaj",
         "area_VUeEwG"
       ],
+      "disabled": true,
       "name": "Anwendungsbereiche",
       "settings": {
         "background_color": "#062a46",
@@ -491,6 +517,7 @@
         "description": "<p>Als regionaler Hersteller beliefern wir Industrieunternehmen, Lebensmittelproduzenten, Logistikbetriebe und Labore zuverlässig mit frischem Trockeneis. </p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_424584634.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -499,6 +526,57 @@
         "icon_size": 32,
         "icon_color": "#34d399",
         "feature_title_color": "#111827"
+      }
+    },
+    "custom_cta_block_pKhTqD": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_tNkQHa": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Angebot anfragen</p>",
+            "link": "shopify://pages/contact",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#007acc",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_tNkQHa"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p>Sie benötigen regelmäßige Lieferungen oder größere Mengen?</p>",
+        "heading_size": 32,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "subheading": "<p>Profitieren Sie von individuellen Konditionen & regionaler Direktbelieferung</p>",
+        "sub_size": 14,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
       }
     },
     "application_areas_AMijia": {
@@ -557,6 +635,7 @@
         "area_DMD6WU",
         "area_XdQKtH"
       ],
+      "disabled": true,
       "name": "Anwendungsbereiche",
       "settings": {
         "background_color": "#062a46",
@@ -568,31 +647,6 @@
         "card_hover_border_color": "#3ed0df",
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
         "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
-      }
-    },
-    "safety_info_AGwTpr": {
-      "type": "safety-info",
-      "blocks": {
-        "info_iy6cXz": {
-          "type": "info",
-          "settings": {
-            "title": "<p><strong>Sicherer Umgang mit Trockeneis</strong></p>",
-            "text": "<p>Trockeneis ist ein sicheres Kühlmittel, erfordert aber sachgerechte Handhabung. Wichtig: <strong>immer gut belüften</strong> und <strong>Schutzhandschuhe tragen</strong>, um Hautverbrennungen zu vermeiden. Niemals in geschlossenen Räumen ohne Belüftung lagern.</p>",
-            "show_button": true,
-            "button_label": "Zu den Sicherheitsinformationen",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "info_iy6cXz"
-      ],
-      "name": "Sicherheits-Hinweis Box",
-      "settings": {
-        "background_color": "#ffffffb3",
-        "card_background_color": "#f2f3f5",
-        "card_border_color": "#b3e6f1",
-        "card_border_hover_color": "#5ed7f2"
       }
     },
     "text_image_block_m7dCwa": {
@@ -615,6 +669,7 @@
       "blocks": {
         "service_JV8LaY": {
           "type": "service",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/shutterstock_314359133.jpg",
             "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
@@ -675,6 +730,7 @@
         },
         "service_PQ7prj": {
           "type": "service",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/shutterstock_131122721.jpg",
             "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
@@ -690,6 +746,7 @@
         },
         "service_N6A8Uw": {
           "type": "service",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/shutterstock_632816162.jpg",
             "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
@@ -763,7 +820,7 @@
       "name": "Leistung Suche Grid v2",
       "settings": {
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
-        "subheading": "<p>Wir beliefern das gesamte Saarland, unter<br/>anderem: Saarbrücken, Neunkirchen,Homburg,Saarlouis,Völklingen</p>",
+        "subheading": "",
         "text_align": "center",
         "show_search": true,
         "search_placeholder": "Leistungen oder Keywords suchen…",
@@ -844,6 +901,7 @@
         "category_mKnXXK",
         "category_WdymB3"
       ],
+      "disabled": true,
       "name": "Mod: Kategorie-Kacheln",
       "settings": {
         "heading": "Anwendungsbereiche",
@@ -976,6 +1034,7 @@
         "card_xFm3L6",
         "card_37gQN3"
       ],
+      "disabled": true,
       "name": "Leistungen – Karussell",
       "settings": {
         "heading": "Anwendungsbereiche",
@@ -992,6 +1051,7 @@
     },
     "cta_block_LPidqf": {
       "type": "cta-block",
+      "disabled": true,
       "name": "Call-to-Action Block",
       "settings": {
         "background_color": "#062a46",
@@ -1080,26 +1140,85 @@
         "buttons_gap": 16
       }
     },
-    "custom_cta_block_pKhTqD": {
-      "type": "custom-cta-block",
+    "about_experience_iVLqaW": {
+      "type": "about-experience",
       "blocks": {
-        "button_tNkQHa": {
-          "type": "button",
+        "badge_qyGFJV": {
+          "type": "badge",
           "settings": {
-            "label": "<p>Angebot anfragen</p>",
-            "link": "shopify://pages/contact",
-            "variant": "solid",
-            "text_color": "#ffffff",
-            "bg_color": "#007acc",
-            "border_color": "#0b132a",
-            "hover_bg": "#111827",
-            "hover_text": "#ffffff",
-            "radius": 12,
-            "padding_x": 24,
-            "padding_y": 14,
-            "bold": true,
-            "offset_x": 0,
-            "offset_y": 0,
+            "badge_text": "200+ Kunden",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "badge_fEwYaC": {
+          "type": "badge",
+          "settings": {
+            "badge_text": "10+ Mitarbeiter",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "badge_94MBjz": {
+          "type": "badge",
+          "settings": {
+            "badge_text": "15+ Jahre Erfahrung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "stat_PUq7VA": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "ISO 9001",
+            "subtitle": "Zertifizierte Qualität",
+            "aria_label": "1",
+            "block_font_size": 27,
+            "block_font_color": "#062a46",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": "linear-gradient(310deg, rgba(17, 189, 251, 1) 15%, rgba(33, 249, 150, 1) 85%)"
+          }
+        },
+        "stat_nzdUFU": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "24/7",
+            "subtitle": "Notfallservice",
+            "aria_label": "1",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "stat_L9pCjG": {
+          "type": "stat",
+          "settings": {
+            "emoji": "✅",
+            "title": "100%",
+            "subtitle": "Kundenzufriedenheit",
+            "aria_label": "1",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "stat_NHLW3x": {
+          "type": "stat",
+          "settings": {
+            "emoji": "🌱",
+            "title": "Nachhaltig",
+            "subtitle": "Zertifizierte Qualität",
+            "aria_label": "1",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -1108,27 +1227,27 @@
         }
       },
       "block_order": [
-        "button_tNkQHa"
+        "badge_qyGFJV",
+        "badge_fEwYaC",
+        "badge_94MBjz",
+        "stat_PUq7VA",
+        "stat_nzdUFU",
+        "stat_L9pCjG",
+        "stat_NHLW3x"
       ],
-      "name": "Custom CTA Block",
+      "name": "Über uns – Erfahrung/Stats",
       "settings": {
-        "heading": "<p>Sie benötigen regelmäßige Lieferungen oder größere Mengen?</p>",
-        "heading_size": 32,
-        "heading_bold": true,
-        "heading_color": "#0f172a",
-        "subheading": "<p>Profitieren Sie von individuellen Konditionen & regionaler Direktbelieferung</p>",
-        "sub_size": 14,
-        "sub_bold": false,
-        "sub_color": "#475569",
-        "font_heading": "sans_serif_n4",
-        "font_body": "sans_serif_n4",
-        "align": "center",
-        "content_max": 1000,
-        "pad_top": 64,
-        "pad_bottom": 64,
-        "use_gradient_bg": true,
-        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
-        "buttons_gap": 16
+        "kicker": "Über 15 Jahre Erfahrung",
+        "heading": "Über 15 Jahre Erfahrung",
+        "richtext": "<p>Werden Sie Teil unserer stetig wachsenden Unternehmensgeschichte. Mit einem breiten Kundenstamm, der von großen Automobilzulieferern bis hin zu kleineren Betrieben reicht, sind wir ein fester Bestandteil der Routine in vielen Unternehmen geworden.</p><p>Seit vielen Jahren beschäftigen sich unsere beiden Firmengründer  mit den verschiedenen Anwendungsmöglichkeiten von Trockeneis. Beide konnten viel Erfahrung speziell in der industriellen Reinigung mit Trockeneis sammeln. Diese fließt nun auch in die eigene Produktion und den Vertrieb des Trockeneises ein. Deshalb ist die AMG-Tech ist Ihr Ansprechpartner für frisches und qualitativ hochwertigstes Trockeneis im Saarland. Wir produzieren vor Ort in der Hüttenstadt Völklingen. Zusätzlich verfügen<br/>wir auch über einen Lieferservice und bringen das Trockeneis direkt zu Ihnen. Die AMG-Tech legt sehr viel Wert auf eine hohe Flexibilität und Zuverlässigkeit. Die Lieferung innerhalb 24h ist nur ein Beispiel dafür. Wir beraten Sie gerne, nehmen Sie einfach Kontakt mit uns auf.</p>",
+        "btn_label": "Mehr über uns erfahren",
+        "btn_link": "",
+        "btn_newtab": false,
+        "bg_color": "#F3F8F5",
+        "card_bg": "#FFFFFF",
+        "card_radius": 16,
+        "text_color": "#111111",
+        "accent_color": "#007acc"
       }
     }
   },
@@ -1140,16 +1259,17 @@
     "about_section_v2_GNfXYU",
     "about_section_v2_J4jGJ4",
     "about_section_v2_j6tfji",
+    "safety_info_AGwTpr",
     "application_areas_KKR3Ha",
     "about_section_v2_DLkFwA",
+    "custom_cta_block_pKhTqD",
     "application_areas_AMijia",
-    "safety_info_AGwTpr",
     "text_image_block_m7dCwa",
     "leistung_suche_grid_v2_THnFcy",
     "mod_category_showcase_wkX48P",
     "karussel_leistungen_WjfhNa",
     "cta_block_LPidqf",
-    "custom_cta_block_tcN6yG",
-    "custom_cta_block_pKhTqD"
+    "about_experience_iVLqaW",
+    "custom_cta_block_tcN6yG"
   ]
 }
