@@ -165,10 +165,143 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Trockeneis ist der feste Aggregatzustand von Kohlendioxid (CO₂) und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78,5°C. Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p><p><strong>Warum Trockeneis?</strong><br/>Es kühlt intensiver als normales Eis, hinterlässt keine Nässe und ist vielseitig einsetzbar: Ob in der Industrie für präzises Kühlen oder Reinigen, im Lebensmitteltransport, in der Gastronomie oder für spektakuläre Effekte bei Events –  rockeneis überzeugt durch Effizienz und Sauberkeit.</p>",
+        "description": "<p>Trockeneis ist der feste Aggregatzustand von Kohlendioxid (CO₂) und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78,5°C. Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/dry-ice-blocks.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v2_J4jGJ4": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_7tQBht": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "icon_type": "image",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/team-production.jpg",
+            "feature_title": "Eis",
+            "feature_description": "Kurze Beschreibung des Features."
+          }
+        },
+        "feature_hTACjw": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung des Features."
+          }
+        }
+      },
+      "block_order": [
+        "feature_7tQBht",
+        "feature_hTACjw"
+      ],
+      "name": "Über Uns (Layout) – Neu",
+      "settings": {
+        "layout_direction": "image_left",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "Herstellung und Handhabung",
+        "title_richtext": "<p><strong>Herstellung und Handhabung</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges<br/>Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Aufgrund der extrem niedrigen Temperatur von -78,5°C erfordert die Handhabung von Trockeneis spezielle Schutzmaßnahmen, wie isolierte Handschuhe und eine gute Belüftung, um Erstickungsgefahr durch verdrängten Sauerstoff zu vermeiden.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/team-production.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "4/3",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827"
+      }
+    },
+    "about_section_v2_j6tfji": {
+      "type": "about-section-v2",
+      "blocks": {
+        "feature_MqqHK6": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "image",
+            "icon_svg": "",
+            "feature_title": "intensive Kühlleistung",
+            "feature_description": ""
+          }
+        },
+        "feature_R797Lm": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Rückstandsfreiheit",
+            "feature_description": ""
+          }
+        },
+        "feature_GXAxVm": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "einfache Entsorgung",
+            "feature_description": ""
+          }
+        },
+        "feature_RYPDBb": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "umweltfreundliche Lösung",
+            "feature_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_MqqHK6",
+        "feature_R797Lm",
+        "feature_GXAxVm",
+        "feature_RYPDBb"
+      ],
+      "name": "Über Uns (Layout) – Neu",
+      "settings": {
+        "layout_direction": "image_left",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "Warum Trockneis?",
+        "title_richtext": "<p><strong>Warum Trockneis?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Trockeineis kühlt intensiver als normales Eis, es hinterlässt keine Nässe und ist vielseitig einsetzbar: Ob in der Industrie für präzises Kühlen oder Reinigen, im Lebensmitteltransport, in der Gastronomie oder für spektakuläre Effekte bei Events – Trockeneis überzeugt durch Effizienz und Sauberkeit.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_145390069.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -263,7 +396,6 @@
         "description": "<p>Als regionaler Hersteller beliefern wir Industrieunternehmen, Lebensmittelproduzenten, Logistikbetriebe und Labore zuverlässig mit frischem Trockeneis. </p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_591817634.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -1006,9 +1138,11 @@
     "feature_cards_cPwPBG",
     "text_image_block_qwRJdM",
     "about_section_v2_GNfXYU",
+    "about_section_v2_J4jGJ4",
+    "about_section_v2_j6tfji",
+    "application_areas_KKR3Ha",
     "about_section_v2_DLkFwA",
     "application_areas_AMijia",
-    "application_areas_KKR3Ha",
     "safety_info_AGwTpr",
     "text_image_block_m7dCwa",
     "leistung_suche_grid_v2_THnFcy",
