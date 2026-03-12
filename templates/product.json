@@ -145,7 +145,7 @@
         "pickup_address": "Abholung an unserem Standort in Völklingen",
         "contact_page": "shopify://pages/contact",
         "dhl_price": "auf Anfrage",
-        "dhl_price_raw": "0",
+        "dhl_price_raw": "",
         "dhl_conditions": "",
         "dpd_price": "auf Anfrage",
         "dpd_price_raw": "0",
