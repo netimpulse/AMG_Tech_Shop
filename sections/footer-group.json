@@ -18,7 +18,7 @@
           "type": "leistungen_link",
           "settings": {
             "text": "AGB",
-            "link": "https://cdn.shopify.com/s/files/1/0965/5202/6438/files/Allgemeine-Geschaeftsbedingungen-AMG_Stand-01.10.2013_-05.12.2018.pdf?v=1773235625",
+            "link": "shopify://pages/agb",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
