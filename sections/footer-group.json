@@ -62,7 +62,7 @@
           "type": "unternehmen_link",
           "settings": {
             "text": "Shop",
-            "link": "",
+            "link": "shopify://pages/trockeneis",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
