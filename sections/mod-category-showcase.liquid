@@ -2,16 +2,29 @@
 {%- assign _fc = section.settings.block_font_color -%}
 {%- assign _ff = section.settings.block_font_family -%}
 {%- assign _bg = section.settings.block_bg_color -%}
-{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+{%- assign _tfs = section.settings.title_font_size -%}
+{%- assign _tfc = section.settings.title_font_color -%}
+{%- assign _stfs = section.settings.subtitle_font_size -%}
 <style>
+  {%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
   #shopify-section-{{ section.id }} .sec-inner {
     {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
     {%- if _fc != blank -%}color: {{ _fc }};{%- endif -%}
     {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
     {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
   }
+  {%- endif -%}
+  {%- if _tfs > 0 -%}
+  #shopify-section-{{ section.id }} .mcs__title { font-size: {{ _tfs }}px; }
+  {%- endif -%}
+  {%- if _tfc != blank -%}
+  #shopify-section-{{ section.id }} .mcs__title { color: {{ _tfc }}; }
+  {%- endif -%}
+  {%- if _stfs > 0 -%}
+  #shopify-section-{{ section.id }} .mcs__subtitle { font-size: {{ _stfs }}px; }
+  {%- endif -%}
+  #shopify-section-{{ section.id }} .mcs__heading { {%- if section.settings.heading_font_size > 0 -%}font-size: {{ section.settings.heading_font_size }}px;{%- endif -%} }
 </style>
-{%- endif -%}
 
 {{ 'mod-category-showcase.css' | asset_url | stylesheet_tag }}
 {%- assign s = section.settings -%}
@@ -61,6 +74,52 @@
       "type": "color_background",
       "id": "section_bg",
       "label": "Sektions-Hintergrund"
+    },
+    {
+      "type": "header",
+      "content": "━━ Ueberschrift ━━"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Ueberschrift Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "header",
+      "content": "━━ Kachel-Titel ━━"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Kachel-Titel Schriftgroesse (px)",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "title_font_color",
+      "label": "Kachel-Titel Farbe"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size",
+      "label": "Kachel-Untertitel Schriftgroesse (px)",
+      "min": 0,
+      "max": 36,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
     },
     {
       "type": "header",

@@ -43,7 +43,11 @@
 <div class="te-product"
      data-trockeneis-section
      data-variant-data='{{ variant_data_json | strip_newlines }}'
-     data-money-format="{{ shop.money_format | escape }}">
+     data-money-format="{{ shop.money_format | escape }}"
+     data-weight-based="{{ section.settings.weight_based_shipping }}"
+     data-price-per-kg="{{ section.settings.shipping_price_per_kg | default: '0' }}"
+     data-columns="{{ section.settings.columns_desktop | default: 3 }}"
+>
 
   <div class="te-product__grid">
 
@@ -357,7 +361,8 @@
           </div>
         </div>
 
-        {%- comment -%} Expresslieferung {%- endcomment -%}
+        {%- comment -%} Expresslieferung – ausblendbar per Setting {%- endcomment -%}
+        {%- unless section.settings.hide_express -%}
         <div class="te-ship-method" data-ship-method="express">
           <div class="te-ship-method__header" role="button" tabindex="0" aria-label="Expresslieferung – Lieferant auswählen">
             <span class="te-ship-method__radio" aria-hidden="true"></span>
@@ -397,6 +402,7 @@
             %}
           </div>
         </div>
+        {%- endunless -%}
       </div>
 
       {%- comment -%} ── Zusammenfassung ────────────────── {%- endcomment -%}
@@ -470,6 +476,11 @@
     { "type": "header", "content": "Selbstabholung" },
     { "type": "text", "id": "pickup_address", "label": "Abholadresse / Standortinfo", "default": "Abholung an unserem Standort im Saarland" },
     { "type": "url", "id": "contact_page", "label": "Kontaktseite (fuer Anfrage)" },
+
+    { "type": "header", "content": "Expresslieferung" },
+    { "type": "checkbox", "id": "hide_express", "label": "Expresslieferung ausblenden", "default": false, "info": "Wenn aktiviert, wird nur Selbstabholung angezeigt" },
+    { "type": "checkbox", "id": "weight_based_shipping", "label": "Lieferpreis nach Gewicht berechnen", "default": false, "info": "Wenn aktiviert, wird der Lieferpreis pro kg multipliziert" },
+    { "type": "text", "id": "shipping_price_per_kg", "label": "Versandpreis pro kg (EUR)", "default": "2.50", "info": "z.B. 2.50 – wird mit gewaehltem Gewicht multipliziert" },
 
     { "type": "header", "content": "DHL" },
     { "type": "text", "id": "dhl_price", "label": "DHL Preis (Anzeige)", "default": "auf Anfrage" },

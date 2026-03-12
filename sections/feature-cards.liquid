@@ -11,6 +11,14 @@
     --fc-background: {{ section.settings.background_color }};
     --fc-border: {{ section.settings.card_border_color }};
     --fc-hover-border: {{ section.settings.card_hover_border_color }};
+    --fc-icon-size: {{ section.settings.icon_size | default: 70 }}px;
+    --fc-img-size: {{ section.settings.image_size | default: 38 }}px;
+    --fc-columns: {{ section.settings.columns | default: 4 }};
+    --fc-gap: {{ section.settings.card_gap | default: 24 }}px;
+    --fc-title-size: {{ section.settings.title_font_size | default: 20 }}px;
+    --fc-text-size: {{ section.settings.text_font_size | default: 17 }}px;
+    --fc-padding-y: {{ section.settings.padding_y | default: 60 }}px;
+    {%- if section.settings.image_fill_circle -%}--fc-img-fit: cover; --fc-img-radius: 50%;{%- else -%}--fc-img-fit: contain; --fc-img-radius: 0;{%- endif -%}
   "
 >
   <div class="page-width">
@@ -61,6 +69,94 @@
       "id": "card_hover_border_color",
       "label": "Rahmenfarbe bei Hover",
       "default": "#5ED7F2"
+    },
+    {
+      "type": "header",
+      "content": "━━ Layout ━━"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Karten pro Reihe",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Abstand zwischen Karten",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand oben/unten",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "━━ Icons / Bilder ━━"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon-Kreis Groesse",
+      "min": 40,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "label": "Bild im Kreis Groesse",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 38
+    },
+    {
+      "type": "checkbox",
+      "id": "image_fill_circle",
+      "label": "Bilder sollen Kreis ausfuellen",
+      "default": false,
+      "info": "Bild fuellt den kompletten Kreis (object-fit: cover)"
+    },
+    {
+      "type": "header",
+      "content": "━━ Schrift ━━"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Titel Schriftgroesse",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Text Schriftgroesse",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 17
     }
   ],
   "blocks": [

@@ -2,7 +2,16 @@
 {%- assign _fc = section.settings.block_font_color -%}
 {%- assign _ff = section.settings.block_font_family -%}
 {%- assign _bg = section.settings.block_bg_color -%}
-{%- if _fs > 0 or _fc != blank or _ff or _bg != blank -%}
+{%- assign _heading_fs = section.settings.heading_font_size -%}
+{%- assign _heading_fc = section.settings.heading_font_color -%}
+{%- assign _question_fs = section.settings.question_font_size -%}
+{%- assign _question_fc = section.settings.question_font_color -%}
+{%- assign _answer_fs = section.settings.answer_font_size -%}
+{%- assign _answer_fc = section.settings.answer_font_color -%}
+{%- assign _icon_color = section.settings.icon_color -%}
+{%- assign _gap = section.settings.faq_gap -%}
+
+{%- if _fs > 0 or _fc != blank or _ff or _bg != blank or _heading_fs > 0 or _heading_fc != blank or _question_fs > 0 or _question_fc != blank or _answer_fs > 0 or _answer_fc != blank or _icon_color != blank or _gap > 0 -%}
 <style>
   #shopify-section-{{ section.id }} .sec-inner {
     {%- if _fs > 0 -%}font-size: {{ _fs }}px;{%- endif -%}
@@ -10,6 +19,34 @@
     {%- if _ff -%}font-family: {{ _ff.family }}, {{ _ff.fallback_families }};font-weight: {{ _ff.weight }};font-style: {{ _ff.style }};{%- endif -%}
     {%- if _bg != blank -%}background: {{ _bg }};{%- endif -%}
   }
+  {%- if _heading_fs > 0 or _heading_fc != blank -%}
+  #shopify-section-{{ section.id }} .mfa__heading {
+    {%- if _heading_fs > 0 -%}font-size: {{ _heading_fs }}px;{%- endif -%}
+    {%- if _heading_fc != blank -%}color: {{ _heading_fc }};{%- endif -%}
+  }
+  {%- endif -%}
+  {%- if _question_fs > 0 or _question_fc != blank -%}
+  #shopify-section-{{ section.id }} .mfa__question {
+    {%- if _question_fs > 0 -%}font-size: {{ _question_fs }}px;{%- endif -%}
+    {%- if _question_fc != blank -%}color: {{ _question_fc }};{%- endif -%}
+  }
+  {%- endif -%}
+  {%- if _answer_fs > 0 or _answer_fc != blank -%}
+  #shopify-section-{{ section.id }} .mfa__answer {
+    {%- if _answer_fs > 0 -%}font-size: {{ _answer_fs }}px;{%- endif -%}
+    {%- if _answer_fc != blank -%}color: {{ _answer_fc }};{%- endif -%}
+  }
+  {%- endif -%}
+  {%- if _icon_color != blank -%}
+  #shopify-section-{{ section.id }} .mfa__chevron {
+    stroke: {{ _icon_color }};
+  }
+  {%- endif -%}
+  {%- if _gap > 0 -%}
+  #shopify-section-{{ section.id }} .mfa__item {
+    margin-bottom: {{ _gap }}px;
+  }
+  {%- endif -%}
 </style>
 {%- endif -%}
 
@@ -66,7 +103,86 @@
     },
     {
       "type": "header",
-      "content": "━━ Styling ━━"
+      "content": "━━ Heading Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading-Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "heading_font_color",
+      "label": "Heading-Schriftfarbe"
+    },
+    {
+      "type": "header",
+      "content": "━━ Question Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "question_font_size",
+      "label": "Question-Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "question_font_color",
+      "label": "Question-Schriftfarbe"
+    },
+    {
+      "type": "header",
+      "content": "━━ Answer Styling ━━"
+    },
+    {
+      "type": "range",
+      "id": "answer_font_size",
+      "label": "Answer-Schriftgroesse (px)",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "0 = Standard"
+    },
+    {
+      "type": "color",
+      "id": "answer_font_color",
+      "label": "Answer-Schriftfarbe"
+    },
+    {
+      "type": "header",
+      "content": "━━ Icon & Layout ━━"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon-Farbe"
+    },
+    {
+      "type": "range",
+      "id": "faq_gap",
+      "label": "Abstand zwischen FAQ-Items (px)",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "━━ General Styling ━━"
     },
     {
       "type": "range",

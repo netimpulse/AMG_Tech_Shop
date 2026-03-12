@@ -11,6 +11,11 @@
     --si-card-bg: {{ section.settings.card_background_color }};
     --si-border: {{ section.settings.card_border_color }};
     --si-border-hover: {{ section.settings.card_border_hover_color }};
+    --si-padding-y: {{ section.settings.padding_y | default: 48 }}px;
+    --si-title-size: {{ section.settings.title_font_size | default: 18 }}px;
+    --si-text-size: {{ section.settings.text_font_size | default: 16 }}px;
+    --si-icon-size: {{ section.settings.icon_size | default: 48 }}px;
+    --si-card-padding: {{ section.settings.card_padding | default: 24 }}px;
   "
 >
   <div class="page-width">
@@ -51,6 +56,60 @@
       "id": "card_border_hover_color",
       "label": "Rahmenfarbe bei Hover",
       "default": "#5ED7F2"
+    },
+    {
+      "type": "header",
+      "content": "━━ Groessen ━━"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Abstand oben/unten (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Box-Innenabstand (px)",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon-Groesse (px)",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Titel-Schriftgroesse (px)",
+      "min": 12,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Text-Schriftgroesse (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
     }
   ],
   "blocks": [

@@ -51,7 +51,7 @@
 
 .team-member-card__image-wrapper {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .team-member-card__image {
@@ -195,7 +195,7 @@
 }
 
 @media (min-width: 1024px) {
-  .team-carousel__track { --per-view: 3; }
+  .team-carousel__track { /* --per-view is now set via inline style from section settings, default 4 */ }
 }
 
 /* =========================================================

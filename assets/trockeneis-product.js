@@ -35,6 +35,10 @@
       variants = JSON.parse(root.getAttribute('data-variant-data') || '[]');
     } catch (e) { /* fallback: empty */ }
 
+    /* ── Weight-based shipping config ── */
+    var weightBasedShipping = root.getAttribute('data-weight-based') === 'true';
+    var pricePerKg = parseFloat((root.getAttribute('data-price-per-kg') || '0').replace(',', '.')) || 0;
+
     /* ── State ────────────────────────────────────── */
     var state = {
       size: '',
@@ -281,6 +285,11 @@
       }
 
       var shipCost = 0;
+      /* Calculate weight for weight-based shipping */
+      var selectedKg = 0;
+      var kgMatch = state.qty.match(/(\d+)/);
+      if (kgMatch) selectedKg = parseInt(kgMatch[1], 10);
+
       if (state.shipMethod === 'pickup') {
         shipCost = 0;
         if (shippingLine) {
@@ -288,7 +297,12 @@
           shippingLine.querySelector('.te-summary__value').textContent = 'Kostenlos';
         }
       } else if (state.shipMethod === 'express' && state.carrier) {
-        shipCost = state.shippingPrice;
+        /* Weight-based pricing: multiply per-kg rate by selected weight */
+        if (weightBasedShipping && pricePerKg > 0 && selectedKg > 0) {
+          shipCost = pricePerKg * selectedKg;
+        } else {
+          shipCost = state.shippingPrice;
+        }
         if (shippingLine) {
           shippingLine.querySelector('.te-summary__label').textContent =
             'Express (' + state.carrierName + ')';

@@ -6,7 +6,7 @@
 {% comment %} Inline-Fallback CSS, falls Asset nicht lädt {% endcomment %}
 <style>
   #{{ section_id }} .lf-viewport{overflow:hidden;}
-  #{{ section_id }} .lf-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--lf-gap,20px);}
+  #{{ section_id }} .lf-track{display:grid;grid-template-columns:repeat(var(--lf-columns,{{ section.settings.columns_desktop | default: 3 }}),minmax(0,1fr));gap:var(--lf-gap,20px);}
   @media(max-width:990px){#{{ section_id }} .lf-track{grid-template-columns:repeat(2,minmax(0,1fr));}}
   @media(max-width:640px){#{{ section_id }} .lf-track{grid-template-columns:1fr;}}
 
@@ -172,7 +172,8 @@
 
   function getState(){
     var isMobile = window.matchMedia('(max-width: 640px)').matches;
-    var perView  = isMobile ? 1 : 3;
+    var desktopCols = parseInt(root.getAttribute('data-columns') || '{{ section.settings.columns_desktop | default: 3 }}', 10);
+    var perView  = isMobile ? 1 : desktopCols;
     var enable   = isMobile || slides.length > 3;
     return {isMobile:isMobile, perView:perView, enable:enable};
   }
@@ -262,6 +263,24 @@
 {
   "name": "Leistung final",
   "settings": [
+    {
+      "type": "header",
+      "content": "━━ Layout ━━"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Karten pro Reihe (Desktop)",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "info": "Anzahl der Karten nebeneinander auf Desktop"
+    },
+    {
+      "type": "header",
+      "content": "━━ Inhalt ━━"
+    },
     {
       "type": "text",
       "id": "heading",
