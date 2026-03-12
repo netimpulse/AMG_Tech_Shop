@@ -293,48 +293,36 @@
         </span>
       </div>
 
-      {%- comment -%} ── 1. Pelletgröße ───────────────────── {%- endcomment -%}
-      <div class="te-selection" role="radiogroup" aria-label="Pelletgröße auswählen">
-        <span class="te-selection__label">Pelletgröße</span>
-        <div class="te-selection__options" data-te-option="size">
-          {%- if product.options_by_name['Pelletgröße'] != blank -%}
-            {%- for option_value in product.options_by_name['Pelletgröße'].values -%}
-              <input class="te-option" type="radio" name="te-size" id="te-size-{{ forloop.index }}" value="{{ option_value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
-              <label class="te-option-label" for="te-size-{{ forloop.index }}">{{ option_value }}</label>
+      {%- comment -%} ── 1. Option 1 (z.B. Pelletgröße) – dynamisch aus Produkt ── {%- endcomment -%}
+      {%- if product.options.size >= 1 -%}
+        <div class="te-selection" role="radiogroup" aria-label="{{ product.options[0] }} auswählen">
+          <span class="te-selection__label">{{ product.options[0] }}</span>
+          <div class="te-selection__options" data-te-option="size">
+            {%- for value in product.options_with_values[0].values -%}
+              <input class="te-option" type="radio" name="te-size" id="te-size-{{ forloop.index }}" value="{{ value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
+              <label class="te-option-label" for="te-size-{{ forloop.index }}">{{ value }}</label>
             {%- endfor -%}
-          {%- else -%}
-            {%- comment -%} Fallback: statische Optionen {%- endcomment -%}
-            <input class="te-option" type="radio" name="te-size" id="te-size-15" value="1.5mm" {% if section.settings.default_size == '1.5mm' %}checked{% endif %}>
-            <label class="te-option-label" for="te-size-15">1,5 mm</label>
-            <input class="te-option" type="radio" name="te-size" id="te-size-3" value="3mm" {% if section.settings.default_size == '3mm' or section.settings.default_size == blank %}checked{% endif %}>
-            <label class="te-option-label" for="te-size-3">3 mm</label>
-          {%- endif -%}
+          </div>
         </div>
-      </div>
+      {%- endif -%}
 
-      {%- comment -%} ── 2. Menge in kg ─────────────────── {%- endcomment -%}
-      <div class="te-selection" role="radiogroup" aria-label="Menge auswählen">
-        <span class="te-selection__label">Menge (kg)</span>
-        <div class="te-selection__options" data-te-option="qty">
-          {%- if product.options_by_name['Menge'] != blank -%}
-            {%- for option_value in product.options_by_name['Menge'].values -%}
-              <input class="te-option" type="radio" name="te-qty" id="te-qty-{{ forloop.index }}" value="{{ option_value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
-              <label class="te-option-label" for="te-qty-{{ forloop.index }}">{{ option_value }}</label>
+      {%- comment -%} ── 2. Option 2 (z.B. Menge) – dynamisch, nur angelegte Werte ── {%- endcomment -%}
+      {%- if product.options.size >= 2 -%}
+        <div class="te-selection" role="radiogroup" aria-label="{{ product.options[1] }} auswählen">
+          <span class="te-selection__label">{{ product.options[1] }}</span>
+          <div class="te-selection__options" data-te-option="qty">
+            {%- for value in product.options_with_values[1].values -%}
+              <input class="te-option" type="radio" name="te-qty" id="te-qty-{{ forloop.index }}" value="{{ value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
+              <label class="te-option-label" for="te-qty-{{ forloop.index }}">{{ value }}</label>
             {%- endfor -%}
-          {%- else -%}
-            {%- assign quantities = '5,10,15,20,25,30' | split: ',' -%}
-            {%- for qty in quantities -%}
-              <input class="te-option" type="radio" name="te-qty" id="te-qty-{{ qty }}" value="{{ qty }} kg" {% if forloop.first %}checked{% endif %}>
-              <label class="te-option-label" for="te-qty-{{ qty }}">{{ qty }} kg</label>
-            {%- endfor -%}
-          {%- endif -%}
 
-          <input class="te-option" type="radio" name="te-qty" id="te-qty-anfrage" value="anfrage">
-          <label class="te-option-label te-option-label--anfrage" for="te-qty-anfrage">
-            Mehr auf Anfrage
-          </label>
+            <input class="te-option" type="radio" name="te-qty" id="te-qty-anfrage" value="anfrage">
+            <label class="te-option-label te-option-label--anfrage" for="te-qty-anfrage">
+              Mehr auf Anfrage
+            </label>
+          </div>
         </div>
-      </div>
+      {%- endif -%}
 
       {%- comment -%} Hinweis bei „Mehr auf Anfrage" {%- endcomment -%}
       <div class="te-anfrage-hint" data-te-anfrage-hint>
