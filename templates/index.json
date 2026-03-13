@@ -103,7 +103,15 @@
         "heading": "",
         "background_color": "#ffffff",
         "card_border_color": "#e5eef2",
-        "card_hover_border_color": "#5ed7f2"
+        "card_hover_border_color": "#5ed7f2",
+        "columns": 4,
+        "card_gap": 24,
+        "padding_y": 60,
+        "icon_size": 70,
+        "image_size": 38,
+        "image_fill_circle": false,
+        "title_font_size": 20,
+        "text_font_size": 17
       }
     },
     "text_image_block_qwRJdM": {
@@ -119,197 +127,6 @@
         "show_button": true,
         "button_label": "Mehr erfahren",
         "button_link": ""
-      }
-    },
-    "about_section_v2_GNfXYU": {
-      "type": "about-section-v2",
-      "blocks": {
-        "feature_4HQEti": {
-          "type": "feature",
-          "disabled": true,
-          "settings": {
-            "icon_type": "image",
-            "icon_svg": "",
-            "icon_image": "shopify://shop_images/team-production.jpg",
-            "feature_title": "Eis",
-            "feature_description": "Kurze Beschreibung des Features."
-          }
-        },
-        "feature_FUhxGL": {
-          "type": "feature",
-          "disabled": true,
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung des Features."
-          }
-        }
-      },
-      "block_order": [
-        "feature_4HQEti",
-        "feature_FUhxGL"
-      ],
-      "name": "Über Uns (Layout) – Neu",
-      "settings": {
-        "layout_direction": "image_left",
-        "show_image": true,
-        "background_color": "#ffffff",
-        "section_padding_top": 80,
-        "section_padding_bottom": 80,
-        "title": "Was ist Trockneis",
-        "title_richtext": "<p><strong>Was ist Trockneis?</strong></p>",
-        "title_color": "#111827",
-        "title_font_size": 32,
-        "subtitle": "",
-        "subtitle_richtext": "",
-        "subtitle_color": "#374151",
-        "subtitle_font_size": 20,
-        "description": "<p>Trockeneis ist Kohlendioxid (CO2) im festen Aggregatzustand und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78°C. Statt neues CO₂ freizusetzen, nutzt man recyceltes Kohlendioxid für die Herstellung von Trockeneis – obwohl das Gas natürlich in unserer Atmosphäre vorkommt.<br/><br/>Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p>",
-        "text_color": "#6b7280",
-        "text_font_size": 18,
-        "image": "shopify://shop_images/dry-ice-blocks.jpg",
-        "image_border_radius": 12,
-        "image_alt": "",
-        "image_max_width": 85,
-        "image_aspect_ratio": "4/3",
-        "features_per_row": "2",
-        "icon_size": 32,
-        "icon_color": "#34d399",
-        "feature_title_color": "#111827"
-      }
-    },
-    "about_section_v2_J4jGJ4": {
-      "type": "about-section-v2",
-      "blocks": {
-        "feature_7tQBht": {
-          "type": "feature",
-          "disabled": true,
-          "settings": {
-            "icon_type": "image",
-            "icon_svg": "",
-            "icon_image": "shopify://shop_images/team-production.jpg",
-            "feature_title": "Eis",
-            "feature_description": "Kurze Beschreibung des Features."
-          }
-        },
-        "feature_hTACjw": {
-          "type": "feature",
-          "disabled": true,
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung des Features."
-          }
-        }
-      },
-      "block_order": [
-        "feature_7tQBht",
-        "feature_hTACjw"
-      ],
-      "name": "Über Uns (Layout) – Neu",
-      "settings": {
-        "layout_direction": "image_left",
-        "show_image": true,
-        "background_color": "#ffffff",
-        "section_padding_top": 80,
-        "section_padding_bottom": 80,
-        "title": "Herstellung und Handhabung",
-        "title_richtext": "<p><strong>Herstellung und Handhabung</strong></p>",
-        "title_color": "#111827",
-        "title_font_size": 32,
-        "subtitle": "",
-        "subtitle_richtext": "",
-        "subtitle_color": "#374151",
-        "subtitle_font_size": 20,
-        "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Für die Produktion sind flüssiges CO₂, spezielle Anlagen und eine kontrollierte Abkühlung auf -78,5 °C nötig.</p><p><strong>Wichtig:</strong> Aufgrund der extrem niedrigen Temperatur und der Gefahr von Sauerstoffverdrängung sind bei der Handhabung isolierte Handschuhe und eine gute Belüftung unverzichtbar.</p>",
-        "text_color": "#6b7280",
-        "text_font_size": 18,
-        "image": "shopify://shop_images/team-production.jpg",
-        "image_border_radius": 12,
-        "image_alt": "",
-        "image_max_width": 85,
-        "image_aspect_ratio": "4/3",
-        "features_per_row": "2",
-        "icon_size": 32,
-        "icon_color": "#34d399",
-        "feature_title_color": "#111827"
-      }
-    },
-    "about_section_v2_j6tfji": {
-      "type": "about-section-v2",
-      "blocks": {
-        "feature_MqqHK6": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "image",
-            "icon_svg": "",
-            "feature_title": "intensive Kühlleistung",
-            "feature_description": ""
-          }
-        },
-        "feature_R797Lm": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Rückstandsfreiheit",
-            "feature_description": ""
-          }
-        },
-        "feature_GXAxVm": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "einfache Entsorgung",
-            "feature_description": ""
-          }
-        },
-        "feature_RYPDBb": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "umweltfreundliche Lösung",
-            "feature_description": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_MqqHK6",
-        "feature_R797Lm",
-        "feature_GXAxVm",
-        "feature_RYPDBb"
-      ],
-      "name": "Über Uns (Layout) – Neu",
-      "settings": {
-        "layout_direction": "image_left",
-        "show_image": true,
-        "background_color": "#ffffff",
-        "section_padding_top": 80,
-        "section_padding_bottom": 80,
-        "title": "Warum Trockneis?",
-        "title_richtext": "<p><strong>Warum Trockneis?</strong></p>",
-        "title_color": "#111827",
-        "title_font_size": 32,
-        "subtitle": "",
-        "subtitle_richtext": "",
-        "subtitle_color": "#374151",
-        "subtitle_font_size": 20,
-        "description": "<p>Trockeineis kühlt intensiver als normales Eis, es hinterlässt keine Nässe und ist vielseitig einsetzbar: Ob in der Industrie für präzises Kühlen oder Reinigen, im Lebensmitteltransport, in der Gastronomie oder für spektakuläre Effekte bei Events – Trockeneis überzeugt durch Effizienz und Sauberkeit.</p>",
-        "text_color": "#6b7280",
-        "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_145390069.jpg",
-        "image_border_radius": 12,
-        "image_alt": "",
-        "image_max_width": 85,
-        "image_aspect_ratio": "4/3",
-        "features_per_row": "2",
-        "icon_size": 32,
-        "icon_color": "#34d399",
-        "feature_title_color": "#111827"
       }
     },
     "safety_info_AGwTpr": {
@@ -334,7 +151,12 @@
         "background_color": "#ffffffb3",
         "card_background_color": "#f2f3f5",
         "card_border_color": "#b3e6f1",
-        "card_border_hover_color": "#5ed7f2"
+        "card_border_hover_color": "#5ed7f2",
+        "padding_y": 48,
+        "card_padding": 24,
+        "icon_size": 48,
+        "title_font_size": 18,
+        "text_font_size": 16
       }
     },
     "application_areas_KKR3Ha": {
@@ -433,101 +255,6 @@
         "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
       }
     },
-    "about_section_v2_DLkFwA": {
-      "type": "about-section-v2",
-      "blocks": {
-        "feature_n7P9U3": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "image",
-            "icon_svg": "",
-            "feature_title": "💰individuelle Staffelpreise",
-            "feature_description": ""
-          }
-        },
-        "feature_hqkBT8": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "📅 regelmäßige Lieferintervalle",
-            "feature_description": ""
-          }
-        },
-        "feature_b7HwCt": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "📄 Rahmenverträge",
-            "feature_description": ""
-          }
-        },
-        "feature_hYLy6m": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "⚡ Expresslieferung im Saarland",
-            "feature_description": ""
-          }
-        },
-        "feature_a9J37i": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "💡Kosteneffiziente Lieferung in der Region Saarland durch eigenen Fuhrpark",
-            "feature_description": ""
-          }
-        },
-        "feature_BqaKbf": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "🚛Deutschlandweiter Versand",
-            "feature_description": "sicherer Transport durch spezialisierte Logistikpartner"
-          }
-        }
-      },
-      "block_order": [
-        "feature_n7P9U3",
-        "feature_hqkBT8",
-        "feature_b7HwCt",
-        "feature_hYLy6m",
-        "feature_a9J37i",
-        "feature_BqaKbf"
-      ],
-      "name": "Über Uns (Layout) – Neu",
-      "settings": {
-        "layout_direction": "text_left",
-        "show_image": true,
-        "background_color": "#ffffff",
-        "section_padding_top": 80,
-        "section_padding_bottom": 80,
-        "title": "Was ist Trockeneis?",
-        "title_richtext": "<p><strong>Vorteile für unsere Geschäftskunden</strong></p>",
-        "title_color": "#111827",
-        "title_font_size": 32,
-        "subtitle": "",
-        "subtitle_richtext": "",
-        "subtitle_color": "#374151",
-        "subtitle_font_size": 20,
-        "description": "<p>Als regionaler Hersteller beliefern wir Industrieunternehmen, Lebensmittelproduzenten, Logistikbetriebe und Labore zuverlässig mit frischem Trockeneis. </p>",
-        "text_color": "#6b7280",
-        "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_424584634.jpg",
-        "image_border_radius": 12,
-        "image_alt": "",
-        "image_max_width": 85,
-        "image_aspect_ratio": "4/3",
-        "features_per_row": "2",
-        "icon_size": 32,
-        "icon_color": "#34d399",
-        "feature_title_color": "#111827"
-      }
-    },
     "custom_cta_block_pKhTqD": {
       "type": "custom-cta-block",
       "blocks": {
@@ -535,7 +262,7 @@
           "type": "button",
           "settings": {
             "label": "<p>Angebot anfragen</p>",
-            "link": "shopify://pages/contact",
+            "link": "shopify://pages/anfrageformular-angebot",
             "variant": "solid",
             "text_color": "#ffffff",
             "bg_color": "#007acc",
@@ -907,6 +634,10 @@
         "heading": "Anwendungsbereiche",
         "padding_y": 48,
         "section_bg": "",
+        "heading_font_size": 0,
+        "title_font_size": 0,
+        "title_font_color": "",
+        "subtitle_font_size": 0,
         "block_font_size": 0,
         "block_font_color": "",
         "block_font_family": "assistant_n4",
@@ -1049,97 +780,6 @@
         "snap_scroll": true
       }
     },
-    "cta_block_LPidqf": {
-      "type": "cta-block",
-      "disabled": true,
-      "name": "Call-to-Action Block",
-      "settings": {
-        "background_color": "#062a46",
-        "text_color": "#ffffff",
-        "heading": "<p><strong>Jetzt Trockneies bestellen</strong></p>",
-        "subtext": "<p>Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und ein individuelles Angebot für Ihre Anforderungen.</p>",
-        "show_button": true,
-        "button_label": "Kostenlose Beratung",
-        "button_link": "",
-        "button_color": "#16c1d8",
-        "button_hover_color": "#13a5bb"
-      }
-    },
-    "custom_cta_block_tcN6yG": {
-      "type": "custom-cta-block",
-      "blocks": {
-        "button_FLFBee": {
-          "type": "button",
-          "settings": {
-            "label": "<p>jetzt bestellen</p>",
-            "link": "",
-            "variant": "solid",
-            "text_color": "#ffffff",
-            "bg_color": "#0b132a",
-            "border_color": "#0b132a",
-            "hover_bg": "#111827",
-            "hover_text": "#ffffff",
-            "radius": 12,
-            "padding_x": 24,
-            "padding_y": 14,
-            "bold": true,
-            "offset_x": 0,
-            "offset_y": 0,
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "button_Ecf8ac": {
-          "type": "button",
-          "settings": {
-            "label": "<p>Angebot für Großabnehmer anfragen</p>",
-            "link": "",
-            "variant": "solid",
-            "text_color": "#ffffff",
-            "bg_color": "#007acc",
-            "border_color": "#0b132a",
-            "hover_bg": "#111827",
-            "hover_text": "#ffffff",
-            "radius": 12,
-            "padding_x": 24,
-            "padding_y": 14,
-            "bold": true,
-            "offset_x": 0,
-            "offset_y": 0,
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_FLFBee",
-        "button_Ecf8ac"
-      ],
-      "name": "Custom CTA Block",
-      "settings": {
-        "heading": "<p>Jetzt Trockeneis kaufen</p>",
-        "heading_size": 32,
-        "heading_bold": true,
-        "heading_color": "#0f172a",
-        "subheading": "<p>Wir produzieren direkt im Saarland und beliefern Industrie, Gewerbe und Privatkunden zuverlässig. Jetzt bestellen oder individuelles Angebot für Ihr Unternehmen anfragen.</p>",
-        "sub_size": 14,
-        "sub_bold": false,
-        "sub_color": "#475569",
-        "font_heading": "sans_serif_n4",
-        "font_body": "sans_serif_n4",
-        "align": "center",
-        "content_max": 1000,
-        "pad_top": 64,
-        "pad_bottom": 64,
-        "use_gradient_bg": true,
-        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
-        "buttons_gap": 16
-      }
-    },
     "about_experience_iVLqaW": {
       "type": "about-experience",
       "blocks": {
@@ -1243,11 +883,86 @@
         "btn_label": "Mehr über uns erfahren",
         "btn_link": "",
         "btn_newtab": false,
-        "bg_color": "#F3F8F5",
-        "card_bg": "#FFFFFF",
+        "bg_color": "#f3f8f5",
+        "card_bg": "#ffffff",
         "card_radius": 16,
         "text_color": "#111111",
         "accent_color": "#007acc"
+      }
+    },
+    "custom_cta_block_tcN6yG": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_FLFBee": {
+          "type": "button",
+          "settings": {
+            "label": "<p>jetzt bestellen</p>",
+            "link": "",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "button_Ecf8ac": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Angebot für Großabnehmer anfragen</p>",
+            "link": "",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#007acc",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_FLFBee",
+        "button_Ecf8ac"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p>Jetzt Trockeneis kaufen</p>",
+        "heading_size": 32,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "subheading": "<p>Wir produzieren direkt im Saarland und beliefern Industrie, Gewerbe und Privatkunden zuverlässig. Jetzt bestellen oder individuelles Angebot für Ihr Unternehmen anfragen.</p>",
+        "sub_size": 14,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
       }
     }
   },
@@ -1256,19 +971,14 @@
     "hero_building_section_JNiQNT",
     "feature_cards_cPwPBG",
     "text_image_block_qwRJdM",
-    "about_section_v2_GNfXYU",
-    "about_section_v2_J4jGJ4",
-    "about_section_v2_j6tfji",
     "safety_info_AGwTpr",
     "application_areas_KKR3Ha",
-    "about_section_v2_DLkFwA",
     "custom_cta_block_pKhTqD",
     "application_areas_AMijia",
     "text_image_block_m7dCwa",
     "leistung_suche_grid_v2_THnFcy",
     "mod_category_showcase_wkX48P",
     "karussel_leistungen_WjfhNa",
-    "cta_block_LPidqf",
     "about_experience_iVLqaW",
     "custom_cta_block_tcN6yG"
   ]
