@@ -46,7 +46,7 @@
         "info_card_xQLXBp": {
           "type": "info_card",
           "settings": {
-            "title": "Adresse",
+            "title": "Telefon",
             "text": "<p>06898 16 90 896</p>",
             "icon": "phone",
             "block_font_size": 0,
@@ -58,7 +58,7 @@
         "info_card_xDUkQQ": {
           "type": "info_card",
           "settings": {
-            "title": "Adresse",
+            "title": "E-Mail",
             "text": "<p>info@trockeneis.saarland</p>",
             "icon": "mail",
             "block_font_size": 0,
