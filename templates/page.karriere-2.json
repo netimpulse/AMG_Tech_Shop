@@ -11,60 +11,49 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
     },
-    "mod_image_text_ACzKf7": {
-      "type": "mod-image-text",
-      "name": "Mod: Bild + Text",
-      "settings": {
-        "image_position": "right",
-        "badge": "",
-        "heading": "AMG-Tech  GmbH",
-        "heading_size": "h2",
-        "text": "<p>Karriere</p>",
-        "btn_text": "",
-        "btn_link": "",
-        "padding_y": 48,
-        "section_bg": "",
-        "block_font_size": 0,
-        "block_font_color": "",
-        "block_font_family": "assistant_n4",
-        "block_bg_color": ""
-      }
-    },
-    "mod_faq_accordion_rDwegx": {
-      "type": "mod-faq-accordion",
+    "jobs_board_M9PLdR": {
+      "type": "jobs-board",
       "blocks": {
-        "faq_RGEKcT": {
-          "type": "faq",
+        "job_mkrqkG": {
+          "type": "job",
           "settings": {
-            "question": "Wie lange dauert der Versand?",
-            "answer": "<p>1-3 Werktage innerhalb Deutschlands.</p>",
+            "title": "Produktionshelfer (m/w/d)",
+            "desc": "Herstellund und Verpackung von Trockneisprodukten",
+            "location": "Völklingen",
+            "time": "minijob",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "",
+            "btn_newtab": false,
+            "card_bg": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
         },
-        "faq_rnrPfY": {
-          "type": "faq",
+        "job_Mf96mx": {
+          "type": "job",
           "settings": {
-            "question": "Kann ich meine Bestellung zurueckgeben?",
-            "answer": "<p>Ja, innerhalb von 30 Tagen problemlos.</p>",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "faq_kPakDz": {
-          "type": "faq",
-          "settings": {
-            "question": "Welche Zahlungsarten werden akzeptiert?",
-            "answer": "<p>Kreditkarte, PayPal, Klarna, Sofortueberweisung.</p>",
+            "title": "Lieferfahrer (m/w/d)",
+            "desc": "Transport unserer Trockneiesprodukte in der Region Saarland / Rheindland-Pfalz",
+            "location": "Völkingen",
+            "time": "minijob",
+            "badge_label": "",
+            "badge_bg": "",
+            "badge_text": "",
+            "btn_label": "Jetzt bewerben",
+            "btn_url": "",
+            "btn_newtab": false,
+            "card_bg": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -73,34 +62,107 @@
         }
       },
       "block_order": [
-        "faq_RGEKcT",
-        "faq_rnrPfY",
-        "faq_kPakDz"
+        "job_mkrqkG",
+        "job_Mf96mx"
       ],
-      "name": "Mod: FAQ Akkordeon",
+      "name": "Job-Kacheln (Karriere)",
       "settings": {
-        "heading": "Haeufig gestellte Fragen",
-        "subheading": "",
-        "padding_y": 40,
-        "section_bg": "",
-        "heading_font_size": 0,
-        "heading_font_color": "",
-        "question_font_size": 0,
-        "question_font_color": "",
-        "answer_font_size": 0,
-        "answer_font_color": "",
-        "icon_color": "",
-        "faq_gap": 0,
-        "block_font_size": 33,
-        "block_font_color": "#000000",
-        "block_font_family": "assistant_n4",
-        "block_bg_color": ""
+        "heading": "Aktuelle Stellenausschreibungen",
+        "subheading": "Finden Sie Ihre nächste berufliche Herausforderung bei uns",
+        "section_bg": "#F6F7FB",
+        "card_bg": "#FFFFFF",
+        "padding_y": 48,
+        "grid_gap": 24,
+        "card_radius": 16,
+        "columns": "2",
+        "title_font": "poppins_n4",
+        "title_size": 44,
+        "title_color": "#0F172A",
+        "title_weight": "700",
+        "subtitle_font": "poppins_n4",
+        "subtitle_size": 16,
+        "subtitle_color": "#475569",
+        "subtitle_weight": "400",
+        "jobtitle_font": "poppins_n4",
+        "jobtitle_size": 22,
+        "jobtitle_color": "#0F172A",
+        "jobtitle_weight": "700",
+        "text_font": "poppins_n4",
+        "text_size": 16,
+        "text_color": "#334155",
+        "text_weight": "400",
+        "location_font": "poppins_n4",
+        "location_size": 15,
+        "location_color": "#475569",
+        "location_weight": "400",
+        "button_font": "poppins_n4",
+        "button_size": 15,
+        "button_weight": "600",
+        "button_bg": "#111827",
+        "button_text": "#FFFFFF",
+        "button_border": "transparent",
+        "badge_font": "poppins_n4",
+        "badge_size": 14,
+        "badge_weight": "600",
+        "badge_bg": "#D1FADF",
+        "badge_text": "#065F46"
+      }
+    },
+    "custom_cta_block_jbHzkr": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_x7QrHj": {
+          "type": "button",
+          "settings": {
+            "label": "<p>jetzt Bewerben</p>",
+            "link": "shopify://pages/contact",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_x7QrHj"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p><strong>Werde Teil unseres Teams</strong></p>",
+        "heading_size": 25,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "subheading": "<p>✔ übertarifliche Entlohnung ✔ flexible Arbeitszeiten ✔ multikulturelles Team und vieles mehr. Jetzt bewerben 👍</p>",
+        "sub_size": 20,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
       }
     }
   },
   "order": [
     "main",
-    "mod_image_text_ACzKf7",
-    "mod_faq_accordion_rDwegx"
+    "jobs_board_M9PLdR",
+    "custom_cta_block_jbHzkr"
   ]
 }
