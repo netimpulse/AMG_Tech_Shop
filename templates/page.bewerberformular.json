@@ -46,7 +46,7 @@
         "info_card_xQLXBp": {
           "type": "info_card",
           "settings": {
-            "title": "Adresse",
+            "title": "Telefon",
             "text": "<p>06898 16 90 896</p>",
             "icon": "phone",
             "block_font_size": 0,
@@ -58,7 +58,7 @@
         "info_card_xDUkQQ": {
           "type": "info_card",
           "settings": {
-            "title": "Adresse",
+            "title": "E-Mail",
             "text": "<p>info@trockeneis.saarland</p>",
             "icon": "mail",
             "block_font_size": 0,
@@ -101,7 +101,7 @@
         "label_company": "Unternehmen",
         "ph_company": "Ihr Unternehmen",
         "label_subject": "Betreff *",
-        "ph_subject": "Worum geht es?",
+        "ph_subject": "Bewerbung",
         "label_message": "Nachricht *",
         "ph_message": "Beschreiben Sie Ihr Anliegen...",
         "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
