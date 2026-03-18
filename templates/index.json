@@ -897,7 +897,7 @@
           "type": "button",
           "settings": {
             "label": "<p>jetzt bestellen</p>",
-            "link": "",
+            "link": "shopify://products/trockeneispellets-1-5-mm",
             "variant": "solid",
             "text_color": "#ffffff",
             "bg_color": "#0b132a",
