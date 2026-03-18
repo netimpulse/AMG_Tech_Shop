@@ -3,15 +3,18 @@
   Erwartet: block, section
 {% endcomment %}
 
+{%- assign icon_size = section.settings.icon_size | default: 48 -%}
+{%- assign icon_img_size = icon_size | times: 2 -%}
+
 <div class="safety-info-card" {{ block.shopify_attributes }}>
   <div class="safety-info-icon">
     {% if block.settings.icon != blank %}
       <img
-        src="{{ block.settings.icon | image_url: width: 60 }}"
+        src="{{ block.settings.icon | image_url: width: icon_img_size }}"
         alt="{{ block.settings.title | strip_html | escape }}"
         loading="lazy"
-        width="40"
-        height="40"
+        width="{{ icon_size }}"
+        height="{{ icon_size }}"
       >
     {% else %}
       <div class="safety-info-icon-placeholder" aria-hidden="true">!</div>

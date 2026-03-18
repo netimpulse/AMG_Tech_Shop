@@ -49,20 +49,24 @@ input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; a
 }
 .services-grid__clear:hover { opacity: 1; }
 
-/* Grid Layout */
+/* Grid Layout – dynamische Spaltenanzahl via data-columns */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--gap);
+  grid-template-columns: repeat(var(--grid-cols, 3), minmax(0, 1fr));
 }
-.services-grid[data-columns="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.services-grid[data-columns="1"] { --grid-cols: 1; }
+.services-grid[data-columns="2"] { --grid-cols: 2; }
+.services-grid[data-columns="3"] { --grid-cols: 3; }
+.services-grid[data-columns="4"] { --grid-cols: 4; }
+.services-grid[data-columns="5"] { --grid-cols: 5; }
+.services-grid[data-columns="6"] { --grid-cols: 6; }
+
 @media (max-width: 990px) {
-  .services-grid,
-  .services-grid[data-columns="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services-grid { --grid-cols: 2 !important; }
 }
 @media (max-width: 640px) {
-  .services-grid,
-  .services-grid[data-columns="2"] { grid-template-columns: 1fr; }
+  .services-grid { --grid-cols: 1 !important; }
 }
 
 /* Karte – flex column: Titel → Text → Badges → Button unten */

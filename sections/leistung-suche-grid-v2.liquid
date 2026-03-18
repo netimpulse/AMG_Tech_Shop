@@ -41,8 +41,8 @@
       </div>
     {% endif %}
 
-    {%- assign total_items = section.blocks.size -%}
-    <div class="services-grid" data-columns="{% if total_items == 4 %}2{% else %}3{% endif %}" id="services-grid-{{ section.id }}">
+    {%- assign columns = section.settings.columns_per_row | default: 3 -%}
+    <div class="services-grid" data-columns="{{ columns }}" id="services-grid-{{ section.id }}">
       {% for block in section.blocks %}
         {% render 'leistung-suche-card-v2',
           id: block.id,
@@ -77,6 +77,7 @@
       const input = root.querySelector('.services-grid__search-input');
       const clearBtn = root.querySelector('.services-grid__clear');
 
+      const defaultCols = {{ columns }};
       const normalize = s => (s || '').toString().toLowerCase().trim();
 
       function applyFilter(q) {
@@ -89,7 +90,7 @@
           card.style.display = match ? '' : 'none';
           if (match) visible++;
         });
-        grid.setAttribute('data-columns', visible === 4 ? '2' : '3');
+        grid.setAttribute('data-columns', defaultCols);
       }
 
       if (input) {
@@ -211,6 +212,15 @@
       "id": "card_shadow",
       "label": "Kachel-Schatten",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "columns_per_row",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "label": "Kacheln pro Reihe",
+      "default": 3
     },
     {
       "type": "range",
