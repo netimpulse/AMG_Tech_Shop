@@ -312,7 +312,6 @@
     },
     "about_section_v3_xqD4zk": {
       "type": "about-section-v3",
-      "disabled": true,
       "name": "Über Uns (Layout) – v3 - Auszug Leistungen",
       "settings": {
         "image_position": "right",
@@ -521,7 +520,6 @@
         "stat_wNTYhz",
         "stat_JQFhdt"
       ],
-      "disabled": true,
       "name": "Ihre Vorteile – Erfahrung/Stats",
       "settings": {
         "kicker": "",
@@ -634,7 +632,6 @@
         "feature_tDcx8y",
         "feature_f7f6xb"
       ],
-      "disabled": true,
       "name": "Ihre Vorteile Features",
       "settings": {
         "layout_direction": "text_left",
@@ -970,7 +967,6 @@
         "feature_jr8c6t",
         "feature_UiRXYq"
       ],
-      "disabled": true,
       "name": "Über Uns (Layout) – v3 - VDI 2052",
       "settings": {
         "image_position": "right",
