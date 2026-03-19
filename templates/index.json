@@ -440,6 +440,20 @@
             "block_bg_color": ""
           }
         },
+        "service_bGBJ8J": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "Büro, täglich, flexibel",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
         "service_AJcE7i": {
           "type": "service",
           "settings": {
@@ -537,6 +551,7 @@
         "service_JV8LaY",
         "service_ph3itb",
         "service_UFW4X4",
+        "service_bGBJ8J",
         "service_AJcE7i",
         "service_PQ7prj",
         "service_N6A8Uw",
@@ -557,6 +572,7 @@
         "card_bg": "#ffffff",
         "card_radius": 18,
         "card_shadow": true,
+        "columns_per_row": 3,
         "grid_gap": 20,
         "show_cta": false,
         "cta_label": "Mehr erfahren",
@@ -964,6 +980,110 @@
         "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
         "buttons_gap": 16
       }
+    },
+    "leistung_suche_grid_v2_htkUr6": {
+      "type": "leistung-suche-grid-v2",
+      "blocks": {
+        "service_c6WbGk": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_J7nEG9": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_wkNkBm": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_XG49NK": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_fixQyq": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "service_c6WbGk",
+        "service_J7nEG9",
+        "service_wkNkBm",
+        "service_XG49NK",
+        "service_fixQyq"
+      ],
+      "name": "Leistung Suche Grid v2",
+      "settings": {
+        "heading": "<p><strong>Unsere Leistungen</strong></p>",
+        "subheading": "<p>Mit <em>Leidenschaft</em> für Ihren Erfolg.</p>",
+        "text_align": "center",
+        "show_search": true,
+        "search_placeholder": "Leistungen oder Keywords suchen…",
+        "badge_style": "solid",
+        "keyword_badge_bg": "#E6F0FF",
+        "keyword_badge_color": "#0F1C3F",
+        "card_bg": "#ffffff",
+        "card_radius": 18,
+        "card_shadow": true,
+        "columns_per_row": 6,
+        "grid_gap": 20,
+        "show_cta": false,
+        "cta_label": "Mehr erfahren",
+        "cta_link": "",
+        "button_style": "primary",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
     }
   },
   "order": [
@@ -980,6 +1100,7 @@
     "mod_category_showcase_wkX48P",
     "karussel_leistungen_WjfhNa",
     "about_experience_iVLqaW",
-    "custom_cta_block_tcN6yG"
+    "custom_cta_block_tcN6yG",
+    "leistung_suche_grid_v2_htkUr6"
   ]
 }
