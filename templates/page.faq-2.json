@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -60,7 +61,7 @@
       ],
       "name": "Mod: FAQ Akkordeon",
       "settings": {
-        "heading": "Haeufig gestellte Fragen",
+        "heading": "Häufig gestellte Fragen",
         "subheading": "",
         "padding_y": 48,
         "section_bg": "",
