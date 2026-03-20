@@ -626,81 +626,6 @@
         "accent_color": "#007acc"
       }
     },
-    "custom_cta_block_tcN6yG": {
-      "type": "custom-cta-block",
-      "blocks": {
-        "button_FLFBee": {
-          "type": "button",
-          "settings": {
-            "label": "<p>jetzt bestellen</p>",
-            "link": "shopify://products/trockeneispellets-1-5-mm",
-            "variant": "solid",
-            "text_color": "#ffffff",
-            "bg_color": "#0b132a",
-            "border_color": "#0b132a",
-            "hover_bg": "#111827",
-            "hover_text": "#ffffff",
-            "radius": 12,
-            "padding_x": 24,
-            "padding_y": 14,
-            "bold": true,
-            "offset_x": 0,
-            "offset_y": 0,
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "button_Ecf8ac": {
-          "type": "button",
-          "settings": {
-            "label": "<p>Angebot für Großabnehmer anfragen</p>",
-            "link": "",
-            "variant": "solid",
-            "text_color": "#ffffff",
-            "bg_color": "#007acc",
-            "border_color": "#0b132a",
-            "hover_bg": "#111827",
-            "hover_text": "#ffffff",
-            "radius": 12,
-            "padding_x": 24,
-            "padding_y": 14,
-            "bold": true,
-            "offset_x": 0,
-            "offset_y": 0,
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_FLFBee",
-        "button_Ecf8ac"
-      ],
-      "name": "Custom CTA Block",
-      "settings": {
-        "heading": "<p>Jetzt Trockeneis kaufen</p>",
-        "heading_size": 32,
-        "heading_bold": true,
-        "heading_color": "#0f172a",
-        "subheading": "<p>Wir produzieren direkt im Saarland und beliefern Industrie, Gewerbe und Privatkunden zuverlässig. Jetzt bestellen oder individuelles Angebot für Ihr Unternehmen anfragen.</p>",
-        "sub_size": 14,
-        "sub_bold": false,
-        "sub_color": "#475569",
-        "font_heading": "sans_serif_n4",
-        "font_body": "sans_serif_n4",
-        "align": "center",
-        "content_max": 1000,
-        "pad_top": 64,
-        "pad_bottom": 64,
-        "use_gradient_bg": true,
-        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
-        "buttons_gap": 16
-      }
-    },
     "about_section_v3_gCCaVr": {
       "type": "about-section-v3",
       "blocks": {
@@ -841,6 +766,81 @@
         "font_heading": "sans_serif_n4",
         "font_body": "sans_serif_n4"
       }
+    },
+    "custom_cta_block_tcN6yG": {
+      "type": "custom-cta-block",
+      "blocks": {
+        "button_FLFBee": {
+          "type": "button",
+          "settings": {
+            "label": "<p>jetzt bestellen</p>",
+            "link": "shopify://products/trockeneispellets-1-5-mm",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#0b132a",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "button_Ecf8ac": {
+          "type": "button",
+          "settings": {
+            "label": "<p>Angebot für Großabnehmer anfragen</p>",
+            "link": "",
+            "variant": "solid",
+            "text_color": "#ffffff",
+            "bg_color": "#007acc",
+            "border_color": "#0b132a",
+            "hover_bg": "#111827",
+            "hover_text": "#ffffff",
+            "radius": 12,
+            "padding_x": 24,
+            "padding_y": 14,
+            "bold": true,
+            "offset_x": 0,
+            "offset_y": 0,
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_FLFBee",
+        "button_Ecf8ac"
+      ],
+      "name": "Custom CTA Block",
+      "settings": {
+        "heading": "<p>Jetzt Trockeneis kaufen</p>",
+        "heading_size": 32,
+        "heading_bold": true,
+        "heading_color": "#0f172a",
+        "subheading": "<p>Wir produzieren direkt im Saarland und beliefern Industrie, Gewerbe und Privatkunden zuverlässig. Jetzt bestellen oder individuelles Angebot für Ihr Unternehmen anfragen.</p>",
+        "sub_size": 14,
+        "sub_bold": false,
+        "sub_color": "#475569",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4",
+        "align": "center",
+        "content_max": 1000,
+        "pad_top": 64,
+        "pad_bottom": 64,
+        "use_gradient_bg": true,
+        "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
+        "buttons_gap": 16
+      }
     }
   },
   "order": [
@@ -852,8 +852,8 @@
     "leistung_suche_grid_v2_htkUr6",
     "application_areas_AMijia",
     "about_experience_iVLqaW",
-    "custom_cta_block_tcN6yG",
     "about_section_v3_gCCaVr",
-    "about_section_v3_eXkFzP"
+    "about_section_v3_eXkFzP",
+    "custom_cta_block_tcN6yG"
   ]
 }
