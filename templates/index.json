@@ -73,14 +73,14 @@
           "settings": {
             "icon": "shopify://shop_images/test1.png",
             "title": "Frische Produktion",
-            "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
+            "text": "<p>Produktionssatandort Völklingen</p>"
           }
         },
         "card_Xixy8C": {
           "type": "card",
           "settings": {
             "title": "Hohe Kühlleistung",
-            "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
+            "text": "<p>Pellets mit -78,5°C</p>"
           }
         },
         "card_636nLF": {
@@ -88,7 +88,7 @@
           "settings": {
             "icon": "shopify://shop_images/shutterstock_291272705.jpg",
             "title": "Nachhaltig produziert",
-            "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
+            "text": "<p>recycletes CO2, ohne Abfallprodukte</p>"
           }
         }
       },
@@ -112,21 +112,6 @@
         "image_fill_circle": false,
         "title_font_size": 20,
         "text_font_size": 17
-      }
-    },
-    "text_image_block_qwRJdM": {
-      "type": "text-image-block",
-      "disabled": true,
-      "name": "Text + Bild Block",
-      "settings": {
-        "background_color": "#f2f3f5",
-        "image_position": "right",
-        "image": "shopify://shop_images/dry-ice-blocks.jpg",
-        "heading": "<p><strong>Was ist Trockeneis?</strong></p>",
-        "text": "<h2></h2><p>Trockeneis ist festes Kohlendioxid (CO₂) bei einer Temperatur von -78,5°C. Im Gegensatz zu normalem Eis schmilzt es nicht, sondern sublimiert direkt von fest zu gasförmig – völlig rückstandsfrei.</p><p>Diese Eigenschaft macht Trockeneis zum perfekten Kühlmittel für Transport, Lagerung und Reinigung in zahlreichen Branchen. Es kühlt intensiver als herkömmliches Eis und hinterlässt keine Feuchtigkeit.</p><p>Ideal für Lebensmitteltransport, Gastronomie, Industrie und Events.</p>",
-        "show_button": true,
-        "button_label": "Mehr erfahren",
-        "button_link": ""
       }
     },
     "safety_info_AGwTpr": {
@@ -157,102 +142,6 @@
         "icon_size": 48,
         "title_font_size": 18,
         "text_font_size": 16
-      }
-    },
-    "application_areas_KKR3Ha": {
-      "type": "application-areas",
-      "blocks": {
-        "area_NhTYqm": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/shutterstock_291272705.jpg",
-            "title": "<p><strong>Nachhaltigkeit</strong></p>",
-            "text": "<p>Kein Wasser, keine Chemie, keine Rückstände – nur reines CO₂, das rückstandslos sublimiert </p>"
-          }
-        },
-        "area_LbUCVk": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/shutterstock_1035937483.jpg",
-            "title": "<p><strong>Wirtschaftlichkeit</strong></p>",
-            "text": "<p>Keine Trocknungszeiten, keine Entsorgungskosten, reduzierte Stillstandzeiten</p>"
-          }
-        },
-        "area_RNKhDx": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/iStock-118540539.jpg",
-            "title": "<p><strong>Vielseitigkeit</strong></p>",
-            "text": "<p>Von -78,5°C Kühlung bis zur Reinigung – ein Produkt, unzählige Lösungen</p>"
-          }
-        },
-        "area_TNVE6P": {
-          "type": "area",
-          "settings": {
-            "icon": "shopify://shop_images/shutterstock_254519980.jpg",
-            "title": "<p><strong>Sicherheit</strong></p>",
-            "text": "<p>Lebensmittelecht, ungiftig und nicht brennbar bei sachgemäßer Anwendung</p>"
-          }
-        },
-        "area_beM79D": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Rückstandsfrei</p>",
-            "text": "<p>Sublimiert vollständig, hinterlässt keine Feuchtigkeit oder Reste</p>"
-          }
-        },
-        "area_TTXWzX": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Lebensmittelecht & steril</p>",
-            "text": "<p>Geeignet für Lebensmittel, Medizin und Pharmazie<br/><br/><br/><br/></p>"
-          }
-        },
-        "area_igKHKy": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Umweltfreundlich</p>",
-            "text": "<p>Kein zusätzliches CO₂, keine Chemikalien</p>"
-          }
-        },
-        "area_z9Bpaj": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Effizient</p>",
-            "text": "<p>Kühlt bis –78 °C, verlängert Haltbarkeit und<br/>Produktionszeiten</p>"
-          }
-        },
-        "area_VUeEwG": {
-          "type": "area",
-          "settings": {
-            "title": "<p>Vielseitig</p>",
-            "text": "<p>Einsatz in Industrie, Logistik, Medizin,<br/>Gastronomie und Privatbereich</p>"
-          }
-        }
-      },
-      "block_order": [
-        "area_NhTYqm",
-        "area_LbUCVk",
-        "area_RNKhDx",
-        "area_TNVE6P",
-        "area_beM79D",
-        "area_TTXWzX",
-        "area_igKHKy",
-        "area_z9Bpaj",
-        "area_VUeEwG"
-      ],
-      "disabled": true,
-      "name": "Anwendungsbereiche",
-      "settings": {
-        "background_color": "#062a46",
-        "heading_color": "#ffffff",
-        "subheading_color": "#ffffffb3",
-        "card_title_color": "#ffffff",
-        "card_background_color": "#0d3247",
-        "card_border_color": "#ffffff14",
-        "card_hover_border_color": "#3ed0df",
-        "heading": "<p><strong>Vorteile</strong></p>",
-        "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
       }
     },
     "custom_cta_block_pKhTqD": {
@@ -304,6 +193,257 @@
         "use_gradient_bg": true,
         "bg_gradient": "linear-gradient(180deg, rgba(241, 245, 249, 0.6), rgba(241, 245, 249, 0) 100%)",
         "buttons_gap": 16
+      }
+    },
+    "leistung_suche_grid_v2_htkUr6": {
+      "type": "leistung-suche-grid-v2",
+      "blocks": {
+        "service_c6WbGk": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_726781549.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_J7nEG9": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_309173480.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_wkNkBm": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_736532971.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_XG49NK": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_224370973.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_fixQyq": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_1023985072.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_nLjBFg": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_529683889_590bf61f-9a4d-45ad-aade-10761b5c40eb.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_pAdQca": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_254519980.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_CWHmgB": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_131122721.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_ATQrPX": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_745757185.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_Tjcbpa": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_442349785.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_qnBbkK": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_314359133.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_cAxHgf": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_689943454.jpg",
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_7EQBnB": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_WkyF8n": {
+          "type": "service",
+          "settings": {
+            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "service_c6WbGk",
+        "service_J7nEG9",
+        "service_wkNkBm",
+        "service_XG49NK",
+        "service_fixQyq",
+        "service_nLjBFg",
+        "service_pAdQca",
+        "service_CWHmgB",
+        "service_ATQrPX",
+        "service_Tjcbpa",
+        "service_qnBbkK",
+        "service_cAxHgf",
+        "service_7EQBnB",
+        "service_WkyF8n"
+      ],
+      "name": "Leistung Suche Grid v2",
+      "settings": {
+        "heading": "<p><strong>Anwendungsbereiche</strong></p>",
+        "subheading": "",
+        "text_align": "center",
+        "show_search": false,
+        "search_placeholder": "Leistungen oder Keywords suchen…",
+        "badge_style": "solid",
+        "keyword_badge_bg": "#e6f0ff",
+        "keyword_badge_color": "#0f1c3f",
+        "card_bg": "#ffffff",
+        "card_radius": 18,
+        "card_shadow": true,
+        "columns_per_row": 6,
+        "grid_gap": 20,
+        "show_cta": false,
+        "cta_label": "Mehr erfahren",
+        "cta_link": "",
+        "button_style": "primary",
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
       }
     },
     "application_areas_AMijia": {
@@ -374,426 +514,6 @@
         "card_hover_border_color": "#3ed0df",
         "heading": "<p><strong>Anwendungsbereiche</strong></p>",
         "subheading": "<p>Trockeneis ist vielseitig einsetzbar – von der Gastronomie bis zur Industrie</p>"
-      }
-    },
-    "text_image_block_m7dCwa": {
-      "type": "text-image-block",
-      "disabled": true,
-      "name": "Text + Bild Block",
-      "settings": {
-        "background_color": "#ffffff",
-        "image_position": "left",
-        "image": "shopify://shop_images/team-production.jpg",
-        "heading": "<h2>Vertrauen & Qualität</h2>",
-        "text": "<p>Wir sind ein familiengeführtes Unternehmen mit persönlichem Service und langjähriger Erfahrung. Unser motiviertes und regional geschultes Personal steht Ihnen bei allen Fragen zur Seite.</p><p>Für uns gilt: <strong>Dienstleistung ist Vertrauenssache.</strong> Deshalb setzen wir unsere Arbeit nicht als kurzfristiger Auftrag, sondern als langfristige Partnerschaft. Unsere Kunden verlassen sich darauf, dass wir nicht schnell reagieren, sondern versuchsvoll denken und mitgestalten.</p>",
-        "show_button": true,
-        "button_label": "Mehr erfahren",
-        "button_link": ""
-      }
-    },
-    "leistung_suche_grid_v2_THnFcy": {
-      "type": "leistung-suche-grid-v2",
-      "blocks": {
-        "service_JV8LaY": {
-          "type": "service",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_314359133.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Trockeneis hält Lebensmittel, pharmazeutische<br/>Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril,<br/>lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für<br/>Speditionen und Kliniken</p>",
-            "keywords": "Kühlkettenerhaltung, Weinlese, Fleisch, Fisch, Geflügel",
-            "button_label": "Mehr erfahren",
-            "button_link": "shopify://pages/anwendungsbereiche",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_ph3itb": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_689943454.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_UFW4X4": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_1023985072.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_bGBJ8J": {
-          "type": "service",
-          "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_AJcE7i": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_745757185.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_PQ7prj": {
-          "type": "service",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_131122721.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_N6A8Uw": {
-          "type": "service",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_632816162.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_CMQRbj": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_254519980.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_bgANWA": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_529683889_590bf61f-9a4d-45ad-aade-10761b5c40eb.jpg",
-            "title_html": "<p><strong>Versand und Transport empfindlicher Waren</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_TaiWHV": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_444918133.jpg",
-            "title_html": "<p><strong>Gastronomie und Catering</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "Büro, täglich, flexibel",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "service_JV8LaY",
-        "service_ph3itb",
-        "service_UFW4X4",
-        "service_bGBJ8J",
-        "service_AJcE7i",
-        "service_PQ7prj",
-        "service_N6A8Uw",
-        "service_CMQRbj",
-        "service_bgANWA",
-        "service_TaiWHV"
-      ],
-      "name": "Leistung Suche Grid v2",
-      "settings": {
-        "heading": "<p><strong>Anwendungsbereiche</strong></p>",
-        "subheading": "",
-        "text_align": "center",
-        "show_search": true,
-        "search_placeholder": "Leistungen oder Keywords suchen…",
-        "badge_style": "solid",
-        "keyword_badge_bg": "#e6f0ff",
-        "keyword_badge_color": "#0f1c3f",
-        "card_bg": "#ffffff",
-        "card_radius": 18,
-        "card_shadow": true,
-        "columns_per_row": 3,
-        "grid_gap": 20,
-        "show_cta": false,
-        "cta_label": "Mehr erfahren",
-        "cta_link": "",
-        "button_style": "primary",
-        "font_heading": "sans_serif_n4",
-        "font_body": "sans_serif_n4"
-      }
-    },
-    "mod_category_showcase_wkX48P": {
-      "type": "mod-category-showcase",
-      "blocks": {
-        "category_iFBT6G": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_745757185.jpg",
-            "title": "Essen",
-            "subtitle": "gastronolmie und transport",
-            "link": "",
-            "block_font_size": 43,
-            "block_font_color": "#000000",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_CJ6MDf": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_529683889.jpg",
-            "title": "Bestseller",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_mKnXXK": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_131122721.jpg",
-            "title": "Neuheiten",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "category_WdymB3": {
-          "type": "category",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_254519980.jpg",
-            "title": "Angebote",
-            "subtitle": "",
-            "link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "category_iFBT6G",
-        "category_CJ6MDf",
-        "category_mKnXXK",
-        "category_WdymB3"
-      ],
-      "disabled": true,
-      "name": "Mod: Kategorie-Kacheln",
-      "settings": {
-        "heading": "Anwendungsbereiche",
-        "padding_y": 48,
-        "section_bg": "",
-        "heading_font_size": 0,
-        "title_font_size": 0,
-        "title_font_color": "",
-        "subtitle_font_size": 0,
-        "block_font_size": 0,
-        "block_font_color": "",
-        "block_font_family": "assistant_n4",
-        "block_bg_color": ""
-      }
-    },
-    "karussel_leistungen_WjfhNa": {
-      "type": "karussel-leistungen",
-      "blocks": {
-        "card_tXJbE7": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/team-production.jpg",
-            "badge": "Kühlung",
-            "badge_color_bg": "#e8f2ff",
-            "badge_color_text": "#0a66c2",
-            "title": "Kühluung von zeug",
-            "text": "",
-            "bullets": "Saarbrücken\nTrier\nSaarlouis",
-            "bullet_color": "#10b981",
-            "show_btn": true,
-            "btn_label": "Mehr erfahren",
-            "btn_link": "",
-            "card_bg": "#ffffff",
-            "card_text": "#0f172a",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "card_3kt66Y": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/dry-ice-pellets.jpg",
-            "badge": "Pharma",
-            "badge_color_bg": "#e8f2ff",
-            "badge_color_text": "#0a66c2",
-            "title": "Transport von medizinischen Produkten",
-            "text": "",
-            "bullets": "Gewebeproben\nBlutproben\nOrgane",
-            "bullet_color": "#10b981",
-            "show_btn": true,
-            "btn_label": "Mehr erfahren",
-            "btn_link": "",
-            "card_bg": "#ffffff",
-            "card_text": "#0f172a",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "card_aaRLN3": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/TrockeneisAA_3.jpg",
-            "badge": "texti",
-            "badge_color_bg": "#e8f2ff",
-            "badge_color_text": "#0a66c2",
-            "title": "Lebensmittelindustrie & Gastronomie",
-            "text": "Kurze Einleitung zur Leistung.",
-            "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
-            "bullet_color": "#10b981",
-            "show_btn": true,
-            "btn_label": "Mehr erfahren",
-            "btn_link": "",
-            "card_bg": "#ffffff",
-            "card_text": "#0f172a",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "card_xFm3L6": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/dry-ice-blocks.jpg",
-            "badge": "Spezialreinigung",
-            "badge_color_bg": "#e8f2ff",
-            "badge_color_text": "#0a66c2",
-            "title": "Transport & Logistik",
-            "text": "Trockeneis hält Lebensmittel, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken",
-            "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
-            "bullet_color": "#10b981",
-            "show_btn": true,
-            "btn_label": "Mehr erfahren",
-            "btn_link": "",
-            "card_bg": "#ffffff",
-            "card_text": "#0f172a",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "card_37gQN3": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/dry-ice-blocks.jpg",
-            "badge": "Spezialreinigung",
-            "badge_color_bg": "#e8f2ff",
-            "badge_color_text": "#0a66c2",
-            "title": "Transport & Logistik",
-            "text": "Trockeneis hält Lebensmittel, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken",
-            "bullets": "Unterhaltsreinigung\nGrundreinigung\nGlasreinigung\nWartung und Instandhaltung",
-            "bullet_color": "#10b981",
-            "show_btn": true,
-            "btn_label": "Mehr erfahren",
-            "btn_link": "",
-            "card_bg": "#ffffff",
-            "card_text": "#0f172a",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "card_tXJbE7",
-        "card_3kt66Y",
-        "card_aaRLN3",
-        "card_xFm3L6",
-        "card_37gQN3"
-      ],
-      "disabled": true,
-      "name": "Leistungen – Karussell",
-      "settings": {
-        "heading": "Anwendungsbereiche",
-        "subheading": "<p>Entdecken Sie die vielfältigen Möglichkeiten Trockneis einzusetzen...</p>",
-        "color_scheme": "background-1",
-        "card_gap": 16,
-        "card_radius": 14,
-        "cols_desktop": 4,
-        "cols_tablet": 3,
-        "show_arrows": true,
-        "show_scrollbar": false,
-        "snap_scroll": true
       }
     },
     "about_experience_iVLqaW": {
@@ -895,7 +615,7 @@
       "settings": {
         "kicker": "Über 15 Jahre Erfahrung",
         "heading": "Über 15 Jahre Erfahrung",
-        "richtext": "<p>Werden Sie Teil unserer stetig wachsenden Unternehmensgeschichte. Mit einem breiten Kundenstamm, der von großen Automobilzulieferern bis hin zu kleineren Betrieben reicht, sind wir ein fester Bestandteil der Routine in vielen Unternehmen geworden.</p><p>Seit vielen Jahren beschäftigen sich unsere beiden Firmengründer  mit den verschiedenen Anwendungsmöglichkeiten von Trockeneis. Beide konnten viel Erfahrung speziell in der industriellen Reinigung mit Trockeneis sammeln. Diese fließt nun auch in die eigene Produktion und den Vertrieb des Trockeneises ein. Deshalb ist die AMG-Tech ist Ihr Ansprechpartner für frisches und qualitativ hochwertigstes Trockeneis im Saarland. Wir produzieren vor Ort in der Hüttenstadt Völklingen. Zusätzlich verfügen<br/>wir auch über einen Lieferservice und bringen das Trockeneis direkt zu Ihnen. Die AMG-Tech legt sehr viel Wert auf eine hohe Flexibilität und Zuverlässigkeit. Die Lieferung innerhalb 24h ist nur ein Beispiel dafür. Wir beraten Sie gerne, nehmen Sie einfach Kontakt mit uns auf.</p>",
+        "richtext": "<p>Seit Jahren sind wir die vertrauensvolle Adresse für frisches, hochwertiges Trockeneis – von der Produktion in der Hüttenstadt bis zur schnellen Lieferung direkt zu Ihnen. Ob große Automobilzulieferer oder lokale Betriebe: Unsere Kunden schätzen uns als zuverlässigen Partner in ihrem Arbeitsalltag.</p><p>Unsere beiden Gründer bringen jahrelange Expertise in der industriellen Trockeneis-Reinigung mit. Dieses Wissen fließt in jede Pellet-Produktion und in unsere persönliche Beratung ein. <strong>Flexibel, schnell, nah am Kunden</strong> – das ist unser Versprechen. Brauchen Sie Trockeneis innerhalb von 24 Stunden? Kein Problem!</p><p><strong>Warum wir?</strong><br/>✔ <strong>Lokal produziert</strong> – frisch und umweltbewusst<br/>✔ <strong>Schneller Lieferservice</strong> – direkt zu Ihnen<br/>✔ <strong>Individuelle Beratung</strong> – von Experten für Experten</p><p>Sie haben Fragen oder brauchen Trockeneis? <strong>Melden Sie sich einfach – wir sind für Sie da!</strong> </p>",
         "btn_label": "Mehr über uns erfahren",
         "btn_link": "",
         "btn_newtab": false,
@@ -981,73 +701,29 @@
         "buttons_gap": 16
       }
     },
-    "leistung_suche_grid_v2_htkUr6": {
-      "type": "leistung-suche-grid-v2",
+    "about_section_v3_gCCaVr": {
+      "type": "about-section-v3",
       "blocks": {
-        "service_c6WbGk": {
-          "type": "service",
+        "feature_ceUeVc": {
+          "type": "feature",
           "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
         },
-        "service_J7nEG9": {
-          "type": "service",
+        "feature_kYqTch": {
+          "type": "feature",
           "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_wkNkBm": {
-          "type": "service",
-          "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_XG49NK": {
-          "type": "service",
-          "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_fixQyq": {
-          "type": "service",
-          "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -1056,31 +732,42 @@
         }
       },
       "block_order": [
-        "service_c6WbGk",
-        "service_J7nEG9",
-        "service_wkNkBm",
-        "service_XG49NK",
-        "service_fixQyq"
+        "feature_ceUeVc",
+        "feature_kYqTch"
       ],
-      "name": "Leistung Suche Grid v2",
+      "name": "Über Uns (Layout) – v3",
       "settings": {
-        "heading": "<p><strong>Unsere Leistungen</strong></p>",
-        "subheading": "<p>Mit <em>Leidenschaft</em> für Ihren Erfolg.</p>",
-        "text_align": "center",
-        "show_search": true,
-        "search_placeholder": "Leistungen oder Keywords suchen…",
-        "badge_style": "solid",
-        "keyword_badge_bg": "#e6f0ff",
-        "keyword_badge_color": "#0f1c3f",
-        "card_bg": "#ffffff",
-        "card_radius": 18,
-        "card_shadow": true,
-        "columns_per_row": 6,
-        "grid_gap": 20,
-        "show_cta": false,
-        "cta_label": "Mehr erfahren",
-        "cta_link": "",
-        "button_style": "primary",
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#FFFFFF",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "title": "Was ist Trockneis?",
+        "title_richtext": "<p><strong>Was ist Trockneis?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Trockeneis ist Kohlendioxid (CO2) im festen Aggregatzustand und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78°C. Statt neues CO₂ freizusetzen, nutzt man recyceltes Kohlendioxid für die Herstellung von Trockeneis – obwohl das Gas natürlich in unserer Atmosphäre vorkommt.<br/><br/>Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p>",
+        "text_color": "#6B7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/iStock-118540539.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34D399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": true,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
         "font_heading": "sans_serif_n4",
         "font_body": "sans_serif_n4"
       }
@@ -1090,17 +777,12 @@
     "hero_dryice_kCAUAg",
     "hero_building_section_JNiQNT",
     "feature_cards_cPwPBG",
-    "text_image_block_qwRJdM",
     "safety_info_AGwTpr",
-    "application_areas_KKR3Ha",
     "custom_cta_block_pKhTqD",
+    "leistung_suche_grid_v2_htkUr6",
     "application_areas_AMijia",
-    "text_image_block_m7dCwa",
-    "leistung_suche_grid_v2_THnFcy",
-    "mod_category_showcase_wkX48P",
-    "karussel_leistungen_WjfhNa",
     "about_experience_iVLqaW",
     "custom_cta_block_tcN6yG",
-    "leistung_suche_grid_v2_htkUr6"
+    "about_section_v3_gCCaVr"
   ]
 }
