@@ -63,6 +63,7 @@
         "card_DykqWU": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/test4.png",
             "title": "🚚 Schnelle Lieferung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -70,7 +71,7 @@
         "card_JMQmDR": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/shutterstock_199757459.jpg",
+            "icon": "shopify://shop_images/test1.png",
             "title": "Frische Produktion",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -78,7 +79,6 @@
         "card_Xixy8C": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/shutterstock_736578535.jpg",
             "title": "Hohe Kühlleistung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
@@ -139,7 +139,7 @@
             "text": "<p>Trockeneis ist ein sicheres Kühlmittel, erfordert aber sachgerechte Handhabung. Wichtig: <strong>immer gut belüften</strong> und <strong>Schutzhandschuhe tragen</strong>, um Hautverbrennungen zu vermeiden. Niemals in geschlossenen Räumen ohne Belüftung lagern.</p>",
             "show_button": true,
             "button_label": "Zu den Sicherheitsinformationen",
-            "button_link": ""
+            "button_link": "shopify://pages/sicherheitsdaten"
           }
         }
       },
@@ -1070,8 +1070,8 @@
         "show_search": true,
         "search_placeholder": "Leistungen oder Keywords suchen…",
         "badge_style": "solid",
-        "keyword_badge_bg": "#E6F0FF",
-        "keyword_badge_color": "#0F1C3F",
+        "keyword_badge_bg": "#e6f0ff",
+        "keyword_badge_color": "#0f1c3f",
         "card_bg": "#ffffff",
         "card_radius": 18,
         "card_shadow": true,

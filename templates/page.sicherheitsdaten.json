@@ -18,6 +18,7 @@
     },
     "mod_image_text_ACzKf7": {
       "type": "mod-image-text",
+      "disabled": true,
       "name": "Mod: Bild + Text",
       "settings": {
         "image_position": "right",
@@ -34,10 +35,48 @@
         "block_font_family": "assistant_n4",
         "block_bg_color": ""
       }
+    },
+    "dlx_downloads_dwxenW": {
+      "type": "dlx-downloads",
+      "blocks": {
+        "download_8yJDFC": {
+          "type": "download",
+          "settings": {
+            "title": "Sicherheitsdatenblatt",
+            "date": "11.09.2023",
+            "file_url": "",
+            "tags": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "download_8yJDFC"
+      ],
+      "name": "Downloads / Zertifikate (DLX)",
+      "settings": {
+        "heading": "",
+        "subtext": "",
+        "text_color": "#111111",
+        "font_size": 34,
+        "subtext_size": 16,
+        "font_family": "theme",
+        "heading_align": "left",
+        "heading_weight": 700,
+        "heading_style": "normal",
+        "show_search": false,
+        "search_placeholder": "",
+        "search_hint": "",
+        "hover_color": "#e6f4ff"
+      }
     }
   },
   "order": [
     "main",
-    "mod_image_text_ACzKf7"
+    "mod_image_text_ACzKf7",
+    "dlx_downloads_dwxenW"
   ]
 }
