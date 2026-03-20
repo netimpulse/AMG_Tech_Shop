@@ -43,7 +43,8 @@
           "type": "download",
           "settings": {
             "title": "Sicherheitsdatenblatt",
-            "date": "11.09.2023",
+            "date": "15.05.2017",
+            "image": "shopify://shop_images/Sicherheitsdatenblatt_Trockneis_Bild.png",
             "file_url": "",
             "tags": "",
             "block_font_size": 0,
