@@ -666,8 +666,8 @@
         "image_vertical_align": "center",
         "show_image": true,
         "background_color": "#FFFFFF",
-        "section_padding_top": 60,
-        "section_padding_bottom": 60,
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
         "title": "Was ist Trockneis?",
         "title_richtext": "<p><strong>Was ist Trockneis?</strong></p>",
         "title_color": "#111827",
@@ -748,6 +748,76 @@
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
         "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Für die Produktion sind flüssiges CO₂, spezielle Anlagen und eine kontrollierte Abkühlung auf -78,5 °C nötig.<strong> <br/>Wichtig:</strong> Aufgrund der extrem niedrigen Temperatur und der Gefahr von Sauerstoffverdrängung sind bei der Handhabung isolierte Handschuhe und eine gute Belüftung unverzichtbar.</p>",
+        "text_color": "#6B7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34D399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": true,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_3qMEbY": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_HQBc8G": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_xdJwmr": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_HQBc8G",
+        "feature_xdJwmr"
+      ],
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#FFFFFF",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "Warum Trockeneis?",
+        "title_richtext": "<p><strong>Warum Trockeneis?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p></p><p>Trockeineis kühlt intensiver als normales Eis, es<br/>hinterlässt keine Nässe und ist vielseitig einsetzbar: Ob in der Industrie für<br/>präzises Kühlen oder Reinigen, im Lebensmitteltransport, in der Gastronomie<br/>oder für spektakuläre Effekte bei Events – Trockeneis überzeugt durch Effizienz<br/>und Sauberkeit.</p><p>Intensive Kühlleistung</p><p>Rückstandsfrei</p><p>Einfache Entsorgung</p><p>Umweltfreundliche Lösung</p><p> </p><p> </p><p><strong>Vorteile für unsere Geschäftskunden</strong></p><p>Als regionaler Hersteller beliefern wir<br/>Industrieunternehmen, Lebensmittelproduzenten, Logistikbetriebe und Labore<br/>zuverlässig mit frischem Trockeneis. </p><p>💰individuelle<br/>Staffelpreise</p><p>📅 regelmäßige<br/>Lieferintervalle</p><p>📄 Rahmenverträge</p><p>⚡ Expresslieferung </p><p>💡Kosteneffiziente und schnelle Lieferung<br/>in der Region Saarland durch eigenen Fuhrpark</p><p>🚛Deutschlandweiter<br/>Versand--sicherer Transport durch spezialisierte Logistikpartner</p>",
         "text_color": "#6B7280",
         "text_font_size": 18,
         "image_border_radius": 12,
@@ -854,6 +924,7 @@
     "about_experience_iVLqaW",
     "about_section_v3_gCCaVr",
     "about_section_v3_eXkFzP",
+    "about_section_v3_3qMEbY",
     "custom_cta_block_tcN6yG"
   ]
 }
