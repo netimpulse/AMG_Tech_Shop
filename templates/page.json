@@ -19,6 +19,7 @@
     },
     "mod_image_text_ACzKf7": {
       "type": "mod-image-text",
+      "disabled": true,
       "name": "Mod: Bild + Text",
       "settings": {
         "image_position": "right",
@@ -35,10 +36,81 @@
         "block_font_family": "assistant_n4",
         "block_bg_color": ""
       }
+    },
+    "about_section_v3_XG8HUh": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_Y4MCVD": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_RPiNdG": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_Y4MCVD",
+        "feature_RPiNdG"
+      ],
+      "name": "Über Uns (Layout) – v3",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#FFFFFF",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "Anwendungsberieche und innovative Lösungen",
+        "title_richtext": "<p><strong>Anwendungsbereiche und innovative Lösungen</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "Trockeneis (festes CO₂) überzeugt durch extremeKälte (–78,5 °C), Rückstandsfreiheit und Vielseitigkeit. Es wird in Industrie, Medizin, Gastronomie und Privatbereich eingesetzt – umweltfreundlich, effizient und sicher",
+        "subtitle_richtext": "<p>Trockeneis (festes CO₂) überzeugt durch extreme Kälte (–78,5 °C), Rückstandsfreiheit und Vielseitigkeit. Es wird in Industrie, Medizin, Gastronomie und Privatbereich eingesetzt – umweltfreundlich, effizient und sicher.</p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>1. Lebensmittelindustrie & Gastronomie<br/></strong></p><p><strong>Transport & Logistik</strong><br/>Sicherer Versand temperaturempfindlicher Güter<br/>Trockeneis hält Lebensmittel, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken.<br/><br/>• Kühlkettenerhaltung: Tiefkühl- und Frischeprodukte bleiben während des Transports sicher gekühlt.<br/>•\tWeinlese: Kühlung der Trauben direkt nach der Lese für optimale Qualität.<br/>•\tFleisch, Fisch, Geflügel: Transport ohne Feuchtigkeitsbildung und Verderb.</p><p><br/><strong>Gastronomie & Catering</strong><br/>Kühlung für Catering, Festivals und Camping<br/>Trockeneis hält Lebensmittel und Getränke tagelang frisch – ohne Feuchtigkeit oder Rückstände. Es eignet sich für Großveranstaltungen, wo Kühlkapazitäten knapp sind.<br/><br/>•\tBuffet-Kühlung: Lebensmittel bleiben frisch – ohne Wasserschäden oder Stromanschluss.<br/>•\tEistorten & Desserts: Perfekte Konservierung für Hochzeiten und Feiern.<br/>•\tCocktails & Nebeleffekte: Spektakuläre Präsentation mit lebensmittelechtem Trockeneis.<br/><br/><strong>Mobile Kühlung</strong>: Getränke und Speisen bleiben auf Festivals, Märkten oder beim Camping tagelang frisch und kühl.<br/><br/><strong>Innovative Zubereitung von Speisen und Cocktails</strong><br/>Lebensmittelechtes Trockeneis wird in der Molekularküche für visuelle und geschmackliche Effekte genutzt – von rauchenden Desserts bis zu eisgekühlten Drinks.<br/>________________________________________<br/><strong>2. Industrielle Reinigung & Wartung</strong><br/><strong>Trockeneisstrahlen</strong><br/>Trockeneisstrahlen: Schonende Oberflächenreinigung<br/>Das Verfahren nutzt –78 °C kaltes Trockeneis, das Verschmutzungen schockfrostet und mit Druckluft entfernt. Vorteile:<br/>•\tNicht abrasiv, nicht leitend, nicht entflammbar<br/>•\tKeine Chemikalien oder Wasser nötig<br/>•\tUmweltfreundlich, da kein zusätzliches CO₂ freigesetzt wird<br/>•\tIdeal für empfindliche Maschinen, Lebensmittelindustrie und schwer zugängliche Stellen<br/><br/>•\tMaschinenreinigung: Schonende Entfernung von Verschmutzungen ohne Demontage oder Stillstand.<br/>•\tSchimmel- & Brandsanierung: Effektiv und ohne Feuchtigkeit.<br/>•\tKunststoffindustrie: Reinigung von Formen und Werkzeugen ohne Rückstände.<br/>•\tSchaltschrank- und Elektronikreinigung: Schaltschränke und empfindliche Bauteile werden ohne Wasserschäden gereinigt.<br/>Spezielle Anwendungen<br/>•\tEntfernung von Produktionsrückständen: Öle, Fette, Harze – entfernt ohne Chemikalien.<br/>•\tReinigung von Lüftungssystemen: Hygienische Reinigung ohne aggressive Mittel.<br/>•\tWartung empfindlicher Anlagen: Kein abrasiver Verschleiß, ideal für präzise Technik.<br/><br/>Industrie & Produktion<br/>Kühlung von Maschinen und Anlagen<br/>Trockeneis kühlt überhitzte Produktionsanlagen effizient von außen, ohne Wasser oder Kurzschlussrisiko. Durch die niedrige Temperatur wird die Produktionszeit verlängert und Stillstände minimiert.<br/>Metallverarbeitung & Stahlguss<br/>In der Metallindustrie unterstützt Trockeneis das präzise Fügen von Bauteilen: Durch die Kälte schrumpft Stahl stärker als Hartmetall, was eine feste Verbindung ermöglicht.<br/>________________________________________<br/><br/><br/>________________________________________<br/>3. Medizin, Pharma & Labor<br/>Transport von Organen und Proben<br/>Trockeneis verlängert die Transportzeit frisch entnommener Organe/Proben und ermöglicht Lieferungen in entfernte Kliniken.<br/>•\tProbentransport: Konstante –78,5 °C für sichere Laborproben und Medikamente.<br/>•\tImpfstoff-Logistik: Temperaturempfindliche Impfstoffe werden zuverlässig gekühlt.<br/>•\tOrgan- & Gewebetransport: Verlängert die Transportzeit für Transplantationen.<br/>•\tLaborproben-Konservierung ohne Kontamination<br/>•\t<br/>________________________________________<br/>4. Fahrzeugaufbereitung & Restauration<br/>KFZ-Spezialanwendungen<br/>•\tMotorraum-Reinigung: Tiefenreinigung ohne Korrosionsrisiko.<br/>•\tUnterbodenschutz-Entfernung: Entfernung bei Oldtimer-Restauration – materialschonend.<br/>•\tLackschonende Reinigung: Reinigung ohne Kratzer oder chemische Rückstände.<br/>•\tBrandschädensanierung: Innenraumreinigung ohne zusätzliche Feuchtigkeit.<br/>________________________________________<br/>5. Event & Entertainment<br/>Spektakuläre Nebeleffekte<br/>In der Eventtechnik erzeugt Trockeneis mit warmem Wasser bodennahen, geruchsneutralen Nebel – ein Highlight für Bühnen und Partys.<br/>Showeffekte & Atmosphäre<br/>•\tBodennebel: Für Bühnen, Tanzflächen und Filmproduktionen.<br/>•\tSpezialeffekte: Halloween, Gender-Reveal-Partys, Hochzeiten – mit farbigen oder romantischen Nebeleffekten.<br/>•\tFilm- und TV Produktion: Professionelle Nebelmaschinen-Alternative für realistische Szenen und Spezialeffekte<br/>________________________________________<br/>6. Innovative Spezialanwendungen<br/>•\tSchädlingsbekämpfung: CO₂-Begasung als umweltfreundliche Lösung.<br/>•\tWeinherstellung: Kalmazeration für besondere Aromen.<br/>•\t3D-Druck Nachbearbeitung: Schonende Entfernung von Stützstrukturen.<br/>•\tBrandschadensanierung: Reinigung ohne Wasserschäden.<br/>•\tDenkmalpflege: Schonende Reinigung historischer Objekte.<br/>________________________________________<br/></p>",
+        "text_color": "#6B7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34D399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": true,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
     }
   },
   "order": [
     "main",
-    "mod_image_text_ACzKf7"
+    "mod_image_text_ACzKf7",
+    "about_section_v3_XG8HUh"
   ]
 }
