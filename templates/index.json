@@ -263,7 +263,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Trockeneis ist Kohlendioxid (CO2) im festen Aggregatzustand und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78°C. Statt neues CO₂ freizusetzen, nutzt man recyceltes Kohlendioxid für die Herstellung von Trockeneis – obwohl das Gas natürlich in unserer Atmosphäre vorkommt.<br/><br/>Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p>",
+        "description": "<p>Trockeneis ist Kohlendioxid (CO2) im festen Aggregatzustand und entsteht durch die Kompression und Abkühlung von gasförmigem CO₂ auf unter -78°C. Statt neues CO₂ freizusetzen, nutzt man recyceltes Kohlendioxid für die Herstellung von Trockeneis – obwohl das Gas natürlich in unserer Atmosphäre vorkommt. CO₂ ist unsichtbar, geruchlos und nicht brennbar. Da es schwerer als Luft ist, sammelt es sich am Boden und bleibt dort.<br/><br/>Im Gegensatz zu herkömmlichem (Wasser-)Eis sublimiert Trockeneis bei Raumtemperatur direkt vom festen in den gasförmigen Zustand, ohne zu schmelzen. Dieser Prozess verläuft rückstandsfrei und ohne Feuchtigkeitsentwicklung, was Trockeneis zu einem besonders hygienischen und effizienten Kühlmittel macht.</p><p></p><p><strong>Woher kommt der typische „Nebel“?</strong><br/>Der weiße Nebel, den man oft bei Trockeneis sieht, ist kein CO₂, sondern kondensierter Wasserdampf aus der Luft – ähnlich wie bei einer Nebelmaschine.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/iStock-118540539.jpg",
@@ -288,8 +288,8 @@
       "type": "about-section-v3",
       "name": "Über Uns (Layout) – v3-HErstellung und Handhabung",
       "settings": {
-        "image_position": "bottom",
-        "image_vertical_align": "end",
+        "image_position": "right",
+        "image_vertical_align": "start",
         "show_image": true,
         "background_color": "#ffffff",
         "section_padding_top": 30,
@@ -302,7 +302,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Für die Produktion sind flüssiges CO₂, spezielle Anlagen und eine kontrollierte Abkühlung auf -78,5 °C nötig.<strong> <br/>Wichtig:</strong> Aufgrund der extrem niedrigen Temperatur und der Gefahr von Sauerstoffverdrängung sind bei der Handhabung isolierte Handschuhe und eine gute Belüftung unverzichtbar.</p>",
+        "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Für die Produktion sind flüssiges CO₂, spezielle Anlagen und eine kontrollierte Abkühlung auf -78,5 °C nötig.<strong> </strong>Flüssiges CO₂ lässt sich einfach in Tanks lagern und transportieren – und das fast ohne Verluste. <br/><strong><br/>Wichtig:</strong> Aufgrund der extrem niedrigen Temperatur und der Gefahr von Sauerstoffverdrängung sind bei der Handhabung isolierte Handschuhe und eine gute Belüftung unverzichtbar.</p><p>Nach dem Europäischen Übereinkommen über die internationale Beförderung gefährlicher Güter auf der Straße (ADR) ist Trockeneis unter der UN-Nr. 1845, Gefahrgutklasse 9, Klassifizierungscode M11 eingestuft. Daher ist es wichtig, dass der Versand entsprechend den Bedingungen des Paketdienstes erfolgt. Bei uns können Sie dafür geeignete Styroporboxen von bis zu 30l Füllvolumen erwerben, inkl. Sicherheitslabel. <br/>In der DGUV Information 213-115 können Sie mehr über die \"Tätigkeiten mit Trockeneis – Herstellung, Lagerung und Verwendung\" erfahren.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_736532971.jpg",
@@ -315,7 +315,7 @@
         "icon_color": "#34d399",
         "feature_title_color": "#111827",
         "no_image_text_align": "left",
-        "match_prev_height": true,
+        "match_prev_height": false,
         "match_prev_height_offset": 0,
         "match_min_width": 1000,
         "content_max_width": 1180,
@@ -401,7 +401,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Trockeineis kühlt intensiver als normales Eis, es hinterlässt keine Nässe und ist vielseitig einsetzbar: Ob in der Industrie für präzises Kühlen oder Reinigen, im Lebensmitteltransport, in der Gastronomie oder für spektakuläre Effekte bei Events – Trockeneis überzeugt durch Effizienz und Sauberkeit.</p>",
+        "description": "<p>Trockeineis kühlt intensiver als normales Eis, es hinterlässt keine Nässe, ist nicht scheuernd, entzündbar oder leitend und ist vielseitig einsetzbar: Ob in der Industrie für präzises Kühlen oder Reinigen, im Lebensmitteltransport, im Pharmatransport, in der Gastronomie oder für spektakuläre Effekte bei Events – Trockeneis überzeugt durch Effizienz und Sauberkeit.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image_border_radius": 12,
@@ -413,106 +413,7 @@
         "icon_color": "#34d399",
         "feature_title_color": "#111827",
         "no_image_text_align": "left",
-        "match_prev_height": true,
-        "match_prev_height_offset": 0,
-        "match_min_width": 1000,
-        "content_max_width": 1180,
-        "font_heading": "sans_serif_n4",
-        "font_body": "sans_serif_n4"
-      }
-    },
-    "about_section_v3_bR39Yw": {
-      "type": "about-section-v3",
-      "blocks": {
-        "feature_YbjiJY": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "✅ Intensive Kühlleistung",
-            "feature_description": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_UE7cfa": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "✅ Rückstandsfrei",
-            "feature_description": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_gAynXg": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "✅ Einfache Entsorgung",
-            "feature_description": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_TM97Wm": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "✅ Umweltfreundliche Lösung",
-            "feature_description": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_YbjiJY",
-        "feature_UE7cfa",
-        "feature_gAynXg",
-        "feature_TM97Wm"
-      ],
-      "name": "Über Uns (Layout) – v3-TE Strahlen",
-      "settings": {
-        "image_position": "right",
-        "image_vertical_align": "start",
-        "show_image": true,
-        "background_color": "#ffffff",
-        "section_padding_top": 30,
-        "section_padding_bottom": 30,
-        "title": "Warum Trockeneis?",
-        "title_richtext": "<p><strong>Wie funktioniert Trockneiesstrahlen?</strong></p>",
-        "title_color": "#111827",
-        "title_font_size": 32,
-        "subtitle": "",
-        "subtitle_richtext": "",
-        "subtitle_color": "#374151",
-        "subtitle_font_size": 20,
-        "description": "<p>Die Reinigung mit Trockeneis ist eine neuartige Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell zu reinigen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht <br/>abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. <br/>Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die <br/>Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet <br/>wird, und schließlich mit dem starken Luftdruck abgetragen wird. <br/>Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt,<br/> und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><br/>\tBildnutzung mit freundlicher Genehmigung der Cold Jet Deutschland GmbH.</p><h4>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden</h4><ul><li>Trockeneis ist ein nicht-abrasives, nichtleitendes, nicht entflammbares Strahlmedium<br/>                </li><li>  Durch den Verzicht von sekundären chemischen Reinigungsmitteln entfallen Auflagen vom Umweltamt<br/>                </li><li>Das zu reinigende Objekt muss <br/>nicht heruntergekühlt werden, Maschinen können größtenteils ohne <br/>vorherige Demontage vor Ort gereinigt werden<br/>                </li><li>Die Reinigung funktioniert ohne Wasser, daher sind Maschinerien keiner Feuchtigkeit ausgesetzt<br/>                </li><li>   Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </li><li> Das Reinigungsverfahren ist besonders umweltfreundlich, da der Atmosphäre kein zusätzliches CO2 zugefügt wird<br/>                </li><li>  Das Verfahren ist zeitsparend und minimiert so den Produktionsstillstand<br/>                </li><li> Es eignet sich vor allem für die Reinigung kleiner Bohrungen, Fugen oder anderer schwer erreichbarer Stellen<br/>                </li></ul>",
-        "text_color": "#6b7280",
-        "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_622360499.jpg",
-        "image_border_radius": 12,
-        "image_alt": "",
-        "image_max_width": 85,
-        "image_aspect_ratio": "auto",
-        "features_per_row": "2",
-        "icon_size": 32,
-        "icon_color": "#34d399",
-        "feature_title_color": "#111827",
-        "no_image_text_align": "left",
-        "match_prev_height": true,
+        "match_prev_height": false,
         "match_prev_height_offset": 0,
         "match_min_width": 1000,
         "content_max_width": 1180,
@@ -693,11 +594,11 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/shutterstock_254519980.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "title_html": "<p>Kühlung in Bäckereien</p>",
+            "text_html": "<p>Teige immer auf dem Punkt</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
-            "button_link": "",
+            "button_link": "shopify://pages/anwendungsbereiche",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -847,6 +748,105 @@
         "font_body": "sans_serif_n4"
       }
     },
+    "about_section_v3_bR39Yw": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_YbjiJY": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Intensive Kühlleistung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_UE7cfa": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Rückstandsfrei",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_gAynXg": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Einfache Entsorgung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_TM97Wm": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Umweltfreundliche Lösung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_YbjiJY",
+        "feature_UE7cfa",
+        "feature_gAynXg",
+        "feature_TM97Wm"
+      ],
+      "name": "Über Uns (Layout) – v3-TE Strahlen",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "Warum Trockeneis?",
+        "title_richtext": "<p><strong>Wie funktioniert Trockneiesstrahlen?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Die Reinigung mit Trockeneis ist eine neuartige Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell zu reinigen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht <br/>abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. <br/>Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die <br/>Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet <br/>wird, und schließlich mit dem starken Luftdruck abgetragen wird. <br/>Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt,<br/> und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><br/>\tBildnutzung mit freundlicher Genehmigung der Cold Jet Deutschland GmbH.</p><h4>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden</h4><ul><li>Trockeneis ist ein nicht-abrasives, nichtleitendes, nicht entflammbares Strahlmedium<br/>                </li><li>  Durch den Verzicht von sekundären chemischen Reinigungsmitteln entfallen Auflagen vom Umweltamt<br/>                </li><li>Das zu reinigende Objekt muss <br/>nicht heruntergekühlt werden, Maschinen können größtenteils ohne <br/>vorherige Demontage vor Ort gereinigt werden<br/>                </li><li>Die Reinigung funktioniert ohne Wasser, daher sind Maschinerien keiner Feuchtigkeit ausgesetzt<br/>                </li><li>   Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </li><li> Das Reinigungsverfahren ist besonders umweltfreundlich, da der Atmosphäre kein zusätzliches CO2 zugefügt wird<br/>                </li><li>  Das Verfahren ist zeitsparend und minimiert so den Produktionsstillstand<br/>                </li><li> Es eignet sich vor allem für die Reinigung kleiner Bohrungen, Fugen oder anderer schwer erreichbarer Stellen<br/>                </li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_622360499.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": true,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
     "about_experience_iVLqaW": {
       "type": "about-experience",
       "blocks": {
@@ -946,7 +946,7 @@
       "settings": {
         "kicker": "Über 15 Jahre Erfahrung",
         "heading": "Über 15 Jahre Erfahrung",
-        "richtext": "<p>Seit Jahren sind wir die vertrauensvolle Adresse für frisches, hochwertiges Trockeneis – von der Produktion in der Hüttenstadt bis zur schnellen Lieferung direkt zu Ihnen. Ob große Automobilzulieferer oder lokale Betriebe: Unsere Kunden schätzen uns als zuverlässigen Partner in ihrem Arbeitsalltag.</p><p></p><p><strong>Warum wir?</strong></p><p>✔ <strong>Lokal produziert</strong> – frisch und umweltbewusst<br/>✔ <strong>Schneller Lieferservice</strong> – direkt zu Ihnen<br/>✔ <strong>Individuelle Beratung</strong> – von Experten für Experten</p><p>Sie haben Fragen oder brauchen Trockeneis? <strong>Melden Sie sich einfach – wir sind für Sie da!</strong> </p>",
+        "richtext": "<p>Seit Jahren sind wir die vertrauensvolle Adresse für frisches, hochwertiges Trockeneis im Saarland. Als regionaler Hersteller in Völklingen beliefern wir Industrie, Automobilzulieferer, Logistikunternehmen, Lebensmittelbetriebe und lokale Unternehmen zuverlässig mit täglich frisch produzierten Trockneispellets. </p><p>Unsere Kunden schätzen uns als zuverlässigen Partner in ihrem Arbeitsalltag.</p><p></p><p><strong>Warum wir?</strong></p><p>✔ <strong>Lokal produziert</strong> – frisch und umweltbewusst<br/>✔ <strong>Schneller Lieferservice</strong> – direkt zu Ihnen<br/>✔ <strong>Individuelle Beratung</strong> – von Experten für Experten</p><p>Sie haben Fragen oder brauchen Trockeneis? <strong>Melden Sie sich einfach – wir sind für Sie da!</strong> </p>",
         "btn_label": "Mehr über uns erfahren",
         "btn_link": "",
         "btn_newtab": false,
@@ -1050,7 +1050,7 @@
       "name": "Über Uns (Layout) – v3-Vorteile Geschäftskunden",
       "settings": {
         "image_position": "right",
-        "image_vertical_align": "center",
+        "image_vertical_align": "start",
         "show_image": false,
         "background_color": "#ffffff",
         "section_padding_top": 30,
@@ -1119,7 +1119,7 @@
         "heading_size": 32,
         "heading_bold": true,
         "heading_color": "#0f172a",
-        "subheading": "<p>Profitieren Sie von individuellen Konditionen & regionaler Direktbelieferung</p>",
+        "subheading": "<p>Profitieren Sie von individuellen Konditionen und regionaler Direktbelieferung</p>",
         "sub_size": 14,
         "sub_bold": false,
         "sub_color": "#475569",
@@ -1144,9 +1144,9 @@
     "about_section_v3_gCCaVr",
     "about_section_v3_eXkFzP",
     "about_section_v3_3qMEbY",
-    "about_section_v3_bR39Yw",
     "custom_cta_block_tcN6yG",
     "leistung_suche_grid_v2_htkUr6",
+    "about_section_v3_bR39Yw",
     "about_experience_iVLqaW",
     "about_section_v3_hqaRhR",
     "custom_cta_block_pKhTqD"
