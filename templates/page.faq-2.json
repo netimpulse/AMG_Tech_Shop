@@ -23,8 +23,8 @@
         "faq_KWPx8q": {
           "type": "faq",
           "settings": {
-            "question": "Wie lange dauert der Versand?",
-            "answer": "<p>1-3 Werktage innerhalb Deutschlands.</p>",
+            "question": "Was ist Trockeneis und wie wird es hergestellt?",
+            "answer": "<p>...</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -34,8 +34,8 @@
         "faq_xyQy3A": {
           "type": "faq",
           "settings": {
-            "question": "Kann ich meine Bestellung zurueckgeben?",
-            "answer": "<p>Ja, innerhalb von 30 Tagen problemlos.</p>",
+            "question": "Wie lange hält Trockneis und wie lager ich es?",
+            "answer": "<p>Trockeneis sublimiert mit etwa 5–10 % Gewichtsverlust pro Tag, abhängig von der Lagerung. Bewahre es in einer gut isolierten Box (z. B. Styropor) bei möglichst niedrigen Temperaturen auf. Vermeide Luftzirkulation und lagere es nicht im Kühlschrank oder Gefrierfach. Bei richtiger Lagerung hält es mehrere Tage.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -45,8 +45,173 @@
         "faq_BKVnVW": {
           "type": "faq",
           "settings": {
-            "question": "Welche Zahlungsarten werden akzeptiert?",
-            "answer": "<p>Kreditkarte, PayPal, Klarna, Sofortueberweisung.</p>",
+            "question": "Ist Trockeneis gefährlich?",
+            "answer": "<p>Trockeneis ist ungiftig, aber der extreme Kältegrad kann zu Erfrierungen führen. Trage immer isolierende Handschuhe und schütze Augen und Haut. Verwende es nur in gut belüfteten Räumen, da das entstehende CO₂-Gas die Luft verdrängen kann. Lagere es außerhalb der Reichweite von Kindern und Haustieren.<br/><br/><br/><br/></p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_8KdADR": {
+          "type": "faq",
+          "settings": {
+            "question": "Kann ich Trockneis per Post versenden?",
+            "answer": "<p>Ja, wir versenden Trockeneis mit speziellen Isolierverpackungen und Expressdienstleistern. Die Lieferung erfolgt meist innerhalb von 24 Stunden, um die Kühlkette nicht zu unterbrechen. Informiere uns bei der Bestellung über deine genauen Anforderungen<br/><br/></p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_F7zate": {
+          "type": "faq",
+          "settings": {
+            "question": "Warum soll ich Trockeneis bei euch kaufen?",
+            "answer": "<p>Wir bieten:<br/>•\tFrische & Qualität: Trockeneis wird erst kurz vor dem Versand produziert<br/>•\tSicherheit: Zertifizierte Produkte und Verpackungen<br/>•\tService: Individuelle Beratung und schnelle Lieferung<br/>•\tNachhaltigkeit: CO₂ wird aus industriellen Prozessen recycelt<br/></p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_gg43ze": {
+          "type": "faq",
+          "settings": {
+            "question": "Versendet ihr Trockeneisauch an Privatkunden?",
+            "answer": "<p>Ja, wir versenden deutschlandweit an Privat- und Gewerbekunden. Die Lieferung erfolgt in speziell isolierten Verpackungen.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_yVMrww": {
+          "type": "faq",
+          "settings": {
+            "question": "Gibt es Mengenrabatte oder Sonderkonditionen für Gewerbekunden?",
+            "answer": "<p>Ja, bei größeren Abnahmemengen oder regelmäßigen Bestellungen bieten wir attraktive Rabatte an. Bitte kontaktieren Sie uns für ein individuelles Angebot.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_cPbVdA": {
+          "type": "faq",
+          "settings": {
+            "question": "Kann ich Trockeneis auch abholen?",
+            "answer": "<p>Ja, nach vorheriger Absprache können Sie Trockeneis direkt bei uns abholen. Bitte kontaktieren Sie uns für Details.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_KVHfgk": {
+          "type": "faq",
+          "settings": {
+            "question": "Wie kann ich Trockeneis bestellen?",
+            "answer": "<p>Du kannst bequem über unseren Onlineshop bestellen. Wähle die gewünschte Menge, gib deine Lieferadresse an und folge den Schritten zur Kasse. Bei Fragen helfen wir gerne per E-Mail oder Telefon.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_8A7jqk": {
+          "type": "faq",
+          "settings": {
+            "question": "Welche Zahlungsmethoden akzeptiert ihr?",
+            "answer": "<p>Wir akzeptieren PayPal, Kreditkarte (Visa, Mastercard), Sofortüberweisung, Vorkasse und – für Gewerbekunden – Rechnung nach vorheriger Bonitätsprüfung</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_QNwNxm": {
+          "type": "faq",
+          "settings": {
+            "question": "Kann ich meine Bestellung stornieren oder ändern?",
+            "answer": "<p>Bestellungen können nur storniert oder geändert werden, solange sie noch nicht versandt wurden. Bitte kontaktiere uns umgehend per E-Mail oder Telefon.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_AA4WXV": {
+          "type": "faq",
+          "settings": {
+            "question": "Wie hoch sind die Versandkosten?",
+            "answer": "<p>Die Versandkosten hängen von der bestellten Menge und dem Lieferort ab. Im Warenkorb siehst du die genauen Kosten, bevor du die Bestellung abschließt. Selbstabholung ist immer kostenlos</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_aKt8Rk": {
+          "type": "faq",
+          "settings": {
+            "question": "Wann wird meine Bestellung versendet?",
+            "answer": "<p>Bestellungen, die bis 12 Uhr mittags eingehen, werden noch am selben Tag versendet (Mo–Fr). Bestellungen am Wochenende oder an Feiertagen werden am nächsten Werktag bearbeitet.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_EBGnxk": {
+          "type": "faq",
+          "settings": {
+            "question": "Kann ich den Liefertermin beeinflussen?",
+            "answer": "<p>Ja, im Bestellprozess kannst du einen Wunschliefertermin angeben. Wir bemühen uns, diesen zu berücksichtigen. Für Expresslieferungen kontaktiere uns bitte direkt.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_YX9Rht": {
+          "type": "faq",
+          "settings": {
+            "question": "?",
+            "answer": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_gJUtwp": {
+          "type": "faq",
+          "settings": {
+            "question": "Was passiert, wenn ich bei der Lieferung nicht zu Hause bin?",
+            "answer": "<p>Unser Paketdienstleister versucht, das Paket bei einem Nachbarn abzugeben oder hinterlässt einen Abholschein. Bitte beachte, dass Trockeneis nicht lange ohne Kühlung gelagert werden kann.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_FYm6AC": {
+          "type": "faq",
+          "settings": {
+            "question": "Wie ist das Rückgaberecht bei Trockeneis?",
+            "answer": "<p>Aufgrund der Beschaffenheit von Trockeneis ist eine Rückgabe nicht möglich. Bitte prüfe deine Bestellung sorgfältig. Bei Beschädigung oder falscher Lieferung kontaktiere uns umgehend.</p>",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "faq_77wmXb": {
+          "type": "faq",
+          "settings": {
+            "question": "?",
+            "answer": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -57,7 +222,22 @@
       "block_order": [
         "faq_KWPx8q",
         "faq_xyQy3A",
-        "faq_BKVnVW"
+        "faq_BKVnVW",
+        "faq_8KdADR",
+        "faq_F7zate",
+        "faq_gg43ze",
+        "faq_yVMrww",
+        "faq_cPbVdA",
+        "faq_KVHfgk",
+        "faq_8A7jqk",
+        "faq_QNwNxm",
+        "faq_AA4WXV",
+        "faq_aKt8Rk",
+        "faq_EBGnxk",
+        "faq_YX9Rht",
+        "faq_gJUtwp",
+        "faq_FYm6AC",
+        "faq_77wmXb"
       ],
       "name": "Mod: FAQ Akkordeon",
       "settings": {
