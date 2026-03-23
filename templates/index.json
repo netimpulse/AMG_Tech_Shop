@@ -420,6 +420,104 @@
         "font_body": "sans_serif_n4"
       }
     },
+    "about_section_v3_bR39Yw": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_YbjiJY": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Intensive Kühlleistung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_UE7cfa": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Rückstandsfrei",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_gAynXg": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Einfache Entsorgung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_TM97Wm": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Umweltfreundliche Lösung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_YbjiJY",
+        "feature_UE7cfa",
+        "feature_gAynXg",
+        "feature_TM97Wm"
+      ],
+      "name": "Über Uns (Layout) – v3-TE Strahlen",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "Warum Trockeneis?",
+        "title_richtext": "<p><strong>Wie funktioniert Trockneiesstrahlen?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Die Reinigung mit Trockeneis ist eine neuartige Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell zu reinigen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht <br/>abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. <br/>Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die <br/>Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet <br/>wird, und schließlich mit dem starken Luftdruck abgetragen wird. <br/>Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt,<br/> und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><br/>\tBildnutzung mit freundlicher Genehmigung der Cold Jet Deutschland GmbH.</p><h4>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden</h4><ul><li><br/><br/>                    <br/>                    <br/>                    Trockeneis ist ein nicht-abrasives, nichtleitendes, nicht entflammbares Strahlmedium<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Durch den Verzicht von sekundären chemischen Reinigungsmitteln entfallen Auflagen vom Umweltamt<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Das zu reinigende Objekt muss <br/>nicht heruntergekühlt werden, Maschinen können größtenteils ohne <br/>vorherige Demontage vor Ort gereinigt werden<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Die Reinigung funktioniert ohne Wasser, daher sind Maschinerien keiner Feuchtigkeit ausgesetzt<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Das Reinigungsverfahren ist besonders umweltfreundlich, da der Atmosphäre kein zusätzliches CO2 zugefügt wird<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Das Verfahren ist zeitsparend und minimiert so den Produktionsstillstand<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Es eignet sich vor allem für die Reinigung kleiner Bohrungen, Fugen oder anderer schwer erreichbarer Stellen<br/>                </li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": true,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
     "custom_cta_block_tcN6yG": {
       "type": "custom-cta-block",
       "blocks": {
@@ -1044,6 +1142,7 @@
     "about_section_v3_gCCaVr",
     "about_section_v3_eXkFzP",
     "about_section_v3_3qMEbY",
+    "about_section_v3_bR39Yw",
     "custom_cta_block_tcN6yG",
     "leistung_suche_grid_v2_htkUr6",
     "about_experience_iVLqaW",
