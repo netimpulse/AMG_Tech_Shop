@@ -250,7 +250,7 @@
       "name": "Über Uns (Layout) – v3-Was ist TE",
       "settings": {
         "image_position": "right",
-        "image_vertical_align": "center",
+        "image_vertical_align": "start",
         "show_image": true,
         "background_color": "#ffffff",
         "section_padding_top": 30,
@@ -289,8 +289,8 @@
       "name": "Über Uns (Layout) – v3-HErstellung und Handhabung",
       "settings": {
         "image_position": "bottom",
-        "image_vertical_align": "center",
-        "show_image": false,
+        "image_vertical_align": "end",
+        "show_image": true,
         "background_color": "#ffffff",
         "section_padding_top": 30,
         "section_padding_bottom": 30,
@@ -305,6 +305,7 @@
         "description": "<p>Trockeneis wird meist industriell durch die Expansion von flüssigem CO₂ unter Druck hergestellt. Dabei entsteht ein schneeartiges Produkt, das je nach Bedarf zu Pellets, Nuggets oder Blöcken gepresst wird. Für die Produktion sind flüssiges CO₂, spezielle Anlagen und eine kontrollierte Abkühlung auf -78,5 °C nötig.<strong> <br/>Wichtig:</strong> Aufgrund der extrem niedrigen Temperatur und der Gefahr von Sauerstoffverdrängung sind bei der Handhabung isolierte Handschuhe und eine gute Belüftung unverzichtbar.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_736532971.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -485,7 +486,7 @@
       "name": "Über Uns (Layout) – v3-TE Strahlen",
       "settings": {
         "image_position": "right",
-        "image_vertical_align": "center",
+        "image_vertical_align": "start",
         "show_image": true,
         "background_color": "#ffffff",
         "section_padding_top": 30,
@@ -501,6 +502,7 @@
         "description": "<p>Die Reinigung mit Trockeneis ist eine neuartige Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell zu reinigen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht <br/>abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. <br/>Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die <br/>Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet <br/>wird, und schließlich mit dem starken Luftdruck abgetragen wird. <br/>Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt,<br/> und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><br/>\tBildnutzung mit freundlicher Genehmigung der Cold Jet Deutschland GmbH.</p><h4>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden</h4><ul><li><br/><br/>                    <br/>                    <br/>                    Trockeneis ist ein nicht-abrasives, nichtleitendes, nicht entflammbares Strahlmedium<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Durch den Verzicht von sekundären chemischen Reinigungsmitteln entfallen Auflagen vom Umweltamt<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Das zu reinigende Objekt muss <br/>nicht heruntergekühlt werden, Maschinen können größtenteils ohne <br/>vorherige Demontage vor Ort gereinigt werden<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Die Reinigung funktioniert ohne Wasser, daher sind Maschinerien keiner Feuchtigkeit ausgesetzt<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Das Reinigungsverfahren ist besonders umweltfreundlich, da der Atmosphäre kein zusätzliches CO2 zugefügt wird<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Das Verfahren ist zeitsparend und minimiert so den Produktionsstillstand<br/>                </li><li><br/><br/>                    <br/>                    <br/>                    Es eignet sich vor allem für die Reinigung kleiner Bohrungen, Fugen oder anderer schwer erreichbarer Stellen<br/>                </li></ul>",
         "text_color": "#6b7280",
         "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_622360499.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -925,7 +927,7 @@
             "subtitle": "Zertifizierte Qualität",
             "aria_label": "1",
             "block_font_size": 23,
-            "block_font_color": "#497fd9ff",
+            "block_font_color": "#497fd9",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
