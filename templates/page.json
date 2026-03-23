@@ -142,7 +142,7 @@
         "feature_LhxM8y",
         "feature_nPAhbM"
       ],
-      "name": "Über Uns (Layout) – v3",
+      "name": "Über Uns (Layout) – v3-Bäckerei",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -213,7 +213,7 @@
         "feature_QXgTD9",
         "feature_gGNdrM"
       ],
-      "name": "Über Uns (Layout) – v3",
+      "name": "Über Uns (Layout) – v3-Fleischverarbeitung",
       "settings": {
         "image_position": "left",
         "image_vertical_align": "start",
@@ -249,6 +249,503 @@
         "font_heading": "sans_serif_n4",
         "font_body": "sans_serif_n4"
       }
+    },
+    "about_section_v3_KHELR8": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_zkpxqr": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_MqhCrH": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_zkpxqr",
+        "feature_MqhCrH"
+      ],
+      "name": "Über Uns (Layout) – v3-Versand und Spedition",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Versand und Spedition</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Verderbliche Lebensmittel, Pflanzensamen, pharmazeutische Produkte oder medizinische Proben, die gekühlt versandt werden müssen, können je nach Paketgröße bis zu 4 Tage mithilfe von Trockeneis kalt bleiben. Unser Trockeneis ist lebensmittelecht und steril, und eignet sich dadurch vor allem für Pakete, die strengen Hygienevorschriften unterliegen. Nach dem Europäischen Übereinkommen über die internationale Beförderung gefährlicher Güter auf der Straße (ADR) ist Trockeneis unter der UN-Nr. 1845, Gefahrgutklasse 9, Klassifizierungscode M11 eingestuft. Daher ist es wichtig, dass der Versand entsprechend den Bedingungen des Paketdienstes erfolgt. Bei uns können Sie dafür geeignete Styroporboxen von bis zu 10L Füllvolumen erwerben, inkl. Sicherheitslabel.</p><p></p><p><strong>Transport & Logistik<br/>Sicherer Versand temperaturempfindlicher Güter</strong><br/>Trockeneis hält Lebensmittel, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken.</p><ul><li><strong>Kühlkettenerhaltung:</strong><br/>     Tiefkühl- und Frischeprodukte bleiben während des Transports sicher      gekühlt.</li><li><strong>Weinlese:</strong> Kühlung der Trauben direkt nach der Lese    für optimale Qualität.</li><li><strong>Fleisch, Fisch, Geflügel:</strong><br/>     Transport ohne Feuchtigkeitsbildung und Verderb.</li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_Vb3gPe": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_r3fEiM": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_ACM9c3": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_r3fEiM",
+        "feature_ACM9c3"
+      ],
+      "name": "Über Uns (Layout) – v3-Gastronomie und Cateringund Spedition",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Gastronomie & Catering</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Kühlung für Catering, Festivals und Camping<br/>Trockeneis hält Lebensmittel und Getränke tagelang frisch – ohne Feuchtigkeit oder Rückstände. Es eignet sich für Großveranstaltungen, wo Kühlkapazitäten knapp sind.<br/><br/>•\tBuffet-Kühlung: Lebensmittel bleiben frisch – ohne Wasserschäden oder Stromanschluss.<br/>•\tEistorten & Desserts: Perfekte Konservierung für Hochzeiten und Feiern.<br/>•\tCocktails & Nebeleffekte: Spektakuläre Präsentation mit lebensmittelechtem Trockeneis.<br/>Mobile Kühlung: Getränke und Speisen bleiben auf Festivals, Märkten oder beim Camping tagelang frisch und kühl.<br/>Innovative Zubereitung von Speisen und Cocktails<br/>Lebensmittelechtes Trockeneis wird in der Molekularküche für visuelle und geschmackliche Effekte genutzt – von rauchenden Desserts bis zu eisgekühlten Drinks.<br/></p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_6kJWVB": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_zi7rw4": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_rxKcXB": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_zi7rw4",
+        "feature_rxKcXB"
+      ],
+      "name": "Über Uns (Layout) – v3-Industrielle Reinigung & Wartung",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p>Industrielle Reinigung & Wartung</p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Trockeneisstrahlen<br/>Trockeneisstrahlen: Schonende Oberflächenreinigung</strong><br/>Das Verfahren nutzt –78 °C kaltes Trockeneis, das Verschmutzungen schockfrostet<br/>und mit Druckluft entfernt. Vorteile:</p><ul><li>Nicht abrasiv, nicht leitend, nicht entflammbar</li><li>Keine Chemikalien oder Wasser nötig</li><li>Umweltfreundlich, da kein zusätzliches CO₂ freigesetzt wird</li><li>Ideal für empfindliche Maschinen, Lebensmittelindustrie und schwer<br/>     zugängliche Stellen</li></ul><p><strong> </strong></p><ul><li><strong>Maschinenreinigung:</strong><br/>     Schonende Entfernung von Verschmutzungen ohne Demontage oder Stillstand.</li><li><strong>Schimmel- & Brandsanierung:</strong> Effektiv<br/>     und ohne Feuchtigkeit.</li><li><strong>Kunststoffindustrie:</strong><br/>     Reinigung von Formen und Werkzeugen ohne Rückstände.</li><li><strong>Schaltschrank- und Elektronikreinigung:</strong> Schaltschränke und empfindliche Bauteile werden ohne Wasserschäden<br/>     gereinigt.</li></ul><p><strong>Spezielle<br/>Anwendungen</strong></p><ul><li><strong>Entfernung von Produktionsrückständen:</strong> Öle, Fette, Harze – entfernt ohne Chemikalien.</li><li><strong>Reinigung von Lüftungssystemen:</strong><br/>     Hygienische Reinigung ohne aggressive Mittel.</li><li><strong>Wartung empfindlicher Anlagen:</strong> Kein<br/>     abrasiver Verschleiß, ideal für präzise Technik.</li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_kd9GAW": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_Pf3mdn": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_md4WjW": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_Pf3mdn",
+        "feature_md4WjW"
+      ],
+      "name": "Über Uns (Layout) – v3-IR und Produktion",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Industrie & Produktion</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Kühlung von Maschinen und Anlagen</strong><br/><br/>Trockeneis kühlt überhitzte Produktionsanlagen effizient von außen, ohne Wasser<br/>oder Kurzschlussrisiko. Durch die niedrige Temperatur wird die Produktionszeit<br/>verlängert und Stillstände minimiert.</p><p><strong>Metallverarbeitung & Stahlguss</strong><br/>In der Metallindustrie unterstützt Trockeneis das präzise Fügen von Bauteilen:<br/>Durch die Kälte schrumpft Stahl stärker als Hartmetall, was eine feste<br/>Verbindung ermöglicht.<br/><br/><br/><br/></p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_kbjWtU": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_xc4KA8": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_wyU7LD": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_xc4KA8",
+        "feature_wyU7LD"
+      ],
+      "name": "Über Uns (Layout) – v3-Medizin, Pharma & Labor",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Medizin, Pharma & Labor</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Transport von Organen und Proben</strong><br/><br/>Trockeneis verlängert die Transportzeit frisch entnommener Organe/Proben und<br/>ermöglicht Lieferungen in entfernte Kliniken.</p><ul><li><strong>Probentransport:</strong><br/>     Konstante –78,5 °C für sichere Laborproben und Medikamente.</li><li><strong>Impfstoff-Logistik:</strong><br/>     Temperaturempfindliche Impfstoffe werden zuverlässig gekühlt.</li><li><strong>Organ- & Gewebetransport:</strong><br/>     Verlängert die Transportzeit für Transplantationen.</li><li><strong>Laborproben-Konservierung</strong> ohne Kontamination</li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_DzYN34": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_NC4FNU": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_yF4HnP": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_NC4FNU",
+        "feature_yF4HnP"
+      ],
+      "name": "Über Uns (Layout) – v3-Fahrzeugaufbereitung & Restauration",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Fahrzeugaufbereitung & Restauration</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>KFZ-Spezialanwendungen</strong></p><ul><li><strong>Motorraum-Reinigung:</strong><br/>     Tiefenreinigung ohne Korrosionsrisiko.</li><li><strong>Unterbodenschutz-Entfernung:</strong><br/>     Entfernung bei Oldtimer-Restauration – materialschonend.</li><li><strong>Lackschonende Reinigung:</strong><br/>     Reinigung ohne Kratzer oder chemische Rückstände.</li><li><strong>Brandschädensanierung:</strong><br/>     Innenraumreinigung ohne zusätzliche Feuchtigkeit.</li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_4mQ68K": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_YPzgdX": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_eYJJWB": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_YPzgdX",
+        "feature_eYJJWB"
+      ],
+      "name": "Über Uns (Layout) – v3-Event & Entertainment",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "title": "",
+        "title_richtext": "<p><strong>Event & Entertainment</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Spektakuläre Nebeleffekte</strong><br/><br/>In der Eventtechnik erzeugt Trockeneis mit warmem Wasser bodennahen,<br/>geruchsneutralen Nebel – ein Highlight für Bühnen und Partys.</p><p><strong>Showeffekte<br/>& Atmosphäre</strong></p><ul><li><strong>Bodennebel:</strong> Für Bühnen, Tanzflächen und<br/>     Filmproduktionen.</li><li><strong>Spezialeffekte:</strong><br/>     Halloween, Gender-Reveal-Partys, Hochzeiten – mit farbigen oder<br/>     romantischen Nebeleffekten.</li><li><strong>Film- und TV Produktion:</strong><br/>     Professionelle Nebelmaschinen-Alternative für realistische Szenen und<br/>     Spezialeffekte</li></ul>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
     }
   },
   "order": [
@@ -256,6 +753,13 @@
     "mod_image_text_ACzKf7",
     "about_section_v3_XG8HUh",
     "about_section_v3_jYxJUk",
-    "about_section_v3_zCYyC9"
+    "about_section_v3_zCYyC9",
+    "about_section_v3_KHELR8",
+    "about_section_v3_Vb3gPe",
+    "about_section_v3_6kJWVB",
+    "about_section_v3_kd9GAW",
+    "about_section_v3_kbjWtU",
+    "about_section_v3_DzYN34",
+    "about_section_v3_4mQ68K"
   ]
 }
