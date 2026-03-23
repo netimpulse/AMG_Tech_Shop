@@ -660,7 +660,7 @@
         "feature_ceUeVc",
         "feature_kYqTch"
       ],
-      "name": "Über Uns (Layout) – v3",
+      "name": "Über Uns (Layout) – v3-Was ist TE",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "center",
@@ -731,9 +731,9 @@
         "feature_ihGtUk",
         "feature_AGwr4R"
       ],
-      "name": "Über Uns (Layout) – v3",
+      "name": "Über Uns (Layout) – v3-HErstellung und Handhabung",
       "settings": {
-        "image_position": "right",
+        "image_position": "bottom",
         "image_vertical_align": "center",
         "show_image": true,
         "background_color": "#ffffff",
@@ -776,8 +776,8 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
+            "feature_title": "✅ Intensive Kühlleistung",
+            "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -789,8 +789,34 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
+            "feature_title": "✅ Rückstandsfrei",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_cBMFFA": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Einfache Entsorgung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_Yb8tLB": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "✅ Umweltfreundliche Lösung",
+            "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -800,9 +826,11 @@
       },
       "block_order": [
         "feature_HQBc8G",
-        "feature_xdJwmr"
+        "feature_xdJwmr",
+        "feature_cBMFFA",
+        "feature_Yb8tLB"
       ],
-      "name": "Über Uns (Layout) – v3",
+      "name": "Über Uns (Layout) – v3-Warum TE",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "center",
@@ -818,7 +846,45 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p></p><p>Trockeineis kühlt intensiver als normales Eis, es<br/>hinterlässt keine Nässe und ist vielseitig einsetzbar: Ob in der Industrie für<br/>präzises Kühlen oder Reinigen, im Lebensmitteltransport, in der Gastronomie<br/>oder für spektakuläre Effekte bei Events – Trockeneis überzeugt durch Effizienz<br/>und Sauberkeit.</p><p>Intensive Kühlleistung</p><p>Rückstandsfrei</p><p>Einfache Entsorgung</p><p>Umweltfreundliche Lösung</p><p> </p><p> </p><p><strong>Vorteile für unsere Geschäftskunden</strong></p><p>Als regionaler Hersteller beliefern wir<br/>Industrieunternehmen, Lebensmittelproduzenten, Logistikbetriebe und Labore<br/>zuverlässig mit frischem Trockeneis. </p><p>💰individuelle<br/>Staffelpreise</p><p>📅 regelmäßige<br/>Lieferintervalle</p><p>📄 Rahmenverträge</p><p>⚡ Expresslieferung </p><p>💡Kosteneffiziente und schnelle Lieferung<br/>in der Region Saarland durch eigenen Fuhrpark</p><p>🚛Deutschlandweiter<br/>Versand--sicherer Transport durch spezialisierte Logistikpartner</p>",
+        "description": "<p>Trockeineis kühlt intensiver als normales Eis, es hinterlässt keine Nässe und ist vielseitig einsetzbar: Ob in der Industrie für präzises Kühlen oder Reinigen, im Lebensmitteltransport, in der Gastronomie oder für spektakuläre Effekte bei Events – Trockeneis überzeugt durch Effizienz und Sauberkeit.</p><p><strong>✅ Intensive Kühlleistung</strong></p><p><strong>✅ Rückstandsfrei</strong></p><p><strong>✅ Einfache Entsorgung</strong></p><p><strong>✅ Umweltfreundliche Lösung</strong></p><p></p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": true,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_hqaRhR": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3-Vorteile Geschäftskunden",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": false,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "Vorteile für unsere Geschäftskunden",
+        "title_richtext": "<p><strong>Vorteile für unsere Geschäftskunden</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Als regionaler Hersteller beliefern wir Industrieunternehmen, Lebensmittelproduzenten, Logistikbetriebe und Labore zuverlässig mit frischem Trockeneis. </p><p>💰individuelle Staffelpreise</p><p>📅 regelmäßige Lieferintervalle</p><p>📄 Rahmenverträge </p><p>⚡ Schnelle Lieferung</p><p>💡Kosteneffizient in Region durch eigenen Fuhrpark</p><p>🚛 Deutschlandweiter Versand - sicherer Transport durch spezialisierte Logistikpartner</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/iStock-118540539.jpg",
@@ -927,6 +993,7 @@
     "about_section_v3_gCCaVr",
     "about_section_v3_eXkFzP",
     "about_section_v3_3qMEbY",
+    "about_section_v3_hqaRhR",
     "custom_cta_block_tcN6yG"
   ]
 }
