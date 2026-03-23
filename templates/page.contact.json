@@ -104,7 +104,7 @@
         "ph_subject": "Worum geht es?",
         "label_message": "Nachricht *",
         "ph_message": "Beschreiben Sie Ihr Anliegen...",
-        "consent_text": "<p>Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
+        "consent_text": "<p>Ich habe die <a href=\"/pages/datenschutz\" target=\"_blank\" title=\"Datenschutz\">Datenschutzerklärung </a>gelesen und stimme der Verarbeitung meiner Daten zu.</p>",
         "consent_label": "Datenschutz zugestimmt",
         "button_label": "Nachricht senden",
         "success_text": "Danke für Ihre Nachricht! Wir melden uns bald."
