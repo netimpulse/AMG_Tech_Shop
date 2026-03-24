@@ -504,8 +504,23 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/shutterstock_726781549.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "title_html": "<p>Luftfahrtindustrie</p>",
+            "text_html": "<p>Trockneisreinigung</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_Fkqtdf": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_732811756.jpg",
+            "title_html": "<p>Automobilindustrie</p>",
+            "text_html": "<p>Reinigung mit Trockeneis</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
@@ -519,8 +534,8 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/shutterstock_309173480.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "title_html": "<p>Gastronomie & Catering </p>",
+            "text_html": "<p>Cocktail-Nebeleffekte</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
@@ -533,9 +548,9 @@
         "service_wkNkBm": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/shutterstock_736532971.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "image": "shopify://shop_images/shutterstock_165077645.jpg",
+            "title_html": "<p><strong>Fahrzeugaufbereitung</strong></p>",
+            "text_html": "<p>Motorraum-Reinigung, Unterbodenschutz-Entfernung</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
@@ -549,8 +564,8 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/shutterstock_224370973.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "title_html": "<p><strong>Elektronikreinigung</strong></p>",
+            "text_html": "<p>Schaltschränke, Serverräume etc.</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
@@ -563,9 +578,9 @@
         "service_fixQyq": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/shutterstock_1023985072.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "image": "shopify://shop_images/shutterstock_736532971.jpg",
+            "title_html": "<p><strong>Event & Entertainment</strong></p>",
+            "text_html": "<p>Film-/TV-Spezialeffekte, Halloween-/Party-Effekte</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
@@ -609,7 +624,7 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/shutterstock_131122721.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "title_html": "<p>Elektronikreinigung</p>",
             "text_html": "<p>Kurze Beschreibung hier.</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
@@ -623,8 +638,8 @@
         "service_ATQrPX": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/shutterstock_745757185.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "image": "shopify://shop_images/shutterstock_632816162.jpg",
+            "title_html": "<p><strong>Camping und Veranstaltungen</strong></p>",
             "text_html": "<p>Kurze Beschreibung hier.</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
@@ -639,7 +654,7 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/shutterstock_442349785.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "title_html": "<p>Kunststoffformen-Reinigung</p>",
             "text_html": "<p>Kurze Beschreibung hier.</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
@@ -654,8 +669,8 @@
           "type": "service",
           "settings": {
             "image": "shopify://shop_images/shutterstock_314359133.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "title_html": "<p><strong>Medizin/Pharma</strong></p>",
+            "text_html": "<p>Organ-/Gewebetransport, Impfstoff-Logistik</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
@@ -683,7 +698,8 @@
         "service_7EQBnB": {
           "type": "service",
           "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "image": "shopify://shop_images/fleischerei-ohne-menschen.png",
+            "title_html": "<p>Fleisch-/Fischtransport</p>",
             "text_html": "<p>Kurze Beschreibung hier.</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
@@ -697,7 +713,8 @@
         "service_WkyF8n": {
           "type": "service",
           "settings": {
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
+            "image": "shopify://shop_images/shutterstock_55147681.jpg",
+            "title_html": "<p>Schimmel-/Brandsanierung</p>",
             "text_html": "<p>Kurze Beschreibung hier.</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
@@ -707,10 +724,56 @@
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
+        },
+        "service_WeqyNc": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_279918557.jpg",
+            "title_html": "<p>Kühlen von Produktionsanlagen</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_FQEBmL": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_633082400.jpg",
+            "title_html": "<p>Stahlguss und Metallverarbeitung</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_qYWgjR": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_689943454.jpg",
+            "title_html": "<p>Druckindustrie</p>",
+            "text_html": "<p>Trockeneisstrahlen</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://pages/anwendungsbereiche",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
         }
       },
       "block_order": [
         "service_c6WbGk",
+        "service_Fkqtdf",
         "service_J7nEG9",
         "service_wkNkBm",
         "service_XG49NK",
@@ -723,7 +786,10 @@
         "service_qnBbkK",
         "service_cAxHgf",
         "service_7EQBnB",
-        "service_WkyF8n"
+        "service_WkyF8n",
+        "service_WeqyNc",
+        "service_FQEBmL",
+        "service_qYWgjR"
       ],
       "name": "Leistung Suche Grid v2",
       "settings": {
@@ -756,7 +822,7 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "✅ Intensive Kühlleistung",
+            "feature_title": "Intensive Kühlleistung",
             "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -769,7 +835,7 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "✅ Rückstandsfrei",
+            "feature_title": "Rückstandsfrei",
             "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -782,7 +848,7 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "✅ Einfache Entsorgung",
+            "feature_title": "Einfache Entsorgung",
             "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -795,7 +861,7 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "✅ Umweltfreundliche Lösung",
+            "feature_title": "Umweltfreundliche Lösung",
             "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
@@ -826,7 +892,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Die Reinigung mit Trockeneis ist eine neuartige Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell zu reinigen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht <br/>abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. <br/>Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die <br/>Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet <br/>wird, und schließlich mit dem starken Luftdruck abgetragen wird. <br/>Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt,<br/> und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><br/>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden</p><ul><li>Trockeneis ist ein nicht-abrasives, nichtleitendes, nicht entflammbares Strahlmedium<br/>                </li><li>  Durch den Verzicht von sekundären chemischen Reinigungsmitteln entfallen Auflagen vom Umweltamt<br/>                </li><li>Das zu reinigende Objekt muss <br/>nicht heruntergekühlt werden, Maschinen können größtenteils ohne <br/>vorherige Demontage vor Ort gereinigt werden<br/>                </li><li>Die Reinigung funktioniert ohne Wasser, daher sind Maschinerien keiner Feuchtigkeit ausgesetzt<br/>                </li><li>   Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </li><li> Das Reinigungsverfahren ist besonders umweltfreundlich, da der Atmosphäre kein zusätzliches CO2 zugefügt wird<br/>                </li><li>  Das Verfahren ist zeitsparend und minimiert so den Produktionsstillstand<br/>                </li><li> Es eignet sich vor allem für die Reinigung kleiner Bohrungen, Fugen oder anderer schwer erreichbarer Stellen</li><li></li></ul><p>Unser Verbundunternehmen die <a href=\"https://sissaar.de/pages/industrieservice\" target=\"_blank\" title=\"https://sissaar.de/pages/industrieservice\">SIS Saar Industrie Service GmbH </a>unterstützt uns seit Jahren bei dieser Tätigkeit. Schauen Sie sich gerne das <a href=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\" target=\"_blank\" title=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\">YouTube Video </a>dazu an und kommen Sie gerne auf uns zu.<br/>                </p>",
+        "description": "<p>Die Reinigung mit Trockeneis ist eine effektive Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell sauber zu bekommen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet wird, und schließlich mit dem starken Luftdruck abgetragen wird. Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt, und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><strong>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden:</strong></p><p>✅ nicht-abrasiv, nichtleitend, nicht entflammbar                <br/>✅ keine sekundären chem. Reinigungsmittel<br/>✅ Reinigung größtenteils ohne vorherige Demontage vor Ort möglich <br/>✅ Zeitersparnis, geringe Ausfallzeiten               <br/>✅ kein Wasser, keine Feuchtigkeit<br/>✅ kein zusätzliches CO2, umweltfreundlich      <br/>✅ Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </p><p>Unser Verbundunternehmen die <a href=\"https://sissaar.de/pages/industrieservice\" target=\"_blank\" title=\"https://sissaar.de/pages/industrieservice\">SIS Saar Industrie Service GmbH </a>unterstützt uns seit Jahren bei dieser Tätigkeit. Schauen Sie sich gerne das <a href=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\" target=\"_blank\" title=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\">YouTube Video </a>dazu an und kommen Sie gerne auf uns zu.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/bild_aus_sis_videos_autostrahlen.png",
@@ -839,7 +905,7 @@
         "icon_color": "#34d399",
         "feature_title_color": "#111827",
         "no_image_text_align": "left",
-        "match_prev_height": true,
+        "match_prev_height": false,
         "match_prev_height_offset": 0,
         "match_min_width": 1000,
         "content_max_width": 1180,
