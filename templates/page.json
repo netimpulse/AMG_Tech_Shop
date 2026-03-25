@@ -108,6 +108,116 @@
         "font_body": "sans_serif_n4"
       }
     },
+    "about_section_v3_KHELR8": {
+      "type": "about-section-v3",
+      "name": "Über Uns (Layout) – v3-Transport Versand Logistik",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Transport, Versand und Logistik</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Trockeneis hält Lebensmittel, Pflanzensamen, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken. Nach dem Europäischen Übereinkommen über die internationale Beförderung gefährlicher Güter auf der Straße (ADR) ist Trockeneis unter der UN-Nr. 1845, Gefahrgutklasse 9, Klassifizierungscode M11 eingestuft. Daher ist es wichtig, dass der Versand entsprechend den Bedingungen des Paketdienstes erfolgt. Bei uns können Sie dafür geeignete Styroporboxen von bis zu 30L Füllvolumen erwerben, inkl. Sicherheitslabel.</p><p><strong>Kühlkettenerhaltung:</strong> Tiefkühl- und Frischeprodukte bleiben während des Transports sicher      gekühlt.</p><p><strong>Weinlese:</strong> Kühlung der Trauben direkt nach der Lese    für optimale Qualität.</p><p><strong>Fleisch, Fisch, Geflügel:</strong> Transport ohne Feuchtigkeitsbildung und Verderb.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_529683889_590bf61f-9a4d-45ad-aade-10761b5c40eb.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_Vb3gPe": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_r3fEiM": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Nebeleffekt",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_ACM9c3": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Konservierung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_r3fEiM",
+        "feature_ACM9c3"
+      ],
+      "name": "Über Uns (Layout) – v3-Gastronomie und Cateringund Spedition",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Gastronomie & Catering</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Kühlung für Catering, Festivals und Camping</strong><br/>Trockeneis hält Lebensmittel und Getränke tagelang frisch – ohne Feuchtigkeit oder Rückstände. Es eignet sich für Großveranstaltungen, wo Kühlkapazitäten knapp sind.<br/><br/><strong>Buffet-Kühlung</strong>: <br/>Lebensmittel bleiben frisch – ohne Wasserschäden oder Stromanschluss.<br/><strong>Eistorten & Desserts</strong>:<br/>Perfekte Konservierung für Hochzeiten und Feiern.<br/><strong>Innovative Zubereitung von Speisen und Cocktails</strong>:<br/>Lebensmittelechtes Trockeneis wird in der Molekularküche für visuelle und geschmackliche Effekte genutzt – von rauchenden Desserts bis zu eisgekühlten Drinks mit spektakulären Nebeleffekten.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_444918133.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
     "about_section_v3_jYxJUk": {
       "type": "about-section-v3",
       "blocks": {
@@ -250,9 +360,41 @@
         "font_body": "sans_serif_n4"
       }
     },
-    "about_section_v3_KHELR8": {
+    "about_section_v3_kbjWtU": {
       "type": "about-section-v3",
-      "name": "Über Uns (Layout) – v3-Transport Versand Logistik",
+      "blocks": {
+        "feature_xc4KA8": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_wyU7LD": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_xc4KA8",
+        "feature_wyU7LD"
+      ],
+      "name": "Über Uns (Layout) – v3-Medizin, Pharma & Labor",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -261,17 +403,17 @@
         "section_padding_top": 30,
         "section_padding_bottom": 30,
         "title": "",
-        "title_richtext": "<p><strong>Transport, Versand und Logistik</strong></p>",
+        "title_richtext": "<p><strong>Medizin, Pharma & Labor</strong></p>",
         "title_color": "#111827",
         "title_font_size": 32,
         "subtitle": "",
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Trockeneis hält Lebensmittel, Pflanzensamen, pharmazeutische Produkte, medizinische Proben und Organe bis zu 3 Tage gekühlt. Es ist steril, lebensmittelecht und erfüllt strenge Hygienevorschriften – ideal für Speditionen und Kliniken. Nach dem Europäischen Übereinkommen über die internationale Beförderung gefährlicher Güter auf der Straße (ADR) ist Trockeneis unter der UN-Nr. 1845, Gefahrgutklasse 9, Klassifizierungscode M11 eingestuft. Daher ist es wichtig, dass der Versand entsprechend den Bedingungen des Paketdienstes erfolgt. Bei uns können Sie dafür geeignete Styroporboxen von bis zu 30L Füllvolumen erwerben, inkl. Sicherheitslabel.</p><p><strong>Kühlkettenerhaltung:</strong> Tiefkühl- und Frischeprodukte bleiben während des Transports sicher      gekühlt.</p><p><strong>Weinlese:</strong> Kühlung der Trauben direkt nach der Lese    für optimale Qualität.</p><p><strong>Fleisch, Fisch, Geflügel:</strong> Transport ohne Feuchtigkeitsbildung und Verderb.</p>",
+        "description": "<p><strong>Transport von Organen und Proben</strong><br/><br/>Trockeneis verlängert die Transportzeit frisch entnommener Organe/Proben und ermöglicht Lieferungen in entfernte Kliniken.</p><ul><li><strong>Probentransport:</strong><br/>     Konstante –78,5 °C für sichere Laborproben und Medikamente.</li><li><strong>Impfstoff-Logistik:</strong><br/>     Temperaturempfindliche Impfstoffe werden zuverlässig gekühlt.</li><li><strong>Organ- & Gewebetransport:</strong><br/>     Verlängert die Transportzeit für Transplantationen.</li><li><strong>Laborproben-Konservierung</strong> ohne Kontamination</li></ul>",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_529683889_590bf61f-9a4d-45ad-aade-10761b5c40eb.jpg",
+        "image": "shopify://shop_images/shutterstock_314359133.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -289,29 +431,29 @@
         "font_body": "sans_serif_n4"
       }
     },
-    "about_section_v3_Vb3gPe": {
+    "about_section_v3_JbUL6M": {
       "type": "about-section-v3",
       "blocks": {
-        "feature_r3fEiM": {
+        "feature_PLzqb8": {
           "type": "feature",
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Nebeleffekt",
-            "feature_description": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
         },
-        "feature_ACM9c3": {
+        "feature_JmKKfM": {
           "type": "feature",
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Konservierung",
-            "feature_description": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -320,10 +462,10 @@
         }
       },
       "block_order": [
-        "feature_r3fEiM",
-        "feature_ACM9c3"
+        "feature_PLzqb8",
+        "feature_JmKKfM"
       ],
-      "name": "Über Uns (Layout) – v3-Gastronomie und Cateringund Spedition",
+      "name": "Über Uns (Layout) – v3-Camping und Veranstaltunge",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -332,17 +474,159 @@
         "section_padding_top": 30,
         "section_padding_bottom": 30,
         "title": "",
-        "title_richtext": "<p><strong>Gastronomie & Catering</strong></p>",
+        "title_richtext": "<p><strong>Camping und Veranstaltungen</strong></p>",
         "title_color": "#111827",
         "title_font_size": 32,
         "subtitle": "",
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>Kühlung für Catering, Festivals und Camping</strong><br/>Trockeneis hält Lebensmittel und Getränke tagelang frisch – ohne Feuchtigkeit oder Rückstände. Es eignet sich für Großveranstaltungen, wo Kühlkapazitäten knapp sind.<br/><br/><strong>Buffet-Kühlung</strong>: <br/>Lebensmittel bleiben frisch – ohne Wasserschäden oder Stromanschluss.<br/><strong>Eistorten & Desserts</strong>:<br/>Perfekte Konservierung für Hochzeiten und Feiern.<br/><strong>Innovative Zubereitung von Speisen und Cocktails</strong>:<br/>Lebensmittelechtes Trockeneis wird in der Molekularküche für visuelle und geschmackliche Effekte genutzt – von rauchenden Desserts bis zu eisgekühlten Drinks mit spektakulären Nebeleffekten.</p>",
+        "description": "",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_444918133.jpg",
+        "image": "shopify://shop_images/shutterstock_632816162.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_iXDAC3": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_TtJPFw": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_mpx7zP": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_TtJPFw",
+        "feature_mpx7zP"
+      ],
+      "name": "Über Uns (Layout) – v3-Automobilindustrieund Veranstaltunge",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Automobilindustrie</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_732811756.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_bKJjij": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_L8L7yF": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_4qWk8Q": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_L8L7yF",
+        "feature_4qWk8Q"
+      ],
+      "name": "Über Uns (Layout) – v3-LuftfahrindustrieVeranstaltunge",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Luftfahrtindustrie</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_726781549.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -485,77 +769,6 @@
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_633082400.jpg",
-        "image_border_radius": 12,
-        "image_alt": "",
-        "image_max_width": 85,
-        "image_aspect_ratio": "auto",
-        "features_per_row": "2",
-        "icon_size": 32,
-        "icon_color": "#34d399",
-        "feature_title_color": "#111827",
-        "no_image_text_align": "left",
-        "match_prev_height": false,
-        "match_prev_height_offset": 0,
-        "match_min_width": 1000,
-        "content_max_width": 1180,
-        "font_heading": "sans_serif_n4",
-        "font_body": "sans_serif_n4"
-      }
-    },
-    "about_section_v3_kbjWtU": {
-      "type": "about-section-v3",
-      "blocks": {
-        "feature_xc4KA8": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_wyU7LD": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_xc4KA8",
-        "feature_wyU7LD"
-      ],
-      "name": "Über Uns (Layout) – v3-Medizin, Pharma & Labor",
-      "settings": {
-        "image_position": "right",
-        "image_vertical_align": "start",
-        "show_image": true,
-        "background_color": "#ffffff",
-        "section_padding_top": 30,
-        "section_padding_bottom": 30,
-        "title": "",
-        "title_richtext": "<p><strong>Medizin, Pharma & Labor</strong></p>",
-        "title_color": "#111827",
-        "title_font_size": 32,
-        "subtitle": "",
-        "subtitle_richtext": "",
-        "subtitle_color": "#374151",
-        "subtitle_font_size": 20,
-        "description": "<p><strong>Transport von Organen und Proben</strong><br/><br/>Trockeneis verlängert die Transportzeit frisch entnommener Organe/Proben und ermöglicht Lieferungen in entfernte Kliniken.</p><ul><li><strong>Probentransport:</strong><br/>     Konstante –78,5 °C für sichere Laborproben und Medikamente.</li><li><strong>Impfstoff-Logistik:</strong><br/>     Temperaturempfindliche Impfstoffe werden zuverlässig gekühlt.</li><li><strong>Organ- & Gewebetransport:</strong><br/>     Verlängert die Transportzeit für Transplantationen.</li><li><strong>Laborproben-Konservierung</strong> ohne Kontamination</li></ul>",
-        "text_color": "#6b7280",
-        "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_314359133.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -720,13 +933,16 @@
     "main",
     "mod_image_text_ACzKf7",
     "about_section_v3_XG8HUh",
-    "about_section_v3_jYxJUk",
-    "about_section_v3_zCYyC9",
     "about_section_v3_KHELR8",
     "about_section_v3_Vb3gPe",
+    "about_section_v3_jYxJUk",
+    "about_section_v3_zCYyC9",
+    "about_section_v3_kbjWtU",
+    "about_section_v3_JbUL6M",
+    "about_section_v3_iXDAC3",
+    "about_section_v3_bKJjij",
     "about_section_v3_6kJWVB",
     "about_section_v3_kd9GAW",
-    "about_section_v3_kbjWtU",
     "about_section_v3_DzYN34",
     "about_section_v3_4mQ68K"
   ]
