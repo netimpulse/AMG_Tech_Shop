@@ -252,41 +252,7 @@
     },
     "about_section_v3_KHELR8": {
       "type": "about-section-v3",
-      "blocks": {
-        "feature_zkpxqr": {
-          "type": "feature",
-          "disabled": true,
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_MqhCrH": {
-          "type": "feature",
-          "disabled": true,
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_zkpxqr",
-        "feature_MqhCrH"
-      ],
-      "name": "Über Uns (Layout) – v3-Versand und Spedition",
+      "name": "Über Uns (Layout) – v3-Transport Versand Logistik",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -331,8 +297,8 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
+            "feature_title": "Nebeleffekt",
+            "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -344,8 +310,8 @@
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
+            "feature_title": "Konservierung",
+            "feature_description": "",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -363,8 +329,8 @@
         "image_vertical_align": "start",
         "show_image": true,
         "background_color": "#ffffff",
-        "section_padding_top": 80,
-        "section_padding_bottom": 80,
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
         "title": "",
         "title_richtext": "<p><strong>Gastronomie & Catering</strong></p>",
         "title_color": "#111827",
@@ -373,10 +339,10 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Kühlung für Catering, Festivals und Camping<br/>Trockeneis hält Lebensmittel und Getränke tagelang frisch – ohne Feuchtigkeit oder Rückstände. Es eignet sich für Großveranstaltungen, wo Kühlkapazitäten knapp sind.<br/><br/>•\tBuffet-Kühlung: Lebensmittel bleiben frisch – ohne Wasserschäden oder Stromanschluss.<br/>•\tEistorten & Desserts: Perfekte Konservierung für Hochzeiten und Feiern.<br/>•\tCocktails & Nebeleffekte: Spektakuläre Präsentation mit lebensmittelechtem Trockeneis.<br/>Mobile Kühlung: Getränke und Speisen bleiben auf Festivals, Märkten oder beim Camping tagelang frisch und kühl.<br/>Innovative Zubereitung von Speisen und Cocktails<br/>Lebensmittelechtes Trockeneis wird in der Molekularküche für visuelle und geschmackliche Effekte genutzt – von rauchenden Desserts bis zu eisgekühlten Drinks.<br/></p>",
+        "description": "<p><strong>Kühlung für Catering, Festivals und Camping</strong><br/>Trockeneis hält Lebensmittel und Getränke tagelang frisch – ohne Feuchtigkeit oder Rückstände. Es eignet sich für Großveranstaltungen, wo Kühlkapazitäten knapp sind.<br/><br/><strong>Buffet-Kühlung</strong>: Lebensmittel bleiben frisch – ohne Wasserschäden oder Stromanschluss.<br/><br/><strong>Eistorten & Desserts</strong>: Perfekte Konservierung für Hochzeiten und Feiern.<br/><br/><strong>Innovative Zubereitung von Speisen und Cocktails</strong><br/>Lebensmittelechtes Trockeneis wird in der Molekularküche für visuelle und geschmackliche Effekte genutzt – von rauchenden Desserts bis zu eisgekühlten Drinks mit spektakulären Nebeleffekten.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_254519980.jpg",
+        "image": "shopify://shop_images/shutterstock_444918133.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -434,8 +400,8 @@
         "image_vertical_align": "start",
         "show_image": true,
         "background_color": "#ffffff",
-        "section_padding_top": 80,
-        "section_padding_bottom": 80,
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
         "title": "",
         "title_richtext": "<p>Industrielle Reinigung & Wartung</p>",
         "title_color": "#111827",
@@ -444,7 +410,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>Trockeneisstrahlen<br/>Trockeneisstrahlen: Schonende Oberflächenreinigung</strong><br/>Das Verfahren nutzt –78 °C kaltes Trockeneis, das Verschmutzungen schockfrostet<br/>und mit Druckluft entfernt. Vorteile:</p><ul><li>Nicht abrasiv, nicht leitend, nicht entflammbar</li><li>Keine Chemikalien oder Wasser nötig</li><li>Umweltfreundlich, da kein zusätzliches CO₂ freigesetzt wird</li><li>Ideal für empfindliche Maschinen, Lebensmittelindustrie und schwer<br/>     zugängliche Stellen</li></ul><p><strong> </strong></p><ul><li><strong>Maschinenreinigung:</strong><br/>     Schonende Entfernung von Verschmutzungen ohne Demontage oder Stillstand.</li><li><strong>Schimmel- & Brandsanierung:</strong> Effektiv<br/>     und ohne Feuchtigkeit.</li><li><strong>Kunststoffindustrie:</strong><br/>     Reinigung von Formen und Werkzeugen ohne Rückstände.</li><li><strong>Schaltschrank- und Elektronikreinigung:</strong> Schaltschränke und empfindliche Bauteile werden ohne Wasserschäden<br/>     gereinigt.</li></ul><p><strong>Spezielle<br/>Anwendungen</strong></p><ul><li><strong>Entfernung von Produktionsrückständen:</strong> Öle, Fette, Harze – entfernt ohne Chemikalien.</li><li><strong>Reinigung von Lüftungssystemen:</strong><br/>     Hygienische Reinigung ohne aggressive Mittel.</li><li><strong>Wartung empfindlicher Anlagen:</strong> Kein<br/>     abrasiver Verschleiß, ideal für präzise Technik.</li></ul>",
+        "description": "<p><strong>Trockeneisstrahlen: Schonende Oberflächenreinigung</strong><br/>Das Verfahren nutzt –78 °C kaltes Trockeneis, das Verschmutzungen schockfrostet und mit Druckluft entfernt. Vorteile:</p><ul><li>Nicht abrasiv, nicht leitend, nicht entflammbar</li><li>Keine Chemikalien oder Wasser nötig</li><li>Umweltfreundlich, da kein zusätzliches CO₂ freigesetzt wird</li><li>Ideal für empfindliche Maschinen, Lebensmittelindustrie und schwer<br/>     zugängliche Stellen</li></ul><p><strong> </strong></p><ul><li><strong>Maschinenreinigung:</strong><br/>     Schonende Entfernung von Verschmutzungen ohne Demontage oder Stillstand.</li><li><strong>Schimmel- & Brandsanierung:</strong> Effektiv<br/>     und ohne Feuchtigkeit.</li><li><strong>Kunststoffindustrie:</strong><br/>     Reinigung von Formen und Werkzeugen ohne Rückstände.</li><li><strong>Schaltschrank- und Elektronikreinigung:</strong> Schaltschränke und empfindliche Bauteile werden ohne Wasserschäden<br/>     gereinigt.</li></ul><p><strong>Spezielle<br/>Anwendungen</strong></p><ul><li><strong>Entfernung von Produktionsrückständen:</strong> Öle, Fette, Harze – entfernt ohne Chemikalien.</li><li><strong>Reinigung von Lüftungssystemen:</strong><br/>     Hygienische Reinigung ohne aggressive Mittel.</li><li><strong>Wartung empfindlicher Anlagen:</strong> Kein<br/>     abrasiver Verschleiß, ideal für präzise Technik.</li></ul>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_254519980.jpg",
@@ -505,8 +471,8 @@
         "image_vertical_align": "start",
         "show_image": true,
         "background_color": "#ffffff",
-        "section_padding_top": 80,
-        "section_padding_bottom": 80,
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
         "title": "",
         "title_richtext": "<p><strong>Industrie & Produktion</strong></p>",
         "title_color": "#111827",
@@ -515,7 +481,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>Kühlung von Maschinen und Anlagen</strong><br/><br/>Trockeneis kühlt überhitzte Produktionsanlagen effizient von außen, ohne Wasser<br/>oder Kurzschlussrisiko. Durch die niedrige Temperatur wird die Produktionszeit<br/>verlängert und Stillstände minimiert.</p><p><strong>Metallverarbeitung & Stahlguss</strong><br/>In der Metallindustrie unterstützt Trockeneis das präzise Fügen von Bauteilen:<br/>Durch die Kälte schrumpft Stahl stärker als Hartmetall, was eine feste<br/>Verbindung ermöglicht.<br/><br/><br/><br/></p>",
+        "description": "<p><strong>Kühlung von Maschinen und Anlagen</strong><br/>Trockeneis kühlt überhitzte Produktionsanlagen effizient von außen, ohne Wasser oder Kurzschlussrisiko. Durch die niedrige Temperatur wird die Produktionszeit verlängert und Stillstände minimiert.</p><p><strong>Metallverarbeitung & Stahlguss</strong><br/>In der Metallindustrie unterstützt Trockeneis das präzise Fügen von Bauteilen: Durch die Kälte schrumpft Stahl stärker als Hartmetall, was eine feste Verbindung ermöglicht.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_254519980.jpg",
