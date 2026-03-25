@@ -63,14 +63,13 @@
         "card_DykqWU": {
           "type": "card",
           "settings": {
-            "title": "🚚 Schnelle Lieferung",
+            "title": "Schnelle Lieferung",
             "text": "<p>Deutschlandweit – zuverlässig und pünktlich geliefert</p>"
           }
         },
         "card_JMQmDR": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/test1.png",
             "title": "Frische Produktion",
             "text": "<p>Produktionssatandort Völklingen</p>"
           }
@@ -85,7 +84,6 @@
         "card_636nLF": {
           "type": "card",
           "settings": {
-            "icon": "shopify://shop_images/shutterstock_291272705.jpg",
             "title": "Nachhaltig produziert",
             "text": "<p>recycletes CO2, ohne Abfallprodukte</p>"
           }
@@ -500,98 +498,9 @@
     "leistung_suche_grid_v2_htkUr6": {
       "type": "leistung-suche-grid-v2",
       "blocks": {
-        "service_c6WbGk": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_726781549.jpg",
-            "title_html": "<p><a href=\"/pages/anwendungsbereiche\" title=\"Anwendungsbereiche\">Luftfahrt-industrie</a></p>",
-            "text_html": "<p>Trockneisreinigung</p>",
-            "keywords": "Flugzeug, Luft, Motor",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_Fkqtdf": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_732811756.jpg",
-            "title_html": "<p>Automobilindustrie</p>",
-            "text_html": "<p>Reinigung mit Trockeneis</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_J7nEG9": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_309173480.jpg",
-            "title_html": "<p>Gastronomie & Catering </p>",
-            "text_html": "<p>Cocktail-Nebeleffekte</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_wkNkBm": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_165077645.jpg",
-            "title_html": "<p><strong>Fahrzeugaufbereitung</strong></p>",
-            "text_html": "<p>Motorraum-Reinigung, Unterbodenschutz-Entfernung</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_XG49NK": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_224370973.jpg",
-            "title_html": "<p><strong>Elektronikreinigung</strong></p>",
-            "text_html": "<p>Schaltschränke, Serverräume etc.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_fixQyq": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_736532971.jpg",
-            "title_html": "<p><strong>Event & Entertainment</strong></p>",
-            "text_html": "<p>Film-/TV-Spezialeffekte, Halloween-/Party-Effekte</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
         "service_nLjBFg": {
           "type": "service",
+          "name": "Leistung Block-Transport & Logistik",
           "settings": {
             "image": "shopify://shop_images/shutterstock_529683889_590bf61f-9a4d-45ad-aade-10761b5c40eb.jpg",
             "title_html": "<p>Transport & Logistik </p>",
@@ -605,8 +514,25 @@
             "block_bg_color": ""
           }
         },
+        "service_J7nEG9": {
+          "type": "service",
+          "name": "Leistung Block-Gastro",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_309173480.jpg",
+            "title_html": "<p>Gastronomie & Catering </p>",
+            "text_html": "<p>Cocktail-Nebeleffekte</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
         "service_pAdQca": {
           "type": "service",
+          "name": "Leistung Block-Bäckerei",
           "settings": {
             "image": "shopify://shop_images/shutterstock_254519980.jpg",
             "title_html": "<p>Kühlung in Bäckereien</p>",
@@ -620,83 +546,9 @@
             "block_bg_color": ""
           }
         },
-        "service_CWHmgB": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_131122721.jpg",
-            "title_html": "<p>Elektronikreinigung</p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_ATQrPX": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_632816162.jpg",
-            "title_html": "<p><strong>Camping und Veranstaltungen</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "camping, festival",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_Tjcbpa": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_442349785.jpg",
-            "title_html": "<p>Kunststoffformen-Reinigung</p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_qnBbkK": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_314359133.jpg",
-            "title_html": "<p><strong>Medizin/Pharma</strong></p>",
-            "text_html": "<p>Organ-/Gewebetransport, Impfstoff-Logistik</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "service_cAxHgf": {
-          "type": "service",
-          "settings": {
-            "image": "shopify://shop_images/shutterstock_689943454.jpg",
-            "title_html": "<p><strong>Unterhaltsreinigung</strong></p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
-            "keywords": "",
-            "button_label": "Mehr erfahren",
-            "button_link": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
         "service_7EQBnB": {
           "type": "service",
+          "name": "Leistung Block - Fleischerei",
           "settings": {
             "image": "shopify://shop_images/fleischerei-ohne-menschen.png",
             "title_html": "<p>Fleisch-/Fischtransport</p>",
@@ -710,12 +562,141 @@
             "block_bg_color": ""
           }
         },
+        "service_qnBbkK": {
+          "type": "service",
+          "name": "Leistung Block-Medizin & Pharma",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_314359133.jpg",
+            "title_html": "<p><strong>Medizin/Pharma</strong></p>",
+            "text_html": "<p>Organ-/Gewebetransport, Impfstoff-Logistik</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_ATQrPX": {
+          "type": "service",
+          "name": "Leistung Block-Camping",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_632816162.jpg",
+            "title_html": "<p><strong>Camping und Veranstaltungen</strong></p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "camping, festival",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_Fkqtdf": {
+          "type": "service",
+          "name": "Leistung Block-Automobil",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_732811756.jpg",
+            "title_html": "<p>Automobil-industrie</p>",
+            "text_html": "<p>Reinigung mit Trockeneis</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_c6WbGk": {
+          "type": "service",
+          "name": "Leistung Block-Luftfahrt",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_726781549.jpg",
+            "title_html": "<p><a href=\"/pages/anwendungsbereiche\" title=\"Anwendungsbereiche\">Luftfahrt-industrie</a></p>",
+            "text_html": "<p>Trockneisreinigung</p>",
+            "keywords": "Flugzeug, Luft, Motor",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_XG49NK": {
+          "type": "service",
+          "name": "Leistung Block-Elektronik",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_224370973.jpg",
+            "title_html": "<p><strong>Elektronik-reinigung</strong></p>",
+            "text_html": "<p>Schaltschränke, Serverräume etc.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_wkNkBm": {
+          "type": "service",
+          "name": "Leistung Block-Fahrzeug",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_165077645.jpg",
+            "title_html": "<p><strong>Fahrzeug-aufbereitung</strong></p>",
+            "text_html": "<p>Motorraum-Reinigung, Unterbodenschutz-Entfernung</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_fixQyq": {
+          "type": "service",
+          "name": "Leistung Block-Event",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_736532971.jpg",
+            "title_html": "<p><strong>Event & Entertainment</strong></p>",
+            "text_html": "<p>Film-/TV-Spezialeffekte, Halloween-/Party-Effekte</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_Tjcbpa": {
+          "type": "service",
+          "name": "Leistung Block-Kunststoff",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_442349785.jpg",
+            "title_html": "<p>Kunststoffformen-Reinigung</p>",
+            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
         "service_WkyF8n": {
           "type": "service",
+          "name": "Leistung Block-Schimmel und Brand",
           "settings": {
             "image": "shopify://shop_images/shutterstock_55147681.jpg",
             "title_html": "<p>Schimmel-/Brandsanierung</p>",
-            "text_html": "<p>Kurze Beschreibung hier.</p>",
+            "text_html": "<p>Trockneisreinigung</p>",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
@@ -727,6 +708,7 @@
         },
         "service_WeqyNc": {
           "type": "service",
+          "name": "Leistung Block-Kühlen Anlagen",
           "settings": {
             "image": "shopify://shop_images/shutterstock_279918557.jpg",
             "title_html": "<p>Kühlen von Produktionsanlagen</p>",
@@ -742,6 +724,7 @@
         },
         "service_FQEBmL": {
           "type": "service",
+          "name": "Leistung Block- Stahlguss und Metall",
           "settings": {
             "image": "shopify://shop_images/shutterstock_633082400.jpg",
             "title_html": "<p>Stahlguss und Metallverarbeitung</p>",
@@ -757,6 +740,7 @@
         },
         "service_qYWgjR": {
           "type": "service",
+          "name": "Leistung Block- Druck",
           "settings": {
             "image": "shopify://shop_images/shutterstock_689943454.jpg",
             "title_html": "<p>Druckindustrie</p>",
@@ -772,20 +756,18 @@
         }
       },
       "block_order": [
-        "service_c6WbGk",
-        "service_Fkqtdf",
-        "service_J7nEG9",
-        "service_wkNkBm",
-        "service_XG49NK",
-        "service_fixQyq",
         "service_nLjBFg",
+        "service_J7nEG9",
         "service_pAdQca",
-        "service_CWHmgB",
-        "service_ATQrPX",
-        "service_Tjcbpa",
-        "service_qnBbkK",
-        "service_cAxHgf",
         "service_7EQBnB",
+        "service_qnBbkK",
+        "service_ATQrPX",
+        "service_Fkqtdf",
+        "service_c6WbGk",
+        "service_XG49NK",
+        "service_wkNkBm",
+        "service_fixQyq",
+        "service_Tjcbpa",
         "service_WkyF8n",
         "service_WeqyNc",
         "service_FQEBmL",
