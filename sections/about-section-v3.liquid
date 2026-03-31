@@ -56,6 +56,27 @@
     assign actually_show_image = true
   endif
 
+  assign enable_slider = section.settings.enable_image_slider
+  assign slider_image_count = 1
+  if enable_slider
+    if section.settings.image_2 != blank
+      assign slider_image_count = slider_image_count | plus: 1
+    endif
+    if section.settings.image_3 != blank
+      assign slider_image_count = slider_image_count | plus: 1
+    endif
+    if section.settings.image_4 != blank
+      assign slider_image_count = slider_image_count | plus: 1
+    endif
+    if section.settings.image_5 != blank
+      assign slider_image_count = slider_image_count | plus: 1
+    endif
+  endif
+  assign use_slider = false
+  if enable_slider and actually_show_image and slider_image_count > 1
+    assign use_slider = true
+  endif
+
   assign title_html = section.settings.title_richtext
   if title_html == blank and section.settings.title != blank
     assign title_html = '<p>' | append: section.settings.title | append: '</p>'
@@ -86,15 +107,42 @@
       {%- if actually_show_image -%}
         {%- unless float_mode -%}
           <div class="sis-about__image sis-about__image--valign-{{ section.settings.image_vertical_align }}">
-            <div class="sis-about__image-wrapper">
-              {% assign img = section.settings.image %}
-              <img
-                src="{{ img | image_url: width: 1200 }}"
-                srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
-                sizes="(max-width: 992px) 100vw, 50vw"
-                alt="{{ section.settings.image_alt | escape }}"
-                loading="lazy">
-            </div>
+            {%- if use_slider -%}
+              <div class="sis-about__slider" data-about-slider="{{ section.id }}">
+                <div class="sis-about__slider-track">
+                  <div class="sis-about__slider-slide sis-about__slider-slide--active">
+                    <div class="sis-about__image-wrapper">
+                      <img src="{{ section.settings.image | image_url: width: 1200 }}" srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 900 }} 900w, {{ section.settings.image | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="{{ section.settings.image_alt | escape }}" loading="lazy">
+                    </div>
+                  </div>
+                  {%- if section.settings.image_2 != blank -%}
+                    <div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_2 | image_url: width: 1200 }}" srcset="{{ section.settings.image_2 | image_url: width: 600 }} 600w, {{ section.settings.image_2 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>
+                  {%- endif -%}
+                  {%- if section.settings.image_3 != blank -%}
+                    <div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_3 | image_url: width: 1200 }}" srcset="{{ section.settings.image_3 | image_url: width: 600 }} 600w, {{ section.settings.image_3 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>
+                  {%- endif -%}
+                  {%- if section.settings.image_4 != blank -%}
+                    <div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_4 | image_url: width: 1200 }}" srcset="{{ section.settings.image_4 | image_url: width: 600 }} 600w, {{ section.settings.image_4 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>
+                  {%- endif -%}
+                  {%- if section.settings.image_5 != blank -%}
+                    <div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_5 | image_url: width: 1200 }}" srcset="{{ section.settings.image_5 | image_url: width: 600 }} 600w, {{ section.settings.image_5 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>
+                  {%- endif -%}
+                </div>
+                <button type="button" class="sis-about__slider-btn sis-about__slider-btn--prev" aria-label="Vorheriges Bild">&#10094;</button>
+                <button type="button" class="sis-about__slider-btn sis-about__slider-btn--next" aria-label="Nächstes Bild">&#10095;</button>
+                <div class="sis-about__slider-dots"></div>
+              </div>
+            {%- else -%}
+              <div class="sis-about__image-wrapper">
+                {% assign img = section.settings.image %}
+                <img
+                  src="{{ img | image_url: width: 1200 }}"
+                  srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
+                  sizes="(max-width: 992px) 100vw, 50vw"
+                  alt="{{ section.settings.image_alt | escape }}"
+                  loading="lazy">
+              </div>
+            {%- endif -%}
           </div>
         {%- endunless -%}
       {%- endif -%}
@@ -113,15 +161,27 @@
           {%- if actually_show_image and float_mode -%}
             {%- capture float_markup -%}
               <div class="sis-about__image sis-about__image--float {% if img_pos == 'left' %}sis-about__image--float-left{% else %}sis-about__image--float-right{% endif %}">
-                <div class="sis-about__image-wrapper">
-                  {% assign img = section.settings.image %}
-                  <img
-                    src="{{ img | image_url: width: 1200 }}"
-                    srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
-                    sizes="(max-width: 992px) 100vw, 50vw"
-                    alt="{{ section.settings.image_alt | escape }}"
-                    loading="lazy">
-                </div>
+                {%- if use_slider -%}
+                  <div class="sis-about__slider" data-about-slider="{{ section.id }}">
+                    <div class="sis-about__slider-track">
+                      <div class="sis-about__slider-slide sis-about__slider-slide--active">
+                        <div class="sis-about__image-wrapper"><img src="{{ section.settings.image | image_url: width: 1200 }}" srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="{{ section.settings.image_alt | escape }}" loading="lazy"></div>
+                      </div>
+                      {%- if section.settings.image_2 != blank -%}<div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_2 | image_url: width: 1200 }}" srcset="{{ section.settings.image_2 | image_url: width: 600 }} 600w, {{ section.settings.image_2 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>{%- endif -%}
+                      {%- if section.settings.image_3 != blank -%}<div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_3 | image_url: width: 1200 }}" srcset="{{ section.settings.image_3 | image_url: width: 600 }} 600w, {{ section.settings.image_3 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>{%- endif -%}
+                      {%- if section.settings.image_4 != blank -%}<div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_4 | image_url: width: 1200 }}" srcset="{{ section.settings.image_4 | image_url: width: 600 }} 600w, {{ section.settings.image_4 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>{%- endif -%}
+                      {%- if section.settings.image_5 != blank -%}<div class="sis-about__slider-slide"><div class="sis-about__image-wrapper"><img src="{{ section.settings.image_5 | image_url: width: 1200 }}" srcset="{{ section.settings.image_5 | image_url: width: 600 }} 600w, {{ section.settings.image_5 | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="" loading="lazy"></div></div>{%- endif -%}
+                    </div>
+                    <button type="button" class="sis-about__slider-btn sis-about__slider-btn--prev" aria-label="Vorheriges Bild">&#10094;</button>
+                    <button type="button" class="sis-about__slider-btn sis-about__slider-btn--next" aria-label="Nächstes Bild">&#10095;</button>
+                    <div class="sis-about__slider-dots"></div>
+                  </div>
+                {%- else -%}
+                  <div class="sis-about__image-wrapper">
+                    {% assign img = section.settings.image %}
+                    <img src="{{ img | image_url: width: 1200 }}" srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w" sizes="(max-width: 992px) 100vw, 50vw" alt="{{ section.settings.image_alt | escape }}" loading="lazy">
+                  </div>
+                {%- endif -%}
               </div>
             {%- endcapture -%}
 
@@ -181,6 +241,65 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* Bild-Slider */
+  .sis-about__slider { position: relative; }
+  .sis-about__slider-track { position: relative; overflow: hidden; border-radius: var(--image-border-radius); }
+  .sis-about__slider-slide { display: none; }
+  .sis-about__slider-slide--active { display: block; }
+  .sis-about__slider-slide .sis-about__image-wrapper { box-shadow: none; max-width: 100%; }
+  .sis-about__slider-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,.85); border: none; border-radius: 50%;
+    width: 36px; height: 36px; font-size: 18px; line-height: 1;
+    cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: background .15s;
+  }
+  .sis-about__slider-btn:hover { background: #fff; }
+  .sis-about__slider-btn--prev { left: 8px; }
+  .sis-about__slider-btn--next { right: 8px; }
+  .sis-about__slider-dots {
+    display: flex; justify-content: center; gap: 8px; margin-top: 12px;
+  }
+  .sis-about__slider-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(0,0,0,.2); border: none; cursor: pointer; padding: 0;
+    transition: background .15s;
+  }
+  .sis-about__slider-dot--active { background: rgba(0,0,0,.6); }
+</style>
+
+{%- if use_slider -%}
+<script>
+(function(){
+  document.querySelectorAll('[data-about-slider="{{ section.id }}"]').forEach(function(slider){
+    var slides = slider.querySelectorAll('.sis-about__slider-slide');
+    var dotsWrap = slider.querySelector('.sis-about__slider-dots');
+    var idx = 0;
+    if (slides.length < 2) return;
+    slides.forEach(function(_, i){
+      var dot = document.createElement('button');
+      dot.className = 'sis-about__slider-dot' + (i === 0 ? ' sis-about__slider-dot--active' : '');
+      dot.setAttribute('aria-label', 'Bild ' + (i + 1));
+      dot.addEventListener('click', function(){ goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    function goTo(n){
+      slides[idx].classList.remove('sis-about__slider-slide--active');
+      dotsWrap.children[idx].classList.remove('sis-about__slider-dot--active');
+      idx = (n + slides.length) % slides.length;
+      slides[idx].classList.add('sis-about__slider-slide--active');
+      dotsWrap.children[idx].classList.add('sis-about__slider-dot--active');
+    }
+    slider.querySelector('.sis-about__slider-btn--prev').addEventListener('click', function(){ goTo(idx - 1); });
+    slider.querySelector('.sis-about__slider-btn--next').addEventListener('click', function(){ goTo(idx + 1); });
+    var autoplay = {{ section.settings.slider_autoplay | default: 0 }};
+    if (autoplay > 0) setInterval(function(){ goTo(idx + 1); }, autoplay * 1000);
+  });
+})();
+</script>
+{%- endif -%}
 
 <script>
 /* Optional: Höhe an vorherigen Abschnitt angleichen */
@@ -383,7 +502,49 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Bild"
+      "label": "Bild (Hauptbild / Slide 1)"
+    },
+    {
+      "type": "header",
+      "content": "━━ Bild-Slider ━━"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_slider",
+      "label": "Bild-Slider aktivieren",
+      "default": false,
+      "info": "Zeigt mehrere Bilder als Slider. Zusätzliche Bilder unten hinzufügen."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Slide 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Slide 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Slide 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Slide 5"
+    },
+    {
+      "type": "range",
+      "id": "slider_autoplay",
+      "label": "Autoplay (Sekunden)",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 0,
+      "info": "0 = kein Autoplay"
     },
     {
       "type": "range",
@@ -520,7 +681,7 @@
       "max": 1600,
       "step": 20,
       "unit": "px",
-      "default": 1000
+      "default": 992
     },
     {
       "type": "header",

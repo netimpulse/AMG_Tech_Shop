@@ -53,18 +53,48 @@
 
     {%- comment -%} ── Linke Spalte: Produktbild + Blöcke ──────────── {%- endcomment -%}
     <div class="te-product__media">
-      <div class="te-product__image-wrapper">
-        {%- if product.featured_image != blank -%}
-          <img
-            src="{{ product.featured_image | image_url: width: 1200 }}"
-            alt="{{ product.featured_image.alt | default: product.title | escape }}"
-            width="{{ product.featured_image.width }}"
-            height="{{ product.featured_image.height }}"
-            loading="eager">
-        {%- else -%}
-          {{ 'product-1' | placeholder_svg_tag: 'te-product__placeholder' }}
-        {%- endif -%}
-      </div>
+      {%- if section.settings.enable_image_slider and product.images.size > 1 -%}
+        <div class="te-product__slider" data-te-slider>
+          <div class="te-product__slider-track">
+            {%- for img in product.images -%}
+              <div class="te-product__slider-slide{% if forloop.first %} te-product__slider-slide--active{% endif %}">
+                <div class="te-product__image-wrapper">
+                  <img
+                    src="{{ img | image_url: width: 1200 }}"
+                    srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    alt="{{ img.alt | default: product.title | escape }}"
+                    width="{{ img.width }}"
+                    height="{{ img.height }}"
+                    loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+          <button type="button" class="te-product__slider-btn te-product__slider-btn--prev" aria-label="Vorheriges Bild">&#10094;</button>
+          <button type="button" class="te-product__slider-btn te-product__slider-btn--next" aria-label="Nächstes Bild">&#10095;</button>
+          <div class="te-product__slider-thumbs">
+            {%- for img in product.images -%}
+              <button type="button" class="te-product__slider-thumb{% if forloop.first %} te-product__slider-thumb--active{% endif %}" data-slide-index="{{ forloop.index0 }}" aria-label="Bild {{ forloop.index }}">
+                <img src="{{ img | image_url: width: 120 }}" alt="" loading="lazy" width="60" height="60">
+              </button>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- else -%}
+        <div class="te-product__image-wrapper">
+          {%- if product.featured_image != blank -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 1200 }}"
+              alt="{{ product.featured_image.alt | default: product.title | escape }}"
+              width="{{ product.featured_image.width }}"
+              height="{{ product.featured_image.height }}"
+              loading="eager">
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'te-product__placeholder' }}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
 
       {%- comment -%} USP-Leiste unter dem Bild {%- endcomment -%}
       <div class="te-features">
@@ -440,6 +470,61 @@
   </div>
 </div>
 
+<style>
+  /* Trockeneis Produkt-Slider */
+  .te-product__slider { position: relative; }
+  .te-product__slider-track { position: relative; overflow: hidden; border-radius: 12px; }
+  .te-product__slider-slide { display: none; }
+  .te-product__slider-slide--active { display: block; }
+  .te-product__slider-slide .te-product__image-wrapper { border-radius: 0; }
+  .te-product__slider-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,.85); border: none; border-radius: 50%;
+    width: 36px; height: 36px; font-size: 18px; line-height: 1;
+    cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: background .15s;
+  }
+  .te-product__slider-btn:hover { background: #fff; }
+  .te-product__slider-btn--prev { left: 8px; }
+  .te-product__slider-btn--next { right: 8px; }
+  .te-product__slider-thumbs {
+    display: flex; gap: 8px; margin-top: 12px; overflow-x: auto; padding-bottom: 4px;
+  }
+  .te-product__slider-thumb {
+    flex-shrink: 0; width: 60px; height: 60px; border-radius: 8px;
+    overflow: hidden; border: 2px solid transparent; cursor: pointer;
+    padding: 0; background: none; transition: border-color .15s;
+  }
+  .te-product__slider-thumb--active { border-color: #111; }
+  .te-product__slider-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
+
+{%- if section.settings.enable_image_slider and product.images.size > 1 -%}
+<script>
+(function(){
+  var slider = document.querySelector('[data-te-slider]');
+  if (!slider) return;
+  var slides = slider.querySelectorAll('.te-product__slider-slide');
+  var thumbs = slider.querySelectorAll('.te-product__slider-thumb');
+  var idx = 0;
+  if (slides.length < 2) return;
+  function goTo(n) {
+    slides[idx].classList.remove('te-product__slider-slide--active');
+    thumbs[idx].classList.remove('te-product__slider-thumb--active');
+    idx = (n + slides.length) % slides.length;
+    slides[idx].classList.add('te-product__slider-slide--active');
+    thumbs[idx].classList.add('te-product__slider-thumb--active');
+    thumbs[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+  slider.querySelector('.te-product__slider-btn--prev').addEventListener('click', function(){ goTo(idx - 1); });
+  slider.querySelector('.te-product__slider-btn--next').addEventListener('click', function(){ goTo(idx + 1); });
+  thumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function(){ goTo(parseInt(this.getAttribute('data-slide-index'))); });
+  });
+})();
+</script>
+{%- endif -%}
+
 <script src="{{ 'trockeneis-product.js' | asset_url }}" defer></script>
 
 {% schema %}
@@ -448,6 +533,8 @@
   "tag": "section",
   "class": "section--trockeneis",
   "settings": [
+    { "type": "header", "content": "Produktbilder" },
+    { "type": "checkbox", "id": "enable_image_slider", "label": "Bild-Slider aktivieren", "default": true, "info": "Zeigt alle Produktbilder als Slider mit Thumbnails. Wenn deaktiviert, wird nur das Hauptbild angezeigt." },
     { "type": "header", "content": "Allgemein" },
     { "type": "text", "id": "subtitle", "label": "Untertitel", "default": "Hochwertige Trockeneispellets für Industrie und Gewerbe" },
     { "type": "text", "id": "price_note", "label": "Preishinweis", "default": "Preis inkl. MwSt., zzgl. Versandkosten" },
