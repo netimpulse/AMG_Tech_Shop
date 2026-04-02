@@ -268,7 +268,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>In Großbäckereien wird Trockeneis gezielt eingesetzt, um Teige exakt auf die gewünschte Temperatur zu bringen – ganz unabhängig von der Außentemperatur. Die Trockeneispellets werden entweder von Hand in den Kneter gegeben oder über ein Schneerohr direkt zugeführt. So bleibt die Konsistenz der Teige stets perfekt.</p>",
+        "description": "<p>In Großbäckereien wird Trockeneis gezielt eingesetzt, um Teige exakt auf die gewünschte Temperatur zu bringen – ganz unabhängig von der Außentemperatur. Die Trockeneispellets werden entweder von Hand in den Kneter gegeben oder über ein Schneerohr direkt zugeführt. So bleibt die Konsistenz der Teige stets perfekt.</p><p>Aber auch für die Reinigung in der Lebensmittelproduktion ist Trockneis ein ausgezeichnetes Mittel.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_254519980.jpg",
@@ -360,11 +360,82 @@
         "font_body": "sans_serif_n4"
       }
     },
+    "about_section_v3_QpRAhD": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_97yQ4k": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "hygienisch, lebensmittelkonform",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_HkwTPq": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "ohne Chemie, ohne Wasser",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_97yQ4k",
+        "feature_HkwTPq"
+      ],
+      "name": "Über Uns (Layout) – v3-Bäckerei",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Reinigung in der Lebensmittelproduktion</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "<p>Lebensmittel und Getränkeindustrie</p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Für die Reinigung in der Lebensmittelproduktion ist Trockneis ein ausgezeichnetes Mittel. Mit dem Trockneisstrahlverfahren können angebrannte Rückstände, Fette, Beschichtungen an Backöfen, Förderbändern oder Abfüllanlagen gut gereinigt werden. Trockneisstrahlen ist lebensmittelkonform und arbeitet ohne zusätzliche Chemie oder Wasserfilm. Es reduziert die Gefahr mikrobieller Kontamination durch Restfeuchte und ermöglicht eine schnelle, hygienische Reinigung , oft sogar im laufenden Betrieb mit stark verkürzten Stillständen.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
     "about_section_v3_kbjWtU": {
       "type": "about-section-v3",
       "blocks": {
         "feature_xc4KA8": {
           "type": "feature",
+          "disabled": true,
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
@@ -378,6 +449,7 @@
         },
         "feature_wyU7LD": {
           "type": "feature",
+          "disabled": true,
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
@@ -410,7 +482,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>Transport von Organen und Proben</strong><br/><br/>Trockeneis verlängert die Transportzeit frisch entnommener Organe/Proben und ermöglicht Lieferungen in entfernte Kliniken.</p><ul><li><strong>Probentransport:</strong><br/>     Konstante –78,5 °C für sichere Laborproben und Medikamente.</li><li><strong>Impfstoff-Logistik:</strong><br/>     Temperaturempfindliche Impfstoffe werden zuverlässig gekühlt.</li><li><strong>Organ- & Gewebetransport:</strong><br/>     Verlängert die Transportzeit für Transplantationen.</li><li><strong>Laborproben-Konservierung</strong> ohne Kontamination</li></ul>",
+        "description": "<p><strong>Transport von Organen und Proben</strong><br/>Trockeneis verlängert die Transportzeit frisch entnommener Organe/Proben und ermöglicht Lieferungen in entfernte Kliniken, ohne Tauwasser, was Probenqualität und Auswertbarkeit erhöht.</p><ul><li><strong>Probentransport:</strong><br/>     Konstante –78,5 °C für sichere Laborproben und Medikamente.</li><li><strong>Impfstoff-Logistik:</strong><br/>     Temperaturempfindliche Impfstoffe werden zuverlässig gekühlt.</li><li><strong>Organ- & Gewebetransport:</strong><br/>     Verlängert die Transportzeit für Transplantationen.</li><li><strong>Laborproben-Konservierung</strong> ohne Kontamination</li></ul>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_314359133.jpg",
@@ -436,6 +508,7 @@
       "blocks": {
         "feature_PLzqb8": {
           "type": "feature",
+          "disabled": true,
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
@@ -449,6 +522,7 @@
         },
         "feature_JmKKfM": {
           "type": "feature",
+          "disabled": true,
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
@@ -481,7 +555,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "",
+        "description": "<p>Auf Festivals und anderen Veranstaltungen ist oft kaum Stromversorgung gegeben, mit unserem Trockeneis bleiben Getränke und Essen kühl und frisch.</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_632816162.jpg",
@@ -1036,6 +1110,7 @@
     "about_section_v3_Vb3gPe",
     "about_section_v3_jYxJUk",
     "about_section_v3_zCYyC9",
+    "about_section_v3_QpRAhD",
     "about_section_v3_kbjWtU",
     "about_section_v3_JbUL6M",
     "about_section_v3_iXDAC3",
