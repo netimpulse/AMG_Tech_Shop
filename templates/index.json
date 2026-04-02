@@ -598,6 +598,22 @@
           "type": "service",
           "name": "Leistung Block-Automobil",
           "settings": {
+            "image": "shopify://shop_images/bild_aus_sis_videos_autostrahlen.png",
+            "title_html": "<p>Trockneis-Strahlen</p>",
+            "text_html": "<p>Reinigung mit Trockeneis</p>",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "service_mUti6t": {
+          "type": "service",
+          "name": "Leistung Block-Automobil",
+          "settings": {
             "image": "shopify://shop_images/shutterstock_732811756.jpg",
             "title_html": "<p>Automobil-industrie</p>",
             "text_html": "<p>Reinigung mit Trockeneis</p>",
@@ -763,6 +779,7 @@
         "service_qnBbkK",
         "service_ATQrPX",
         "service_Fkqtdf",
+        "service_mUti6t",
         "service_c6WbGk",
         "service_XG49NK",
         "service_wkNkBm",
@@ -858,6 +875,7 @@
         "feature_gAynXg",
         "feature_TM97Wm"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-TE Strahlen",
       "settings": {
         "image_position": "right",
