@@ -138,6 +138,7 @@
       ],
       "name": "Trockeneis-Produkt",
       "settings": {
+        "enable_image_slider": true,
         "subtitle": "Hochwertige Trockeneispellets für Industrie und Gewerbe",
         "price_note": "inkl. Isolierbox, Preis inkl. MwSt., zzgl. Versandkosten",
         "cart_note": "Sichere Zahlung über Shopify Payments",
@@ -145,7 +146,7 @@
         "pickup_address": "Abholung an unserem Standort in Völklingen",
         "contact_page": "shopify://pages/contact",
         "hide_express": false,
-        "weight_based_shipping": false,
+        "weight_based_shipping": true,
         "shipping_price_per_kg": "2.50",
         "dhl_price": "auf Anfrage",
         "dhl_price_raw": "22,50",
