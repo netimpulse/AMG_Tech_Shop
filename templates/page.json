@@ -715,6 +715,105 @@
         "font_body": "sans_serif_n4"
       }
     },
+    "about_section_v3_GEttVF": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_YY7wbN": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Intensive Kühlleistung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_At8AC6": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Rückstandsfrei",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_kQfEqR": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Einfache Entsorgung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_LwajVx": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Umweltfreundliche Lösung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_YY7wbN",
+        "feature_At8AC6",
+        "feature_kQfEqR",
+        "feature_LwajVx"
+      ],
+      "name": "Über Uns (Layout) – v3-TE Strahlen",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "Warum Trockeneis?",
+        "title_richtext": "<p><strong>Wie funktioniert Trockeneisstrahlen?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Die Reinigung mit Trockeneis ist eine effektive Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell sauber zu bekommen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet wird, und schließlich mit dem starken Luftdruck abgetragen wird. Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt, und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><strong>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden:</strong></p><p>✅ nicht-abrasiv, nichtleitend, nicht entflammbar                <br/>✅ keine sekundären chem. Reinigungsmittel<br/>✅ Reinigung größtenteils ohne vorherige Demontage vor Ort möglich <br/>✅ Zeitersparnis, geringe Ausfallzeiten               <br/>✅ kein Wasser, keine Feuchtigkeit<br/>✅ kein zusätzliches CO2, umweltfreundlich      <br/>✅ Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </p><p>Unser Verbundunternehmen die <a href=\"https://sissaar.de/pages/industrieservice\" target=\"_blank\" title=\"https://sissaar.de/pages/industrieservice\">SIS Saar Industrie Service GmbH </a>unterstützt uns seit Jahren bei dieser Tätigkeit. Schauen Sie sich gerne das <a href=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\" target=\"_blank\" title=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\">YouTube Video </a>dazu an und kommen Sie gerne auf uns zu.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/bild_aus_sis_videos_autostrahlen.png",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
     "about_section_v3_kd9GAW": {
       "type": "about-section-v3",
       "blocks": {
@@ -942,6 +1041,7 @@
     "about_section_v3_iXDAC3",
     "about_section_v3_bKJjij",
     "about_section_v3_6kJWVB",
+    "about_section_v3_GEttVF",
     "about_section_v3_kd9GAW",
     "about_section_v3_DzYN34",
     "about_section_v3_4mQ68K"
