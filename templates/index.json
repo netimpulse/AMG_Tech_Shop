@@ -562,6 +562,22 @@
             "block_bg_color": ""
           }
         },
+        "service_YVCcGe": {
+          "type": "service",
+          "name": "Leistung Block - Fleischerei",
+          "settings": {
+            "image": "shopify://shop_images/shutterstock_1023985072.jpg",
+            "title_html": "<p><strong>Reinigung in Lebensmittel-produktion</strong></p>",
+            "text_html": "",
+            "keywords": "Förderbänder,",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
         "service_qnBbkK": {
           "type": "service",
           "name": "Leistung Block-Medizin & Pharma",
@@ -776,6 +792,7 @@
         "service_J7nEG9",
         "service_pAdQca",
         "service_7EQBnB",
+        "service_YVCcGe",
         "service_qnBbkK",
         "service_ATQrPX",
         "service_Fkqtdf",
