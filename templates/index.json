@@ -599,8 +599,8 @@
           "name": "Leistung Block-Automobil",
           "settings": {
             "image": "shopify://shop_images/bild_aus_sis_videos_autostrahlen.png",
-            "title_html": "<p>Trockneis-Strahlen</p>",
-            "text_html": "<p>Reinigung mit Trockeneis</p>",
+            "title_html": "<p>Industrielle Reinigung und Trockneis Strahlen</p>",
+            "text_html": "",
             "keywords": "",
             "button_label": "Mehr erfahren",
             "button_link": "",
