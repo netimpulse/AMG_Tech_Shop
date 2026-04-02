@@ -681,7 +681,7 @@
             "image": "shopify://shop_images/shutterstock_165077645.jpg",
             "title_html": "<p><strong>Fahrzeug-aufbereitung</strong></p>",
             "text_html": "",
-            "keywords": "Motorraum, Unterbodenschutz",
+            "keywords": "Motorraum, Unterbodenschutz,Oldtimer",
             "button_label": "Mehr erfahren",
             "button_link": "",
             "block_font_size": 0,
@@ -785,6 +785,22 @@
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
+        },
+        "service_pGycq4": {
+          "type": "service",
+          "name": "Leistung Block- Druck",
+          "settings": {
+            "image": "shopify://shop_images/rennstrecke-motorsport.png",
+            "title_html": "<p>Motorsport</p>",
+            "text_html": "",
+            "keywords": "",
+            "button_label": "Mehr erfahren",
+            "button_link": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
         }
       },
       "block_order": [
@@ -805,7 +821,8 @@
         "service_WkyF8n",
         "service_WeqyNc",
         "service_FQEBmL",
-        "service_qYWgjR"
+        "service_qYWgjR",
+        "service_pGycq4"
       ],
       "name": "Leistung Suche Grid v2",
       "settings": {

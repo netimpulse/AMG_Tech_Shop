@@ -576,6 +576,177 @@
         "font_body": "sans_serif_n4"
       }
     },
+    "about_section_v3_6kJWVB": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_zi7rw4": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_rxKcXB": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_zi7rw4",
+        "feature_rxKcXB"
+      ],
+      "name": "Über Uns (Layout) – v3-Industrielle Reinigung & Wartung",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Industrielle Reinigung & Wartung</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p><strong>Trockeneisstrahlen: Schonende Oberflächenreinigung</strong><br/>Das Verfahren nutzt –78 °C kaltes Trockeneis, das Verschmutzungen schockfrostet und mit Druckluft entfernt. </p><p></p><p><strong>Entfernung von Produktionsrückständen:</strong> Öle, Fette, Harze – entfernt ohne Chemikalien.</p><p><strong>Reinigung von Lüftungssystemen:</strong> Hygienische Reinigung ohne aggressive Mittel.</p><p><strong>Wartung empfindlicher Anlagen:</strong> Kein abrasiver Verschleiß, ideal für präzise Technik.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_GEttVF": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_YY7wbN": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Intensive Kühlleistung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_At8AC6": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Rückstandsfrei",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_kQfEqR": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Einfache Entsorgung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_LwajVx": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Umweltfreundliche Lösung",
+            "feature_description": "",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_YY7wbN",
+        "feature_At8AC6",
+        "feature_kQfEqR",
+        "feature_LwajVx"
+      ],
+      "name": "Über Uns (Layout) – v3-TE Strahlen",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "center",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "Warum Trockeneis?",
+        "title_richtext": "<p><strong>Industrielle Reinigung & Wartung: Wie funktioniert Trockeneisstrahlen?</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Die Reinigung mit Trockeneis ist eine effektive Technologie, um schwer zu reinigende Materialien schonend und schnell sauber zu bekommen. Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet wird, und schließlich mit dem starken Luftdruck abgetragen wird. Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt, und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p>✅ nicht-abrasiv, nichtleitend, nicht entflammbar                <br/>✅ keine sekundären chem. Reinigungsmittel<br/>✅ Reinigung größtenteils ohne vorherige Demontage vor Ort möglich <br/>✅ Zeitersparnis, geringe Ausfallzeiten               <br/>✅ kein Wasser, keine Feuchtigkeit<br/>✅ kein zusätzliches CO2, umweltfreundlich      <br/>✅ Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </p><p>Unser Verbundunternehmen die <a href=\"https://sissaar.de/pages/industrieservice\" target=\"_blank\" title=\"https://sissaar.de/pages/industrieservice\">SIS Saar Industrie Service GmbH </a>unterstützt uns seit Jahren bei dieser Tätigkeit. Schauen Sie sich gerne das <a href=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\" target=\"_blank\" title=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\">YouTube Video </a>dazu an und kommen Sie gerne auf uns zu.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/bild_aus_sis_videos_autostrahlen.png",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
     "about_section_v3_iXDAC3": {
       "type": "about-section-v3",
       "blocks": {
@@ -718,10 +889,10 @@
         "font_body": "sans_serif_n4"
       }
     },
-    "about_section_v3_6kJWVB": {
+    "about_section_v3_XUhQcq": {
       "type": "about-section-v3",
       "blocks": {
-        "feature_zi7rw4": {
+        "feature_YJq8Ad": {
           "type": "feature",
           "settings": {
             "icon_type": "svg",
@@ -734,7 +905,7 @@
             "block_bg_color": ""
           }
         },
-        "feature_rxKcXB": {
+        "feature_BTtdXU": {
           "type": "feature",
           "settings": {
             "icon_type": "svg",
@@ -749,10 +920,10 @@
         }
       },
       "block_order": [
-        "feature_zi7rw4",
-        "feature_rxKcXB"
+        "feature_YJq8Ad",
+        "feature_BTtdXU"
       ],
-      "name": "Über Uns (Layout) – v3-Industrielle Reinigung & Wartung",
+      "name": "Über Uns (Layout) – v3-Elektro",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -761,17 +932,17 @@
         "section_padding_top": 30,
         "section_padding_bottom": 30,
         "title": "",
-        "title_richtext": "<p>Industrielle Reinigung & Wartung</p>",
+        "title_richtext": "<p><strong>Elektronikreinigung</strong></p>",
         "title_color": "#111827",
         "title_font_size": 32,
         "subtitle": "",
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>Trockeneisstrahlen: Schonende Oberflächenreinigung</strong><br/>Das Verfahren nutzt –78 °C kaltes Trockeneis, das Verschmutzungen schockfrostet und mit Druckluft entfernt. Vorteile:</p><ul><li>Nicht abrasiv, nicht leitend, nicht entflammbar</li><li>Keine Chemikalien oder Wasser nötig</li><li>Umweltfreundlich, da kein zusätzliches CO₂ freigesetzt wird</li><li>Ideal für empfindliche Maschinen, Lebensmittelindustrie und schwer<br/>     zugängliche Stellen</li></ul><p><strong> </strong></p><ul><li><strong>Maschinenreinigung:</strong><br/>     Schonende Entfernung von Verschmutzungen ohne Demontage oder Stillstand.</li><li><strong>Schimmel- & Brandsanierung:</strong> Effektiv<br/>     und ohne Feuchtigkeit.</li><li><strong>Kunststoffindustrie:</strong><br/>     Reinigung von Formen und Werkzeugen ohne Rückstände.</li><li><strong>Schaltschrank- und Elektronikreinigung:</strong> Schaltschränke und empfindliche Bauteile werden ohne Wasserschäden<br/>     gereinigt.</li></ul><p><strong>Spezielle Anwendungen</strong></p><ul><li><strong>Entfernung von Produktionsrückständen:</strong> Öle, Fette, Harze – entfernt ohne Chemikalien.</li><li><strong>Reinigung von Lüftungssystemen:</strong> Hygienische Reinigung ohne aggressive Mittel.</li><li><strong>Wartung empfindlicher Anlagen:</strong> Kein abrasiver Verschleiß, ideal für präzise Technik.</li></ul>",
+        "description": "<p>Schaltschränke, Serverräme</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/bild_aus_sis_videos_autostrahlen.png",
+        "image": "shopify://shop_images/shutterstock_224370973.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -789,55 +960,29 @@
         "font_body": "sans_serif_n4"
       }
     },
-    "about_section_v3_GEttVF": {
+    "about_section_v3_r4NKC6": {
       "type": "about-section-v3",
       "blocks": {
-        "feature_YY7wbN": {
+        "feature_B8gF96": {
           "type": "feature",
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Intensive Kühlleistung",
-            "feature_description": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
             "block_bg_color": ""
           }
         },
-        "feature_At8AC6": {
+        "feature_bWQW4m": {
           "type": "feature",
           "settings": {
             "icon_type": "svg",
             "icon_svg": "",
-            "feature_title": "Rückstandsfrei",
-            "feature_description": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_kQfEqR": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Einfache Entsorgung",
-            "feature_description": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_LwajVx": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Umweltfreundliche Lösung",
-            "feature_description": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -846,12 +991,10 @@
         }
       },
       "block_order": [
-        "feature_YY7wbN",
-        "feature_At8AC6",
-        "feature_kQfEqR",
-        "feature_LwajVx"
+        "feature_B8gF96",
+        "feature_bWQW4m"
       ],
-      "name": "Über Uns (Layout) – v3-TE Strahlen",
+      "name": "Über Uns (Layout) – v3-Fahrzeugaufbereitung",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -859,18 +1002,18 @@
         "background_color": "#ffffff",
         "section_padding_top": 30,
         "section_padding_bottom": 30,
-        "title": "Warum Trockeneis?",
-        "title_richtext": "<p><strong>Wie funktioniert Trockeneisstrahlen?</strong></p>",
+        "title": "",
+        "title_richtext": "<p><strong>Fahrzeugaufbereitung</strong></p>",
         "title_color": "#111827",
         "title_font_size": 32,
         "subtitle": "",
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p>Die Reinigung mit Trockeneis ist eine effektive Technologie, um <br/>schwer zu reinigende Materialien schonend und schnell sauber zu bekommen.  <br/>Ähnlich wie beim Sand- oder Sodastrahlen wird beim Trockeneisstrahlen <br/>das Medium mit hohem Druck auf die zu reinigende Stelle gestrahlt. Aber <br/>hier hören die Ähnlichkeiten auch schon auf. Trockeneis ist nicht abrasiv, das bedeutet, dass die Verschmutzung nicht “abgekratzt” wird. Vielmehr führen die geringen Temperaturen von -78°C dazu, dass  die Oberfläche herunterkühlt, wodurch die Verschmutzung schockgefrostet wird, und schließlich mit dem starken Luftdruck abgetragen wird. Anschließend sublimiert das restliche Trockeneis von gereinigten Objekt, und der übrig gebliebene Schmutz kann aufgekehrt werden.</p><p><strong>Vorteile der Trockeneisreinigung gegenüber anderen Reinigungsmethoden:</strong></p><p>✅ nicht-abrasiv, nichtleitend, nicht entflammbar                <br/>✅ keine sekundären chem. Reinigungsmittel<br/>✅ Reinigung größtenteils ohne vorherige Demontage vor Ort möglich <br/>✅ Zeitersparnis, geringe Ausfallzeiten               <br/>✅ kein Wasser, keine Feuchtigkeit<br/>✅ kein zusätzliches CO2, umweltfreundlich      <br/>✅ Unser Trockeneis ist lebensmittelecht und somit auch für den medizinischen Bereich sowie die Lebensmittelindustrie zugelassen<br/>                </p><p>Unser Verbundunternehmen die <a href=\"https://sissaar.de/pages/industrieservice\" target=\"_blank\" title=\"https://sissaar.de/pages/industrieservice\">SIS Saar Industrie Service GmbH </a>unterstützt uns seit Jahren bei dieser Tätigkeit. Schauen Sie sich gerne das <a href=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\" target=\"_blank\" title=\"https://www.youtube.com/watch?v=VWDM0rkgz-8\">YouTube Video </a>dazu an und kommen Sie gerne auf uns zu.</p>",
+        "description": "<p>Oldtimer, Motorraum, Unterbodenschutz</p><p><strong>KFZ-Spezialanwendungen</strong></p><ul><li><strong>Motorraum-Reinigung:</strong><br/>     Tiefenreinigung ohne Korrosionsrisiko.</li><li><strong>Unterbodenschutz-Entfernung:</strong><br/>     Entfernung bei Oldtimer-Restauration – materialschonend.</li><li><strong>Lackschonende Reinigung:</strong><br/>     Reinigung ohne Kratzer oder chemische Rückstände.</li><li><strong>Brandschädensanierung:</strong><br/>     Innenraumreinigung ohne zusätzliche Feuchtigkeit.</li></ul>",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/bild_aus_sis_videos_autostrahlen.png",
+        "image": "shopify://shop_images/shutterstock_165077645.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -922,7 +1065,7 @@
         "feature_Pf3mdn",
         "feature_md4WjW"
       ],
-      "name": "Über Uns (Layout) – v3-IR und Produktion",
+      "name": "Über Uns (Layout) – v3-Kunsstroffformen Reingiung",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -931,17 +1074,88 @@
         "section_padding_top": 30,
         "section_padding_bottom": 30,
         "title": "",
-        "title_richtext": "<p><strong>Industrie & Produktion</strong></p>",
+        "title_richtext": "<p><strong>Kunststroffformen Reinigung</strong></p>",
         "title_color": "#111827",
         "title_font_size": 32,
         "subtitle": "",
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>Kühlung von Maschinen und Anlagen</strong><br/>Trockeneis kühlt überhitzte Produktionsanlagen effizient von außen, ohne Wasser oder Kurzschlussrisiko. Durch die niedrige Temperatur wird die Produktionszeit verlängert und Stillstände minimiert.</p><p><strong>Metallverarbeitung & Stahlguss</strong><br/>In der Metallindustrie unterstützt Trockeneis das präzise Fügen von Bauteilen: Durch die Kälte schrumpft Stahl stärker als Hartmetall, was eine feste Verbindung ermöglicht.</p>",
+        "description": "<p>Kunststoffformen</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_633082400.jpg",
+        "image": "shopify://shop_images/shutterstock_442349785.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_8Th7NQ": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_bUeXnp": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_H4bF3B": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_bUeXnp",
+        "feature_H4bF3B"
+      ],
+      "name": "Über Uns (Layout) – v3-Schimmel und Brandsanierun",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Schimmel und Brandsanierung</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_55147681.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -993,7 +1207,7 @@
         "feature_NC4FNU",
         "feature_yF4HnP"
       ],
-      "name": "Über Uns (Layout) – v3-Fahrzeugaufbereitung & Restauration",
+      "name": "Über Uns (Layout) – v3-Kühlen von Produktionsanlagen",
       "settings": {
         "image_position": "right",
         "image_vertical_align": "start",
@@ -1002,17 +1216,159 @@
         "section_padding_top": 30,
         "section_padding_bottom": 30,
         "title": "",
-        "title_richtext": "<p><strong>Fahrzeugaufbereitung & Restauration</strong></p>",
+        "title_richtext": "<p><strong>Kühlung von Produktionsanlagen</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "<p>Kühlen von Produktionsanlagen</p>",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_279918557.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_qXeErc": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_AkJcq8": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_y9T4UF": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_AkJcq8",
+        "feature_y9T4UF"
+      ],
+      "name": "Über Uns (Layout) – v3-Stahlguss und Metall",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Stahlguss und Metallverearbeitung</strong></p>",
         "title_color": "#111827",
         "title_font_size": 32,
         "subtitle": "",
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>KFZ-Spezialanwendungen</strong></p><ul><li><strong>Motorraum-Reinigung:</strong><br/>     Tiefenreinigung ohne Korrosionsrisiko.</li><li><strong>Unterbodenschutz-Entfernung:</strong><br/>     Entfernung bei Oldtimer-Restauration – materialschonend.</li><li><strong>Lackschonende Reinigung:</strong><br/>     Reinigung ohne Kratzer oder chemische Rückstände.</li><li><strong>Brandschädensanierung:</strong><br/>     Innenraumreinigung ohne zusätzliche Feuchtigkeit.</li></ul>",
+        "description": "<p>stahl</p>",
         "text_color": "#6b7280",
         "text_font_size": 18,
-        "image": "shopify://shop_images/shutterstock_622360499.jpg",
+        "image": "shopify://shop_images/shutterstock_633082400.jpg",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
+    },
+    "about_section_v3_HJkQXh": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_XyiX87": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_9qyxPz": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_XyiX87",
+        "feature_9qyxPz"
+      ],
+      "name": "Über Uns (Layout) – v3-Druckindustrie",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Druckindustrie</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>druck</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/shutterstock_689943454.jpg",
         "image_border_radius": 12,
         "image_alt": "",
         "image_max_width": 85,
@@ -1100,6 +1456,77 @@
         "font_heading": "sans_serif_n4",
         "font_body": "sans_serif_n4"
       }
+    },
+    "about_section_v3_mwwgVq": {
+      "type": "about-section-v3",
+      "blocks": {
+        "feature_rCYhzT": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        },
+        "feature_QxgkQD": {
+          "type": "feature",
+          "settings": {
+            "icon_type": "svg",
+            "icon_svg": "",
+            "feature_title": "Feature Titel",
+            "feature_description": "Kurze Beschreibung",
+            "block_font_size": 0,
+            "block_font_color": "",
+            "block_font_family": "assistant_n4",
+            "block_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_rCYhzT",
+        "feature_QxgkQD"
+      ],
+      "name": "Über Uns (Layout) – v3-Motorsport& Entertainment",
+      "settings": {
+        "image_position": "right",
+        "image_vertical_align": "start",
+        "show_image": true,
+        "background_color": "#ffffff",
+        "section_padding_top": 30,
+        "section_padding_bottom": 30,
+        "title": "",
+        "title_richtext": "<p><strong>Motorsport</strong></p>",
+        "title_color": "#111827",
+        "title_font_size": 32,
+        "subtitle": "",
+        "subtitle_richtext": "",
+        "subtitle_color": "#374151",
+        "subtitle_font_size": 20,
+        "description": "<p>Motoren im Rennsport</p><p>Trockeneis bietet sehr niedrige Temperaturen ohne<br/>Feuchtigkeit und lässt sich schnell punktuell einsetzen. Das verbessert<br/>Prozessstabilität, reduziert thermische Belastungen und erlaubt z. B.<br/>schnellere Taktzeiten in der Produktion oder kürzere Abkühlphasen im<br/>Testbetrieb.</p>",
+        "text_color": "#6b7280",
+        "text_font_size": 18,
+        "image": "shopify://shop_images/rennstrecke-motorsport.png",
+        "image_border_radius": 12,
+        "image_alt": "",
+        "image_max_width": 85,
+        "image_aspect_ratio": "auto",
+        "features_per_row": "2",
+        "icon_size": 32,
+        "icon_color": "#34d399",
+        "feature_title_color": "#111827",
+        "no_image_text_align": "left",
+        "match_prev_height": false,
+        "match_prev_height_offset": 0,
+        "match_min_width": 1000,
+        "content_max_width": 1180,
+        "font_heading": "sans_serif_n4",
+        "font_body": "sans_serif_n4"
+      }
     }
   },
   "order": [
@@ -1113,12 +1540,18 @@
     "about_section_v3_QpRAhD",
     "about_section_v3_kbjWtU",
     "about_section_v3_JbUL6M",
-    "about_section_v3_iXDAC3",
-    "about_section_v3_bKJjij",
     "about_section_v3_6kJWVB",
     "about_section_v3_GEttVF",
+    "about_section_v3_iXDAC3",
+    "about_section_v3_bKJjij",
+    "about_section_v3_XUhQcq",
+    "about_section_v3_r4NKC6",
     "about_section_v3_kd9GAW",
+    "about_section_v3_8Th7NQ",
     "about_section_v3_DzYN34",
-    "about_section_v3_4mQ68K"
+    "about_section_v3_qXeErc",
+    "about_section_v3_HJkQXh",
+    "about_section_v3_4mQ68K",
+    "about_section_v3_mwwgVq"
   ]
 }
