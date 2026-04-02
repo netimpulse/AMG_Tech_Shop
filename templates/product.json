@@ -90,7 +90,7 @@
           "type": "product_description",
           "settings": {
             "heading": "Produktbeschreibung",
-            "text": "<p>Beschreiben Sie hier Ihr Produkt.<br/>in praktischer Isolierbox</p>",
+            "text": "<p>Beschreiben Sie hier Ihr Produkt.<br/>in praktischer Isolierbox</p><p><strong>Achtung: Lieferzeiten nur Mo-Freitag (am Wochenende oder zu Feiertagen ggf. möglich aber nur nach Rücksprache)</strong></p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -102,7 +102,7 @@
           "settings": {
             "heading": "Technische Daten",
             "spec_1_label": "Material",
-            "spec_1_value": "CO2 (Kohlendioxid)",
+            "spec_1_value": "CO2 (Kohlendioxid), fest",
             "spec_2_label": "Temperatur",
             "spec_2_value": "-78,5 Grad C",
             "spec_3_label": "Pelletgroesse",
