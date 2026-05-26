@@ -525,10 +525,26 @@
 .te-summary__line {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
+  gap: 8px 16px;
+  flex-wrap: wrap;
   font-size: 14px;
   color: var(--te-text);
   padding: 4px 0;
+}
+
+.te-summary__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.te-summary__value {
+  flex: 0 0 auto;
+  text-align: right;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .te-summary__line--total {
@@ -700,6 +716,87 @@
 .te-delivery-info__heading { font-size: 16px; font-weight: 700; color: var(--te-text); margin: 0 0 6px; }
 .te-delivery-info__text { font-size: 14px; color: var(--te-text-muted); line-height: 1.6; }
 .te-delivery-info__text p { margin: 0 0 6px; }
+
+/* ── Beschreibung unter dem Preis ────────────────── */
+.te-price-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--te-text-muted);
+  margin-top: -12px;
+}
+.te-price-description p { margin: 0 0 8px; }
+.te-price-description p:last-child { margin-bottom: 0; }
+
+/* Auswahl ausblenden, wenn nur eine Option übrig bleibt */
+.te-selection--hidden { display: none; }
+
+/* ── Gewichts-Hinweise ───────────────────────────── */
+.te-weight-notes { display: flex; flex-direction: column; gap: 10px; }
+.te-weight-note {
+  background: #f0f7ff;
+  border: 1px solid #cfe3ff;
+  border-radius: var(--te-radius-sm);
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--te-text);
+}
+.te-weight-note__heading { display: block; font-weight: 700; margin-bottom: 4px; }
+.te-weight-note__text p { margin: 0 0 6px; }
+.te-weight-note__text p:last-child { margin-bottom: 0; }
+
+/* ── Option: Eigene Box mitbringen ───────────────── */
+.te-own-box {
+  border: 2px solid var(--te-border);
+  border-radius: var(--te-radius-sm);
+  background: var(--te-card-bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.te-own-box.is-selected {
+  border-color: var(--te-primary);
+  box-shadow: 0 0 0 1px var(--te-primary);
+}
+.te-own-box__label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+}
+.te-own-box__checkbox { position: absolute; opacity: 0; pointer-events: none; }
+.te-own-box__radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+}
+.te-own-box__checkbox:checked + .te-own-box__radio {
+  border-color: var(--te-primary);
+  background: var(--te-primary);
+}
+.te-own-box__checkbox:checked + .te-own-box__radio::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 6px;
+  width: 5px; height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.te-own-box__checkbox:focus-visible + .te-own-box__radio {
+  outline: 2px solid var(--te-primary);
+  outline-offset: 2px;
+}
+.te-own-box__content { flex: 1; }
+.te-own-box__title { display: block; font-size: 15px; font-weight: 600; color: var(--te-text); }
+.te-own-box__note { display: block; font-size: 13px; color: var(--te-text-muted); margin-top: 2px; }
+.te-own-box__discount { font-size: 15px; font-weight: 700; color: var(--te-success); white-space: nowrap; }
+
+/* Summary: Rabattzeile */
+.te-summary__line--discount .te-summary__value { color: var(--te-success); font-weight: 600; }
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 640px) {

@@ -28,6 +28,10 @@
     var variantInput  = root.querySelector('[data-te-variant-id]');
     var shippingProp  = root.querySelector('[data-te-shipping-prop]');
     var carrierProp   = root.querySelector('[data-te-carrier-prop]');
+    var ownBoxWrap    = root.querySelector('[data-te-own-box]');
+    var ownBoxCheckbox= root.querySelector('[data-te-own-box-checkbox]');
+    var ownBoxProp    = root.querySelector('[data-te-own-box-prop]');
+    var weightNotes   = root.querySelectorAll('[data-te-weight-notes] .te-weight-note');
 
     /* ── Variant data from Liquid (embedded as data attr) ── */
     var variants = [];
@@ -38,6 +42,11 @@
     /* ── Weight-based shipping config ── */
     var weightBasedShipping = root.getAttribute('data-weight-based') === 'true';
     var pricePerKg = parseFloat((root.getAttribute('data-price-per-kg') || '0').replace(',', '.')) || 0;
+
+    /* ── Eigene-Box-Rabatt (nur Anzeige) ── */
+    var ownBoxDiscount = ownBoxWrap
+      ? (parseFloat((ownBoxWrap.getAttribute('data-own-box-discount') || '0').replace(',', '.')) || 0)
+      : 0;
 
     /* ── Build variant lookup map ─────────────────── */
     var variantMap = {};
@@ -67,6 +76,7 @@
       carrierName: '',
       productPrice: 0,
       shippingPrice: 0,
+      ownBox: false,
       currentVariant: null
     };
 
@@ -100,9 +110,21 @@
           state.isAnfrage = false;
           state.qty = input.value;
         }
+        updateWeightNote();
         findAndSetVariant();
       });
     });
+
+    /* Eigene Box mitbringen – passt Anzeige-Preis an + speichert Auswahl */
+    if (ownBoxCheckbox) {
+      ownBoxCheckbox.addEventListener('change', function () {
+        state.ownBox = ownBoxCheckbox.checked;
+        if (ownBoxProp) ownBoxProp.value = state.ownBox ? 'Ja' : 'Nein';
+        if (ownBoxWrap) ownBoxWrap.classList.toggle('is-selected', state.ownBox);
+        updatePriceDisplay();
+        updateSummary();
+      });
+    }
 
     /* Shipping method selection */
     shipMethods.forEach(function (method) {
@@ -223,18 +245,8 @@
       if (matched) {
         if (variantInput) variantInput.value = matched.id;
 
-        var priceInEur = matched.price / 100;
-        state.productPrice = priceInEur;
-
-        if (priceEl) priceEl.textContent = formatCurrency(priceInEur);
-
-        /* Per-kg unit price */
-        var kg = extractKg(state.qty);
-        if (kg > 0 && unitPriceEl) {
-          unitPriceEl.textContent = formatCurrency(priceInEur / kg) + ' / kg';
-        } else if (unitPriceEl) {
-          unitPriceEl.textContent = '';
-        }
+        state.productPrice = matched.price / 100;
+        updatePriceDisplay();
 
         if (addBtn) {
           addBtn.disabled = !matched.available;
@@ -253,6 +265,32 @@
       updateSummary();
     }
 
+    /* ── Anzeige-Preis (inkl. Eigene-Box-Rabatt) ───── */
+    function getOwnBoxDiscount() {
+      return (state.ownBox && ownBoxDiscount > 0) ? ownBoxDiscount : 0;
+    }
+
+    function updatePriceDisplay() {
+      if (!state.currentVariant) return;
+      var shown = Math.max(0, state.productPrice - getOwnBoxDiscount());
+      if (priceEl) priceEl.textContent = formatCurrency(shown);
+
+      var kg = extractKg(state.qty);
+      if (unitPriceEl) {
+        unitPriceEl.textContent = kg > 0 ? formatCurrency(shown / kg) + ' / kg' : '';
+      }
+    }
+
+    /* ── Gewichts-Hinweis passend zur Menge einblenden ── */
+    function updateWeightNote() {
+      if (!weightNotes || !weightNotes.length) return;
+      var current = norm(state.qty);
+      weightNotes.forEach(function (note) {
+        var w = norm(note.getAttribute('data-weight') || '');
+        note.hidden = !(w !== '' && w === current);
+      });
+    }
+
     /* ── Summary ──────────────────────────────────── */
     function updateSummary() {
       if (!summaryEl) return;
@@ -266,6 +304,7 @@
 
       var productLine  = summaryEl.querySelector('[data-summary-product]');
       var shippingLine = summaryEl.querySelector('[data-summary-shipping]');
+      var ownBoxLine   = summaryEl.querySelector('[data-summary-ownbox]');
       var totalLine    = summaryEl.querySelector('[data-summary-total]');
 
       if (productLine) {
@@ -273,6 +312,16 @@
         if (state.qty) label += ', ' + state.qty;
         productLine.querySelector('.te-summary__label').textContent = label;
         productLine.querySelector('.te-summary__value').textContent = formatCurrency(state.productPrice);
+      }
+
+      var ownBoxDisc = getOwnBoxDiscount();
+      if (ownBoxLine) {
+        if (ownBoxDisc > 0) {
+          ownBoxLine.hidden = false;
+          ownBoxLine.querySelector('.te-summary__value').textContent = '−' + formatCurrency(ownBoxDisc);
+        } else {
+          ownBoxLine.hidden = true;
+        }
       }
 
       var shipCost = 0;
@@ -302,7 +351,7 @@
       }
 
       if (totalLine) {
-        var total = state.productPrice + shipCost;
+        var total = Math.max(0, state.productPrice - ownBoxDisc + shipCost);
         totalLine.querySelector('.te-summary__value').textContent = formatCurrency(total);
       }
     }
@@ -348,6 +397,7 @@
     }
 
     /* ── Initial render ───────────────────────────── */
+    updateWeightNote();
     findAndSetVariant();
   }
 })();

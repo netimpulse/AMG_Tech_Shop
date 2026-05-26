@@ -1,3 +1,4 @@
+{%- if section.settings.section_enabled -%}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'section-related-products.css' | asset_url | stylesheet_tag }}
@@ -57,6 +58,7 @@
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+{%- endif -%}
 
 {% schema %}
 {
@@ -64,6 +66,13 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "section_enabled",
+      "label": "Block „Ähnliche Produkte“ anzeigen",
+      "default": true,
+      "info": "Wenn deaktiviert, wird der gesamte Block ausgeblendet."
+    },
     {
       "type": "paragraph",
       "content": "t:sections.related-products.settings.paragraph__1.content"
