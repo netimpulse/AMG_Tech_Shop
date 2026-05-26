@@ -1,0 +1,17 @@
+# Files that must never be pushed to a Shopify theme (QA harness + tooling).
+[environments.development]
+store = "dev-store-4ogqgshg.myshopify.com"
+theme = "145624989811"
+ignore = [
+  "tests/**",
+  "playwright.config.ts",
+  "playwright/**",
+  "qa-screenshots/**",
+  "playwright-report/**",
+  "test-results/**",
+  "package.json",
+  "package-lock.json",
+  "node_modules/**",
+  ".env*",
+  "README.md",
+]

@@ -1,14 +1,18 @@
 {% comment %}
-  Section: Trockeneis-Produkt – Komplett (v2)
+  Section: Trockeneis-Produkt – Komplett (v3)
   =============================================
   Custom Product-Sektion für Trockeneispellets mit:
-  - Pelletgröße-Auswahl (dynamisch aus Produktoptionen)
-  - Mengenauswahl (dynamisch aus Produktoptionen)
+  - Pelletgröße-Auswahl (dynamisch aus Produktoptionen, blendet sich aus wenn nur 1 Wert)
+  - Mengenauswahl (dynamisch aus Produktoptionen) + per-Gewicht-Hinweise
   - Variantenbasierte Preisberechnung (Shopify-nativ)
+  - Anpassbare Beschreibung unter dem Preis
   - Lieferoptions-Auswahl (Selbstabholung / Expresslieferung)
-  - Aufklappbare Versanddienstleister (DHL / DPD / Go!)
-  - Dynamische Blöcke (Beschreibung, FAQ, Trust, Specs, etc.)
-  - Line Item Properties für Versandpräferenz
+  - Versanddienstleister als sortier- & ausblendbare Blöcke (DHL / DPD / GO! …)
+  - Option „Eigene Box mitbringen" (Preis-Hinweis + Bestellnotiz)
+  - Wunschtermin-Kalender (Sonntage/Feiertage/Wochentage sperrbar, max. X Monate)
+  - Sichtbarkeits-Schalter (Katalog/Produkt vorübergehend ausblenden)
+  - Dynamische Inhalts-Blöcke (Beschreibung, FAQ, Trust, Specs, etc.)
+  - Line Item Properties für Versandpräferenz, Wunschtermin & eigene Box
 
   Benötigt:
     - assets/trockeneis-product.css
@@ -21,33 +25,95 @@
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
+  assign carrier_blocks = section.blocks | where: 'type', 'carrier'
+  assign weight_note_blocks = section.blocks | where: 'type', 'weight_note'
+
+  assign excluded_weekdays = ''
+  if section.settings.exclude_sun
+    assign excluded_weekdays = excluded_weekdays | append: '0,'
+  endif
+  if section.settings.exclude_mon
+    assign excluded_weekdays = excluded_weekdays | append: '1,'
+  endif
+  if section.settings.exclude_tue
+    assign excluded_weekdays = excluded_weekdays | append: '2,'
+  endif
+  if section.settings.exclude_wed
+    assign excluded_weekdays = excluded_weekdays | append: '3,'
+  endif
+  if section.settings.exclude_thu
+    assign excluded_weekdays = excluded_weekdays | append: '4,'
+  endif
+  if section.settings.exclude_fri
+    assign excluded_weekdays = excluded_weekdays | append: '5,'
+  endif
+  if section.settings.exclude_sat
+    assign excluded_weekdays = excluded_weekdays | append: '6,'
+  endif
+
+  # Fallback-Carrier-Werte (nur falls keine Carrier-Bloecke angelegt sind).
+  # Filter in render-Argumenten sind unzuverlaessig - daher vorab berechnen.
+  assign go_price = section.settings.go_price | default: 'auf Anfrage'
+  assign go_raw = section.settings.go_price_raw | default: '0'
+  assign go_cond = section.settings.go_conditions
+  if go_cond == blank
+    assign go_cond = '<ul><li>Same-Day oder Overnight-Lieferung</li><li>Temperaturgeführter Transport möglich</li><li>Direkte Zustellung</li></ul>'
+  endif
+  assign dhl_price = section.settings.dhl_price | default: 'auf Anfrage'
+  assign dhl_raw = section.settings.dhl_price_raw | default: '0'
+  assign dhl_cond = section.settings.dhl_conditions
+  if dhl_cond == blank
+    assign dhl_cond = '<ul><li>Express-Lieferung in 1–2 Werktagen</li><li>Sendungsverfolgung inklusive</li><li>Versicherter Versand</li></ul>'
+  endif
+  assign dpd_price = section.settings.dpd_price | default: 'auf Anfrage'
+  assign dpd_raw = section.settings.dpd_price_raw | default: '0'
+  assign dpd_cond = section.settings.dpd_conditions
+  if dpd_cond == blank
+    assign dpd_cond = '<ul><li>Lieferung in 1–3 Werktagen</li><li>Predict-Service: Lieferzeitfenster per SMS</li><li>Sendungsverfolgung inklusive</li></ul>'
+  endif
 -%}
 
-{%- comment -%} Build full variant data as JSON for JS {%- endcomment -%}
-{%- capture variant_data_json -%}
-[
-  {%- for variant in product.variants -%}
-    {
-      "id": {{ variant.id }},
-      "title": {{ variant.title | json }},
-      "option1": {{ variant.option1 | downcase | strip | json }},
-      "option2": {% if variant.option2 %}{{ variant.option2 | downcase | strip | json }}{% else %}null{% endif %},
-      "price": {{ variant.price }},
-      "compare_at_price": {{ variant.compare_at_price | default: 0 }},
-      "available": {{ variant.available }}
-    }{%- unless forloop.last -%},{%- endunless -%}
-  {%- endfor -%}
-]
-{%- endcapture -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} .te-product {
+    padding-top: {{ section.settings.padding_top | default: 40 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 60 }}px;
+  }
+  {%- if section.settings.accent_color != blank -%}
+    #shopify-section-{{ section.id }} .te-product {
+      --te-primary: {{ section.settings.accent_color }};
+      --te-primary-hover: {{ section.settings.accent_color | color_darken: 10 }};
+    }
+  {%- endif -%}
+{%- endstyle -%}
+
+{%- if section.settings.shop_active == false -%}
+  <div class="te-product te-product--inactive">
+    <div class="te-inactive">
+      {%- if product.featured_image != blank -%}
+        {%- assign inactive_alt = product.featured_image.alt | default: product.title | escape -%}
+        <img class="te-inactive__img" src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ inactive_alt }}" width="300" height="{{ 300 | divided_by: product.featured_image.aspect_ratio | round }}" loading="lazy">
+      {%- endif -%}
+      <div class="te-inactive__text">{{ section.settings.shop_inactive_message }}</div>
+    </div>
+  </div>
+
+{%- else -%}
 
 <div class="te-product"
      data-trockeneis-section
-     data-variant-data='{{ variant_data_json | strip_newlines }}'
      data-money-format="{{ shop.money_format | escape }}"
      data-weight-based="{{ section.settings.weight_based_shipping }}"
      data-price-per-kg="{{ section.settings.shipping_price_per_kg | default: '0' }}"
+     data-own-box-discount="{{ section.settings.own_box_discount | default: '0' }}"
+     data-date-enabled="{{ section.settings.enable_date_picker }}"
+     data-date-required="{{ section.settings.date_required }}"
+     data-date-lead="{{ section.settings.date_lead_days | default: '1' }}"
+     data-date-max-months="{{ section.settings.date_max_months | default: 3 }}"
+     data-date-excluded-weekdays="{{ excluded_weekdays }}"
+     data-date-holidays="{{ section.settings.holiday_dates | newline_to_br | strip_newlines | replace: '<br />', ',' | replace: '<br>', ',' | escape }}"
      data-columns="{{ section.settings.columns_desktop | default: 3 }}"
 >
+  <script type="application/json" data-te-variant-data>{{ product.variants | json }}</script>
 
   <div class="te-product__grid">
 
@@ -57,13 +123,14 @@
         <div class="te-product__slider" data-te-slider>
           <div class="te-product__slider-track">
             {%- for img in product.images -%}
+              {%- assign slide_alt = img.alt | default: product.title | escape -%}
               <div class="te-product__slider-slide{% if forloop.first %} te-product__slider-slide--active{% endif %}">
                 <div class="te-product__image-wrapper">
                   <img
                     src="{{ img | image_url: width: 1200 }}"
                     srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    alt="{{ img.alt | default: product.title | escape }}"
+                    alt="{{ slide_alt }}"
                     width="{{ img.width }}"
                     height="{{ img.height }}"
                     loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
@@ -84,9 +151,10 @@
       {%- else -%}
         <div class="te-product__image-wrapper">
           {%- if product.featured_image != blank -%}
+            {%- assign main_alt = product.featured_image.alt | default: product.title | escape -%}
             <img
               src="{{ product.featured_image | image_url: width: 1200 }}"
-              alt="{{ product.featured_image.alt | default: product.title | escape }}"
+              alt="{{ main_alt }}"
               width="{{ product.featured_image.width }}"
               height="{{ product.featured_image.height }}"
               loading="eager">
@@ -124,7 +192,7 @@
         {% endif %}
       </div>
 
-      {%- comment -%} ── Blöcke unter dem Bild (linke Spalte) ── {%- endcomment -%}
+      {%- comment -%} ── Inhalts-Blöcke unter dem Bild (linke Spalte) ── {%- endcomment -%}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 
@@ -242,7 +310,7 @@
                   <p class="te-cta__text">{{ block.settings.text }}</p>
                 {% endif %}
                 {% if block.settings.button_label != blank %}
-                  <a href="{{ block.settings.button_link }}" class="te-cta__btn">{{ block.settings.button_label }}</a>
+                  <a href="{{ block.settings.button_link | default: '#' }}" class="te-cta__btn">{{ block.settings.button_label }}</a>
                 {% endif %}
                 {% if block.settings.phone != blank %}
                   <a href="tel:{{ block.settings.phone | remove: ' ' }}" class="te-cta__phone">
@@ -284,9 +352,10 @@
             <div id="block-{{ block.id }}" class="te-block te-block--image" {{ block.shopify_attributes }}>
               {% render 'block-custom-styles', block: block %}
               {% if block.settings.image != blank %}
+                {%- assign img_alt = block.settings.image.alt | default: block.settings.caption | escape -%}
                 <img
                   src="{{ block.settings.image | image_url: width: 1200 }}"
-                  alt="{{ block.settings.image.alt | default: block.settings.caption | escape }}"
+                  alt="{{ img_alt }}"
                   width="{{ block.settings.image.width }}"
                   height="{{ block.settings.image.height }}"
                   class="te-block__image"
@@ -323,12 +392,18 @@
         </span>
       </div>
 
-      {%- comment -%} ── 1. Option 1 (z.B. Pelletgröße) – dynamisch aus Produkt ── {%- endcomment -%}
+      {%- comment -%} Anpassbare Beschreibung direkt unter dem Preis {%- endcomment -%}
+      {%- if section.settings.price_description != blank -%}
+        <div class="te-price-description rte">{{ section.settings.price_description }}</div>
+      {%- endif -%}
+
+      {%- comment -%} ── 1. Option 1 (z.B. Pelletgröße) – dynamisch, blendet sich aus bei nur 1 Wert ── {%- endcomment -%}
       {%- if product.options.size >= 1 -%}
-        <div class="te-selection" role="radiogroup" aria-label="{{ product.options[0] }} auswählen">
+        {%- assign opt0 = product.options_with_values[0] -%}
+        <div class="te-selection{% if opt0.values.size <= 1 %} te-selection--hidden{% endif %}" role="radiogroup" aria-label="{{ product.options[0] | escape }} auswählen">
           <span class="te-selection__label">{{ product.options[0] }}</span>
           <div class="te-selection__options" data-te-option="size">
-            {%- for value in product.options_with_values[0].values -%}
+            {%- for value in opt0.values -%}
               <input class="te-option" type="radio" name="te-size" id="te-size-{{ forloop.index }}" value="{{ value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
               <label class="te-option-label" for="te-size-{{ forloop.index }}">{{ value }}</label>
             {%- endfor -%}
@@ -338,7 +413,7 @@
 
       {%- comment -%} ── 2. Option 2 (z.B. Menge) – dynamisch, nur angelegte Werte ── {%- endcomment -%}
       {%- if product.options.size >= 2 -%}
-        <div class="te-selection" role="radiogroup" aria-label="{{ product.options[1] }} auswählen">
+        <div class="te-selection" role="radiogroup" aria-label="{{ product.options[1] | escape }} auswählen">
           <span class="te-selection__label">{{ product.options[1] }}</span>
           <div class="te-selection__options" data-te-option="qty">
             {%- for value in product.options_with_values[1].values -%}
@@ -354,7 +429,22 @@
         </div>
       {%- endif -%}
 
-      {%- comment -%} Hinweis bei „Mehr auf Anfrage" {%- endcomment -%}
+      {%- comment -%} Per-Gewicht-Hinweise (werden je nach gewählter Menge eingeblendet) {%- endcomment -%}
+      {%- if weight_note_blocks.size > 0 -%}
+        <div class="te-weight-notes" data-te-weight-notes>
+          {%- for block in weight_note_blocks -%}
+            <div class="te-weight-note rte"
+                 data-weight="{{ block.settings.weight_value | downcase | strip }}"
+                 data-pickup-only="{{ block.settings.pickup_only }}"
+                 hidden
+                 {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Hinweis bei „Mehr auf Anfrage" – voller Text, nicht abgeschnitten {%- endcomment -%}
       <div class="te-anfrage-hint" data-te-anfrage-hint>
         <strong>Größere Mengen?</strong> Kein Problem!
         <a href="{{ section.settings.contact_page | default: '/pages/kontakt' }}">
@@ -362,6 +452,39 @@
         </a>
         für ein individuelles Angebot.
       </div>
+
+      {%- comment -%} ── Option: Eigene Box mitbringen ── {%- endcomment -%}
+      {%- if section.settings.enable_own_box -%}
+        <div class="te-own-box">
+          <label class="te-own-box__label">
+            <input type="checkbox" class="te-own-box__check" name="properties[Eigene Box]" value="Ja" data-te-own-box>
+            <span class="te-own-box__box" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 8.5L6.5 12L13 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="te-own-box__text">
+              <strong>{{ section.settings.own_box_label | default: 'Ich bringe meine eigene Box mit' }}</strong>
+              {%- if section.settings.own_box_note != blank -%}
+                <small class="te-own-box__note">{{ section.settings.own_box_note }}</small>
+              {%- endif -%}
+            </span>
+          </label>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} ── Wunschtermin (Kalender) ── {%- endcomment -%}
+      {%- if section.settings.enable_date_picker -%}
+        <div class="te-datepicker">
+          <label class="te-datepicker__label" for="te-date-{{ section.id }}">
+            {{ section.settings.date_label | default: 'Wunsch-Liefer-/Abholtermin' }}
+            {%- if section.settings.date_required -%}<span class="te-datepicker__req" aria-hidden="true">*</span>{%- endif -%}
+          </label>
+          <input type="date" id="te-date-{{ section.id }}" class="te-datepicker__input" data-te-date inputmode="none">
+          {%- if section.settings.date_help != blank -%}
+            <p class="te-datepicker__help">{{ section.settings.date_help }}</p>
+          {%- endif -%}
+          <p class="te-datepicker__error" data-te-date-error hidden></p>
+        </div>
+      {%- endif -%}
 
       {%- comment -%} ── 3. Lieferoptionen ─────────────── {%- endcomment -%}
       <div class="te-shipping">
@@ -379,7 +502,7 @@
           </div>
         </div>
 
-        {%- comment -%} Expresslieferung – ausblendbar per Setting {%- endcomment -%}
+        {%- comment -%} Expresslieferung – ausblendbar per Setting & per Gewicht ── {%- endcomment -%}
         {%- unless section.settings.hide_express -%}
         <div class="te-ship-method" data-ship-method="express">
           <div class="te-ship-method__header" role="button" tabindex="0" aria-label="Expresslieferung – Lieferant auswählen">
@@ -388,36 +511,56 @@
               <div class="te-ship-method__name">🚚 Expresslieferung</div>
               <div class="te-ship-method__desc">Lieferung direkt zu Ihnen – Dienstleister wählen</div>
             </div>
-            <span class="te-ship-method__price" style="color: var(--te-text-muted); font-weight: 500;">auswählen →</span>
+            <span class="te-ship-method__price te-ship-method__price--muted">auswählen →</span>
           </div>
 
-          {%- comment -%} Carrier-Accordion {%- endcomment -%}
+          {%- comment -%} Carrier-Accordion – sortier-/ausblendbare Blöcke {%- endcomment -%}
           <div class="te-carriers" data-te-carriers>
             <div class="te-carriers__title">Versanddienstleister wählen</div>
 
-            {% render 'shipping-option-card',
-              carrier_id: 'dhl',
-              carrier_name: 'DHL Express',
-              carrier_price: section.settings.dhl_price | default: 'auf Anfrage',
-              carrier_price_raw: section.settings.dhl_price_raw | default: '0',
-              carrier_details_html: section.settings.dhl_conditions | default: '<ul><li>Express-Lieferung in 1–2 Werktagen</li><li>Sendungsverfolgung inklusive</li><li>Versicherter Versand</li></ul>'
-            %}
-
-            {% render 'shipping-option-card',
-              carrier_id: 'dpd',
-              carrier_name: 'DPD',
-              carrier_price: section.settings.dpd_price | default: 'auf Anfrage',
-              carrier_price_raw: section.settings.dpd_price_raw | default: '0',
-              carrier_details_html: section.settings.dpd_conditions | default: '<ul><li>Lieferung in 1–3 Werktagen</li><li>Predict-Service: Lieferzeitfenster per SMS</li><li>Sendungsverfolgung inklusive</li></ul>'
-            %}
-
-            {% render 'shipping-option-card',
-              carrier_id: 'go',
-              carrier_name: 'GO! Express',
-              carrier_price: section.settings.go_price | default: 'auf Anfrage',
-              carrier_price_raw: section.settings.go_price_raw | default: '0',
-              carrier_details_html: section.settings.go_conditions | default: '<ul><li>Same-Day oder Overnight-Lieferung</li><li>Temperaturgeführter Transport möglich</li><li>Direkte Zustellung</li></ul>'
-            %}
+            {%- if carrier_blocks.size > 0 -%}
+              {%- for block in carrier_blocks -%}
+                {%- unless block.settings.enabled == false -%}
+                  {% render 'shipping-option-card',
+                    carrier_id: block.id,
+                    carrier_name: block.settings.name,
+                    carrier_price: block.settings.price,
+                    carrier_price_raw: block.settings.price_raw,
+                    carrier_details_html: block.settings.conditions,
+                    block: block
+                  %}
+                {%- endunless -%}
+              {%- endfor -%}
+            {%- else -%}
+              {%- comment -%} Fallback (keine Carrier-Blöcke angelegt): legacy Settings, GO! zuerst, je einzeln ausblendbar {%- endcomment -%}
+              {%- unless section.settings.hide_go -%}
+                {% render 'shipping-option-card',
+                  carrier_id: 'go',
+                  carrier_name: 'GO! Express',
+                  carrier_price: go_price,
+                  carrier_price_raw: go_raw,
+                  carrier_details_html: go_cond
+                %}
+              {%- endunless -%}
+              {%- unless section.settings.hide_dhl -%}
+                {% render 'shipping-option-card',
+                  carrier_id: 'dhl',
+                  carrier_name: 'DHL Express',
+                  carrier_price: dhl_price,
+                  carrier_price_raw: dhl_raw,
+                  carrier_details_html: dhl_cond
+                %}
+              {%- endunless -%}
+              {%- unless section.settings.hide_dpd -%}
+                {% render 'shipping-option-card',
+                  carrier_id: 'dpd',
+                  carrier_name: 'DPD',
+                  carrier_price: dpd_price,
+                  carrier_price_raw: dpd_raw,
+                  carrier_details_html: dpd_cond
+                %}
+              {%- endunless -%}
+            {%- endif -%}
           </div>
         </div>
         {%- endunless -%}
@@ -429,8 +572,16 @@
           <span class="te-summary__label">–</span>
           <span class="te-summary__value">–</span>
         </div>
+        <div class="te-summary__line" data-summary-box hidden>
+          <span class="te-summary__label">Eigene Box</span>
+          <span class="te-summary__value">–</span>
+        </div>
         <div class="te-summary__line" data-summary-shipping>
           <span class="te-summary__label">Versand</span>
+          <span class="te-summary__value">–</span>
+        </div>
+        <div class="te-summary__line" data-summary-date hidden>
+          <span class="te-summary__label">Wunschtermin</span>
           <span class="te-summary__value">–</span>
         </div>
         <div class="te-summary__line te-summary__line--total" data-summary-total>
@@ -443,9 +594,10 @@
       {%- form 'product', product, id: 'trockeneis-form', novalidate: 'novalidate' -%}
         <input type="hidden" name="id" value="{{ current_variant.id }}" data-te-variant-id>
         <input type="hidden" name="quantity" value="1">
-        {%- comment -%} Line Item Properties für Versandpräferenz {%- endcomment -%}
+        {%- comment -%} Line Item Properties für Versandpräferenz, Wunschtermin & eigene Box {%- endcomment -%}
         <input type="hidden" name="properties[Lieferoption]" value="" data-te-shipping-prop>
         <input type="hidden" name="properties[Versanddienstleister]" value="" data-te-carrier-prop>
+        <input type="hidden" name="properties[Wunschtermin]" value="" data-te-date-prop disabled>
 
         <div class="te-add-to-cart">
           <button type="submit"
@@ -469,35 +621,6 @@
     </div>
   </div>
 </div>
-
-<style>
-  /* Trockeneis Produkt-Slider */
-  .te-product__slider { position: relative; }
-  .te-product__slider-track { position: relative; overflow: hidden; border-radius: 12px; }
-  .te-product__slider-slide { display: none; }
-  .te-product__slider-slide--active { display: block; }
-  .te-product__slider-slide .te-product__image-wrapper { border-radius: 0; }
-  .te-product__slider-btn {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,.85); border: none; border-radius: 50%;
-    width: 36px; height: 36px; font-size: 18px; line-height: 1;
-    cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: background .15s;
-  }
-  .te-product__slider-btn:hover { background: #fff; }
-  .te-product__slider-btn--prev { left: 8px; }
-  .te-product__slider-btn--next { right: 8px; }
-  .te-product__slider-thumbs {
-    display: flex; gap: 8px; margin-top: 12px; overflow-x: auto; padding-bottom: 4px;
-  }
-  .te-product__slider-thumb {
-    flex-shrink: 0; width: 60px; height: 60px; border-radius: 8px;
-    overflow: hidden; border: 2px solid transparent; cursor: pointer;
-    padding: 0; background: none; transition: border-color .15s;
-  }
-  .te-product__slider-thumb--active { border-color: #111; }
-  .te-product__slider-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-</style>
 
 {%- if section.settings.enable_image_slider and product.images.size > 1 -%}
 <script>
@@ -525,6 +648,8 @@
 </script>
 {%- endif -%}
 
+{%- endif -%}
+
 <script src="{{ 'trockeneis-product.js' | asset_url }}" defer></script>
 
 {% schema %}
@@ -533,59 +658,104 @@
   "tag": "section",
   "class": "section--trockeneis",
   "settings": [
+    { "type": "header", "content": "Sichtbarkeit / Shop-Status" },
+    { "type": "checkbox", "id": "shop_active", "label": "Produkt / Konfigurator anzeigen", "default": true, "info": "Deaktivieren, um den Shop bzw. die Katalog-Seite vorübergehend auszublenden (zeigt stattdessen die Hinweismeldung unten)." },
+    { "type": "richtext", "id": "shop_inactive_message", "label": "Hinweis bei deaktiviertem Shop", "default": "<p>Unser Shop ist momentan nicht verfügbar. Bitte kontaktieren Sie uns direkt für Ihre Bestellung.</p>" },
+
     { "type": "header", "content": "Produktbilder" },
     { "type": "checkbox", "id": "enable_image_slider", "label": "Bild-Slider aktivieren", "default": true, "info": "Zeigt alle Produktbilder als Slider mit Thumbnails. Wenn deaktiviert, wird nur das Hauptbild angezeigt." },
+
     { "type": "header", "content": "Allgemein" },
     { "type": "text", "id": "subtitle", "label": "Untertitel", "default": "Hochwertige Trockeneispellets für Industrie und Gewerbe" },
     { "type": "text", "id": "price_note", "label": "Preishinweis", "default": "Preis inkl. MwSt., zzgl. Versandkosten" },
+    { "type": "richtext", "id": "price_description", "label": "Beschreibung unter dem Preis", "info": "Wird direkt unter dem Preis angezeigt – immer frei anpassbar.", "default": "<p>Frische Produktion, sofort einsatzbereit. Wähle Pelletgröße, Menge und Lieferart.</p>" },
     { "type": "text", "id": "cart_note", "label": "Warenkorb-Hinweis", "default": "Sichere Zahlung über Shopify Payments" },
+    { "type": "color", "id": "accent_color", "label": "Akzentfarbe (optional)", "info": "Überschreibt die Standard-Blau-Akzentfarbe der Sektion." },
 
-    { "type": "header", "content": "Standardauswahl (Fallback)" },
-    { "type": "select", "id": "default_size", "label": "Vorauswahl Pelletgroesse", "default": "3mm",
-      "options": [
-        { "value": "1.5mm", "label": "1,5 mm" },
-        { "value": "3mm", "label": "3 mm" }
-      ]
-    },
+    { "type": "header", "content": "Abstand" },
+    { "type": "range", "id": "padding_top", "label": "Abstand oben", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Abstand unten", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 60 },
 
     { "type": "header", "content": "Selbstabholung" },
     { "type": "text", "id": "pickup_address", "label": "Abholadresse / Standortinfo", "default": "Abholung an unserem Standort im Saarland" },
-    { "type": "url", "id": "contact_page", "label": "Kontaktseite (fuer Anfrage)" },
+    { "type": "url", "id": "contact_page", "label": "Kontaktseite (für Anfrage)" },
 
-    { "type": "header", "content": "Expresslieferung" },
-    { "type": "checkbox", "id": "hide_express", "label": "Expresslieferung ausblenden", "default": false, "info": "Wenn aktiviert, wird nur Selbstabholung angezeigt" },
-    { "type": "checkbox", "id": "weight_based_shipping", "label": "Lieferpreis nach Gewicht berechnen", "default": false, "info": "Wenn aktiviert, wird der Lieferpreis pro kg multipliziert" },
-    { "type": "text", "id": "shipping_price_per_kg", "label": "Versandpreis pro kg (EUR)", "default": "2.50", "info": "z.B. 2.50 – wird mit gewaehltem Gewicht multipliziert" },
+    { "type": "header", "content": "Eigene Box mitbringen" },
+    { "type": "checkbox", "id": "enable_own_box", "label": "Option Eigene Box mitbringen anzeigen", "default": false },
+    { "type": "text", "id": "own_box_label", "label": "Bezeichnung", "default": "Ich bringe meine eigene Box mit" },
+    { "type": "text", "id": "own_box_note", "label": "Hinweistext", "default": "Bitte geeignete isolierte Box mitbringen." },
+    { "type": "text", "id": "own_box_discount", "label": "Rabatt in EUR (nur Anzeige)", "default": "0", "info": "Wird in der Zusammenfassung als Abzug angezeigt. Der tatsächliche Rabatt muss zusätzlich im Shopify-Backend als Rabatt/Funktion hinterlegt werden." },
 
-    { "type": "header", "content": "DHL" },
+    { "type": "header", "content": "Wunschtermin (Kalender)" },
+    { "type": "checkbox", "id": "enable_date_picker", "label": "Wunschtermin-Feld anzeigen", "default": true },
+    { "type": "checkbox", "id": "date_required", "label": "Wunschtermin verpflichtend", "default": false },
+    { "type": "text", "id": "date_label", "label": "Bezeichnung", "default": "Wunsch-Liefer-/Abholtermin" },
+    { "type": "text", "id": "date_help", "label": "Hilfetext", "default": "Wähle deinen Wunschtermin (max. 3 Monate im Voraus)." },
+    { "type": "text", "id": "date_lead_days", "label": "Vorlaufzeit in Tagen", "default": "1", "info": "Frühester wählbarer Termin = heute + X Tage." },
+    { "type": "range", "id": "date_max_months", "label": "Maximaler Vorlauf (Monate)", "min": 1, "max": 6, "step": 1, "default": 3, "unit": "Mon" },
+    { "type": "checkbox", "id": "exclude_mon", "label": "Montag sperren", "default": false },
+    { "type": "checkbox", "id": "exclude_tue", "label": "Dienstag sperren", "default": false },
+    { "type": "checkbox", "id": "exclude_wed", "label": "Mittwoch sperren", "default": false },
+    { "type": "checkbox", "id": "exclude_thu", "label": "Donnerstag sperren", "default": false },
+    { "type": "checkbox", "id": "exclude_fri", "label": "Freitag sperren", "default": false },
+    { "type": "checkbox", "id": "exclude_sat", "label": "Samstag sperren", "default": false },
+    { "type": "checkbox", "id": "exclude_sun", "label": "Sonntag sperren", "default": true },
+    { "type": "textarea", "id": "holiday_dates", "label": "Gesperrte Tage / Feiertage", "info": "Ein Datum pro Zeile im Format JJJJ-MM-TT (z.B. 2026-12-25)." },
+
+    { "type": "header", "content": "Express – Allgemein" },
+    { "type": "checkbox", "id": "hide_express", "label": "Expresslieferung komplett ausblenden", "default": false, "info": "Wenn aktiviert, wird nur Selbstabholung angezeigt." },
+    { "type": "checkbox", "id": "weight_based_shipping", "label": "Lieferpreis nach Gewicht berechnen", "default": false, "info": "Wenn aktiviert, wird der Lieferpreis pro kg multipliziert." },
+    { "type": "text", "id": "shipping_price_per_kg", "label": "Versandpreis pro kg (EUR)", "default": "2.50", "info": "z.B. 2.50 – wird mit gewähltem Gewicht multipliziert." },
+
+    { "type": "header", "content": "Versanddienstleister (Fallback)" },
+    { "type": "paragraph", "content": "Empfohlen: Versanddienstleister als Blöcke hinzufügen (sortier- & ausblendbar). Diese Felder dienen nur als Fallback, falls keine Carrier-Blöcke angelegt sind." },
+    { "type": "checkbox", "id": "hide_dhl", "label": "DHL ausblenden (Fallback)", "default": false },
+    { "type": "checkbox", "id": "hide_dpd", "label": "DPD ausblenden (Fallback)", "default": false },
+    { "type": "checkbox", "id": "hide_go", "label": "GO! ausblenden (Fallback)", "default": false },
     { "type": "text", "id": "dhl_price", "label": "DHL Preis (Anzeige)", "default": "auf Anfrage" },
     { "type": "text", "id": "dhl_price_raw", "label": "DHL Preis numerisch (z.B. 29.90)", "default": "0" },
     { "type": "html", "id": "dhl_conditions", "label": "DHL Lieferkonditionen (HTML)" },
-
-    { "type": "header", "content": "DPD" },
     { "type": "text", "id": "dpd_price", "label": "DPD Preis (Anzeige)", "default": "auf Anfrage" },
     { "type": "text", "id": "dpd_price_raw", "label": "DPD Preis numerisch (z.B. 24.90)", "default": "0" },
     { "type": "html", "id": "dpd_conditions", "label": "DPD Lieferkonditionen (HTML)" },
-
-    { "type": "header", "content": "GO! Express" },
     { "type": "text", "id": "go_price", "label": "GO! Preis (Anzeige)", "default": "auf Anfrage" },
     { "type": "text", "id": "go_price_raw", "label": "GO! Preis numerisch (z.B. 39.90)", "default": "0" },
     { "type": "html", "id": "go_conditions", "label": "GO! Lieferkonditionen (HTML)" },
 
     { "type": "header", "content": "USP-Leiste" },
-    { "type": "text", "id": "feature_1", "label": "Feature 1", "default": "Premium-Qualitaet" },
-    { "type": "text", "id": "feature_2", "label": "Feature 2", "default": "Sofort verfuegbar" },
+    { "type": "text", "id": "feature_1", "label": "Feature 1", "default": "Premium-Qualität" },
+    { "type": "text", "id": "feature_2", "label": "Feature 2", "default": "Sofort verfügbar" },
     { "type": "text", "id": "feature_3", "label": "Feature 3", "default": "Flexible Mengen" }
   ],
   "blocks": [
     {
+      "type": "carrier",
+      "name": "Versanddienstleister",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "DHL Express" },
+        { "type": "text", "id": "price", "label": "Preis (Anzeige)", "default": "auf Anfrage" },
+        { "type": "text", "id": "price_raw", "label": "Preis numerisch (z.B. 29.90)", "default": "0", "info": "Für die Versandkosten-Berechnung in der Zusammenfassung. 0 = auf Anfrage." },
+        { "type": "richtext", "id": "conditions", "label": "Lieferkonditionen", "default": "<ul><li>Express-Lieferung in 1–2 Werktagen</li><li>Sendungsverfolgung inklusive</li></ul>" },
+        { "type": "checkbox", "id": "enabled", "label": "Anzeigen", "default": true }
+      ]
+    },
+    {
+      "type": "weight_note",
+      "name": "Gewichts-Hinweis",
+      "settings": [
+        { "type": "text", "id": "weight_value", "label": "Menge / Gewicht", "default": "5kg", "info": "Muss exakt einem angelegten Mengen-Optionswert entsprechen (z.B. 5kg)." },
+        { "type": "richtext", "id": "text", "label": "Hinweistext", "default": "<p>Diese Menge ist nur zur Selbstabholung verfügbar.</p>" },
+        { "type": "checkbox", "id": "pickup_only", "label": "Nur Selbstabholung (Express ausblenden)", "default": false }
+      ]
+    },
+    {
       "type": "product_description",
       "name": "Produktbeschreibung",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Produktbeschreibung" },
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Produktbeschreibung" },
         { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Beschreiben Sie hier Ihr Produkt.</p>" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -595,12 +765,12 @@
       "type": "product_specs",
       "name": "Technische Daten",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Technische Daten" },
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Technische Daten" },
         { "type": "text", "id": "spec_1_label", "label": "Zeile 1 Bezeichnung", "default": "Material" },
         { "type": "text", "id": "spec_1_value", "label": "Zeile 1 Wert", "default": "CO2 (Kohlendioxid)" },
         { "type": "text", "id": "spec_2_label", "label": "Zeile 2 Bezeichnung", "default": "Temperatur" },
         { "type": "text", "id": "spec_2_value", "label": "Zeile 2 Wert", "default": "-78,5 Grad C" },
-        { "type": "text", "id": "spec_3_label", "label": "Zeile 3 Bezeichnung", "default": "Pelletgroesse" },
+        { "type": "text", "id": "spec_3_label", "label": "Zeile 3 Bezeichnung", "default": "Pelletgröße" },
         { "type": "text", "id": "spec_3_value", "label": "Zeile 3 Wert", "default": "1,5 mm / 3 mm" },
         { "type": "text", "id": "spec_4_label", "label": "Zeile 4 Bezeichnung" },
         { "type": "text", "id": "spec_4_value", "label": "Zeile 4 Wert" },
@@ -609,7 +779,7 @@
         { "type": "text", "id": "spec_6_label", "label": "Zeile 6 Bezeichnung" },
         { "type": "text", "id": "spec_6_value", "label": "Zeile 6 Wert" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -619,10 +789,10 @@
       "type": "safety_info",
       "name": "Sicherheitshinweis",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Sicherheitshinweis" },
-        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Trockeneis nur in gut beluefteten Raeumen verwenden.</p>" },
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Sicherheitshinweis" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Trockeneis nur in gut belüfteten Räumen verwenden.</p>" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -635,7 +805,7 @@
         { "type": "text", "id": "question", "label": "Frage", "default": "Wie wird Trockeneis geliefert?" },
         { "type": "richtext", "id": "answer", "label": "Antwort", "default": "<p>In speziell isolierten Thermoboxen.</p>" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -645,17 +815,17 @@
       "type": "trust_badges",
       "name": "Vertrauens-Badges",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Ueberschrift" },
+        { "type": "text", "id": "heading", "label": "Überschrift" },
         { "type": "image_picker", "id": "badge_1_icon", "label": "Badge 1 Icon" },
         { "type": "text", "id": "badge_1_text", "label": "Badge 1 Text", "default": "Sichere Zahlung" },
         { "type": "image_picker", "id": "badge_2_icon", "label": "Badge 2 Icon" },
         { "type": "text", "id": "badge_2_text", "label": "Badge 2 Text", "default": "Schneller Versand" },
         { "type": "image_picker", "id": "badge_3_icon", "label": "Badge 3 Icon" },
-        { "type": "text", "id": "badge_3_text", "label": "Badge 3 Text", "default": "Gepruefte Qualitaet" },
+        { "type": "text", "id": "badge_3_text", "label": "Badge 3 Text", "default": "Geprüfte Qualität" },
         { "type": "image_picker", "id": "badge_4_icon", "label": "Badge 4 Icon" },
         { "type": "text", "id": "badge_4_text", "label": "Badge 4 Text" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -665,13 +835,13 @@
       "type": "contact_cta",
       "name": "Kontakt-CTA",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Fragen? Wir helfen gerne!" },
-        { "type": "text", "id": "text", "label": "Text", "default": "Kontaktieren Sie uns fuer ein individuelles Angebot." },
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Fragen? Wir helfen gerne!" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Kontaktieren Sie uns für ein individuelles Angebot." },
         { "type": "text", "id": "button_label", "label": "Button-Text", "default": "Kontakt aufnehmen" },
         { "type": "url", "id": "button_link", "label": "Button-Link" },
         { "type": "text", "id": "phone", "label": "Telefonnummer" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -681,10 +851,10 @@
       "type": "delivery_info",
       "name": "Lieferinformationen",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Ueberschrift", "default": "Lieferinformationen" },
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Lieferinformationen" },
         { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Versand in isolierten Thermoboxen.</p>" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -694,10 +864,10 @@
       "type": "custom_richtext",
       "name": "Freier Text-Block",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Ueberschrift" },
+        { "type": "text", "id": "heading", "label": "Überschrift" },
         { "type": "richtext", "id": "content", "label": "Inhalt" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -710,7 +880,7 @@
         { "type": "image_picker", "id": "image", "label": "Bild" },
         { "type": "text", "id": "caption", "label": "Bildunterschrift" },
         { "type": "header", "content": "Block-Styling" },
-        { "type": "range", "id": "block_font_size", "label": "Schriftgroesse (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
+        { "type": "range", "id": "block_font_size", "label": "Schriftgröße (px)", "min": 0, "max": 72, "step": 1, "default": 0, "unit": "px", "info": "0 = Standard" },
         { "type": "color", "id": "block_font_color", "label": "Schriftfarbe" },
         { "type": "font_picker", "id": "block_font_family", "label": "Schriftart", "default": "assistant_n4" },
         { "type": "color_background", "id": "block_bg_color", "label": "Hintergrundfarbe" }
@@ -721,12 +891,15 @@
     {
       "name": "Trockeneis-Produkt",
       "blocks": [
+        { "type": "carrier", "settings": { "name": "GO! Express", "price": "auf Anfrage", "conditions": "<ul><li>Same-Day oder Overnight-Lieferung</li><li>Temperaturgeführter Transport möglich</li><li>Direkte Zustellung</li></ul>" } },
+        { "type": "carrier", "settings": { "name": "DHL Express", "price": "auf Anfrage", "conditions": "<ul><li>Express-Lieferung in 1–2 Werktagen</li><li>Sendungsverfolgung inklusive</li><li>Versicherter Versand</li></ul>" } },
+        { "type": "carrier", "settings": { "name": "DPD", "price": "auf Anfrage", "conditions": "<ul><li>Lieferung in 1–3 Werktagen</li><li>Predict-Service: Lieferzeitfenster per SMS</li><li>Sendungsverfolgung inklusive</li></ul>" } },
         { "type": "product_description" },
         { "type": "product_specs" },
         { "type": "safety_info" }
       ]
     }
   ],
-  "templates": ["product"]
+  "enabled_on": { "templates": ["product"] }
 }
 {% endschema %}

@@ -1,0 +1,12 @@
+{
+  "name": "amg-tech-shop-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Visual-QA harness for the AMG Tech Shop Shopify theme",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}

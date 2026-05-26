@@ -1,19 +1,37 @@
 /**
- * Trockeneis Product – Interaktive Produktseite (v3)
+ * Trockeneis Product – Interaktive Produktseite (v4)
  * ====================================================
- * Robust variant matching via lookup map.
- * option1 = Pelletgröße, option2 = Menge (kg).
- * Prices update on every selection change.
+ * - Robustes Variant-Matching via Lookup-Map (option1 = Pelletgröße, option2 = Menge).
+ * - Preis-Update bei jeder Auswahl.
+ * - Lieferart (Selbstabholung / Express) + sortier-/ausblendbare Versanddienstleister.
+ * - Option „Eigene Box mitbringen" (Anzeige-Rabatt + Bestellnotiz).
+ * - Wunschtermin-Kalender mit gesperrten Wochentagen/Feiertagen + Vorlauf/Max-Vorlauf.
+ * - Per-Gewicht-Hinweise inkl. „nur Selbstabholung".
+ * - Theme-Editor-kompatibel (Re-Init bei shopify:section:load).
  */
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var roots = document.querySelectorAll('[data-trockeneis-section]');
-    roots.forEach(initSection);
+  function boot() {
+    document.querySelectorAll('[data-trockeneis-section]').forEach(initSection);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+  /* Theme-Editor: Section neu initialisieren */
+  document.addEventListener('shopify:section:load', function (e) {
+    var root = e.target.querySelector('[data-trockeneis-section]');
+    if (root && !root.__teInit) initSection(root);
   });
 
   function initSection(root) {
+    if (root.__teInit) return;
+    root.__teInit = true;
+
     /* ── DOM refs ──────────────────────────────────── */
     var sizeInputs    = root.querySelectorAll('[name="te-size"]');
     var qtyInputs     = root.querySelectorAll('[name="te-qty"]');
@@ -22,332 +40,363 @@
     var anfragHint    = root.querySelector('[data-te-anfrage-hint]');
     var addBtn        = root.querySelector('[data-te-add-btn]');
     var shipMethods   = root.querySelectorAll('[data-ship-method]');
+    var expressMethod = root.querySelector('[data-ship-method="express"]');
     var carriers      = root.querySelectorAll('[data-carrier]');
     var carriersWrap  = root.querySelector('[data-te-carriers]');
     var summaryEl     = root.querySelector('[data-te-summary]');
     var variantInput  = root.querySelector('[data-te-variant-id]');
     var shippingProp  = root.querySelector('[data-te-shipping-prop]');
     var carrierProp   = root.querySelector('[data-te-carrier-prop]');
+    var ownBoxCheck   = root.querySelector('[data-te-own-box]');
+    var dateInput     = root.querySelector('[data-te-date]');
+    var dateProp      = root.querySelector('[data-te-date-prop]');
+    var dateError     = root.querySelector('[data-te-date-error]');
+    var weightNotes   = root.querySelectorAll('[data-te-weight-notes] .te-weight-note');
 
-    /* ── Variant data from Liquid (embedded as data attr) ── */
+    /* ── Variant data (embedded JSON) ── */
     var variants = [];
     try {
-      variants = JSON.parse(root.getAttribute('data-variant-data') || '[]');
-    } catch (e) { /* fallback: empty */ }
+      var dataEl = root.querySelector('[data-te-variant-data]');
+      variants = dataEl ? JSON.parse(dataEl.textContent) : [];
+    } catch (e) { variants = []; }
 
-    /* ── Weight-based shipping config ── */
+    /* ── Config from data attributes ── */
     var weightBasedShipping = root.getAttribute('data-weight-based') === 'true';
-    var pricePerKg = parseFloat((root.getAttribute('data-price-per-kg') || '0').replace(',', '.')) || 0;
+    var pricePerKg   = toNum(root.getAttribute('data-price-per-kg'));
+    var ownBoxDiscount = toNum(root.getAttribute('data-own-box-discount'));
 
-    /* ── Build variant lookup map ─────────────────── */
-    var variantMap = {};
-    for (var i = 0; i < variants.length; i++) {
-      var v = variants[i];
-      var k1 = norm(v.option1 || '');
-      var k2 = norm(v.option2 || '');
-      // Store with option1|option2 key
-      variantMap[k1 + '|' + k2] = v;
-      // Also store reverse for safety
-      if (k2) {
-        variantMap[k2 + '|' + k1] = v;
-      }
-      // Single-option product: key with empty option2
-      if (!v.option2) {
-        variantMap[k1 + '|'] = v;
-      }
-    }
-
-    /* ── State ────────────────────────────────────── */
-    var state = {
-      size: '',
-      qty: '',
-      isAnfrage: false,
-      shipMethod: '',
-      carrier: '',
-      carrierName: '',
-      productPrice: 0,
-      shippingPrice: 0,
-      currentVariant: null
+    var dateCfg = {
+      enabled: root.getAttribute('data-date-enabled') === 'true',
+      required: root.getAttribute('data-date-required') === 'true',
+      lead: parseInt(root.getAttribute('data-date-lead') || '0', 10) || 0,
+      maxMonths: parseInt(root.getAttribute('data-date-max-months') || '3', 10) || 3,
+      excludedWeekdays: (root.getAttribute('data-date-excluded-weekdays') || '')
+        .split(',').filter(Boolean).map(function (n) { return parseInt(n, 10); }),
+      holidays: (root.getAttribute('data-date-holidays') || '')
+        .split(',').map(function (s) { return s.trim(); }).filter(Boolean)
     };
 
-    /* ── Init default selection ───────────────────── */
+    /* ── Variant lookup map ── */
+    var variantMap = {};
+    variants.forEach(function (v) {
+      var k1 = norm(v.option1 || '');
+      var k2 = norm(v.option2 || '');
+      variantMap[k1 + '|' + k2] = v;
+      if (k2) variantMap[k2 + '|' + k1] = v;
+      if (!v.option2) variantMap[k1 + '|'] = v;
+    });
+
+    /* ── State ── */
+    var state = {
+      size: '', qty: '', isAnfrage: false,
+      shipMethod: '', carrier: '', carrierName: '',
+      productPrice: 0, shippingPrice: 0,
+      currentVariant: null,
+      ownBox: false,
+      pickupOnly: false,
+      dateValid: !dateCfg.required, dateDisplay: ''
+    };
+
     var checkedSize = root.querySelector('[name="te-size"]:checked');
     if (checkedSize) state.size = checkedSize.value;
-
     var checkedQty = root.querySelector('[name="te-qty"]:checked');
     if (checkedQty) {
-      if (checkedQty.value === 'anfrage') {
-        state.isAnfrage = true;
-      } else {
-        state.qty = checkedQty.value;
-      }
+      if (checkedQty.value === 'anfrage') { state.isAnfrage = true; }
+      else { state.qty = checkedQty.value; }
     }
 
-    /* ── Event handlers ───────────────────────────── */
+    /* ── Events: size / qty ── */
     sizeInputs.forEach(function (input) {
       input.addEventListener('change', function () {
         state.size = input.value;
         findAndSetVariant();
       });
     });
-
     qtyInputs.forEach(function (input) {
       input.addEventListener('change', function () {
-        if (input.value === 'anfrage') {
-          state.isAnfrage = true;
-          state.qty = '';
-        } else {
-          state.isAnfrage = false;
-          state.qty = input.value;
-        }
+        if (input.value === 'anfrage') { state.isAnfrage = true; state.qty = ''; }
+        else { state.isAnfrage = false; state.qty = input.value; }
+        applyWeightNote();
         findAndSetVariant();
       });
     });
 
-    /* Shipping method selection */
+    /* ── Events: shipping method ── */
     shipMethods.forEach(function (method) {
       var header = method.querySelector('.te-ship-method__header');
       if (!header) return;
-
-      function handleSelect() {
-        var type = method.getAttribute('data-ship-method');
-        state.shipMethod = type;
-
-        shipMethods.forEach(function (m) { m.classList.remove('is-selected'); });
-        method.classList.add('is-selected');
-
-        if (shippingProp) {
-          shippingProp.value = type === 'pickup' ? 'Selbstabholung' : 'Expresslieferung';
-        }
-
-        if (carriersWrap) {
-          if (type === 'express') {
-            carriersWrap.classList.add('is-open');
-          } else {
-            carriersWrap.classList.remove('is-open');
-            state.carrier = '';
-            state.carrierName = '';
-            state.shippingPrice = 0;
-            if (carrierProp) carrierProp.value = '';
-            carriers.forEach(function (c) { c.classList.remove('is-selected'); });
-          }
-        }
-
-        updateSummary();
-      }
-
-      header.addEventListener('click', handleSelect);
+      function handle() { selectShipMethod(method.getAttribute('data-ship-method')); }
+      header.addEventListener('click', handle);
       header.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          handleSelect();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handle(); }
       });
     });
 
-    /* Carrier selection + accordion */
+    function selectShipMethod(type) {
+      state.shipMethod = type;
+      shipMethods.forEach(function (m) {
+        m.classList.toggle('is-selected', m.getAttribute('data-ship-method') === type);
+      });
+      if (shippingProp) shippingProp.value = type === 'pickup' ? 'Selbstabholung' : 'Expresslieferung';
+      if (carriersWrap) {
+        if (type === 'express') {
+          carriersWrap.classList.add('is-open');
+        } else {
+          carriersWrap.classList.remove('is-open');
+          state.carrier = ''; state.carrierName = ''; state.shippingPrice = 0;
+          if (carrierProp) carrierProp.value = '';
+          carriers.forEach(function (c) { c.classList.remove('is-selected', 'is-expanded'); });
+        }
+      }
+      updateSummary();
+    }
+
+    /* ── Events: carrier ── */
     carriers.forEach(function (carrier) {
       var header = carrier.querySelector('.te-carrier__header');
       if (!header) return;
-
       header.addEventListener('click', function () {
         var id = carrier.getAttribute('data-carrier');
-
-        if (state.carrier === id) {
-          carrier.classList.toggle('is-expanded');
-          return;
-        }
-
+        if (state.carrier === id) { carrier.classList.toggle('is-expanded'); return; }
         state.carrier = id;
         var nameEl = carrier.querySelector('.te-carrier__name');
-        state.carrierName = nameEl ? nameEl.textContent.trim() : id.toUpperCase();
-        carriers.forEach(function (c) {
-          c.classList.remove('is-selected', 'is-expanded');
-        });
+        state.carrierName = nameEl ? nameEl.textContent.trim() : id;
+        carriers.forEach(function (c) { c.classList.remove('is-selected', 'is-expanded'); });
         carrier.classList.add('is-selected', 'is-expanded');
-
-        var priceStr = carrier.getAttribute('data-carrier-price') || '0';
-        state.shippingPrice = parseFloat(priceStr.replace(',', '.')) || 0;
-
+        header.setAttribute('aria-expanded', 'true');
+        state.shippingPrice = toNum(carrier.getAttribute('data-carrier-price'));
         if (carrierProp) carrierProp.value = state.carrierName;
-
         updateSummary();
       });
     });
 
-    /* ── Find matching variant (map-based) ────────── */
+    /* ── Events: own box ── */
+    if (ownBoxCheck) {
+      ownBoxCheck.addEventListener('change', function () {
+        state.ownBox = ownBoxCheck.checked;
+        updateSummary();
+      });
+    }
+
+    /* ── Date picker ── */
+    if (dateCfg.enabled && dateInput) {
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      var minDate = addDays(today, dateCfg.lead);
+      var maxDate = new Date(today); maxDate.setMonth(maxDate.getMonth() + dateCfg.maxMonths);
+      dateInput.min = isoDate(minDate);
+      dateInput.max = isoDate(maxDate);
+      dateInput.addEventListener('change', validateDate);
+    }
+
+    function validateDate() {
+      if (!dateInput) return;
+      var val = dateInput.value;
+      hideDateError();
+      if (!val) {
+        setDateProp('');
+        state.dateValid = !dateCfg.required;
+        state.dateDisplay = '';
+        updateSummary(); updateAddState();
+        return;
+      }
+      var parts = val.split('-');
+      var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+      var weekday = d.getDay();
+      if (dateCfg.excludedWeekdays.indexOf(weekday) !== -1) {
+        showDateError('Dieser Wochentag ist nicht wählbar. Bitte anderen Termin wählen.');
+        clearDate(); return;
+      }
+      if (dateCfg.holidays.indexOf(val) !== -1) {
+        showDateError('Dieser Tag ist gesperrt (Feiertag). Bitte anderen Termin wählen.');
+        clearDate(); return;
+      }
+      if (dateInput.min && val < dateInput.min) {
+        showDateError('Bitte einen späteren Termin wählen.');
+        clearDate(); return;
+      }
+      if (dateInput.max && val > dateInput.max) {
+        showDateError('Der Termin liegt zu weit in der Zukunft.');
+        clearDate(); return;
+      }
+      state.dateValid = true;
+      state.dateDisplay = parts[2] + '.' + parts[1] + '.' + parts[0];
+      setDateProp(state.dateDisplay);
+      updateSummary(); updateAddState();
+    }
+
+    function clearDate() {
+      if (dateInput) dateInput.value = '';
+      setDateProp('');
+      state.dateValid = !dateCfg.required;
+      state.dateDisplay = '';
+      updateSummary(); updateAddState();
+    }
+    function setDateProp(v) {
+      if (!dateProp) return;
+      if (v) { dateProp.value = v; dateProp.disabled = false; }
+      else { dateProp.value = ''; dateProp.disabled = true; }
+    }
+    function showDateError(msg) { if (dateError) { dateError.textContent = msg; dateError.hidden = false; } }
+    function hideDateError() { if (dateError) { dateError.hidden = true; dateError.textContent = ''; } }
+
+    /* ── Weight notes + pickup-only ── */
+    function applyWeightNote() {
+      state.pickupOnly = false;
+      var key = norm(state.qty);
+      weightNotes.forEach(function (note) {
+        var match = norm(note.getAttribute('data-weight') || '') === key && key !== '';
+        note.hidden = !match;
+        if (match && note.getAttribute('data-pickup-only') === 'true') state.pickupOnly = true;
+      });
+      if (expressMethod) {
+        if (state.pickupOnly) {
+          expressMethod.hidden = true;
+          if (state.shipMethod === 'express') selectShipMethod('pickup');
+        } else {
+          expressMethod.hidden = false;
+        }
+      }
+    }
+
+    /* ── Variant resolution ── */
     function findAndSetVariant() {
       if (state.isAnfrage) {
         if (priceEl) priceEl.textContent = 'Auf Anfrage';
         if (unitPriceEl) unitPriceEl.textContent = '';
         if (anfragHint) anfragHint.classList.add('is-visible');
-        if (addBtn) {
-          addBtn.disabled = true;
-          setBtnText('Auf Anfrage');
-        }
+        updateAddState();
         updateSummary();
         return;
       }
-
       if (anfragHint) anfragHint.classList.remove('is-visible');
 
-      /* Look up variant via map */
       var sizeKey = norm(state.size);
       var qtyKey = norm(state.qty);
       var matched = null;
-
       if (qtyKey) {
-        // Two-option product: try both key orderings
         matched = variantMap[sizeKey + '|' + qtyKey] || variantMap[qtyKey + '|' + sizeKey] || null;
       }
-
-      // Fallback: single-option product (no qty option)
-      if (!matched && !qtyKey) {
-        matched = variantMap[sizeKey + '|'] || null;
-      }
-
-      // Fallback: title-based partial matching
+      if (!matched && !qtyKey) matched = variantMap[sizeKey + '|'] || null;
       if (!matched) {
         for (var j = 0; j < variants.length; j++) {
-          var vf = variants[j];
-          var t = norm(vf.title || '');
-          if (t.indexOf(sizeKey) !== -1 && (qtyKey === '' || t.indexOf(qtyKey) !== -1)) {
-            matched = vf;
-            break;
-          }
+          var t = norm(variants[j].title || '');
+          if (t.indexOf(sizeKey) !== -1 && (qtyKey === '' || t.indexOf(qtyKey) !== -1)) { matched = variants[j]; break; }
         }
       }
-
       state.currentVariant = matched;
 
       if (matched) {
         if (variantInput) variantInput.value = matched.id;
-
         var priceInEur = matched.price / 100;
         state.productPrice = priceInEur;
-
         if (priceEl) priceEl.textContent = formatCurrency(priceInEur);
-
-        /* Per-kg unit price */
         var kg = extractKg(state.qty);
-        if (kg > 0 && unitPriceEl) {
-          unitPriceEl.textContent = formatCurrency(priceInEur / kg) + ' / kg';
-        } else if (unitPriceEl) {
-          unitPriceEl.textContent = '';
-        }
-
-        if (addBtn) {
-          addBtn.disabled = !matched.available;
-          setBtnText(matched.available ? 'In den Warenkorb' : 'Ausverkauft');
-        }
+        if (kg > 0 && unitPriceEl) unitPriceEl.textContent = formatCurrency(priceInEur / kg) + ' / kg';
+        else if (unitPriceEl) unitPriceEl.textContent = '';
       } else {
         state.productPrice = 0;
         if (priceEl) priceEl.textContent = '–';
         if (unitPriceEl) unitPriceEl.textContent = '';
-        if (addBtn) {
-          addBtn.disabled = true;
-          setBtnText('Nicht verfügbar');
-        }
       }
-
+      updateAddState();
       updateSummary();
     }
 
-    /* ── Summary ──────────────────────────────────── */
+    /* ── Add-to-cart gating ── */
+    function updateAddState() {
+      if (!addBtn) return;
+      var ok = !!state.currentVariant && state.currentVariant.available && !state.isAnfrage && state.dateValid;
+      addBtn.disabled = !ok;
+      var label = 'In den Warenkorb';
+      if (state.isAnfrage) label = 'Auf Anfrage';
+      else if (!state.currentVariant) label = 'Nicht verfügbar';
+      else if (!state.currentVariant.available) label = 'Ausverkauft';
+      else if (!state.dateValid) label = 'Bitte Termin wählen';
+      setBtnText(label);
+    }
+
+    /* ── Summary ── */
     function updateSummary() {
       if (!summaryEl) return;
-
       if (state.isAnfrage || !state.shipMethod || !state.currentVariant) {
         summaryEl.classList.remove('is-visible');
         return;
       }
-
       summaryEl.classList.add('is-visible');
 
-      var productLine  = summaryEl.querySelector('[data-summary-product]');
-      var shippingLine = summaryEl.querySelector('[data-summary-shipping]');
-      var totalLine    = summaryEl.querySelector('[data-summary-total]');
+      setLine(summaryEl, '[data-summary-product]', labelFor(), formatCurrency(state.productPrice));
 
-      if (productLine) {
-        var label = state.size;
-        if (state.qty) label += ', ' + state.qty;
-        productLine.querySelector('.te-summary__label').textContent = label;
-        productLine.querySelector('.te-summary__value').textContent = formatCurrency(state.productPrice);
+      var boxLine = summaryEl.querySelector('[data-summary-box]');
+      if (boxLine) {
+        if (state.ownBox && ownBoxDiscount > 0) {
+          boxLine.hidden = false;
+          setLine(summaryEl, '[data-summary-box]', 'Eigene Box', '− ' + formatCurrency(ownBoxDiscount));
+        } else { boxLine.hidden = true; }
       }
 
       var shipCost = 0;
-      var selectedKg = extractKg(state.qty);
-
+      var kg = extractKg(state.qty);
       if (state.shipMethod === 'pickup') {
-        shipCost = 0;
-        if (shippingLine) {
-          shippingLine.querySelector('.te-summary__label').textContent = 'Selbstabholung';
-          shippingLine.querySelector('.te-summary__value').textContent = 'Kostenlos';
-        }
+        setLine(summaryEl, '[data-summary-shipping]', 'Selbstabholung', 'Kostenlos');
       } else if (state.shipMethod === 'express' && state.carrier) {
-        if (weightBasedShipping && pricePerKg > 0 && selectedKg > 0) {
-          shipCost = pricePerKg * selectedKg;
-        } else {
-          shipCost = state.shippingPrice;
-        }
-        if (shippingLine) {
-          shippingLine.querySelector('.te-summary__label').textContent = 'Express (' + state.carrierName + ')';
-          shippingLine.querySelector('.te-summary__value').textContent = shipCost > 0 ? formatCurrency(shipCost) : 'auf Anfrage';
-        }
+        shipCost = (weightBasedShipping && pricePerKg > 0 && kg > 0) ? pricePerKg * kg : state.shippingPrice;
+        setLine(summaryEl, '[data-summary-shipping]', 'Express (' + state.carrierName + ')', shipCost > 0 ? formatCurrency(shipCost) : 'auf Anfrage');
       } else if (state.shipMethod === 'express') {
-        if (shippingLine) {
-          shippingLine.querySelector('.te-summary__label').textContent = 'Expresslieferung';
-          shippingLine.querySelector('.te-summary__value').textContent = 'Dienstleister wählen';
-        }
+        setLine(summaryEl, '[data-summary-shipping]', 'Expresslieferung', 'Dienstleister wählen');
       }
 
-      if (totalLine) {
-        var total = state.productPrice + shipCost;
-        totalLine.querySelector('.te-summary__value').textContent = formatCurrency(total);
+      var dateLine = summaryEl.querySelector('[data-summary-date]');
+      if (dateLine) {
+        if (state.dateDisplay) { dateLine.hidden = false; setLine(summaryEl, '[data-summary-date]', 'Wunschtermin', state.dateDisplay); }
+        else { dateLine.hidden = true; }
       }
+
+      var discount = (state.ownBox && ownBoxDiscount > 0) ? ownBoxDiscount : 0;
+      var total = Math.max(0, state.productPrice - discount) + shipCost;
+      setLine(summaryEl, '[data-summary-total]', 'Gesamt', formatCurrency(total));
     }
 
-    /* ── Helpers ──────────────────────────────────── */
+    function labelFor() {
+      var label = state.size;
+      if (state.qty) label += (label ? ', ' : '') + state.qty;
+      return label || 'Produkt';
+    }
+    function setLine(scope, sel, label, value) {
+      var line = scope.querySelector(sel);
+      if (!line) return;
+      var l = line.querySelector('.te-summary__label');
+      var v = line.querySelector('.te-summary__value');
+      if (l) l.textContent = label;
+      if (v) v.textContent = value;
+    }
 
-    /** Normalize a string for variant matching: lowercase, strip spaces, commas→dots */
+    /* ── Helpers ── */
     function norm(str) {
-      return String(str).toLowerCase().trim()
-        .replace(/\s+/g, '')
-        .replace(/,/g, '.');
+      return String(str).toLowerCase().trim().replace(/\s+/g, '').replace(/,/g, '.');
     }
-
-    /** Extract numeric kg from string like "5 kg", "10kg", "15 Kg" */
-    function extractKg(str) {
-      var m = String(str).match(/(\d+)/);
-      return m ? parseInt(m[1], 10) : 0;
+    function extractKg(str) { var m = String(str).match(/(\d+)/); return m ? parseInt(m[1], 10) : 0; }
+    function toNum(s) { return parseFloat(String(s || '0').replace(',', '.')) || 0; }
+    function formatCurrency(val) { return val.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }); }
+    function addDays(date, days) { var d = new Date(date); d.setDate(d.getDate() + days); return d; }
+    function isoDate(d) {
+      var m = ('0' + (d.getMonth() + 1)).slice(-2);
+      var day = ('0' + d.getDate()).slice(-2);
+      return d.getFullYear() + '-' + m + '-' + day;
     }
-
-    /** Format EUR currency */
-    function formatCurrency(val) {
-      return val.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-    }
-
-    /** Set button text (preserving SVG icon) */
     function setBtnText(text) {
       if (!addBtn) return;
       var svg = addBtn.querySelector('svg');
-      // Clear text nodes
       var nodes = addBtn.childNodes;
       for (var i = nodes.length - 1; i >= 0; i--) {
-        if (nodes[i].nodeType === 3) { // text node
-          addBtn.removeChild(nodes[i]);
-        }
+        if (nodes[i].nodeType === 3) addBtn.removeChild(nodes[i]);
       }
-      // Add new text after SVG
-      var textNode = document.createTextNode('\n            ' + text + '\n          ');
-      if (svg && svg.nextSibling) {
-        addBtn.insertBefore(textNode, svg.nextSibling);
-      } else {
-        addBtn.appendChild(textNode);
-      }
+      var textNode = document.createTextNode(' ' + text + ' ');
+      if (svg && svg.nextSibling) addBtn.insertBefore(textNode, svg.nextSibling);
+      else addBtn.appendChild(textNode);
     }
 
-    /* ── Initial render ───────────────────────────── */
+    /* ── Initial render ── */
+    applyWeightNote();
     findAndSetVariant();
   }
 })();
