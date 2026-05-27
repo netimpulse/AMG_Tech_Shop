@@ -158,7 +158,7 @@
           "name": "FAQ-Eintrag-Wann versendet",
           "settings": {
             "question": "Wann wird meine Bestellung versendet?",
-            "answer": "<p>Bestellungen, die bis 12 Uhr mittags eingehen, werden noch am selben Tag versendet (werktags Mo – Do). Bestellungen am Wochenende oder an Feiertagen werden am nächsten Werktag bearbeitet.</p>",
+            "answer": "<p>Bestellungen, die bis 11 Uhr mittags eingehen, werden noch am selben Tag versendet (werktags Mo – Do). Bestellungen am Wochenende oder an Feiertagen werden am nächsten Werktag bearbeitet.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -170,19 +170,7 @@
           "name": "FAQ-Eintrag-Wunschtermin",
           "settings": {
             "question": "Kann ich den Liefertermin beeinflussen?",
-            "answer": "<p>Ja, im Bestellprozess kannst du einen Wunschliefertermin angeben. Wir bemühen uns, diesen zu berücksichtigen. Für Expresslieferungen kontaktiere uns bitte direkt.</p>",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "faq_gJUtwp": {
-          "type": "faq",
-          "name": "FAQ-Eintrag-nicht zuhause bei Lieferung",
-          "settings": {
-            "question": "Was passiert, wenn ich bei der Lieferung nicht zu Hause bin?",
-            "answer": "<p>Unser Paketdienstleister versucht, das Paket bei einem Nachbarn abzugeben oder hinterlässt einen Abholschein. Bitte beachte, dass Trockeneis nicht lange ohne Kühlung gelagert werden kann und konstant sublimiert.</p>",
+            "answer": "<p>Ja, im Bestellprozess kannst du einen Wunschliefertermin angeben. Wir bemühen uns, diesen zu berücksichtigen.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -216,7 +204,6 @@
         "faq_AA4WXV",
         "faq_aKt8Rk",
         "faq_EBGnxk",
-        "faq_gJUtwp",
         "faq_FYm6AC"
       ],
       "name": "Mod: FAQ Akkordeon",
