@@ -35,7 +35,7 @@
           "type": "info_card",
           "settings": {
             "title": "Sprechen Sie uns an, wir beraten Sie gerne.",
-            "text": "<p>Schreiben Sie uns Ihre Nachricht, wir melden uns schnellstmöglich bei Ihnen mit einem individuellen angbeot oder beantworten Ihre Fragen rund um das Thema Trockneis, so gut wir können.</p><p>Text balablablablabloabla</p>",
+            "text": "<p>Schreiben Sie uns Ihre Nachricht, wir melden uns schnellstmöglich bei Ihnen mit einem individuellen Angebot und klären gemeinsam Fragen.</p>",
             "icon": "mail",
             "icon_image": "shopify://shop_images/2025_AMG_zugeschnitten_DA.png",
             "block_font_size": 0,
