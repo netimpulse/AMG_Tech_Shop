@@ -20,24 +20,12 @@
     "mod_faq_accordion_RG4Ri9": {
       "type": "mod-faq-accordion",
       "blocks": {
-        "faq_KWPx8q": {
-          "type": "faq",
-          "name": "FAQ-Eintrag-Was und Wie hergestellt",
-          "settings": {
-            "question": "Was ist Trockeneis und wie wird es hergestellt?",
-            "answer": "<p>Trockneis ist festes Kohlendioxid (Co2) und wird ....</p>",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
         "faq_xyQy3A": {
           "type": "faq",
           "name": "FAQ-Eintrag-Haltbarkeit",
           "settings": {
-            "question": "Wie lange hält Trockneis und wie lager ich es?",
-            "answer": "<p>Trockeneis sublimiert kontinuierlich, abhängig von der Lagerung bis zu 10% pro Stunde. Bewahre es in einer gut isolierten, aber nicht luftdichten Behältern (z. B. Styropor Box) bei möglichst niedrigen Temperaturen auf. Vermeide Luftzirkulation und lagere es nicht im Kühlschrank oder Gefrierfach. Bei richtiger Lagerung hält es mehrere Tage.</p>",
+            "question": "Wie lange hält Trockeneis und wie lagere ich es?",
+            "answer": "<p>Trockeneis ist festes CO2 und sublimiert kontinuierlich. Bewahre es in einem gut isolierten, aber nicht luftdichten Behälter (z. B. Styropor Box) bei möglichst niedrigen Temperaturen auf. Vermeide Luftzirkulation und lagere es nicht im Kühlschrank oder Gefrierfach. Bei richtiger Lagerung hält es (je nach Menge) mehrere Tage.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -60,8 +48,8 @@
           "type": "faq",
           "name": "FAQ-Eintrag-per Post",
           "settings": {
-            "question": "Kann ich Trockneis per Post versenden?",
-            "answer": "<p>Ja, wir versenden Trockeneis mit speziellen Isolierverpackungen und Expressdienstleistern. Die Lieferung erfolgt meist innerhalb von 24 Stunden, um die Kühlkette nicht zu unterbrechen. Informiere uns bei der Bestellung über deine genauen Anforderungen<br/><br/></p>",
+            "question": "Kann ich Trockeneis per Post versenden?",
+            "answer": "<p>Ja, wir versenden Trockeneis mit speziellen Isolierverpackungen und Expressdienstleistern. Die Lieferung erfolgt meist innerhalb von 24 Stunden, um die Kühlkette nicht zu unterbrechen. Informiere uns bei der Bestellung über deine genauen Anforderungen.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -85,8 +73,8 @@
           "type": "faq",
           "name": "FAQ-Eintrag-Versand Privatkunden",
           "settings": {
-            "question": "Versendet ihr Trockeneisauch an Privatkunden?",
-            "answer": "<p>Ja, wir versenden deutschlandweit an Privat- und Gewerbekunden. Die Lieferung erfolgt in speziell isolierten Verpackungen.</p>",
+            "question": "Versendet ihr Trockeneis auch an Privatkunden?",
+            "answer": "<p>Ja, wir versenden deutschlandweit (Festland) an Privat- und Gewerbekunden. Die Lieferung erfolgt in speziell isolierten Verpackungen.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -110,7 +98,7 @@
           "name": "FAQ-Eintrag-Selbstabholung",
           "settings": {
             "question": "Kann ich Trockeneis auch abholen?",
-            "answer": "<p>Ja, nach vorheriger Absprache können Sie Trockeneis direkt bei uns abholen. Bitte kontaktieren Sie uns für Details.</p>",
+            "answer": "<p>Ja, nach vorheriger Bestellung kann das Trockeneis direkt bei uns in Völklingen abgeholt werden. Bitte wähle aus, ob du eine Box selbst mitbringst oder ob wir dir eine bereitstellen sollen. Kontaktiere uns bei Fragen gerne auch telefonisch.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -215,7 +203,6 @@
         }
       },
       "block_order": [
-        "faq_KWPx8q",
         "faq_xyQy3A",
         "faq_BKVnVW",
         "faq_8KdADR",
