@@ -122,8 +122,8 @@
         "safety_info_iQpKMB": {
           "type": "safety_info",
           "settings": {
-            "heading": "Sicherheitshinweis",
-            "text": "<p>Sicherheitshandschuhe tragen! Trockeneis nur in gut beluefteten Raeumen verwenden.</p>",
+            "heading": "Hinweis",
+            "text": "<p>Alle angegebenen Gewichte sind Versandgewichte. Bitte berücksichtigen Sie, dass Trockeneis kontinuierlich sublimiert und es zu Produktverlust kommt.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
