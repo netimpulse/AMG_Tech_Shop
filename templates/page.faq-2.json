@@ -25,7 +25,7 @@
           "name": "FAQ-Eintrag-Haltbarkeit",
           "settings": {
             "question": "Wie lange hält Trockeneis und wie lagere ich es?",
-            "answer": "<p>Trockeneis ist festes CO2 und sublimiert kontinuierlich. Bewahre es in einem gut isolierten, aber nicht luftdichten Behälter (z. B. Styropor Box) bei möglichst niedrigen Temperaturen auf. Vermeide Luftzirkulation und lagere es nicht im Kühlschrank oder Gefrierfach. Bei richtiger Lagerung hält es (je nach Menge) mehrere Tage.</p>",
+            "answer": "<p>Trockeneis ist festes CO2 und sublimiert kontinuierlich, ca. 10-20% pro Tag. Bewahre es in einem gut isolierten, aber nicht luftdichten Behälter (z. B. Styropor Box) bei möglichst niedrigen Temperaturen auf. Vermeide Luftzirkulation und lagere es nicht im Kühlschrank oder Gefrierfach. Bei richtiger Lagerung hält es (je nach Menge) mehrere Tage.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
