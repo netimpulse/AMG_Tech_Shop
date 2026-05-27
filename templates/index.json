@@ -41,7 +41,7 @@
         "overlay_color": "#000000",
         "overlay_opacity": 0.5,
         "heading": "Frisches Trockeneis -  Direkt vom Hersteller kaufen",
-        "subheading": "Eigene Produktion, höchste Qualität, maximale Frische und flexible Mengen. Wir liefern zuverlässig im gesamten Saarland und versenden deutschlandweit.",
+        "subheading": "Eigene Produktion, höchste Qualität, maximale Frische und flexible Mengen. Wir liefern regional und versenden deutschlandweit.",
         "button_label": "Jetzt Angebot anfordern",
         "button_link": "shopify://pages/contact",
         "button_color": "#007acc",
@@ -716,7 +716,7 @@
           "name": "Leistung Block-Kunststoff",
           "settings": {
             "image": "shopify://shop_images/shutterstock_442349785.jpg",
-            "title_html": "<p>Kunststoff-formen-Reinigung</p>",
+            "title_html": "<p>Kunststoffformen-Reinigung</p>",
             "text_html": "",
             "keywords": "",
             "button_label": "Mehr erfahren",
