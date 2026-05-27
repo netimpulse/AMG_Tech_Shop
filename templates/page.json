@@ -781,6 +781,7 @@
         "feature_TtJPFw",
         "feature_mpx7zP"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Automobilindustrieund Veranstaltunge",
       "settings": {
         "image_position": "right",
@@ -852,6 +853,7 @@
         "feature_L8L7yF",
         "feature_4qWk8Q"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-LuftfahrindustrieVeranstaltunge",
       "settings": {
         "image_position": "right",
@@ -923,6 +925,7 @@
         "feature_YJq8Ad",
         "feature_BTtdXU"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Elektro",
       "settings": {
         "image_position": "right",
@@ -1065,6 +1068,7 @@
         "feature_Pf3mdn",
         "feature_md4WjW"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Kunsstroffformen Reingiung",
       "settings": {
         "image_position": "right",
@@ -1136,6 +1140,7 @@
         "feature_bUeXnp",
         "feature_H4bF3B"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Schimmel und Brandsanierun",
       "settings": {
         "image_position": "right",
@@ -1207,6 +1212,7 @@
         "feature_NC4FNU",
         "feature_yF4HnP"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Kühlen von Produktionsanlagen",
       "settings": {
         "image_position": "right",
@@ -1278,6 +1284,7 @@
         "feature_AkJcq8",
         "feature_y9T4UF"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Stahlguss und Metall",
       "settings": {
         "image_position": "right",
@@ -1349,6 +1356,7 @@
         "feature_XyiX87",
         "feature_9qyxPz"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Druckindustrie",
       "settings": {
         "image_position": "right",
@@ -1388,38 +1396,6 @@
     },
     "about_section_v3_4mQ68K": {
       "type": "about-section-v3",
-      "blocks": {
-        "feature_YPzgdX": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "feature_eYJJWB": {
-          "type": "feature",
-          "settings": {
-            "icon_type": "svg",
-            "icon_svg": "",
-            "feature_title": "Feature Titel",
-            "feature_description": "Kurze Beschreibung",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_YPzgdX",
-        "feature_eYJJWB"
-      ],
       "name": "Über Uns (Layout) – v3-Event & Entertainment",
       "settings": {
         "image_position": "right",
@@ -1436,7 +1412,7 @@
         "subtitle_richtext": "",
         "subtitle_color": "#374151",
         "subtitle_font_size": 20,
-        "description": "<p><strong>Spektakuläre Nebeleffekte</strong><br/><br/>In der Eventtechnik erzeugt Trockeneis mit warmem Wasser bodennahen,<br/>geruchsneutralen Nebel – ein Highlight für Bühnen und Partys.</p><p><strong>Showeffekte & Atmosphäre</strong></p><ul><li><strong>Bodennebel:</strong><br/> Für Bühnen, Tanzflächen und Filmproduktionen.</li><li><strong>Spezialeffekte:</strong><br/>     Halloween, Gender-Reveal-Partys, Hochzeiten – mit farbigen oder<br/>     romantischen Nebeleffekten.</li><li><strong>Film- und TV Produktion:</strong><br/>     Professionelle Nebelmaschinen-Alternative für realistische Szenen und     Spezialeffekte</li></ul>",
+        "description": "<p><strong>Spektakuläre Nebeleffekte</strong><br/>In der Eventtechnik erzeugt Trockeneis mit warmem Wasser bodennahen, geruchsneutralen Nebel – ein Highlight für Bühnen und Partys.</p><p><strong>Showeffekte & Atmosphäre</strong></p><ul><li><strong>Bodennebel:</strong><br/> Für Bühnen, Tanzflächen und Filmproduktionen.</li><li><strong>Spezialeffekte:</strong><br/>     Halloween, Gender-Reveal-Partys, Hochzeiten – mit farbigen oder     romantischen Nebeleffekten.</li><li><strong>Film- und TV Produktion:</strong><br/>     Professionelle Nebelmaschinen-Alternative für realistische Szenen und     Spezialeffekte</li></ul>",
         "text_color": "#6b7280",
         "text_font_size": 18,
         "image": "shopify://shop_images/shutterstock_736532971.jpg",
@@ -1491,6 +1467,7 @@
         "feature_rCYhzT",
         "feature_QxgkQD"
       ],
+      "disabled": true,
       "name": "Über Uns (Layout) – v3-Motorsport& Entertainment",
       "settings": {
         "image_position": "right",
