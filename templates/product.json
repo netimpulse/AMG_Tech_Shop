@@ -148,7 +148,7 @@
         "hide_express": false,
         "weight_based_shipping": true,
         "shipping_price_per_kg": "",
-        "dhl_price": "",
+        "dhl_price": "43,23€",
         "dhl_price_raw": "43,23",
         "dhl_conditions": "",
         "dpd_price": "",
