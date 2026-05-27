@@ -90,7 +90,7 @@
           "type": "product_description",
           "settings": {
             "heading": "Produktbeschreibung",
-            "text": "<p>Beschreiben Sie hier Ihr Produkt.<br/>in praktischer Isolierbox</p><p><strong>Achtung: Lieferzeiten nur Mo-Freitag (am Wochenende oder zu Feiertagen ggf. möglich aber nur nach Rücksprache)</strong></p>",
+            "text": "<p><strong>Frisch produzierte Trockeneispellets (3 mm) in Premiumqualität</strong></p><p>Lieferung im hochwertigen Thermo-Styroporbehälter (Wand- und Bodenstärke: 40 mm)</p><p>Bei Selbstabholung ist die Mitnahme in einer eigenen Box ebenfalls möglich.</p><p><strong>Anwendungsbereiche:</strong> Trockeneisstrahlen, Kühlung, Lebensmittel, Showeffekte und vieles mehr.</p><p></p><p>Bitte beachten Sie: Trockeneis sublimiert kontinuierlich. Daher empfehlen wir, den Liefer- bzw. Abholtermin möglichst nah am geplanten Einsatzdatum zu wählen.</p><p><strong>Achtung:<br/>Lieferzeiten nur werktags Mo-Do. Sonderlieferungen nur nach Absprache. </strong></p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
@@ -106,7 +106,7 @@
             "spec_2_label": "Temperatur",
             "spec_2_value": "-78,5 Grad C",
             "spec_3_label": "Pelletgroesse",
-            "spec_3_value": "1,5 mm / 3 mm",
+            "spec_3_value": "3 mm (1,5 mm auf Anfrage)",
             "spec_4_label": "",
             "spec_4_value": "",
             "spec_5_label": "",
