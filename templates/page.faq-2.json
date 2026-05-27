@@ -110,7 +110,7 @@
           "name": "FAQ-Eintrag-Wie bestellen",
           "settings": {
             "question": "Wie kann ich Trockeneis bestellen?",
-            "answer": "<p>Du kannst bequem über unseren Onlineshop bestellen. Wähle die gewünschte Menge, gib deine Lieferadresse an und folge den Schritten zur Kasse. Bei Fragen helfen wir gerne per E-Mail oder Telefon.</p>",
+            "answer": "<p>Du kannst bequem über unseren Onlineshop bestellen. Wähle die gewünschte Menge, den Liefertermin und gib deine Lieferadresse vollständig an. Folge anschließend den Schritten zur Kasse. Bei Fragen helfen wir gerne per E-Mail oder Telefon.</p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
