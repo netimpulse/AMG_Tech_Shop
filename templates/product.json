@@ -89,8 +89,8 @@
         "product_description_VCqwCB": {
           "type": "product_description",
           "settings": {
-            "heading": "Produktbeschreibung",
-            "text": "<p><strong>Frisch produzierte Trockeneispellets (3 mm) in Premiumqualität</strong></p><p>Lieferung im hochwertigen Thermo-Styroporbehälter (Wand- und Bodenstärke: 40 mm)</p><p>Bei Selbstabholung ist die Mitnahme in einer eigenen Box ebenfalls möglich.</p><p><strong>Anwendungsbereiche:</strong> Trockeneisstrahlen, Kühlung, Lebensmittel, Showeffekte und vieles mehr.</p><p></p><p>Bitte beachten Sie: Trockeneis sublimiert kontinuierlich. Daher empfehlen wir, den Liefer- bzw. Abholtermin möglichst nah am geplanten Einsatzdatum zu wählen.</p><p><strong>Achtung:<br/>Lieferzeiten nur werktags Mo-Do. Sonderlieferungen nur nach Absprache. </strong></p>",
+            "heading": "Frisch produzierte Trockeneispellets (3 mm) in Premiumqualität",
+            "text": "<p>Lieferung im hochwertigen Thermo-<strong>Styroporbehälter </strong>(Wand- und Bodenstärke: 40 mm)</p><p>Bei Selbstabholung ist die Mitnahme in einer <strong>eigenen Box </strong>ebenfalls möglich.</p><p><strong>Anwendungsbereiche:</strong> <br/>Trockeneisstrahlen, Kühlung, Lebensmittel, Showeffekte und vieles mehr.</p><p><strong>Bitte beachten:</strong> <br/>Trockeneis <strong>sublimiert </strong>kontinuierlich. Daher empfehlen wir, den Liefer- bzw. Abholtermin möglichst nah am geplanten Einsatzdatum zu wählen.<strong><br/>Lieferzeiten nur werktags Mo-Do. Abweichende Lieferzeiten nur nach Absprache. </strong></p>",
             "block_font_size": 0,
             "block_font_color": "",
             "block_font_family": "assistant_n4",
