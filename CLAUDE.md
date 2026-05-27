@@ -1,93 +1,41 @@
 # AMG Tech Shop — Repo-spezifische Anweisungen
 
-## WICHTIG: Live-Theme Setup, kein separates QA-Theme
+## Theme-Setup
 
-Dieses Repo ist GitHub-verbunden mit dem MAIN-Theme `AMG_Tech_Shop/main`
-(Theme-ID `184912576838`) im Store `zjyfg5-ya.myshopify.com`.
+| Theme | ID | Zweck |
+|---|---|---|
+| `AMG_Tech_Shop/main` | `184912576838` | MAIN/live, GitHub-synced. **Nicht direkt anfassen.** Wird automatisch via Sync aus dem main-Branch aktualisiert. |
+| `Kopie von AMG_Tech_Shop/main` | `191479906630` | UNPUBLISHED, **Test-Target**. CLI-Pushes gehen ausschliesslich hierhin. Customer sehen das nie. |
 
-Es gibt KEIN separates QA-Preview-Theme und KEIN dediziertes
-QA-Block-Test-Template. Tests laufen direkt im Live-Theme.
+## Workflow
 
-**Konsequenz:** Jede CLI-Push-Operation veraendert kurzzeitig den live
-sichtbaren Theme-Zustand. Daher ZWINGEND Backup-Restore-Workflow.
+Standard `shopify-visual-qa` Workflow gilt 1:1. Kein Sonderfall-Verhalten noetig.
 
-## Backup-Restore-Workflow (Pflicht bei jedem Section/Block-Build)
+Pro Section/Block-Auftrag:
 
-### Vor jedem Bauauftrag
+1. Code schreiben (Section/Block in `sections/` oder `snippets/`)
+2. Wenn der Block testbar gemacht werden soll: temporaeren Eintrag ins
+   `templates/index.json` einbauen (oder eine andere existierende
+   Template-Datei, falls passender)
+3. `shopify theme push -e development --nodelete` → pusht ins Test-Theme `191479906630`
+4. `npx playwright test` → laeuft gegen `/?preview_theme_id=191479906630`
+5. Bei rotem Test: korrigieren, ab Schritt 3 wiederholen (max 3 Iterationen)
+6. Bei gruenem Test: `git commit` + `git push`, PR an main
+7. Beim PR-Review: pruefen, ob temporaere index.json-Eintraege rein sollen
+   oder vor dem Merge entfernt werden
 
-```bash
-# 1) Aktuellen Theme-Stand sichern (ohne den Repo-State zu beruehren)
-mkdir -p .backup-theme
-shopify theme pull -e development --path ./.backup-theme --nodelete
-```
+## Keine Pages im Admin anlegen
 
-### Block-Entwicklung im Repo
+Tests laufen gegen die vorhandene Homepage `/`. Es wird KEINE neue QA-Page
+im Shop-Admin angelegt. Falls Claude eine bessere Test-URL braucht, kann
+er auf bereits vorhandene Pages ausweichen — siehe `QA.paths` in
+`tests/fixtures.ts`.
 
-```bash
-# 2) Neue Section/Block in sections/ oder snippets/ schreiben
-# 3) Block temporaer ins templates/index.json einbauen (Test auf Home)
-#    Beispiel:
-#    {
-#      "sections": {
-#        "qa_test_block": { "type": "neuer-block", "settings": { ... } },
-#        ... bestehende sections ...
-#      },
-#      "order": ["qa_test_block", ... bestehender order ...]
-#    }
-```
+## Wichtig
 
-### Test-Push und Visual-QA
-
-```bash
-# 4) Theme-Check
-shopify theme check
-
-# 5) Push ins LIVE-MAIN-Theme (mit --nodelete, damit nichts versehentlich geloescht wird)
-shopify theme push -e development --nodelete
-
-# 6) Playwright-Tests
-npx playwright test
-```
-
-### Nach erfolgreichem Test — Restore
-
-```bash
-# 7a) Den hinzugefuegten Section-Eintrag aus templates/index.json wieder entfernen
-#     (Order wieder auf den urspruenglichen Stand bringen)
-# 7b) Push der bereinigten Files
-shopify theme push -e development --nodelete
-
-# 8) ODER, wenn unsicher: Backup komplett zurueckspielen
-cp -r .backup-theme/* .
-shopify theme push -e development --nodelete
-
-# 9) Backup-Ordner aus dem Working-Dir loeschen
-rm -rf .backup-theme
-```
-
-### Wenn Test rot ist
-
-```bash
-# 1) Sofort Backup zuruecksetzen
-cp -r .backup-theme/* .
-shopify theme push -e development --nodelete
-
-# 2) Fehler im Code lokal fixen
-# 3) Erst dann neuen Versuch ab Schritt "Test-Push"
-```
-
-## Was Claude in einer Session tun MUSS
-
-1. Vor jedem Schreib-Zugriff auf das Theme: `shopify theme pull` ins .backup-theme
-2. Block-Einbau ins index.json klar als temporaer markieren (Comment im JSON)
-3. Nach jedem Test (egal ob gruen oder rot): Backup-Restore + Backup-Cleanup
-4. Niemals einen Branch mit nicht-restoriertem Test-Block mergen
-5. Vor `git push` pruefen: ist der Backup-Restore wirklich passiert?
-
-## Was Claude NICHT tun darf
-
-- Direktes Push ohne vorheriges Backup
-- Neue Themes erzeugen (`shopify theme push --unpublished`)
-- Neue Pages oder Templates im Admin anlegen
-- Live-Sections (Header, Footer, Product) modifizieren ohne expliziten Auftrag
-- Test-Block dauerhaft im index.json lassen
+- **Niemals** direkt ins MAIN-Theme `184912576838` pushen
+- **Niemals** Themes erzeugen oder publishen
+- Test-Theme `191479906630` ist Eigentum dieses Repos — wenn es im
+  Shop-Admin geloescht wird, faellt der QA-Workflow aus
+- Bei einem GitHub-Sync-Konflikt: das Sync-Theme `AMG_Tech_Shop/main`
+  gewinnt fuer Live. Tests bleiben davon unberuehrt.

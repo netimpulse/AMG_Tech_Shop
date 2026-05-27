@@ -1,17 +1,20 @@
 # Shopify CLI – Theme-Konfiguration AMG Tech Shop
 #
-# WARNUNG: development-Environment zeigt auf das MAIN/Live-Theme.
-# Push-Operationen veraendern das oeffentlich sichtbare Theme.
-# Siehe CLAUDE.md fuer den Backup-Restore-Workflow.
+# development-Environment zeigt auf eine UNPUBLISHED-Kopie des MAIN-Themes.
+# Tests pushen ausschliesslich in dieses isolierte Theme, niemals direkt
+# ins Live-Theme. Kunden sehen Test-Aenderungen NIE.
+#
+# Zugriff auf das Test-Theme via Storefront-URL + ?preview_theme_id=...
+# (siehe tests/fixtures.ts withTheme()-Helper).
 
 [environments.development]
 store = "zjyfg5-ya.myshopify.com"
-theme = "184912576838"
+theme = "191479906630"
 
-# Production-Block — bewusst leer, weil development == production hier
+# Production-Block — wenn du irgendwann manuell ins Live-Theme pushen willst:
 # [environments.production]
-# store = "kunde.myshopify.com"
-# theme = "..."
+# store = "zjyfg5-ya.myshopify.com"
+# theme = "184912576838"
 
 ignore = [
   "tests/**",
@@ -27,6 +30,5 @@ ignore = [
   ".gitignore",
   ".claude/**",
   ".mcp.json",
-  "CLAUDE.md",
-  ".backup-theme/**"
+  "CLAUDE.md"
 ]

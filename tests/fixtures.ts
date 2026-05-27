@@ -1,16 +1,18 @@
 /**
  * Test-Fixtures fuer den Visual-QA-Workflow im AMG Tech Shop.
  *
- * Da kein separates QA-Preview-Theme und kein dediziertes
- * QA-Block-Test-Template existiert, nutzen Tests bestehende Pages
- * und Templates. Default-Test-URL fuer neue Bloecke ist die Homepage,
- * die Claude waehrend des Tests temporaer um den neuen Block ergaenzt
- * (siehe CLAUDE.md Backup-Restore-Workflow).
+ * Tests laufen gegen das UNPUBLISHED-Theme "Kopie von AMG_Tech_Shop/main"
+ * (ID 191479906630). Das MAIN-Theme bleibt fuer Tests komplett unberuehrt
+ * — Kunden sehen Test-Aenderungen niemals.
+ *
+ * Da kein dediziertes QA-Block-Test-Template existiert, nutzen Tests
+ * bestehende Pages und Templates. Default-Test-URL fuer neue Bloecke
+ * ist die Homepage, in die Claude den Block temporaer einbaut.
  */
 
 export const QA = {
-  /** ID des MAIN-Themes (Live!). Tests pushen direkt hierhin. */
-  themeId: "184912576838",
+  /** ID des UNPUBLISHED Copy-Themes — isoliertes Test-Target. */
+  themeId: "191479906630",
 
   /** Bekannte Fixtures im Shop. */
   product: {
@@ -35,7 +37,7 @@ export const QA = {
 } as const;
 
 export function withTheme(path: string): string {
-  // preview_theme_id ist bei MAIN-Theme nicht zwingend noetig, aber harmlos
+  // preview_theme_id ZWINGEND noetig — sonst rendert Shopify das MAIN-Theme
   const sep = path.includes("?") ? "&" : "?";
   return `${path}${sep}preview_theme_id=${QA.themeId}`;
 }
