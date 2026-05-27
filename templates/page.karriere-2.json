@@ -20,31 +20,12 @@
     "jobs_board_M9PLdR": {
       "type": "jobs-board",
       "blocks": {
-        "job_mkrqkG": {
-          "type": "job",
-          "settings": {
-            "title": "Produktionshelfer (m/w/d)",
-            "desc": "Herstellund und Verpackung von Trockneisprodukten",
-            "location": "Völklingen",
-            "time": "minijob",
-            "badge_label": "",
-            "badge_bg": "",
-            "badge_text": "",
-            "btn_label": "Jetzt bewerben",
-            "btn_url": "",
-            "btn_newtab": false,
-            "card_bg": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
         "job_Mf96mx": {
           "type": "job",
+          "disabled": true,
           "settings": {
             "title": "Lieferfahrer (m/w/d)",
-            "desc": "Transport unserer Trockneiesprodukte in der Region Saarland / Rheindland-Pfalz",
+            "desc": "Transport unserer Trockeneisprodukte in der Region Saarland / Rheindland-Pfalz",
             "location": "Völkingen",
             "time": "minijob",
             "badge_label": "",
@@ -62,13 +43,12 @@
         }
       },
       "block_order": [
-        "job_mkrqkG",
         "job_Mf96mx"
       ],
       "name": "Job-Kacheln (Karriere)",
       "settings": {
         "heading": "Aktuelle Stellenausschreibungen",
-        "subheading": "Finden Sie Ihre nächste berufliche Herausforderung bei uns",
+        "subheading": "Finden jetzt Deine nächste berufliche Herausforderung bei uns",
         "section_bg": "#f6f7fb",
         "card_bg": "#ffffff",
         "padding_y": 48,
@@ -114,7 +94,7 @@
         "button_x7QrHj": {
           "type": "button",
           "settings": {
-            "label": "<p>jetzt Bewerben</p>",
+            "label": "<p>jetzt bewerben</p>",
             "link": "shopify://pages/bewerberformular",
             "variant": "solid",
             "text_color": "#ffffff",
@@ -144,7 +124,7 @@
         "heading_size": 25,
         "heading_bold": true,
         "heading_color": "#0f172a",
-        "subheading": "<p>✔ übertarifliche Entlohnung ✔ flexible Arbeitszeiten ✔ multikulturelles Team und vieles mehr. Jetzt bewerben 👍</p>",
+        "subheading": "<p>✔ faire Entlohnung ✔ flexible Arbeitszeiten ✔ multikulturelles Team und vieles mehr. Jetzt bewerben 👍</p>",
         "sub_size": 20,
         "sub_bold": false,
         "sub_color": "#475569",
