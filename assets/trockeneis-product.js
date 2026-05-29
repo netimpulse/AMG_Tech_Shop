@@ -19,9 +19,12 @@
     var qtyInputs     = root.querySelectorAll('[name="te-qty"]');
     var priceEl       = root.querySelector('[data-te-price]');
     var unitPriceEl   = root.querySelector('[data-te-unit-price]');
+    var priceInfoEl   = root.querySelector('[data-te-price-info]');
     var anfragHint    = root.querySelector('[data-te-anfrage-hint]');
     var addBtn        = root.querySelector('[data-te-add-btn]');
     var shipMethods   = root.querySelectorAll('[data-ship-method]');
+    var pickupMethod  = root.querySelector('[data-ship-method="pickup"]');
+    var expressMethod = root.querySelector('[data-ship-method="express"]');
     var carriers      = root.querySelectorAll('[data-carrier]');
     var carriersWrap  = root.querySelector('[data-te-carriers]');
     var summaryEl     = root.querySelector('[data-te-summary]');
@@ -29,15 +32,32 @@
     var shippingProp  = root.querySelector('[data-te-shipping-prop]');
     var carrierProp   = root.querySelector('[data-te-carrier-prop]');
 
+    /* ── Eigene-Box-Toggle refs ── */
+    var ownBoxWrap    = root.querySelector('[data-te-own-box]');
+    var ownBoxToggle  = root.querySelector('[data-te-own-box-toggle]');
+    var ownBoxHint    = root.querySelector('[data-te-own-box-hint]');
+    var ownBoxProp    = root.querySelector('[data-te-own-box-prop]');
+
     /* ── Variant data from Liquid (embedded as data attr) ── */
     var variants = [];
     try {
       variants = JSON.parse(root.getAttribute('data-variant-data') || '[]');
     } catch (e) { /* fallback: empty */ }
 
+    /* ── Per-kg configuration (delivery options + grey note per kg size) ── */
+    var kgConfig = {};
+    try {
+      kgConfig = JSON.parse(root.getAttribute('data-kg-config') || '{}') || {};
+    } catch (e) { /* fallback: empty */ }
+
+    var defaultNote = root.getAttribute('data-default-note') || '';
+
     /* ── Weight-based shipping config ── */
     var weightBasedShipping = root.getAttribute('data-weight-based') === 'true';
     var pricePerKg = parseFloat((root.getAttribute('data-price-per-kg') || '0').replace(',', '.')) || 0;
+
+    /* ── "Eigene Box" discount (EUR, deducted from product price on pickup) ── */
+    var ownBoxDiscount = parseFloat((root.getAttribute('data-own-box-discount') || '0').replace(',', '.')) || 0;
 
     /* ── Build variant lookup map ─────────────────── */
     var variantMap = {};
@@ -67,6 +87,7 @@
       carrierName: '',
       productPrice: 0,
       shippingPrice: 0,
+      ownBox: false,
       currentVariant: null
     };
 
@@ -133,6 +154,20 @@
           }
         }
 
+        /* "Eigene Box"-Toggle nur bei Selbstabholung zeigen */
+        if (ownBoxWrap) {
+          if (type === 'pickup') {
+            ownBoxWrap.hidden = false;
+            state.ownBox = !!(ownBoxToggle && ownBoxToggle.checked);
+          } else {
+            ownBoxWrap.hidden = true;
+            state.ownBox = false;
+            if (ownBoxToggle) ownBoxToggle.checked = false;
+            if (ownBoxProp) ownBoxProp.value = '';
+          }
+        }
+
+        updatePriceDisplay();
         updateSummary();
       }
 
@@ -175,6 +210,18 @@
       });
     });
 
+    /* "Eigene Box" toggle – nur bei Selbstabholung relevant */
+    if (ownBoxToggle) {
+      ownBoxToggle.addEventListener('change', function () {
+        state.ownBox = ownBoxToggle.checked && state.shipMethod === 'pickup';
+        if (ownBoxProp) {
+          ownBoxProp.value = state.ownBox ? 'Ja (eigene Box, Isolierbox entfällt)' : '';
+        }
+        updatePriceDisplay();
+        updateSummary();
+      });
+    }
+
     /* ── Find matching variant (map-based) ────────── */
     function findAndSetVariant() {
       if (state.isAnfrage) {
@@ -190,6 +237,9 @@
       }
 
       if (anfragHint) anfragHint.classList.remove('is-visible');
+
+      /* Apply per-kg delivery options + grey note for the selected kg size */
+      applyKgConfig();
 
       /* Look up variant via map */
       var sizeKey = norm(state.size);
@@ -223,18 +273,8 @@
       if (matched) {
         if (variantInput) variantInput.value = matched.id;
 
-        var priceInEur = matched.price / 100;
-        state.productPrice = priceInEur;
-
-        if (priceEl) priceEl.textContent = formatCurrency(priceInEur);
-
-        /* Per-kg unit price */
-        var kg = extractKg(state.qty);
-        if (kg > 0 && unitPriceEl) {
-          unitPriceEl.textContent = formatCurrency(priceInEur / kg) + ' / kg';
-        } else if (unitPriceEl) {
-          unitPriceEl.textContent = '';
-        }
+        state.productPrice = matched.price / 100;
+        updatePriceDisplay();
 
         if (addBtn) {
           addBtn.disabled = !matched.available;
@@ -253,6 +293,91 @@
       updateSummary();
     }
 
+    /* ── Effective product price (incl. "eigene Box" discount on pickup) ── */
+    function getEffectivePrice() {
+      var price = state.productPrice;
+      if (state.ownBox && state.shipMethod === 'pickup' && ownBoxDiscount > 0) {
+        price = Math.max(0, price - ownBoxDiscount);
+      }
+      return price;
+    }
+
+    /* ── Update the big price + per-kg unit price ── */
+    function updatePriceDisplay() {
+      if (state.isAnfrage || !state.currentVariant) return;
+
+      var effective = getEffectivePrice();
+
+      if (priceEl) priceEl.textContent = formatCurrency(effective);
+
+      /* Per-kg unit price */
+      var kg = extractKg(state.qty);
+      if (unitPriceEl) {
+        unitPriceEl.textContent = kg > 0 ? formatCurrency(effective / kg) + ' / kg' : '';
+      }
+
+      /* Hint next to the toggle, e.g. "−5,00 €" */
+      if (ownBoxHint) {
+        ownBoxHint.textContent = ownBoxDiscount > 0 ? ' (−' + formatCurrency(ownBoxDiscount) + ')' : '';
+      }
+    }
+
+    /* ── Apply per-kg delivery options + grey note ── */
+    function applyKgConfig() {
+      var cfg = kgConfig[norm(state.qty)] || null;
+
+      /* Grey note under price */
+      if (priceInfoEl) {
+        var note = cfg && cfg.note ? cfg.note : defaultNote;
+        priceInfoEl.textContent = note;
+      }
+
+      /* Delivery option availability for this kg size */
+      var delivery = cfg && cfg.delivery ? cfg.delivery : 'both';
+      var allowPickup = delivery === 'pickup' || delivery === 'both';
+      var allowExpress = delivery === 'express' || delivery === 'both';
+
+      setMethodVisible(pickupMethod, allowPickup);
+      setMethodVisible(expressMethod, allowExpress);
+
+      /* If the currently selected method is no longer allowed, switch / reset */
+      if (state.shipMethod === 'pickup' && !allowPickup) {
+        resetShipMethod();
+        if (allowExpress && expressMethod) selectShipMethod(expressMethod);
+      } else if (state.shipMethod === 'express' && !allowExpress) {
+        resetShipMethod();
+        if (allowPickup && pickupMethod) selectShipMethod(pickupMethod);
+      }
+    }
+
+    function setMethodVisible(method, visible) {
+      if (!method) return;
+      method.hidden = !visible;
+    }
+
+    /* Reset shipping selection state (used when a method becomes unavailable) */
+    function resetShipMethod() {
+      state.shipMethod = '';
+      state.carrier = '';
+      state.carrierName = '';
+      state.shippingPrice = 0;
+      state.ownBox = false;
+      shipMethods.forEach(function (m) { m.classList.remove('is-selected'); });
+      carriers.forEach(function (c) { c.classList.remove('is-selected', 'is-expanded'); });
+      if (carriersWrap) carriersWrap.classList.remove('is-open');
+      if (shippingProp) shippingProp.value = '';
+      if (carrierProp) carrierProp.value = '';
+      if (ownBoxProp) ownBoxProp.value = '';
+      if (ownBoxToggle) ownBoxToggle.checked = false;
+      if (ownBoxWrap) ownBoxWrap.hidden = true;
+    }
+
+    /* Programmatically select a shipping method (re-uses the header click logic) */
+    function selectShipMethod(method) {
+      var header = method.querySelector('.te-ship-method__header');
+      if (header) header.click();
+    }
+
     /* ── Summary ──────────────────────────────────── */
     function updateSummary() {
       if (!summaryEl) return;
@@ -268,11 +393,16 @@
       var shippingLine = summaryEl.querySelector('[data-summary-shipping]');
       var totalLine    = summaryEl.querySelector('[data-summary-total]');
 
+      var effectivePrice = getEffectivePrice();
+
       if (productLine) {
         var label = state.size;
         if (state.qty) label += ', ' + state.qty;
+        if (state.ownBox && state.shipMethod === 'pickup' && ownBoxDiscount > 0) {
+          label += ' (eigene Box)';
+        }
         productLine.querySelector('.te-summary__label').textContent = label;
-        productLine.querySelector('.te-summary__value').textContent = formatCurrency(state.productPrice);
+        productLine.querySelector('.te-summary__value').textContent = formatCurrency(effectivePrice);
       }
 
       var shipCost = 0;
@@ -302,7 +432,7 @@
       }
 
       if (totalLine) {
-        var total = state.productPrice + shipCost;
+        var total = effectivePrice + shipCost;
         totalLine.querySelector('.te-summary__value').textContent = formatCurrency(total);
       }
     }
