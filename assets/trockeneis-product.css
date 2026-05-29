@@ -722,3 +722,79 @@
     padding: 16px;
   }
 }
+
+/* ── "Eigene Box" Toggle (nur bei Selbstabholung) ───────── */
+.te-own-box {
+  border-top: 1px solid var(--te-border);
+  padding: 14px 18px;
+  background: var(--te-success-bg);
+}
+
+.te-own-box[hidden] {
+  display: none !important;
+}
+
+.te-own-box__switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--te-text);
+  font-weight: 500;
+}
+
+.te-own-box__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.te-own-box__slider {
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: background 0.2s;
+}
+
+.te-own-box__slider::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+
+.te-own-box__input:checked + .te-own-box__slider {
+  background: var(--te-success);
+}
+
+.te-own-box__input:checked + .te-own-box__slider::after {
+  transform: translateX(20px);
+}
+
+.te-own-box__input:focus-visible + .te-own-box__slider {
+  outline: 2px solid var(--te-primary);
+  outline-offset: 2px;
+}
+
+.te-own-box__hint {
+  color: var(--te-success);
+  font-weight: 600;
+}
+
+/* Lieferarten / Versanddienstleister, die per Theme-Editor oder
+   pro kg-Größe ausgeblendet werden, sicher verstecken */
+.te-ship-method[hidden],
+.te-carrier[hidden] {
+  display: none !important;
+}

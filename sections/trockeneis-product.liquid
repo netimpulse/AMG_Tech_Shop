@@ -40,9 +40,35 @@
 ]
 {%- endcapture -%}
 
+{%- comment -%}
+  Pro-Kilogramm-Konfiguration aus den "Kilogramm-Größe"-Blöcken.
+  Schlüssel ist die normalisierte kg-Bezeichnung (passend zur JS-norm():
+  lowercase, ohne Leerzeichen, Komma → Punkt), z.B. "3kg".
+  Werte: delivery (pickup|express|both) und note (grauer Zusatztext).
+{%- endcomment -%}
+{%- capture kg_config_json -%}
+{
+  {%- assign kg_first = true -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'kg_option' and block.settings.kg_label != blank -%}
+      {%- unless kg_first -%},{%- endunless -%}
+      {%- assign kg_first = false -%}
+      {%- assign kg_key = block.settings.kg_label | downcase | replace: ' ', '' | replace: ',', '.' -%}
+      {{ kg_key | json }}: {
+        "delivery": {{ block.settings.delivery_options | json }},
+        "note": {{ block.settings.price_note | json }}
+      }
+    {%- endif -%}
+  {%- endfor -%}
+}
+{%- endcapture -%}
+
 <div class="te-product"
      data-trockeneis-section
      data-variant-data='{{ variant_data_json | strip_newlines }}'
+     data-kg-config='{{ kg_config_json | strip_newlines | escape }}'
+     data-default-note="{{ section.settings.price_note | default: 'Preis inkl. MwSt., zzgl. Versandkosten' | escape }}"
+     data-own-box-discount="{{ section.settings.own_box_discount | default: '0' }}"
      data-money-format="{{ shop.money_format | escape }}"
      data-weight-based="{{ section.settings.weight_based_shipping }}"
      data-price-per-kg="{{ section.settings.shipping_price_per_kg | default: '0' }}"
@@ -318,7 +344,7 @@
           {{ current_variant.price | money }}
         </span>
         <span class="te-price-display__unit" data-te-unit-price></span>
-        <span class="te-price-display__info">
+        <span class="te-price-display__info" data-te-price-info>
           {{ section.settings.price_note | default: 'Preis inkl. MwSt., zzgl. Versandkosten' }}
         </span>
       </div>
@@ -329,8 +355,10 @@
           <span class="te-selection__label">{{ product.options[0] }}</span>
           <div class="te-selection__options" data-te-option="size">
             {%- for value in product.options_with_values[0].values -%}
+              {%- comment -%} Deutsche Schreibweise: Dezimalpunkt → Komma (z.B. 3.0 mm → 3,0 mm) {%- endcomment -%}
+              {%- assign value_de = value | replace: '.', ',' -%}
               <input class="te-option" type="radio" name="te-size" id="te-size-{{ forloop.index }}" value="{{ value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
-              <label class="te-option-label" for="te-size-{{ forloop.index }}">{{ value }}</label>
+              <label class="te-option-label" for="te-size-{{ forloop.index }}">{{ value_de }}</label>
             {%- endfor -%}
           </div>
         </div>
@@ -342,8 +370,10 @@
           <span class="te-selection__label">{{ product.options[1] }}</span>
           <div class="te-selection__options" data-te-option="qty">
             {%- for value in product.options_with_values[1].values -%}
+              {%- comment -%} Deutsche Schreibweise: Dezimalpunkt → Komma (z.B. 1.5 → 1,5) {%- endcomment -%}
+              {%- assign qty_value_de = value | replace: '.', ',' -%}
               <input class="te-option" type="radio" name="te-qty" id="te-qty-{{ forloop.index }}" value="{{ value | downcase | strip }}" {% if forloop.first %}checked{% endif %}>
-              <label class="te-option-label" for="te-qty-{{ forloop.index }}">{{ value }}</label>
+              <label class="te-option-label" for="te-qty-{{ forloop.index }}">{{ qty_value_de }}</label>
             {%- endfor -%}
 
             <input class="te-option" type="radio" name="te-qty" id="te-qty-anfrage" value="anfrage">
@@ -377,6 +407,23 @@
             </div>
             <span class="te-ship-method__price">Kostenlos</span>
           </div>
+
+          {%- comment -%} Toggle: eigene Box mitbringen – nur bei Selbstabholung relevant {%- endcomment -%}
+          {%- if section.settings.enable_own_box -%}
+            <div class="te-own-box" data-te-own-box hidden>
+              <label class="te-own-box__switch">
+                <input type="checkbox" class="te-own-box__input" data-te-own-box-toggle>
+                <span class="te-own-box__slider" aria-hidden="true"></span>
+                <span class="te-own-box__text">
+                  {{ section.settings.own_box_label | default: 'Ich komme mit eigener Box abholen' }}
+                  {%- assign own_box_discount_num = section.settings.own_box_discount | default: 0 | plus: 0 -%}
+                  {%- if own_box_discount_num > 0 -%}
+                    <span class="te-own-box__hint" data-te-own-box-hint></span>
+                  {%- endif -%}
+                </span>
+              </label>
+            </div>
+          {%- endif -%}
         </div>
 
         {%- comment -%} Expresslieferung – ausblendbar per Setting {%- endcomment -%}
@@ -391,33 +438,43 @@
             <span class="te-ship-method__price" style="color: var(--te-text-muted); font-weight: 500;">auswählen →</span>
           </div>
 
-          {%- comment -%} Carrier-Accordion {%- endcomment -%}
+          {%- comment -%}
+            Carrier-Accordion.
+            Reihenfolge: GO! Express steht immer an erster Stelle.
+            Jede Lieferart ist im Theme-Editor einzeln ein-/ausblendbar.
+          {%- endcomment -%}
           <div class="te-carriers" data-te-carriers>
             <div class="te-carriers__title">Versanddienstleister wählen</div>
 
-            {% render 'shipping-option-card',
-              carrier_id: 'dhl',
-              carrier_name: 'DHL Express',
-              carrier_price: section.settings.dhl_price | default: 'auf Anfrage',
-              carrier_price_raw: section.settings.dhl_price_raw | default: '0',
-              carrier_details_html: section.settings.dhl_conditions | default: '<ul><li>Express-Lieferung in 1–2 Werktagen</li><li>Sendungsverfolgung inklusive</li><li>Versicherter Versand</li></ul>'
-            %}
+            {%- if section.settings.show_go -%}
+              {% render 'shipping-option-card',
+                carrier_id: 'go',
+                carrier_name: 'GO! Express',
+                carrier_price: section.settings.go_price | default: 'auf Anfrage',
+                carrier_price_raw: section.settings.go_price_raw | default: '0',
+                carrier_details_html: section.settings.go_conditions | default: '<ul><li>Same-Day oder Overnight-Lieferung</li><li>Temperaturgeführter Transport möglich</li><li>Direkte Zustellung</li></ul>'
+              %}
+            {%- endif -%}
 
-            {% render 'shipping-option-card',
-              carrier_id: 'dpd',
-              carrier_name: 'DPD',
-              carrier_price: section.settings.dpd_price | default: 'auf Anfrage',
-              carrier_price_raw: section.settings.dpd_price_raw | default: '0',
-              carrier_details_html: section.settings.dpd_conditions | default: '<ul><li>Lieferung in 1–3 Werktagen</li><li>Predict-Service: Lieferzeitfenster per SMS</li><li>Sendungsverfolgung inklusive</li></ul>'
-            %}
+            {%- if section.settings.show_dhl -%}
+              {% render 'shipping-option-card',
+                carrier_id: 'dhl',
+                carrier_name: 'DHL Express',
+                carrier_price: section.settings.dhl_price | default: 'auf Anfrage',
+                carrier_price_raw: section.settings.dhl_price_raw | default: '0',
+                carrier_details_html: section.settings.dhl_conditions | default: '<ul><li>Express-Lieferung in 1–2 Werktagen</li><li>Sendungsverfolgung inklusive</li><li>Versicherter Versand</li></ul>'
+              %}
+            {%- endif -%}
 
-            {% render 'shipping-option-card',
-              carrier_id: 'go',
-              carrier_name: 'GO! Express',
-              carrier_price: section.settings.go_price | default: 'auf Anfrage',
-              carrier_price_raw: section.settings.go_price_raw | default: '0',
-              carrier_details_html: section.settings.go_conditions | default: '<ul><li>Same-Day oder Overnight-Lieferung</li><li>Temperaturgeführter Transport möglich</li><li>Direkte Zustellung</li></ul>'
-            %}
+            {%- if section.settings.show_dpd -%}
+              {% render 'shipping-option-card',
+                carrier_id: 'dpd',
+                carrier_name: 'DPD',
+                carrier_price: section.settings.dpd_price | default: 'auf Anfrage',
+                carrier_price_raw: section.settings.dpd_price_raw | default: '0',
+                carrier_details_html: section.settings.dpd_conditions | default: '<ul><li>Lieferung in 1–3 Werktagen</li><li>Predict-Service: Lieferzeitfenster per SMS</li><li>Sendungsverfolgung inklusive</li></ul>'
+              %}
+            {%- endif -%}
           </div>
         </div>
         {%- endunless -%}
@@ -446,6 +503,7 @@
         {%- comment -%} Line Item Properties für Versandpräferenz {%- endcomment -%}
         <input type="hidden" name="properties[Lieferoption]" value="" data-te-shipping-prop>
         <input type="hidden" name="properties[Versanddienstleister]" value="" data-te-carrier-prop>
+        <input type="hidden" name="properties[Eigene Box]" value="" data-te-own-box-prop>
 
         <div class="te-add-to-cart">
           <button type="submit"
@@ -551,26 +609,33 @@
     { "type": "header", "content": "Selbstabholung" },
     { "type": "text", "id": "pickup_address", "label": "Abholadresse / Standortinfo", "default": "Abholung an unserem Standort im Saarland" },
     { "type": "url", "id": "contact_page", "label": "Kontaktseite (fuer Anfrage)" },
+    { "type": "header", "content": "Eigene Box (Selbstabholung)" },
+    { "type": "checkbox", "id": "enable_own_box", "label": "Toggle \"eigene Box\" anzeigen", "default": true, "info": "Zeigt bei Selbstabholung einen Schalter, mit dem der Kunde angibt, dass er eine eigene Box mitbringt." },
+    { "type": "text", "id": "own_box_label", "label": "Text des Schalters", "default": "Ich komme mit eigener Box abholen" },
+    { "type": "text", "id": "own_box_discount", "label": "Preisabzug bei eigener Box (EUR)", "default": "0", "info": "Betrag, der bei aktiviertem Schalter vom Produktpreis abgezogen wird (entfaellt die Isolierbox). z.B. 5 oder 5.50. 0 = kein Abzug." },
 
     { "type": "header", "content": "Expresslieferung" },
     { "type": "checkbox", "id": "hide_express", "label": "Expresslieferung ausblenden", "default": false, "info": "Wenn aktiviert, wird nur Selbstabholung angezeigt" },
     { "type": "checkbox", "id": "weight_based_shipping", "label": "Lieferpreis nach Gewicht berechnen", "default": false, "info": "Wenn aktiviert, wird der Lieferpreis pro kg multipliziert" },
     { "type": "text", "id": "shipping_price_per_kg", "label": "Versandpreis pro kg (EUR)", "default": "2.50", "info": "z.B. 2.50 – wird mit gewaehltem Gewicht multipliziert" },
 
+    { "type": "header", "content": "GO! Express", "info": "GO! Express steht im Frontend immer an erster Stelle." },
+    { "type": "checkbox", "id": "show_go", "label": "GO! Express anzeigen", "default": true },
+    { "type": "text", "id": "go_price", "label": "GO! Preis (Anzeige)", "default": "auf Anfrage" },
+    { "type": "text", "id": "go_price_raw", "label": "GO! Preis numerisch (z.B. 39.90)", "default": "0" },
+    { "type": "html", "id": "go_conditions", "label": "GO! Lieferkonditionen (HTML)" },
+
     { "type": "header", "content": "DHL" },
+    { "type": "checkbox", "id": "show_dhl", "label": "DHL anzeigen", "default": true },
     { "type": "text", "id": "dhl_price", "label": "DHL Preis (Anzeige)", "default": "auf Anfrage" },
     { "type": "text", "id": "dhl_price_raw", "label": "DHL Preis numerisch (z.B. 29.90)", "default": "0" },
     { "type": "html", "id": "dhl_conditions", "label": "DHL Lieferkonditionen (HTML)" },
 
     { "type": "header", "content": "DPD" },
+    { "type": "checkbox", "id": "show_dpd", "label": "DPD anzeigen", "default": true },
     { "type": "text", "id": "dpd_price", "label": "DPD Preis (Anzeige)", "default": "auf Anfrage" },
     { "type": "text", "id": "dpd_price_raw", "label": "DPD Preis numerisch (z.B. 24.90)", "default": "0" },
     { "type": "html", "id": "dpd_conditions", "label": "DPD Lieferkonditionen (HTML)" },
-
-    { "type": "header", "content": "GO! Express" },
-    { "type": "text", "id": "go_price", "label": "GO! Preis (Anzeige)", "default": "auf Anfrage" },
-    { "type": "text", "id": "go_price_raw", "label": "GO! Preis numerisch (z.B. 39.90)", "default": "0" },
-    { "type": "html", "id": "go_conditions", "label": "GO! Lieferkonditionen (HTML)" },
 
     { "type": "header", "content": "USP-Leiste" },
     { "type": "text", "id": "feature_1", "label": "Feature 1", "default": "Premium-Qualitaet" },
@@ -578,6 +643,22 @@
     { "type": "text", "id": "feature_3", "label": "Feature 3", "default": "Flexible Mengen" }
   ],
   "blocks": [
+    {
+      "type": "kg_option",
+      "name": "kg-Größe – Optionen",
+      "settings": [
+        { "type": "paragraph", "content": "Lege pro Kilogramm-Größe fest, welche Lieferoptionen verfügbar sind und welcher graue Zusatztext unter dem Preis erscheint. Dieser Block zeigt selbst nichts an – er steuert nur das Verhalten der jeweiligen kg-Größe." },
+        { "type": "text", "id": "kg_label", "label": "Kilogramm-Größe", "info": "Muss exakt der Varianten-/Mengen-Auswahl entsprechen, z.B. \"3 kg\", \"5 kg\", \"10 kg\"." },
+        { "type": "select", "id": "delivery_options", "label": "Verfügbare Lieferoptionen", "default": "both",
+          "options": [
+            { "value": "pickup", "label": "Nur Selbstabholung" },
+            { "value": "express", "label": "Nur Expresslieferung" },
+            { "value": "both", "label": "Selbstabholung und Expresslieferung" }
+          ]
+        },
+        { "type": "text", "id": "price_note", "label": "Grauer Zusatztext unter dem Preis", "info": "Individueller Text für diese kg-Größe. Leer lassen = Standard-Preishinweis der Sektion wird verwendet." }
+      ]
+    },
     {
       "type": "product_description",
       "name": "Produktbeschreibung",
