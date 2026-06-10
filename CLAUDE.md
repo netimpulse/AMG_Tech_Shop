@@ -37,6 +37,19 @@ QA-Page im Shop-Admin angelegt. Falls Claude eine bessere Test-URL
 braucht, kann er auf bereits vorhandene Pages ausweichen — siehe
 `QA.paths` in `tests/fixtures.ts`.
 
+## Trockeneis-Produkt
+
+- Produkt: `trockeneispellets-1-5-mm` (Template-Suffix `trockeneis` →
+  `templates/product.trockeneis.json`, Section `sections/dry-ice-product.liquid`)
+- Verpackungs-Option ("Mit Box" / "Eigene Box"): Preisreduktion bei
+  eigener Box laeuft ueber echte Varianten-Preise (gilt im Checkout).
+  Die Section erkennt die Option am Namen ("Verpackung" oder "Box").
+- Metafields (namespace `custom`, boolean, leer = ja):
+  - `selbstabholung` / `expresslieferung` auf Produkt UND Variante —
+    blendet die Lieferarten pro Produkt/Variante ein oder aus.
+    Kleinmengen-Varianten (1–4 kg) haben `expresslieferung = false`
+    und sind damit nur bei Selbstabholung waehlbar.
+
 ## Wichtig
 
 - Niemals direkt ins MAIN-Theme `184912576838` pushen

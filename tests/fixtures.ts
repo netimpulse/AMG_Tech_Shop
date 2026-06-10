@@ -1,8 +1,10 @@
 /**
  * Test-Fixtures fuer den Visual-QA-Workflow im AMG Tech Shop.
  *
- * Tests laufen gegen das UNPUBLISHED-Theme "Kopie von AMG_Tech_Shop/main"
- * (ID 191479906630). Das MAIN-Theme bleibt fuer Tests komplett unberuehrt
+ * Store: zjyfg5-ya.myshopify.com
+ *
+ * Tests laufen gegen das UNPUBLISHED-Theme "Test" (ID 191479906630).
+ * Das MAIN-Theme (ID 184912576838) bleibt fuer Tests komplett unberuehrt
  * — Kunden sehen Test-Aenderungen niemals.
  *
  * Da kein dediziertes QA-Block-Test-Template existiert, nutzen Tests
@@ -11,7 +13,7 @@
  */
 
 export const QA = {
-  /** ID des UNPUBLISHED Copy-Themes — isoliertes Test-Target. */
+  /** ID des UNPUBLISHED Test-Themes — isoliertes Test-Target. */
   themeId: "191479906630",
 
   /** Bekannte Fixtures im Shop. */
@@ -25,7 +27,7 @@ export const QA = {
   /** Mapping: Template-Typ -> Pfad ohne Query-String. */
   paths: {
     home: "/",
-    qaBlock: "/",  // kein dediziertes QA-Template; Block wird temporaer auf Home eingebaut
+    qaBlock: "/", // kein dediziertes QA-Template; Block wird temporaer auf Home eingebaut
     product: "/products/trockeneispellets-1-5-mm",
     collection: "/collections/frontpage",
     cart: "/cart",

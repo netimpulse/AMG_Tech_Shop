@@ -66,7 +66,6 @@
         "description",
         "share"
       ],
-      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -81,85 +80,6 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
-      }
-    },
-    "trockeneis_product_xWxEGq": {
-      "type": "trockeneis-product",
-      "blocks": {
-        "product_description_VCqwCB": {
-          "type": "product_description",
-          "settings": {
-            "heading": "Frisch produzierte Trockeneispellets (3 mm) in Premiumqualität",
-            "text": "<p>Lieferung im hochwertigen Thermo-<strong>Styroporbehälter </strong>(Wand- und Bodenstärke: 40 mm)</p><p>Bei Selbstabholung ist die Mitnahme in einer <strong>eigenen Box </strong>ebenfalls möglich.</p><p><strong>Anwendungsbereiche:</strong> <br/>Trockeneisstrahlen, Kühlung, Lebensmittel, Showeffekte und vieles mehr.</p><p><strong>Bitte beachten:</strong> <br/>Trockeneis <strong>sublimiert </strong>kontinuierlich. Daher empfehlen wir, den Liefer- bzw. Abholtermin möglichst nah am geplanten Einsatzdatum zu wählen.<strong><br/>Lieferzeiten nur werktags Mo-Do. Abweichende Lieferzeiten nur nach Absprache. </strong></p>",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "product_specs_MnKNgR": {
-          "type": "product_specs",
-          "settings": {
-            "heading": "Technische Daten",
-            "spec_1_label": "Material",
-            "spec_1_value": "CO2 (Kohlendioxid), fest",
-            "spec_2_label": "Temperatur",
-            "spec_2_value": "-78,5 Grad C",
-            "spec_3_label": "Pelletgroesse",
-            "spec_3_value": "3 mm (1,5 mm auf Anfrage)",
-            "spec_4_label": "",
-            "spec_4_value": "",
-            "spec_5_label": "",
-            "spec_5_value": "",
-            "spec_6_label": "",
-            "spec_6_value": "",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        },
-        "safety_info_iQpKMB": {
-          "type": "safety_info",
-          "settings": {
-            "heading": "Hinweis",
-            "text": "<p>Alle angegebenen Gewichte sind Versandgewichte. Bitte berücksichtigen Sie, dass Trockeneis kontinuierlich sublimiert und es zu Produktverlust kommt.</p>",
-            "block_font_size": 0,
-            "block_font_color": "",
-            "block_font_family": "assistant_n4",
-            "block_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_description_VCqwCB",
-        "product_specs_MnKNgR",
-        "safety_info_iQpKMB"
-      ],
-      "name": "Trockeneis-Produkt",
-      "settings": {
-        "enable_image_slider": true,
-        "subtitle": "Hochwertige Trockeneispellets für Industrie und Gewerbe",
-        "price_note": "Preis inkl. MwSt mit Isolierbox, zzgl. Versandkosten",
-        "cart_note": "Sichere Zahlung über Shopify Payments",
-        "default_size": "3mm",
-        "pickup_address": "Abholung an unserem Standort in Völklingen",
-        "contact_page": "shopify://pages/contact",
-        "hide_express": false,
-        "weight_based_shipping": true,
-        "shipping_price_per_kg": "",
-        "dhl_price": "43,23€",
-        "dhl_price_raw": "43,23",
-        "dhl_conditions": "",
-        "dpd_price": "",
-        "dpd_price_raw": "",
-        "dpd_conditions": "",
-        "go_price": "auf Anfrage",
-        "go_price_raw": "39,33",
-        "go_conditions": "",
-        "feature_1": "Premium-Qualitaet",
-        "feature_2": "Sofort verfuegbar",
-        "feature_3": "Flexible Mengen"
       }
     },
     "related-products": {
@@ -382,91 +302,6 @@
         "block_bg_color": ""
       }
     },
-    "mod_trockeneis_configurator_Bxa8wJ": {
-      "type": "mod-trockeneis-configurator",
-      "blocks": {
-        "carrier_YdhAVF": {
-          "type": "carrier",
-          "settings": {
-            "name": "DHL Express",
-            "price_text": "ab 14,90 EUR",
-            "conditions": "<p>Lieferung innerhalb von 24h. Trockeneis-sichere Styropor-Verpackung inklusive. Mindestbestellmenge 10kg.</p>"
-          }
-        },
-        "carrier_j4wMNg": {
-          "type": "carrier",
-          "settings": {
-            "name": "DPD Express",
-            "price_text": "ab 12,90 EUR",
-            "conditions": "<p>Lieferung innerhalb von 24-48h. Trockeneis geeignete Verpackung. Ab 15kg kostenloser Versand.</p>"
-          }
-        },
-        "carrier_gLMAxF": {
-          "type": "carrier",
-          "settings": {
-            "name": "GO! Express",
-            "price_text": "ab 19,90 EUR",
-            "conditions": "<p>Same-Day Lieferung moeglich. Premium Isolierverpackung. Echtzeit-Tracking. Fuer zeitkritische Lieferungen.</p>"
-          }
-        },
-        "trust_badge_MQUWiU": {
-          "type": "trust_badge",
-          "settings": {
-            "icon": "🔒",
-            "text": "Sichere Bezahlung"
-          }
-        },
-        "trust_badge_FUrtEL": {
-          "type": "trust_badge",
-          "settings": {
-            "icon": "📦",
-            "text": "Trockeneis-Verpackung"
-          }
-        },
-        "trust_badge_dgwPmi": {
-          "type": "trust_badge",
-          "settings": {
-            "icon": "⚡",
-            "text": "Express-Versand"
-          }
-        }
-      },
-      "block_order": [
-        "carrier_YdhAVF",
-        "carrier_j4wMNg",
-        "carrier_gLMAxF",
-        "trust_badge_MQUWiU",
-        "trust_badge_FUrtEL",
-        "trust_badge_dgwPmi"
-      ],
-      "disabled": true,
-      "name": "Mod: Trockeneis Config",
-      "settings": {
-        "product": "trockeneispellets-1-5-mm",
-        "heading": "Trockeneis bestellen",
-        "subheading": "Konfiguriere deine Bestellung in 3 einfachen Schritten",
-        "step1_title": "Produkt konfigurieren",
-        "step1_btn": "Weiter zur Lieferung",
-        "step2_title": "Lieferart waehlen",
-        "step2_btn": "Weiter zur Bestellung",
-        "pickup_title": "Selbstabholung",
-        "pickup_price_text": "Kostenlos",
-        "pickup_note": "Abholung nach Terminvereinbarung",
-        "express_title": "Express-Lieferung",
-        "express_price_text": "Ab 9,90 EUR",
-        "step3_title": "Zusammenfassung & Bestellen",
-        "order_btn_text": "Jetzt bestellen",
-        "btn_bg": "#111111",
-        "btn_color": "#ffffff",
-        "trust_text": "ja",
-        "padding_y": 56,
-        "section_bg": "",
-        "block_font_size": 0,
-        "block_font_color": "",
-        "block_font_family": "assistant_n4",
-        "block_bg_color": ""
-      }
-    },
     "product_info_block_gNAUTF": {
       "type": "product-info-block",
       "disabled": true,
@@ -533,13 +368,11 @@
   },
   "order": [
     "main",
-    "trockeneis_product_xWxEGq",
     "related-products",
     "mod_marquee_Xh3mnm",
     "mod_product_tabs_py8hE7",
     "mod_stats_counter_a9DHcb",
     "mod_shipping_bar_9rPJBn",
-    "mod_trockeneis_configurator_Bxa8wJ",
     "product_info_block_gNAUTF"
   ]
 }

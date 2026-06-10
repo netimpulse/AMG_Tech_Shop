@@ -18,6 +18,7 @@ export default defineConfig({
   globalSetup: "./tests/global-setup.ts",
   use: {
     baseURL: "https://zjyfg5-ya.myshopify.com",
+    ignoreHTTPSErrors: true,
     storageState: "playwright/.auth/storefront.json",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
