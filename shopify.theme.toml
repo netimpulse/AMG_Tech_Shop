@@ -8,13 +8,13 @@
 # (siehe tests/fixtures.ts withTheme()-Helper).
 
 [environments.development]
-store = "amgtechtrockeneis.myshopify.com"
-theme = "188973449564"
+store = "zjyfg5-ya.myshopify.com"
+theme = "191479906630"
 
 # Production-Block — wenn du irgendwann manuell ins Live-Theme pushen willst:
 # [environments.production]
-# store = "amgtechtrockeneis.myshopify.com"
-# theme = "187811070300"
+# store = "zjyfg5-ya.myshopify.com"
+# theme = "184912576838"
 
 ignore = [
   "tests/**",

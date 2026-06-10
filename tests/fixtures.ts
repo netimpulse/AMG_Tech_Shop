@@ -1,33 +1,38 @@
 /**
  * Test-Fixtures fuer den Visual-QA-Workflow im AMG Tech Shop.
  *
- * Store: amgtechtrockeneis.myshopify.com
+ * Store: zjyfg5-ya.myshopify.com
  *
- * Tests laufen gegen das UNPUBLISHED-Theme "AMG_Tech_Shop/main (Kopie)"
- * (ID 188973449564). Das MAIN-Theme (ID 187811070300) bleibt fuer Tests
- * komplett unberuehrt — Kunden sehen Test-Aenderungen niemals.
+ * Tests laufen gegen das UNPUBLISHED-Theme "Test" (ID 191479906630).
+ * Das MAIN-Theme (ID 184912576838) bleibt fuer Tests komplett unberuehrt
+ * — Kunden sehen Test-Aenderungen niemals.
  *
- * Theme-Push erfolgt ueber die Shopify Admin API (themeFilesUpsert auf
- * das UNPUBLISHED-Theme), da fuer diesen Store kein CLI-Theme-Token
- * hinterlegt ist.
+ * Da kein dediziertes QA-Block-Test-Template existiert, nutzen Tests
+ * bestehende Pages und Templates. Default-Test-URL fuer neue Bloecke
+ * ist die Homepage, in die Claude den Block temporaer einbaut.
  */
 
 export const QA = {
-  /** ID des UNPUBLISHED Copy-Themes — isoliertes Test-Target. */
-  themeId: "188973449564",
+  /** ID des UNPUBLISHED Test-Themes — isoliertes Test-Target. */
+  themeId: "191479906630",
 
   /** Bekannte Fixtures im Shop. */
   product: {
-    handle: "trockeneis-pallets",
+    handle: "trockeneispellets-1-5-mm",
+  },
+  collection: {
+    handle: "frontpage",
   },
 
   /** Mapping: Template-Typ -> Pfad ohne Query-String. */
   paths: {
     home: "/",
     qaBlock: "/", // kein dediziertes QA-Template; Block wird temporaer auf Home eingebaut
-    product: "/products/trockeneis-pallets",
+    product: "/products/trockeneispellets-1-5-mm",
+    collection: "/collections/frontpage",
     cart: "/cart",
     contact: "/pages/contact",
+    faq: "/pages/faq",
     search: "/search?q=trockeneis",
     notFound: "/this-page-does-not-exist",
   },

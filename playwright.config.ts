@@ -17,7 +17,7 @@ export default defineConfig({
   reporter: [["list"], ["html", { open: "never" }]],
   globalSetup: "./tests/global-setup.ts",
   use: {
-    baseURL: "https://amgtechtrockeneis.myshopify.com",
+    baseURL: "https://zjyfg5-ya.myshopify.com",
     ignoreHTTPSErrors: true,
     storageState: "playwright/.auth/storefront.json",
     screenshot: "only-on-failure",
