@@ -13,7 +13,22 @@ import { QA, withTheme } from "../fixtures";
 
 test.describe("dry-ice-product", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(withTheme(QA.paths.product), { waitUntil: "networkidle" });
+    // Cookie-Banner + Theme-Preview-Bar verdecken sonst Klickziele (v. a. mobil)
+    await page.addInitScript(() => {
+      const hide = () => {
+        const style = document.createElement("style");
+        style.textContent =
+          "#shopify-pc__banner, #PBarNextFrameWrapper, #preview-bar-iframe { display: none !important; }";
+        document.documentElement.appendChild(style);
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", hide);
+      } else {
+        hide();
+      }
+    });
+    await page.goto(withTheme(QA.paths.product), { waitUntil: "domcontentloaded" });
+    await page.waitForSelector("dry-ice-product [data-dip-option-group]");
   });
 
   const root = (page: import("@playwright/test").Page) =>
@@ -47,13 +62,13 @@ test.describe("dry-ice-product", () => {
     // Selbstabholung ist vorausgewaehlt -> Box-Panel sichtbar
     await expect(page.locator("[data-dip-box-panel]")).toBeVisible();
 
-    // 5KG waehlen, Mit Box ist Default
+    // 5KG waehlen, Mit Box ist Default (Preisformat haengt von Shop-Locale ab)
     await page.locator('[data-dip-pill][data-value="5KG"]').click();
-    await expect(page.locator("[data-dip-price]")).toContainText("10,00");
+    await expect(page.locator("[data-dip-price]")).toContainText(/10[.,]00/);
 
     // Eigene Box -> Preis sinkt auf 7,00 €, Erspernis-Badge sichtbar
     await page.locator('[data-dip-box][data-value="Eigene Box"]').click();
-    await expect(page.locator("[data-dip-price]")).toContainText("7,00");
+    await expect(page.locator("[data-dip-price]")).toContainText(/7[.,]00/);
     await expect(page.locator("[data-dip-box-save]")).toContainText(/sie sparen/i);
 
     // Zusammenfassung: Abholung kostenlos
@@ -89,6 +104,9 @@ test.describe("dry-ice-product", () => {
   });
 
   test("Mehr auf Anfrage deaktiviert den Kauf-Button und zeigt Kontakt-Hinweis", async ({ page }) => {
+    // Hinweis ist initial ausgeblendet
+    await expect(page.locator("[data-dip-anfrage]")).toBeHidden();
+
     await page.locator('[data-dip-pill][data-value="__anfrage__"]').click();
     await expect(page.locator("[data-dip-anfrage]")).toBeVisible();
     await expect(page.locator("[data-dip-atc]")).toBeDisabled();

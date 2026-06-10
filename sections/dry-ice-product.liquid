@@ -131,8 +131,8 @@
 
   <div class="dip__grid">
 
-    {%- comment -%} ─── Linke Spalte: Galerie + Inhalts-Blocks ─── {%- endcomment -%}
-    <div class="dip__left">
+    {%- comment -%} ─── Galerie (Desktop links oben, Mobile zuerst) ─── {%- endcomment -%}
+    <div class="dip__media-col">
 
       <div class="dip-gallery" data-dip-gallery>
         <div class="dip-gallery__main">
@@ -172,8 +172,11 @@
           </div>
         {%- endif -%}
       </div>
+    </div>
 
-      {%- comment -%} Inhalts-Blocks unter der Galerie {%- endcomment -%}
+    {%- comment -%} ─── Inhalts-Blocks (Desktop unter der Galerie,
+        Mobile unter der Kauf-Box) ─── {%- endcomment -%}
+    <div class="dip__content">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 

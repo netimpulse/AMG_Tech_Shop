@@ -33,16 +33,51 @@
   gap: clamp(28px, 4vw, 56px);
 }
 
+/* Mobile-Reihenfolge: Galerie -> Kauf-Box -> Inhalt */
+.dip__media-col {
+  order: 1;
+  min-width: 0;
+}
+
+.dip__config {
+  order: 2;
+  min-width: 0;
+}
+
+.dip__content {
+  order: 3;
+  min-width: 0;
+}
+
 @media (min-width: 990px) {
   .dip__grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
     align-items: start;
   }
 
+  .dip__media-col {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .dip__content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
   .dip__config {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
     position: sticky;
     top: 24px;
   }
+}
+
+/* hidden-Attribut darf nie von display-Regeln ueberschrieben werden */
+.dip [hidden] {
+  display: none !important;
 }
 
 /* ── Galerie ──────────────────────────────────────────────── */

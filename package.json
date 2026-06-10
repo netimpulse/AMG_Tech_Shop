@@ -12,7 +12,6 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0",
-    "@shopify/cli": "^3.66.0",
-    "@shopify/theme": "^3.66.0"
+    "@shopify/cli": "^3.66.0"
   }
 }
