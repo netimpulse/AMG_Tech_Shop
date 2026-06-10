@@ -7,7 +7,11 @@ test.describe("AMG Shop – Generische Visual-Checks", () => {
   test("Homepage rendert ohne Konsolen- oder Page-Errors", async ({ page }, testInfo) => {
     const errors: string[] = [];
     page.on("console", (m) => {
-      if (m.type() === "error") errors.push(`console: ${m.text()}`);
+      if (m.type() !== "error") return;
+      // Netzwerk-Ladefehler (z. B. 401 hinter Passwortschutz, geblockte
+      // Tracker) sind Umgebungsrauschen — uns interessieren Theme-Fehler.
+      if (/Failed to load resource/i.test(m.text())) return;
+      errors.push(`console: ${m.text()}`);
     });
     page.on("pageerror", (e) => errors.push(`pageerror: ${e.message}`));
 
@@ -16,10 +20,18 @@ test.describe("AMG Shop – Generische Visual-Checks", () => {
 
     const dir = "qa-screenshots";
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    await page.screenshot({
-      path: path.join(dir, `${testInfo.project.name}-home.png`),
-      fullPage: true,
-    });
+    try {
+      await page.screenshot({
+        path: path.join(dir, `${testInfo.project.name}-home.png`),
+        fullPage: true,
+      });
+    } catch {
+      // Sehr lange Seiten sprengen WebKits 32767px-Screenshot-Limit —
+      // dann reicht der Viewport-Screenshot.
+      await page.screenshot({
+        path: path.join(dir, `${testInfo.project.name}-home.png`),
+      });
+    }
 
     expect(errors, errors.join("\n")).toEqual([]);
   });
