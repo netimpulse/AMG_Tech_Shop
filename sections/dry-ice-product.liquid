@@ -1,0 +1,789 @@
+{% comment %}
+  Section: Trockeneis Produkt (Neuaufbau)
+  ========================================
+  Komplett neu aufgebaute Produktsektion fuer Trockeneis:
+
+  - Optionen (Gewicht, Durchmesser, ...) dynamisch aus dem Produkt,
+    numerische Werte werden automatisch sortiert (1KG ... 15KG)
+  - Verpackungs-Option ("Mit Box" / "Eigene Box") wird automatisch erkannt
+    (Optionsname enthaelt "Verpackung" oder "Box") und als Auswahl bei
+    Selbstabholung gerendert — Preisreduktion kommt aus echten Varianten
+    und gilt damit auch im Checkout
+  - Lieferung: Selbstabholung / Expresslieferung als Karten, Express mit
+    Versanddienstleister-Blocks (GO! Express, DHL, ... frei konfigurierbar)
+  - Sichtbarkeit pro Produkt/Variante ueber Metafields:
+      product.metafields.custom.selbstabholung   (boolean, leer = ja)
+      product.metafields.custom.expresslieferung (boolean, leer = ja)
+      variant.metafields.custom.selbstabholung   (boolean, Override)
+      variant.metafields.custom.expresslieferung (boolean, Override —
+        false = nur Abholung, z. B. Kleinmengen 1-4 kg)
+  - Lieferoption + Dienstleister gehen als Line-Item-Properties mit in
+    den Warenkorb
+
+  Benoetigt:
+    - assets/dry-ice-product.css
+    - assets/dry-ice-product.js
+{% endcomment %}
+
+{{ 'dry-ice-product.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'dry-ice-product.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign has_product = false
+  if product != blank and product.title != blank
+    assign has_product = true
+  endif
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --dip-accent: {{ section.settings.accent_color | default: '#1d4ed8' }};
+    --dip-padding-top: {{ section.settings.padding_top | default: 48 }}px;
+    --dip-padding-bottom: {{ section.settings.padding_bottom | default: 64 }}px;
+  }
+{% endstyle %}
+
+{%- if has_product -%}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+
+  comment
+    Verpackungs-Option erkennen (Name enthaelt "verpackung" oder "box")
+  endcomment
+  assign box_index = -1
+  for option in product.options_with_values
+    assign opt_down = option.name | downcase
+    if opt_down contains 'verpackung' or opt_down contains 'box'
+      assign box_index = forloop.index0
+    endif
+  endfor
+
+  comment
+    Lieferarten: Section-Setting als Basis, Produkt-Metafield kann
+    sie pro Produkt abschalten
+  endcomment
+  assign offer_pickup = section.settings.enable_pickup
+  assign offer_express = section.settings.enable_express
+  if product.metafields.custom.selbstabholung.value == false
+    assign offer_pickup = false
+  endif
+  if product.metafields.custom.expresslieferung.value == false
+    assign offer_express = false
+  endif
+
+  assign carrier_count = 0
+  for block in section.blocks
+    if block.type == 'carrier'
+      assign carrier_count = carrier_count | plus: 1
+    endif
+  endfor
+  if carrier_count == 0
+    assign offer_express = false
+  endif
+
+  assign default_delivery = section.settings.default_delivery
+  unless offer_pickup
+    assign default_delivery = 'express'
+  endunless
+  unless offer_express
+    assign default_delivery = 'pickup'
+  endunless
+-%}
+
+{%- capture variants_json -%}
+[
+{%- for variant in product.variants -%}
+  {%- liquid
+    assign v_pickup = true
+    assign v_express = true
+    if product.metafields.custom.selbstabholung.value == false
+      assign v_pickup = false
+    endif
+    if product.metafields.custom.expresslieferung.value == false
+      assign v_express = false
+    endif
+    if variant.metafields.custom.selbstabholung.value == true
+      assign v_pickup = true
+    elsif variant.metafields.custom.selbstabholung.value == false
+      assign v_pickup = false
+    endif
+    if variant.metafields.custom.expresslieferung.value == true
+      assign v_express = true
+    elsif variant.metafields.custom.expresslieferung.value == false
+      assign v_express = false
+    endif
+  -%}
+  {"id":{{ variant.id }},"price":{{ variant.price }},"available":{{ variant.available }},"opts":[{{ variant.option1 | json }}{%- if product.options.size > 1 -%},{{ variant.option2 | json }}{%- endif -%}{%- if product.options.size > 2 -%},{{ variant.option3 | json }}{%- endif -%}],"pickup":{{ v_pickup }},"express":{{ v_express }}}{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}
+]
+{%- endcapture -%}
+
+<dry-ice-product
+  class="dip page-width"
+  data-section-id="{{ section.id }}"
+  data-box-index="{{ box_index }}"
+  data-currency="{{ cart.currency.iso_code | default: shop.currency }}"
+  data-url="{{ product.url }}"
+  data-save-label="{{ section.settings.box_save_label | default: 'Sie sparen' | escape }}"
+>
+  <script type="application/json" data-dip-variants>{{ variants_json | strip }}</script>
+
+  <div class="dip__grid">
+
+    {%- comment -%} ─── Linke Spalte: Galerie + Inhalts-Blocks ─── {%- endcomment -%}
+    <div class="dip__left">
+
+      <div class="dip-gallery" data-dip-gallery>
+        <div class="dip-gallery__main">
+          {%- if product.media.size > 0 -%}
+            {%- for media in product.media -%}
+              {%- liquid
+                assign img_alt = media.alt | default: product.title | escape
+                assign img_loading = 'lazy'
+                if forloop.first
+                  assign img_loading = 'eager'
+                endif
+              -%}
+              <div class="dip-gallery__slide{% if forloop.first %} is-active{% endif %}" data-dip-slide="{{ forloop.index0 }}">
+                {{ media | image_url: width: 1400 | image_tag: alt: img_alt, class: 'dip-gallery__img', loading: img_loading, sizes: '(min-width: 990px) 50vw, 100vw', widths: '400, 600, 800, 1100, 1400' }}
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            <div class="dip-gallery__slide is-active">
+              {{ 'product-1' | placeholder_svg_tag: 'dip-gallery__placeholder' }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if product.media.size > 1 -%}
+          <div class="dip-gallery__thumbs" role="tablist" aria-label="Produktbilder">
+            {%- for media in product.media -%}
+              {%- assign thumb_alt = media.alt | default: product.title | escape -%}
+              <button
+                type="button"
+                class="dip-gallery__thumb{% if forloop.first %} is-active{% endif %}"
+                data-dip-thumb="{{ forloop.index0 }}"
+                aria-label="Bild {{ forloop.index }} anzeigen"
+              >
+                {{ media | image_url: width: 150 | image_tag: alt: thumb_alt, loading: 'lazy', widths: '80, 150' }}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Inhalts-Blocks unter der Galerie {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when 'description' -%}
+            <div class="dip-block" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <h2 class="dip-block__heading">{{ block.settings.heading }}</h2>
+              {%- endif -%}
+              <div class="dip-block__text">
+                {%- if block.settings.text != blank -%}
+                  {{ block.settings.text }}
+                {%- else -%}
+                  {{ product.description }}
+                {%- endif -%}
+              </div>
+            </div>
+
+          {%- when 'specs' -%}
+            <div class="dip-block" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <h2 class="dip-block__heading">{{ block.settings.heading }}</h2>
+              {%- endif -%}
+              <dl class="dip-specs">
+                {%- if block.settings.row_1_label != blank -%}
+                  <div class="dip-specs__row"><dt>{{ block.settings.row_1_label }}</dt><dd>{{ block.settings.row_1_value }}</dd></div>
+                {%- endif -%}
+                {%- if block.settings.row_2_label != blank -%}
+                  <div class="dip-specs__row"><dt>{{ block.settings.row_2_label }}</dt><dd>{{ block.settings.row_2_value }}</dd></div>
+                {%- endif -%}
+                {%- if block.settings.row_3_label != blank -%}
+                  <div class="dip-specs__row"><dt>{{ block.settings.row_3_label }}</dt><dd>{{ block.settings.row_3_value }}</dd></div>
+                {%- endif -%}
+                {%- if block.settings.row_4_label != blank -%}
+                  <div class="dip-specs__row"><dt>{{ block.settings.row_4_label }}</dt><dd>{{ block.settings.row_4_value }}</dd></div>
+                {%- endif -%}
+                {%- if block.settings.row_5_label != blank -%}
+                  <div class="dip-specs__row"><dt>{{ block.settings.row_5_label }}</dt><dd>{{ block.settings.row_5_value }}</dd></div>
+                {%- endif -%}
+                {%- if block.settings.row_6_label != blank -%}
+                  <div class="dip-specs__row"><dt>{{ block.settings.row_6_label }}</dt><dd>{{ block.settings.row_6_value }}</dd></div>
+                {%- endif -%}
+              </dl>
+            </div>
+
+          {%- when 'faq' -%}
+            <details class="dip-faq" {{ block.shopify_attributes }}>
+              <summary class="dip-faq__question">
+                <span>{{ block.settings.question }}</span>
+                <svg class="dip-faq__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
+                  <path d="M5 7.5 10 12.5 15 7.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </summary>
+              <div class="dip-faq__answer">{{ block.settings.answer }}</div>
+            </details>
+
+          {%- when 'safety' -%}
+            <div class="dip-notice dip-notice--warning" {{ block.shopify_attributes }}>
+              <svg class="dip-notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true">
+                <path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="dip-notice__heading">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                <div class="dip-notice__text">{{ block.settings.text }}</div>
+              </div>
+            </div>
+
+          {%- when 'info' -%}
+            <div class="dip-notice dip-notice--info" {{ block.shopify_attributes }}>
+              <svg class="dip-notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="dip-notice__heading">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                <div class="dip-notice__text">{{ block.settings.text }}</div>
+              </div>
+            </div>
+
+          {%- when 'cta' -%}
+            <div class="dip-cta" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <h3 class="dip-cta__heading">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="dip-cta__text">{{ block.settings.text }}</p>
+              {%- endif -%}
+              <div class="dip-cta__actions">
+                {%- if block.settings.button_label != blank -%}
+                  <a class="dip-cta__btn" href="{{ block.settings.button_link | default: '#' }}">{{ block.settings.button_label }}</a>
+                {%- endif -%}
+                {%- if block.settings.phone != blank -%}
+                  <a class="dip-cta__phone" href="tel:{{ block.settings.phone | remove: ' ' }}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+                      <path d="M3 5a2 2 0 0 1 2-2h3.3a1 1 0 0 1 .9.7l1.5 4.5a1 1 0 0 1-.5 1.2L8 10.5a11 11 0 0 0 5.5 5.5l1.1-2.2a1 1 0 0 1 1.2-.5l4.5 1.5a1 1 0 0 1 .7.9V19a2 2 0 0 1-2 2h-1C9.7 21 3 14.3 3 6V5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {{ block.settings.phone }}
+                  </a>
+                {%- endif -%}
+              </div>
+            </div>
+
+          {%- when 'text' -%}
+            <div class="dip-block" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <h2 class="dip-block__heading">{{ block.settings.heading }}</h2>
+              {%- endif -%}
+              <div class="dip-block__text">{{ block.settings.content }}</div>
+            </div>
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    {%- comment -%} ─── Rechte Spalte: Kauf-Konfiguration ─── {%- endcomment -%}
+    <div class="dip__config">
+
+      <header class="dip-head">
+        <h1 class="dip-head__title">{{ product.title | escape }}</h1>
+        {%- if section.settings.subtitle != blank -%}
+          <p class="dip-head__subtitle">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+      </header>
+
+      <div class="dip-price" aria-live="polite">
+        <span class="dip-price__amount" data-dip-price>{{ current_variant.price | money }}</span>
+        {%- if section.settings.show_unit_price -%}
+          <span class="dip-price__unit" data-dip-unit></span>
+        {%- endif -%}
+        {%- if section.settings.price_note != blank -%}
+          <span class="dip-price__note">{{ section.settings.price_note }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Optionsgruppen (ohne Verpackung) {%- endcomment -%}
+      {%- for option in product.options_with_values -%}
+        {%- liquid
+          assign opt_index = forloop.index0
+          if opt_index == box_index
+            continue
+          endif
+
+          assign opt_name_down = option.name | downcase
+          assign is_qty_option = false
+          if opt_name_down contains 'gewicht' or opt_name_down contains 'menge' or opt_name_down contains 'kg'
+            assign is_qty_option = true
+          endif
+
+          assign all_numeric = true
+          for value in option.values
+            assign first_char = value | strip | slice: 0, 1
+            unless '0123456789' contains first_char
+              assign all_numeric = false
+            endunless
+          endfor
+
+          assign use_sorted = false
+          assign sorted_pairs = '' | split: ','
+          if all_numeric and section.settings.sort_numeric
+            assign use_sorted = true
+            assign pair_str = ''
+            for value in option.values
+              assign num = value | replace: ',', '.' | times: 1000 | round
+              assign padded = num | append: '' | prepend: '0000000000'
+              assign padded = padded | slice: -10, 10
+              assign pair_str = pair_str | append: padded | append: '@@' | append: value | append: '||'
+            endfor
+            assign sorted_pairs = pair_str | split: '||' | sort
+          endif
+
+          assign selected_value = current_variant.options[opt_index]
+        -%}
+
+        <fieldset class="dip-group" data-dip-option-group data-option-index="{{ opt_index }}">
+          <legend class="dip-group__label">{{ option.name }}</legend>
+          <div class="dip-group__pills">
+            {%- if use_sorted -%}
+              {%- for pair in sorted_pairs -%}
+                {%- assign value = pair | split: '@@' | last -%}
+                <label class="dip-pill" data-dip-pill data-value="{{ value | escape }}">
+                  <input
+                    type="radio"
+                    class="dip-visually-hidden"
+                    name="dip-opt-{{ section.id }}-{{ opt_index }}"
+                    value="{{ value | escape }}"
+                    {% if value == selected_value %}checked{% endif %}
+                  >
+                  <span>{{ value }}</span>
+                </label>
+              {%- endfor -%}
+            {%- else -%}
+              {%- for value in option.values -%}
+                <label class="dip-pill" data-dip-pill data-value="{{ value | escape }}">
+                  <input
+                    type="radio"
+                    class="dip-visually-hidden"
+                    name="dip-opt-{{ section.id }}-{{ opt_index }}"
+                    value="{{ value | escape }}"
+                    {% if value == selected_value %}checked{% endif %}
+                  >
+                  <span>{{ value }}</span>
+                </label>
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- if is_qty_option and section.settings.more_on_request -%}
+              <label class="dip-pill dip-pill--dashed" data-dip-pill data-value="__anfrage__">
+                <input
+                  type="radio"
+                  class="dip-visually-hidden"
+                  name="dip-opt-{{ section.id }}-{{ opt_index }}"
+                  value="__anfrage__"
+                >
+                <span>{{ section.settings.more_label | default: 'Mehr auf Anfrage' }}</span>
+              </label>
+            {%- endif -%}
+          </div>
+        </fieldset>
+      {%- endfor -%}
+
+      {%- comment -%} Hinweis bei "Mehr auf Anfrage" {%- endcomment -%}
+      {%- if section.settings.more_on_request -%}
+        <div class="dip-hint" data-dip-anfrage hidden>
+          <p>
+            <strong>{{ section.settings.anfrage_title | default: 'Größere Mengen gewünscht?' }}</strong>
+            {{ section.settings.anfrage_text | default: 'Kontaktieren Sie uns für ein individuelles Angebot.' }}
+          </p>
+          <a class="dip-hint__btn" href="{{ section.settings.contact_page | default: '/pages/contact' }}">
+            {{ section.settings.anfrage_button | default: 'Kontakt aufnehmen' }}
+          </a>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Lieferung {%- endcomment -%}
+      {%- if offer_pickup or offer_express -%}
+        <fieldset class="dip-group dip-delivery" data-dip-delivery>
+          <legend class="dip-group__label">{{ section.settings.delivery_heading | default: 'Lieferung' }}</legend>
+
+          {%- if offer_pickup -%}
+            <label class="dip-card" data-dip-method="pickup">
+              <input
+                type="radio"
+                class="dip-visually-hidden"
+                name="dip-delivery-{{ section.id }}"
+                value="pickup"
+                {% if default_delivery == 'pickup' %}checked{% endif %}
+              >
+              <span class="dip-card__radio" aria-hidden="true"></span>
+              <span class="dip-card__body">
+                <span class="dip-card__title">{{ section.settings.pickup_title | default: 'Selbstabholung' }}</span>
+                {%- if section.settings.pickup_desc != blank -%}
+                  <span class="dip-card__desc">{{ section.settings.pickup_desc }}</span>
+                {%- endif -%}
+              </span>
+              <span class="dip-card__meta dip-card__meta--free">{{ section.settings.pickup_free_label | default: 'Kostenlos' }}</span>
+            </label>
+
+            {%- if box_index >= 0 -%}
+              {%- assign box_option = product.options_with_values[box_index] -%}
+              <div class="dip-subpanel" data-dip-box-panel hidden>
+                <span class="dip-subpanel__label">{{ section.settings.box_heading | default: 'Verpackung wählen' }}</span>
+                {%- for value in box_option.values -%}
+                  {%- liquid
+                    assign value_down = value | downcase
+                    assign is_own_box = false
+                    if value_down contains 'eigen'
+                      assign is_own_box = true
+                    endif
+                  -%}
+                  <label class="dip-card dip-card--sub" data-dip-box data-value="{{ value | escape }}">
+                    <input
+                      type="radio"
+                      class="dip-visually-hidden"
+                      name="dip-box-{{ section.id }}"
+                      value="{{ value | escape }}"
+                      {% if value == current_variant.options[box_index] %}checked{% endif %}
+                    >
+                    <span class="dip-card__radio" aria-hidden="true"></span>
+                    <span class="dip-card__body">
+                      <span class="dip-card__title">{{ value }}</span>
+                      <span class="dip-card__desc">
+                        {%- if is_own_box -%}
+                          {{ section.settings.box_own_desc | default: 'Sie bringen Ihre eigene Isolierbox zur Abholung mit' }}
+                        {%- else -%}
+                          {{ section.settings.box_with_desc | default: 'Gesamtpreis inkl. isolierter Thermobox' }}
+                        {%- endif -%}
+                      </span>
+                      {%- if is_own_box -%}
+                        <span class="dip-card__save" data-dip-box-save hidden></span>
+                      {%- endif -%}
+                    </span>
+                    <span class="dip-card__meta" data-dip-box-price></span>
+                  </label>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if offer_express -%}
+            <label class="dip-card" data-dip-method="express">
+              <input
+                type="radio"
+                class="dip-visually-hidden"
+                name="dip-delivery-{{ section.id }}"
+                value="express"
+                {% if default_delivery == 'express' %}checked{% endif %}
+              >
+              <span class="dip-card__radio" aria-hidden="true"></span>
+              <span class="dip-card__body">
+                <span class="dip-card__title">{{ section.settings.express_title | default: 'Expresslieferung' }}</span>
+                {%- if section.settings.express_desc != blank -%}
+                  <span class="dip-card__desc">{{ section.settings.express_desc }}</span>
+                {%- endif -%}
+              </span>
+              <span class="dip-card__meta" data-dip-express-meta>{{ section.settings.express_choose_label | default: 'Dienstleister wählen' }}</span>
+            </label>
+
+            <div class="dip-subpanel" data-dip-carrier-panel hidden>
+              <span class="dip-subpanel__label">{{ section.settings.carrier_heading | default: 'Versanddienstleister wählen' }}</span>
+
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'carrier' -%}
+                  {%- liquid
+                    assign carrier_price_num = block.settings.price | default: '0' | times: 100 | round
+                  -%}
+                  <label
+                    class="dip-card dip-card--sub"
+                    data-dip-carrier
+                    data-name="{{ block.settings.name | escape }}"
+                    data-price="{{ carrier_price_num }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <input
+                      type="radio"
+                      class="dip-visually-hidden"
+                      name="dip-carrier-{{ section.id }}"
+                      value="{{ block.settings.name | escape }}"
+                    >
+                    <span class="dip-card__radio" aria-hidden="true"></span>
+                    <span class="dip-card__body">
+                      <span class="dip-card__title">
+                        {{ block.settings.name }}
+                        {%- if block.settings.badge != blank -%}
+                          <span class="dip-badge">{{ block.settings.badge }}</span>
+                        {%- endif -%}
+                      </span>
+                      {%- if block.settings.description != blank -%}
+                        <span class="dip-card__desc">{{ block.settings.description }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="dip-card__meta">
+                      {%- if carrier_price_num > 0 -%}
+                        {{ carrier_price_num | money }}
+                      {%- else -%}
+                        {{ block.settings.price_label | default: 'auf Anfrage' }}
+                      {%- endif -%}
+                    </span>
+                  </label>
+                {%- endif -%}
+              {%- endfor -%}
+
+              {%- if box_index >= 0 and section.settings.express_box_note != blank -%}
+                <p class="dip-subpanel__note">{{ section.settings.express_box_note }}</p>
+              {%- endif -%}
+              <p class="dip-error" data-dip-carrier-error hidden>{{ section.settings.carrier_error | default: 'Bitte wählen Sie einen Versanddienstleister.' }}</p>
+            </div>
+          {%- endif -%}
+        </fieldset>
+      {%- endif -%}
+
+      {%- comment -%} Zusammenfassung {%- endcomment -%}
+      <div class="dip-summary" data-dip-summary>
+        <div class="dip-summary__row">
+          <span data-dip-sum-product-label>–</span>
+          <span data-dip-sum-product-value>–</span>
+        </div>
+        <div class="dip-summary__row">
+          <span data-dip-sum-ship-label>{{ section.settings.delivery_heading | default: 'Lieferung' }}</span>
+          <span data-dip-sum-ship-value>–</span>
+        </div>
+        <div class="dip-summary__row dip-summary__row--total">
+          <span>Gesamt</span>
+          <span data-dip-sum-total>{{ current_variant.price | money }}</span>
+        </div>
+      </div>
+
+      {%- comment -%} Warenkorb {%- endcomment -%}
+      {%- form 'product', product, class: 'dip-form', novalidate: 'novalidate' -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}" data-dip-variant-id>
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="properties[Lieferoption]" value="" data-dip-prop-delivery disabled>
+        <input type="hidden" name="properties[Versanddienstleister]" value="" data-dip-prop-carrier disabled>
+
+        <button
+          type="submit"
+          class="dip-atc"
+          data-dip-atc
+          {% unless current_variant.available %}disabled{% endunless %}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true">
+            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13 5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span data-dip-atc-label>
+            {%- if current_variant.available -%}
+              {{ section.settings.atc_label | default: 'In den Warenkorb' }}
+            {%- else -%}
+              {{ section.settings.sold_out_label | default: 'Ausverkauft' }}
+            {%- endif -%}
+          </span>
+        </button>
+        {%- if section.settings.cart_note != blank -%}
+          <p class="dip-form__note">{{ section.settings.cart_note }}</p>
+        {%- endif -%}
+      {%- endform -%}
+
+      {%- comment -%} USP-Chips {%- endcomment -%}
+      {%- if section.settings.feature_1 != blank or section.settings.feature_2 != blank or section.settings.feature_3 != blank -%}
+        <ul class="dip-usps">
+          {%- if section.settings.feature_1 != blank -%}
+            <li class="dip-usps__item">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15" aria-hidden="true"><path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ section.settings.feature_1 }}
+            </li>
+          {%- endif -%}
+          {%- if section.settings.feature_2 != blank -%}
+            <li class="dip-usps__item">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15" aria-hidden="true"><path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ section.settings.feature_2 }}
+            </li>
+          {%- endif -%}
+          {%- if section.settings.feature_3 != blank -%}
+            <li class="dip-usps__item">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" width="15" height="15" aria-hidden="true"><path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {{ section.settings.feature_3 }}
+            </li>
+          {%- endif -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</dry-ice-product>
+
+{%- else -%}
+
+  {%- comment -%} Customizer-Vorschau ohne Produkt {%- endcomment -%}
+  <div class="dip page-width">
+    <div class="dip-placeholder">
+      <p>Trockeneis Produkt: Diese Sektion wird auf einer Produktseite mit echten Produktdaten gerendert.</p>
+    </div>
+  </div>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Trockeneis Produkt",
+  "tag": "section",
+  "class": "section-dry-ice-product",
+  "settings": [
+    { "type": "header", "content": "Allgemein" },
+    { "type": "text", "id": "subtitle", "label": "Untertitel", "default": "Hochwertige Trockeneispellets für Industrie, Gewerbe und Privatkunden" },
+    { "type": "text", "id": "price_note", "label": "Preishinweis", "default": "Preis inkl. MwSt., zzgl. Versandkosten" },
+    { "type": "checkbox", "id": "show_unit_price", "label": "Preis pro kg anzeigen", "default": true },
+    { "type": "color", "id": "accent_color", "label": "Akzentfarbe", "default": "#1d4ed8" },
+    { "type": "checkbox", "id": "sort_numeric", "label": "Numerische Optionswerte sortieren", "default": true, "info": "Sortiert z. B. Gewichte aufsteigend (1KG, 2KG, ... 15KG), unabhängig von der Reihenfolge im Admin." },
+
+    { "type": "header", "content": "Lieferung" },
+    { "type": "text", "id": "delivery_heading", "label": "Überschrift", "default": "Lieferung" },
+    { "type": "select", "id": "default_delivery", "label": "Vorauswahl", "default": "pickup", "options": [
+      { "value": "pickup", "label": "Selbstabholung" },
+      { "value": "express", "label": "Expresslieferung" }
+    ] },
+    { "type": "checkbox", "id": "enable_pickup", "label": "Selbstabholung anbieten", "default": true, "info": "Kann zusätzlich pro Produkt/Variante über das Metafield custom.selbstabholung gesteuert werden." },
+    { "type": "text", "id": "pickup_title", "label": "Selbstabholung: Titel", "default": "Selbstabholung" },
+    { "type": "text", "id": "pickup_desc", "label": "Selbstabholung: Beschreibung", "default": "Abholung an unserem Standort in Völklingen" },
+    { "type": "text", "id": "pickup_free_label", "label": "Selbstabholung: Preis-Label", "default": "Kostenlos" },
+    { "type": "checkbox", "id": "enable_express", "label": "Expresslieferung anbieten", "default": true, "info": "Kann zusätzlich pro Produkt/Variante über das Metafield custom.expresslieferung gesteuert werden." },
+    { "type": "text", "id": "express_title", "label": "Express: Titel", "default": "Expresslieferung" },
+    { "type": "text", "id": "express_desc", "label": "Express: Beschreibung", "default": "Lieferung direkt zu Ihnen – Dienstleister wählen" },
+    { "type": "text", "id": "express_choose_label", "label": "Express: Hinweis rechts", "default": "Dienstleister wählen" },
+    { "type": "text", "id": "carrier_heading", "label": "Dienstleister: Überschrift", "default": "Versanddienstleister wählen" },
+    { "type": "text", "id": "carrier_error", "label": "Fehlertext ohne Dienstleister", "default": "Bitte wählen Sie einen Versanddienstleister." },
+    { "type": "text", "id": "express_box_note", "label": "Hinweis Box bei Express", "default": "Expressversand erfolgt immer inkl. isolierter Thermobox." },
+
+    { "type": "header", "content": "Verpackung (Selbstabholung)" },
+    { "type": "text", "id": "box_heading", "label": "Überschrift", "default": "Verpackung wählen" },
+    { "type": "text", "id": "box_with_desc", "label": "Beschreibung: Mit Box", "default": "Gesamtpreis inkl. isolierter Thermobox" },
+    { "type": "text", "id": "box_own_desc", "label": "Beschreibung: Eigene Box", "default": "Sie bringen Ihre eigene Isolierbox zur Abholung mit" },
+    { "type": "text", "id": "box_save_label", "label": "Erspernis-Label", "default": "Sie sparen" },
+
+    { "type": "header", "content": "Mengen auf Anfrage" },
+    { "type": "checkbox", "id": "more_on_request", "label": "Option \"Mehr auf Anfrage\" anzeigen", "default": true },
+    { "type": "text", "id": "more_label", "label": "Button-Text", "default": "Mehr auf Anfrage" },
+    { "type": "text", "id": "anfrage_title", "label": "Hinweis: Titel", "default": "Größere Mengen gewünscht?" },
+    { "type": "text", "id": "anfrage_text", "label": "Hinweis: Text", "default": "Kontaktieren Sie uns für ein individuelles Angebot." },
+    { "type": "text", "id": "anfrage_button", "label": "Hinweis: Button", "default": "Kontakt aufnehmen" },
+    { "type": "url", "id": "contact_page", "label": "Kontaktseite" },
+
+    { "type": "header", "content": "Warenkorb" },
+    { "type": "text", "id": "atc_label", "label": "Button-Text", "default": "In den Warenkorb" },
+    { "type": "text", "id": "sold_out_label", "label": "Ausverkauft-Text", "default": "Ausverkauft" },
+    { "type": "text", "id": "cart_note", "label": "Hinweis unter dem Button", "default": "Sichere Zahlung über Shopify Payments" },
+
+    { "type": "header", "content": "USP-Leiste" },
+    { "type": "text", "id": "feature_1", "label": "USP 1", "default": "Premium-Qualität" },
+    { "type": "text", "id": "feature_2", "label": "USP 2", "default": "Frisch produziert" },
+    { "type": "text", "id": "feature_3", "label": "USP 3", "default": "Flexible Mengen" },
+
+    { "type": "header", "content": "Abstände" },
+    { "type": "range", "id": "padding_top", "label": "Abstand oben", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Abstand unten", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "carrier",
+      "name": "Versanddienstleister",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "GO! Express" },
+        { "type": "text", "id": "price", "label": "Preis in EUR (z. B. 12.90)", "info": "Leer oder 0 = Preis-Label wird angezeigt (z. B. \"auf Anfrage\"). Hinweis: Die tatsächliche Berechnung der Versandkosten erfolgt über die Versandeinstellungen im Shopify-Admin." },
+        { "type": "text", "id": "price_label", "label": "Preis-Label (ohne Preis)", "default": "auf Anfrage" },
+        { "type": "text", "id": "badge", "label": "Badge (z. B. Empfohlen)" },
+        { "type": "inline_richtext", "id": "description", "label": "Beschreibung" }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Beschreibung",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Produktbeschreibung" },
+        { "type": "richtext", "id": "text", "label": "Text", "info": "Leer = Shopify-Produktbeschreibung wird verwendet." }
+      ]
+    },
+    {
+      "type": "specs",
+      "name": "Technische Daten",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Technische Daten" },
+        { "type": "text", "id": "row_1_label", "label": "Zeile 1: Bezeichnung", "default": "Material" },
+        { "type": "text", "id": "row_1_value", "label": "Zeile 1: Wert", "default": "Festes CO₂ (Kohlendioxid)" },
+        { "type": "text", "id": "row_2_label", "label": "Zeile 2: Bezeichnung", "default": "Temperatur" },
+        { "type": "text", "id": "row_2_value", "label": "Zeile 2: Wert", "default": "−78,5 °C" },
+        { "type": "text", "id": "row_3_label", "label": "Zeile 3: Bezeichnung" },
+        { "type": "text", "id": "row_3_value", "label": "Zeile 3: Wert" },
+        { "type": "text", "id": "row_4_label", "label": "Zeile 4: Bezeichnung" },
+        { "type": "text", "id": "row_4_value", "label": "Zeile 4: Wert" },
+        { "type": "text", "id": "row_5_label", "label": "Zeile 5: Bezeichnung" },
+        { "type": "text", "id": "row_5_value", "label": "Zeile 5: Wert" },
+        { "type": "text", "id": "row_6_label", "label": "Zeile 6: Bezeichnung" },
+        { "type": "text", "id": "row_6_value", "label": "Zeile 6: Wert" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ-Eintrag",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Frage", "default": "Wie lange hält Trockeneis?" },
+        { "type": "richtext", "id": "answer", "label": "Antwort", "default": "<p>In einer isolierten Thermobox ca. 24–48 Stunden.</p>" }
+      ]
+    },
+    {
+      "type": "safety",
+      "name": "Sicherheitshinweis",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Sicherheitshinweis" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Trockeneis nur mit Schutzhandschuhen anfassen und in gut belüfteten Räumen verwenden.</p>" }
+      ]
+    },
+    {
+      "type": "info",
+      "name": "Info-Hinweis",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Hinweis" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Alle angegebenen Gewichte sind Versandgewichte. Trockeneis sublimiert kontinuierlich.</p>" }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "Kontakt-CTA",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Überschrift", "default": "Fragen? Wir helfen gerne!" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Kontaktieren Sie uns für ein individuelles Angebot." },
+        { "type": "text", "id": "button_label", "label": "Button-Text", "default": "Kontakt aufnehmen" },
+        { "type": "url", "id": "button_link", "label": "Button-Link" },
+        { "type": "text", "id": "phone", "label": "Telefonnummer" }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Freier Text",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Überschrift" },
+        { "type": "richtext", "id": "content", "label": "Inhalt" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trockeneis Produkt",
+      "blocks": [
+        { "type": "carrier", "settings": { "name": "GO! Express", "badge": "Empfohlen" } },
+        { "type": "carrier", "settings": { "name": "DHL Express" } },
+        { "type": "description" },
+        { "type": "specs" },
+        { "type": "safety" }
+      ]
+    }
+  ],
+  "templates": ["product"]
+}
+{% endschema %}

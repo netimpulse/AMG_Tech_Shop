@@ -11,7 +11,7 @@ import * as path from "path";
  * der Login-Schritt geskippt und eine leere Session gespeichert.
  */
 export default async function globalSetup(_config: FullConfig) {
-  const STORE_BASE = "https://zjyfg5-ya.myshopify.com";
+  const STORE_BASE = "https://amgtechtrockeneis.myshopify.com";
   const password = process.env.SHOPIFY_STOREFRONT_PASSWORD;
 
   const authDir = path.resolve("playwright/.auth");
