@@ -4,9 +4,11 @@
 {%- if settings.predictive_search_enabled and section.settings.enable_search -%}
   <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="all">
   <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="all">
-  <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+  {%- comment -%}
+    predictive-search.js, search-form.js und details-modal.js laedt
+    bereits layout/theme.liquid — ein zweites Laden wirft
+    "Identifier has already been declared"-Errors.
+  {%- endcomment -%}
 {%- endif -%}
 
 <style>
