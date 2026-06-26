@@ -16,20 +16,20 @@
           "type": "carrier",
           "settings": {
             "name": "GO! Express",
-            "price": "",
+            "price": "55",
             "price_label": "auf Anfrage",
             "badge": "Empfohlen",
-            "description": "Same-Day oder Overnight-Lieferung – temperaturgeführter Transport möglich"
+            "description": "Express-Lieferung in 1–2 Werktagen"
           }
         },
         "carrier_dhl": {
           "type": "carrier",
           "settings": {
             "name": "DHL Express",
-            "price": "12.90",
+            "price": "33,89",
             "price_label": "auf Anfrage",
             "badge": "",
-            "description": "Express-Lieferung in 1–2 Werktagen, Sendungsverfolgung inklusive"
+            "description": "Express-Lieferung in 1–2 Werktagen"
           }
         },
         "desc_1": {
