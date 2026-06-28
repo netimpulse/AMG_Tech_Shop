@@ -67,7 +67,8 @@ test.describe("dry-ice-product", () => {
   });
 
   test("Selbstabholung: Box-Wahl sichtbar, Eigene Box reduziert den Preis", async ({ page }) => {
-    // Selbstabholung ist vorausgewaehlt -> Box-Panel sichtbar
+    // Keine Vorauswahl -> Selbstabholung erst aktiv waehlen, dann Box-Panel sichtbar
+    await page.locator('[data-dip-method="pickup"]').click();
     await expect(page.locator("[data-dip-box-panel]")).toBeVisible();
 
     // 5 kg waehlen, Mit Box ist Default
@@ -122,8 +123,24 @@ test.describe("dry-ice-product", () => {
     await expect(page.locator("[data-dip-price]")).toContainText(/auf anfrage/i);
   });
 
+  test("Lieferung: keine Vorauswahl, Pflichtfeld vor dem Warenkorb", async ({ page }) => {
+    // Beim Laden ist weder Selbstabholung noch Expresslieferung gewaehlt
+    await expect(page.locator('[data-dip-method="pickup"] input')).not.toBeChecked();
+    await expect(page.locator('[data-dip-method="express"] input')).not.toBeChecked();
+
+    // Beide Subpanels bleiben zu, der Kauf-Button ist gesperrt
+    await expect(page.locator("[data-dip-box-panel]")).toBeHidden();
+    await expect(page.locator("[data-dip-carrier-panel]")).toBeHidden();
+    await expect(page.locator("[data-dip-atc]")).toBeDisabled();
+
+    // Erst nach aktiver Wahl einer Lieferart wird der Kauf moeglich
+    await page.locator('[data-dip-method="pickup"]').click();
+    await expect(page.locator("[data-dip-atc]")).toBeEnabled();
+  });
+
   test("Warenkorb: Variante + Lieferoption landen im Cart", async ({ page }) => {
     // Selbstabholung + 5 kg + Eigene Box
+    await page.locator('[data-dip-method="pickup"]').click();
     await weightGroup(page).locator('[data-dip-pill][data-value="5"]').click();
     await page.locator('[data-dip-box][data-value="Eigene Box"]').click();
     await page.locator("[data-dip-atc]").click();

@@ -54,6 +54,8 @@
       this.boxPanel = this.querySelector('[data-dip-box-panel]');
       this.carrierPanel = this.querySelector('[data-dip-carrier-panel]');
       this.carrierError = this.querySelector('[data-dip-carrier-error]');
+      this.deliveryGroup = this.querySelector('[data-dip-delivery]');
+      this.deliveryError = this.querySelector('[data-dip-delivery-error]');
       this.expressMeta = this.querySelector('[data-dip-express-meta]');
       this.summary = this.querySelector('[data-dip-summary]');
       this.variantInput = this.querySelector('[data-dip-variant-id]');
@@ -91,6 +93,7 @@
         if (!input) return;
         input.addEventListener('change', () => {
           if (this.carrierError) this.carrierError.hidden = true;
+          if (this.deliveryError) this.deliveryError.hidden = true;
           this.update();
         });
       });
@@ -137,12 +140,25 @@
           e.preventDefault();
           return;
         }
+        /* Lieferart ist Pflicht (keine Vorauswahl): erst nach aktiver Wahl
+           darf in den Warenkorb gelegt werden */
+        if (this.deliveryRequired() && !state.method) {
+          e.preventDefault();
+          if (this.deliveryError) this.deliveryError.hidden = false;
+          if (this.deliveryGroup) this.deliveryGroup.scrollIntoView({ block: 'center' });
+          return;
+        }
         if (state.method === 'express' && !state.carrier) {
           e.preventDefault();
           if (this.carrierError) this.carrierError.hidden = false;
           if (this.carrierPanel) this.carrierPanel.scrollIntoView({ block: 'center' });
         }
       });
+    }
+
+    /** Gibt es ueberhaupt eine Lieferart zur Auswahl? */
+    deliveryRequired() {
+      return !!(this.methodCards && this.methodCards.length);
     }
 
     /* ── State ────────────────────────────────────────────── */
@@ -397,7 +413,12 @@
       }
 
       if (this.atcBtn) {
-        const purchasable = !state.anfrage && state.variant && state.variant.available;
+        const needsDelivery = this.deliveryRequired();
+        const purchasable =
+          !state.anfrage &&
+          state.variant &&
+          state.variant.available &&
+          (!needsDelivery || !!state.method);
         this.atcBtn.disabled = !purchasable;
         if (this.atcLabel) {
           if (state.anfrage) {
@@ -406,6 +427,8 @@
             this.atcLabel.textContent = 'Nicht verfügbar';
           } else if (!state.variant.available) {
             this.atcLabel.textContent = 'Ausverkauft';
+          } else if (needsDelivery && !state.method) {
+            this.atcLabel.textContent = 'Bitte Lieferart wählen';
           } else {
             this.atcLabel.textContent = this.atcText;
           }

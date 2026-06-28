@@ -697,6 +697,10 @@
   margin: 0 0 8px;
   font-size: 22px;
   line-height: 1.25;
+  /* Explizit weiss, damit ein globaler Theme-h3-Default die geerbte
+     CTA-Textfarbe nicht ueberschreibt (ausreichender Kontrast auf dem
+     blauen CTA-Verlauf). */
+  color: #ffffff;
 }
 
 .dip-cta__text {
