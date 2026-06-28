@@ -74,8 +74,8 @@
           {%- endcase -%}
         {%- endif -%}
 
+        {% render 'block-custom-styles', block: block %}
         <article class="job-card" id="block-{{ block.id }}" {{ block.shopify_attributes }}
-          {% render 'block-custom-styles', block: block %}
           style="--card-bg: {{ card_bg | default: '#ffffff' }};"
         >
           {%- if badge_label != blank -%}
@@ -131,7 +131,7 @@
             <a
               href="{{ block.settings.btn_url }}"
               class="job-button"
-              target="{{ block.settings.btn_newtab | default: false | if: '_blank', else: '_self' }}"
+              target="{% if block.settings.btn_newtab %}_blank{% else %}_self{% endif %}"
               style="
                 font-family: {{ section.settings.button_font.family }}, {{ section.settings.button_font.fallback_families }};
                 font-size: {{ section.settings.button_size | default: 15 }}px;

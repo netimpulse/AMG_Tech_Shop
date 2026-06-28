@@ -81,14 +81,6 @@
   if carrier_count == 0
     assign offer_express = false
   endif
-
-  assign default_delivery = section.settings.default_delivery
-  unless offer_pickup
-    assign default_delivery = 'express'
-  endunless
-  unless offer_express
-    assign default_delivery = 'pickup'
-  endunless
 -%}
 
 {%- capture variants_json -%}
@@ -425,7 +417,6 @@
                 class="dip-visually-hidden"
                 name="dip-delivery-{{ section.id }}"
                 value="pickup"
-                {% if default_delivery == 'pickup' %}checked{% endif %}
               >
               <span class="dip-card__radio" aria-hidden="true"></span>
               <span class="dip-card__body">
@@ -485,7 +476,6 @@
                 class="dip-visually-hidden"
                 name="dip-delivery-{{ section.id }}"
                 value="express"
-                {% if default_delivery == 'express' %}checked{% endif %}
               >
               <span class="dip-card__radio" aria-hidden="true"></span>
               <span class="dip-card__body">
@@ -547,6 +537,8 @@
               <p class="dip-error" data-dip-carrier-error hidden>{{ section.settings.carrier_error | default: 'Bitte wählen Sie einen Versanddienstleister.' }}</p>
             </div>
           {%- endif -%}
+
+          <p class="dip-error" data-dip-delivery-error hidden>{{ section.settings.delivery_error | default: 'Bitte wählen Sie eine Lieferart.' }}</p>
         </fieldset>
       {%- endif -%}
 
@@ -648,10 +640,7 @@
 
     { "type": "header", "content": "Lieferung" },
     { "type": "text", "id": "delivery_heading", "label": "Überschrift", "default": "Lieferung" },
-    { "type": "select", "id": "default_delivery", "label": "Vorauswahl", "default": "pickup", "options": [
-      { "value": "pickup", "label": "Selbstabholung" },
-      { "value": "express", "label": "Expresslieferung" }
-    ] },
+    { "type": "text", "id": "delivery_error", "label": "Fehlertext ohne Lieferart", "default": "Bitte wählen Sie eine Lieferart." },
     { "type": "checkbox", "id": "enable_pickup", "label": "Selbstabholung anbieten", "default": true, "info": "Kann zusätzlich pro Produkt/Variante über das Metafield custom.selbstabholung gesteuert werden." },
     { "type": "text", "id": "pickup_title", "label": "Selbstabholung: Titel", "default": "Selbstabholung" },
     { "type": "text", "id": "pickup_desc", "label": "Selbstabholung: Beschreibung", "default": "Abholung an unserem Standort in Völklingen" },

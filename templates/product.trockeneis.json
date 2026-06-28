@@ -125,7 +125,6 @@
         "accent_color": "#1d4ed8",
         "sort_numeric": true,
         "delivery_heading": "Lieferung",
-        "default_delivery": "pickup",
         "enable_pickup": true,
         "pickup_title": "Selbstabholung",
         "pickup_desc": "Abholung an unserem Standort in Völklingen",

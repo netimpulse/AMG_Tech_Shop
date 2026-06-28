@@ -39,8 +39,8 @@
           {% endcase %}
         {% endif %}
 
+        {% render 'block-custom-styles', block: block %}
         <article class="job-card text-{{ block.settings.card_align }}" id="block-{{ block.id }}" {{ block.shopify_attributes }}
-          {% render 'block-custom-styles', block: block %}
           style="--card-bg: {{ block.settings.card_bg | default: section.settings.card_bg }};"
         >
           <!-- Kopf: Badge ÜBER dem Titel -->
@@ -91,7 +91,7 @@
             <a
               href="{{ block.settings.btn_url }}"
               class="job-button"
-              target="{{ block.settings.btn_newtab | default: false | if: '_blank', else: '_self' }}"
+              target="{% if block.settings.btn_newtab %}_blank{% else %}_self{% endif %}"
             >
               {{ block.settings.btn_label }}
             </a>
