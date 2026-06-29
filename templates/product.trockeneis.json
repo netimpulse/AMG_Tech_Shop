@@ -16,7 +16,7 @@
           "type": "carrier",
           "settings": {
             "name": "GO! Express",
-            "price": "55",
+            "price": "99,66",
             "price_label": "auf Anfrage",
             "badge": "Empfohlen",
             "description": "Express-Lieferung in 1–2 Werktagen"
@@ -26,7 +26,7 @@
           "type": "carrier",
           "settings": {
             "name": "DHL Express",
-            "price": "33,89",
+            "price": "92,85",
             "price_label": "auf Anfrage",
             "badge": "",
             "description": "Express-Lieferung in 1–2 Werktagen"
@@ -125,6 +125,7 @@
         "accent_color": "#1d4ed8",
         "sort_numeric": true,
         "delivery_heading": "Lieferung",
+        "delivery_error": "Bitte wählen Sie eine Lieferart.",
         "enable_pickup": true,
         "pickup_title": "Selbstabholung",
         "pickup_desc": "Abholung an unserem Standort in Völklingen",
